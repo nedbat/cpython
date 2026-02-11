@@ -25,6 +25,12 @@ We are always interested to hear ideas about improvements to the documentation.
 You were reading "PAGETITLE" at `<PAGEURL>`_.  The source for that page is on
 `GitHub <https://github.com/python/cpython/blob/main/Doc/PAGESOURCE?plain=1>`_.
 
+.. only:: translation
+
+   If the bug or suggested improvement concerns the translation of this
+   documentation, open an issue or edit the page in
+   `translation’s repository <TRANSLATION_REPO_>`_ instead.
+   
 You have a few ways to ask questions or suggest changes:
 
 - You can start a discussion about the page on the Python discussion forum.
