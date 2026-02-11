@@ -29,8 +29,8 @@ You were reading "PAGETITLE" at `<PAGEURL>`_.  The source for that page is on
 
    If the bug or suggested improvement concerns the translation of this
    documentation, open an issue or edit the page in
-   `translation’s repository <TRANSLATION_REPO_>`_ instead.
-   
+   `translation's repository <TRANSLATION_REPO_>`_ instead.
+
 You have a few ways to ask questions or suggest changes:
 
 - You can start a discussion about the page on the Python discussion forum.
