@@ -15,10 +15,16 @@ Improve a documentation page
       <script>
          document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
-            document.body.innerHTML = document.body.innerHTML
-               .replace(/PAGETITLE/g, params.get('pagetitle'))
-               .replace(/PAGEURL/g, params.get('pageurl'))
-               .replace(/PAGESOURCE/g, params.get('pagesource'));
+            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+
+            // Replace .textContent to be safe. innerHTML will execute XSS code.
+            while (walker.nextNode()) {
+               const textNode = walker.currentNode;
+               textNode.textContent = textNode.textContent
+                  .replace(/PAGETITLE/g, params.get('pagetitle'))
+                  .replace(/PAGEURL/g, params.get('pageurl'))
+                  .replace(/PAGESOURCE/g, params.get('pagesource'));
+            }
          });
       </script>
 
