@@ -4,6 +4,10 @@
 Improve a documentation page
 ****************************
 
+.. This is the JavaScript-enabled version of this page. Another version
+   (for those with JavaScript disabled) is improve-page-nojs.rst. If you
+   edit this page, please also edit that one, and vice versa.
+
 .. only:: html and not epub
 
    .. raw:: html

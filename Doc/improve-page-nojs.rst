@@ -4,6 +4,10 @@
 Improve a documentation page
 ****************************
 
+.. This is the no-javascript version of this page. The one most people
+   will see (with JavaScript enabled) is improve-page.rst. If you edit
+   this page, please also edit that one, and vice versa.
+
 .. only:: html and not epub
 
 We are always interested to hear ideas about improvements to the documentation.
