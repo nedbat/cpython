@@ -5,7 +5,7 @@
         const elements = document.querySelectorAll('.improvepage');
         const pageurl = window.location.href.split('?')[0];
         elements.forEach(element => {
-            const url = new URL(element.href.split('?')[0]);
+            const url = new URL(element.href.split('?')[0].replace("-nojs", ""));
             url.searchParams.set('pagetitle', title);
             url.searchParams.set('pageurl', pageurl);
             url.searchParams.set('pagesource', "{{ pagename }}.rst");
@@ -17,7 +17,7 @@
     <h3>{{ _('This page') }}</h3>
     <ul class="this-page-menu">
       <li><a href="{{ pathto('bugs') }}">{% trans %}Report a bug{% endtrans %}</a></li>
-      <li><a class="improvepage" href="{{ pathto('improve-page') }}">{% trans %}Improve this page{% endtrans %}</a></li>
+      <li><a class="improvepage" href="{{ pathto('improve-page-nojs') }}">{% trans %}Improve this page{% endtrans %}</a></li>
       <li>
         <a href="https://github.com/python/cpython/blob/main/Doc/{{ pagename }}.rst?plain=1"
             rel="nofollow">{{ _('Show source') }}

@@ -1,7 +1,5 @@
 :orphan:
 
-.. _improve-a-page:
-
 ****************************
 Improve a documentation page
 ****************************
