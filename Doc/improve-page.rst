@@ -47,7 +47,7 @@ You have a few ways to ask questions or suggest changes:
 
 - You can open an issue on the Python GitHub issue tracker. This link will
   create a new pre-populated issue:
-  `Docs: problem with page "PAGETITLE" <https://github.com/python/cpython/issues/new?title=Docs%3A+problem+with+page+%22PAGETITLE%22&labels=docs&body=The+page+at+PAGEURL+has+a+problem%3A>`_.
+  `Docs: problem with page "PAGETITLE" <https://github.com/python/cpython/issues/new?template=documentation.yml&title=Docs%3A+problem+with+page+%22PAGETITLE%22>`_.
 
 - You can `edit the page on GitHub <https://github.com/python/cpython/blob/main/Doc/PAGESOURCE?plain=1>`_
   to open a pull request and begin the contribution process.

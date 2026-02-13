@@ -10,6 +10,6 @@ body:
   - type: textarea
     attributes:
       label: "Documentation"
-      description: "A clear and concise description of the issue."
+      description: "A clear and concise description of the issue. Include a link to the page."
     validations:
       required: true
