@@ -26,4 +26,4 @@ You have a few ways to ask questions or suggest changes:
 
 - You can open an issue on the Python GitHub issue tracker. This link will
   create a new issue with the "docs" label:
-  `New docs issue <https://github.com/python/cpython/issues/new?labels=docs>`_.
+  `New docs issue <https://github.com/python/cpython/issues/new?template=documentation.yml>`_.
