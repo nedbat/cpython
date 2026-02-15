@@ -13,17 +13,30 @@ Improve a documentation page
    .. raw:: html
 
       <script>
+         function applyReplacements(text, params) {
+            console.log('Applying replacements to:', text);
+            return text
+               .replace(/PAGETITLE/g, params.get('pagetitle'))
+               .replace(/PAGEURL/g, params.get('pageurl'))
+               .replace(/PAGESOURCE/g, params.get('pagesource'));
+         }
+
          document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
-            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+            const walker = document.createTreeWalker(
+               document.body,
+               NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
+               null
+            );
 
-            // Replace .textContent to be safe. innerHTML will execute XSS code.
             while (walker.nextNode()) {
-               const textNode = walker.currentNode;
-               textNode.textContent = textNode.textContent
-                  .replace(/PAGETITLE/g, params.get('pagetitle'))
-                  .replace(/PAGEURL/g, params.get('pageurl'))
-                  .replace(/PAGESOURCE/g, params.get('pagesource'));
+               const node = walker.currentNode;
+
+               if (node.nodeType === Node.TEXT_NODE) {
+                  node.textContent = applyReplacements(node.textContent, params)
+               } else if (node.nodeName === 'A' && node.href) {
+                  node.setAttribute('href', applyReplacements(node.getAttribute('href'), params));
+               }
             }
          });
       </script>
