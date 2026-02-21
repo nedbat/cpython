@@ -365,7 +365,7 @@ functions.
    Execute a child program in a new process.  On POSIX, the class uses
    :meth:`os.execvpe`-like behavior to execute the child program.  On Windows,
    the class uses the Windows ``CreateProcess()`` function.  The arguments to
-   :class:`Popen` are as follows.
+   :class:`!Popen` are as follows.
 
    *args* should be a sequence of program arguments or else a single string
    or :term:`path-like object`.
@@ -447,7 +447,7 @@ functions.
    includes, for example, quoting or backslash escaping filenames with spaces in
    them.  If *args* is a sequence, the first item specifies the command string, and
    any additional items will be treated as additional arguments to the shell
-   itself.  That is to say, :class:`Popen` does the equivalent of::
+   itself.  That is to say, :class:`!Popen` does the equivalent of::
 
       Popen(['/bin/sh', '-c', args[0], args[1], ...])
 
@@ -858,8 +858,8 @@ Instances of the :class:`Popen` class have the following methods:
           proc.kill()
           outs, errs = proc.communicate()
 
-   After a call to :meth:`~Popen.communicate` raises :exc:`TimeoutExpired`, do
-   not call :meth:`~Popen.wait`. Use an additional :meth:`~Popen.communicate`
+   After a call to :meth:`!Popen.communicate` raises :exc:`TimeoutExpired`, do
+   not call :meth:`~Popen.wait`. Use an additional :meth:`!Popen.communicate`
    call to finish handling pipes and populate the :attr:`~Popen.returncode`
    attribute.
 
@@ -984,7 +984,7 @@ on Windows.
 
    .. attribute:: dwFlags
 
-      A bit field that determines whether certain :class:`STARTUPINFO`
+      A bit field that determines whether certain :class:`!STARTUPINFO`
       attributes are used when the process creates a window. ::
 
          si = subprocess.STARTUPINFO()
@@ -1244,7 +1244,7 @@ calls these functions.
    code was zero then return, otherwise raise :exc:`CalledProcessError`. The
    :exc:`CalledProcessError` object will have the return code in the
    :attr:`~CalledProcessError.returncode` attribute.
-   If :func:`check_call` was unable to start the process it will propagate the exception
+   If :func:`!check_call` was unable to start the process it will propagate the exception
    that was raised.
 
    Code needing to capture stdout or stderr should use :func:`run` instead::

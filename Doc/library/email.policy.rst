@@ -244,18 +244,18 @@ added matters.  To illustrate::
       .. versionadded:: 3.13
 
 
-   The following :class:`Policy` method is intended to be called by code using
+   The following :class:`!Policy` method is intended to be called by code using
    the email library to create policy instances with custom settings:
 
 
    .. method:: clone(**kw)
 
-      Return a new :class:`Policy` instance whose attributes have the same
+      Return a new :class:`!Policy` instance whose attributes have the same
       values as the current instance, except where those attributes are
       given new values by the keyword arguments.
 
 
-   The remaining :class:`Policy` methods are called by the email package code,
+   The remaining :class:`!Policy` methods are called by the email package code,
    and are not intended to be called by an application using the email package.
    A custom policy must implement all of these methods.
 

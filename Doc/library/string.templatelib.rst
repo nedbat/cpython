@@ -157,7 +157,7 @@ Types
 
       If multiple strings are passed consecutively, they will be concatenated
       into a single value in the :attr:`~Template.strings` attribute. For example,
-      the following code creates a :class:`Template` with a single final string:
+      the following code creates a :class:`!Template` with a single final string:
 
       >>> from string.templatelib import Template
       >>> template = Template('Ah! We do have ', 'Camembert', '.')

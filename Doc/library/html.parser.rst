@@ -27,9 +27,9 @@ parsing text files formatted in HTML (HyperText Mark-up Language) and XHTML.
    element is parsed normally; if it's true, it's returned as is without
    being parsed.
 
-   An :class:`.HTMLParser` instance is fed HTML data and calls handler methods
+   An :class:`!HTMLParser` instance is fed HTML data and calls handler methods
    when start tags, end tags, text, comments, and other markup elements are
-   encountered.  The user should subclass :class:`.HTMLParser` and override its
+   encountered.  The user should subclass :class:`!HTMLParser` and override its
    methods to implement the desired behavior.
 
    This parser does not check that end tags match start tags or call the end-tag

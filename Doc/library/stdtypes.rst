@@ -2106,7 +2106,7 @@ expression support in the :mod:`re` module).
 
    .. note::
 
-      The :meth:`~str.find` method should be used only if you need to know the
+      The :meth:`!str.find` method should be used only if you need to know the
       position of *sub*.  To check if *sub* is a substring or not, use the
       :keyword:`in` operator::
 
@@ -3382,7 +3382,7 @@ data and are closely related to string objects in a variety of other ways.
 
    .. classmethod:: fromhex(string, /)
 
-      This :class:`bytes` class method returns a bytes object, decoding the
+      This :class:`!bytes` class method returns a bytes object, decoding the
       given string object.  The string must contain two hexadecimal digits per
       byte, with ASCII whitespace being ignored.
 
@@ -3390,11 +3390,11 @@ data and are closely related to string objects in a variety of other ways.
       b'.\xf0\xf1\xf2'
 
       .. versionchanged:: 3.7
-         :meth:`bytes.fromhex` now skips all ASCII whitespace in the string,
+         :meth:`!bytes.fromhex` now skips all ASCII whitespace in the string,
          not just spaces.
 
       .. versionchanged:: 3.14
-         :meth:`bytes.fromhex` now accepts ASCII :class:`bytes` and
+         :meth:`!bytes.fromhex` now accepts ASCII :class:`!bytes` and
          :term:`bytes-like objects <bytes-like object>` as input.
 
    A reverse conversion function exists to transform a bytes object into its
@@ -3427,7 +3427,7 @@ data and are closely related to string objects in a variety of other ways.
       .. versionadded:: 3.5
 
       .. versionchanged:: 3.8
-         :meth:`bytes.hex` now supports optional *sep* and *bytes_per_sep*
+         :meth:`!bytes.hex` now supports optional *sep* and *bytes_per_sep*
          parameters to insert separators between bytes in the hex output.
 
 Since bytes objects are sequences of integers (akin to a tuple), for a bytes
@@ -3473,7 +3473,7 @@ objects.
 
    .. classmethod:: fromhex(string, /)
 
-      This :class:`bytearray` class method returns bytearray object, decoding
+      This :class:`!bytearray` class method returns bytearray object, decoding
       the given string object.  The string must contain two hexadecimal digits
       per byte, with ASCII whitespace being ignored.
 
@@ -3481,11 +3481,11 @@ objects.
       bytearray(b'.\xf0\xf1\xf2')
 
       .. versionchanged:: 3.7
-         :meth:`bytearray.fromhex` now skips all ASCII whitespace in the string,
+         :meth:`!bytearray.fromhex` now skips all ASCII whitespace in the string,
          not just spaces.
 
       .. versionchanged:: 3.14
-         :meth:`bytearray.fromhex` now accepts ASCII :class:`bytes` and
+         :meth:`!bytearray.fromhex` now accepts ASCII :class:`bytes` and
          :term:`bytes-like objects <bytes-like object>` as input.
 
    A reverse conversion function exists to transform a bytearray object into its
@@ -3503,18 +3503,18 @@ objects.
       .. versionadded:: 3.5
 
       .. versionchanged:: 3.8
-         Similar to :meth:`bytes.hex`, :meth:`bytearray.hex` now supports
+         Similar to :meth:`bytes.hex`, :meth:`!bytearray.hex` now supports
          optional *sep* and *bytes_per_sep* parameters to insert separators
          between bytes in the hex output.
 
    .. method:: resize(size, /)
 
-      Resize the :class:`bytearray` to contain *size* bytes. *size* must be
+      Resize the :class:`!bytearray` to contain *size* bytes. *size* must be
       greater than or equal to 0.
 
-      If the :class:`bytearray` needs to shrink, bytes beyond *size* are truncated.
+      If the :class:`!bytearray` needs to shrink, bytes beyond *size* are truncated.
 
-      If the :class:`bytearray` needs to grow, all new bytes, those beyond *size*,
+      If the :class:`!bytearray` needs to grow, all new bytes, those beyond *size*,
       will be set to null bytes.
 
 
@@ -3549,7 +3549,7 @@ objects.
       plus *n* bytes. If *n* is out of bounds, raise :exc:`IndexError`.
 
       Taking less than the full length will leave remaining bytes in the
-      :class:`bytearray`, which requires a copy. If the remaining bytes should be
+      :class:`!bytearray`, which requires a copy. If the remaining bytes should be
       discarded, use :func:`~bytearray.resize` or :keyword:`del` to truncate
       then :func:`~bytearray.take_bytes` without a size.
 
@@ -3561,7 +3561,7 @@ objects.
 
          See the :ref:`What's New <whatsnew315-bytearray-take-bytes>` entry for
          common code patterns which can be optimized with
-         :meth:`bytearray.take_bytes`.
+         :meth:`!bytearray.take_bytes`.
 
 Since bytearray objects are sequences of integers (akin to a list), for a
 bytearray object *b*, ``b[0]`` will be an integer, while ``b[0:1]`` will be
@@ -3730,7 +3730,7 @@ arbitrary binary data.
 
    .. note::
 
-      The :meth:`~bytes.find` method should be used only if you need to know the
+      The :meth:`!bytes.find` method should be used only if you need to know the
       position of *sub*.  To check if *sub* is a substring or not, use the
       :keyword:`in` operator::
 
@@ -4611,11 +4611,11 @@ copying.
 
 .. class:: memoryview(object)
 
-   Create a :class:`memoryview` that references *object*.  *object* must
+   Create a :class:`!memoryview` that references *object*.  *object* must
    support the buffer protocol.  Built-in objects that support the buffer
    protocol include :class:`bytes` and :class:`bytearray`.
 
-   A :class:`memoryview` has the notion of an *element*, which is the
+   A :class:`!memoryview` has the notion of an *element*, which is the
    atomic memory unit handled by the originating *object*.  For many simple
    types such as :class:`bytes` and :class:`bytearray`, an element is a single
    byte, but other types such as :class:`array.array` may have bigger elements.
@@ -4630,7 +4630,7 @@ copying.
    The :class:`~memoryview.itemsize` attribute will give you the number of
    bytes in a single element.
 
-   A :class:`memoryview` supports slicing and indexing to expose its data.
+   A :class:`!memoryview` supports slicing and indexing to expose its data.
    One-dimensional slicing will result in a subview::
 
     >>> v = memoryview(b'abcefg')
@@ -4711,7 +4711,7 @@ copying.
    .. versionchanged:: 3.14
       memoryview is now a :term:`generic type`.
 
-   :class:`memoryview` has several methods:
+   :class:`!memoryview` has several methods:
 
    .. method:: __eq__(exporter)
 
@@ -4797,7 +4797,7 @@ copying.
       .. versionadded:: 3.5
 
       .. versionchanged:: 3.8
-         Similar to :meth:`bytes.hex`, :meth:`memoryview.hex` now supports
+         Similar to :meth:`bytes.hex`, :meth:`!memoryview.hex` now supports
          optional *sep* and *bytes_per_sep* parameters to insert separators
          between bytes in the hex output.
 
@@ -5139,7 +5139,7 @@ The constructors for both classes work the same:
 
    Return a new set or frozenset object whose elements are taken from
    *iterable*.  The elements of a set must be :term:`hashable`.  To
-   represent sets of sets, the inner sets must be :class:`frozenset`
+   represent sets of sets, the inner sets must be :class:`!frozenset`
    objects.  If *iterable* is not specified, a new empty set is
    returned.
 
@@ -5599,7 +5599,7 @@ can be used interchangeably to index the same dictionary entry.
 
    .. seealso::
       :class:`frozendict` and :class:`types.MappingProxyType` can be used to
-      create a read-only view of a :class:`dict`.
+      create a read-only view of a :class:`!dict`.
 
 .. _thread-safety-dict:
 

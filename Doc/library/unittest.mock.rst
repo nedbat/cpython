@@ -228,7 +228,7 @@ the *new_callable* argument to :func:`patch`.
 
 .. class:: Mock(spec=None, side_effect=None, return_value=DEFAULT, wraps=None, name=None, spec_set=None, unsafe=False, **kwargs)
 
-    Create a new :class:`Mock` object. :class:`Mock` takes several optional arguments
+    Create a new :class:`!Mock` object. :class:`!Mock` takes several optional arguments
     that specify the behaviour of the Mock object:
 
     * *spec*: This can be either a list of strings or an existing object (a
@@ -499,7 +499,7 @@ the *new_callable* argument to :func:`patch`.
 
     .. method:: __dir__()
 
-        :class:`Mock` objects limit the results of ``dir(some_mock)`` to useful results.
+        :class:`!Mock` objects limit the results of ``dir(some_mock)`` to useful results.
         For mocks with a *spec* this includes all the permitted attributes
         for the mock.
 
@@ -846,11 +846,11 @@ apply to method calls on the mock object.
 .. class:: PropertyMock(*args, **kwargs)
 
    A mock intended to be used as a :class:`property`, or other
-   :term:`descriptor`, on a class. :class:`PropertyMock` provides
+   :term:`descriptor`, on a class. :class:`!PropertyMock` provides
    :meth:`~object.__get__` and :meth:`~object.__set__` methods
    so you can specify a return value when it is fetched.
 
-   Fetching a :class:`PropertyMock` instance from an object calls the mock, with
+   Fetching a :class:`!PropertyMock` instance from an object calls the mock, with
    no args. Setting it calls the mock with the value being set. ::
 
         >>> class Foo:
@@ -899,7 +899,7 @@ object::
 
 .. class:: AsyncMock(spec=None, side_effect=None, return_value=DEFAULT, wraps=None, name=None, spec_set=None, unsafe=False, **kwargs)
 
-  An asynchronous version of :class:`MagicMock`. The :class:`AsyncMock` object will
+  An asynchronous version of :class:`MagicMock`. The :class:`!AsyncMock` object will
   behave so the object is recognized as an async function, and the result of a
   call is an awaitable.
 
@@ -921,7 +921,7 @@ object::
     exhausted, ``StopAsyncIteration`` is raised immediately,
   - if ``side_effect`` is not defined, the async function will return the
     value defined by ``return_value``, hence, by default, the async function
-    returns a new :class:`AsyncMock` object.
+    returns a new :class:`!AsyncMock` object.
 
 
   Setting the *spec* of a :class:`Mock` or :class:`MagicMock` to an async function
@@ -936,12 +936,12 @@ object::
     <coroutine object AsyncMockMixin._mock_call at ...>
 
 
-  Setting the *spec* of a :class:`Mock`, :class:`MagicMock`, or :class:`AsyncMock`
+  Setting the *spec* of a :class:`Mock`, :class:`MagicMock`, or :class:`!AsyncMock`
   to a class with asynchronous and synchronous functions will automatically
   detect the synchronous functions and set them as :class:`MagicMock` (if the
-  parent mock is :class:`AsyncMock` or :class:`MagicMock`) or :class:`Mock` (if
+  parent mock is :class:`!AsyncMock` or :class:`MagicMock`) or :class:`Mock` (if
   the parent mock is :class:`Mock`). All asynchronous functions will be
-  :class:`AsyncMock`.
+  :class:`!AsyncMock`.
 
   >>> class ExampleClass:
   ...     def sync_foo():
@@ -1142,7 +1142,7 @@ object::
 .. class:: ThreadingMock(spec=None, side_effect=None, return_value=DEFAULT, wraps=None, name=None, spec_set=None, unsafe=False, *, timeout=UNSET, **kwargs)
 
   A version of :class:`MagicMock` for multithreading tests. The
-  :class:`ThreadingMock` object provides extra methods to wait for a call to
+  :class:`!ThreadingMock` object provides extra methods to wait for a call to
   be invoked, rather than assert on it immediately.
 
   The default timeout is specified by the ``timeout`` argument, or if unset by the
@@ -1179,7 +1179,7 @@ object::
 
   .. attribute:: DEFAULT_TIMEOUT
 
-    Global default timeout in seconds to create instances of :class:`ThreadingMock`.
+    Global default timeout in seconds to create instances of :class:`!ThreadingMock`.
 
   .. versionadded:: 3.13
 
@@ -1421,7 +1421,7 @@ patch
 
 .. function:: patch(target, new=DEFAULT, spec=None, create=False, spec_set=None, autospec=None, new_callable=None, **kwargs)
 
-    :func:`patch` acts as a function decorator, class decorator or a context
+    :func:`!patch` acts as a function decorator, class decorator or a context
     manager. Inside the body of the function or with statement, the *target*
     is patched with a *new* object. When the function/with statement exits
     the patch is undone.
@@ -1429,15 +1429,15 @@ patch
     If *new* is omitted, then the target is replaced with an
     :class:`AsyncMock` if the patched object is an async function or
     a :class:`MagicMock` otherwise.
-    If :func:`patch` is used as a decorator and *new* is
+    If :func:`!patch` is used as a decorator and *new* is
     omitted, the created mock is passed in as an extra argument to the
-    decorated function. If :func:`patch` is used as a context manager the created
+    decorated function. If :func:`!patch` is used as a context manager the created
     mock is returned by the context manager.
 
     *target* should be a string in the form ``'package.module.ClassName'``. The
     *target* is imported and the specified object replaced with the *new*
     object, so the *target* must be importable from the environment you are
-    calling :func:`patch` from. The target is imported when the decorated function
+    calling :func:`!patch` from. The target is imported when the decorated function
     is executed, not at decoration time.
 
     The *spec* and *spec_set* keyword arguments are passed to the :class:`MagicMock`
@@ -1463,7 +1463,7 @@ patch
     Instead of ``autospec=True`` you can pass ``autospec=some_object`` to use an
     arbitrary object as the spec instead of the one being replaced.
 
-    By default :func:`patch` will fail to replace attributes that don't exist.
+    By default :func:`!patch` will fail to replace attributes that don't exist.
     If you pass in ``create=True``, and the attribute doesn't exist, patch will
     create the attribute for you when the patched function is called, and delete
     it again after the patched function has exited. This is useful for writing
@@ -1479,7 +1479,7 @@ patch
 
     Patch can be used as a :class:`~unittest.TestCase` class decorator. It works by
     decorating each test method in the class. This reduces the boilerplate
-    code when your test methods share a common patchings set. :func:`patch` finds
+    code when your test methods share a common patchings set. :func:`!patch` finds
     tests by looking for method names that start with ``patch.TEST_PREFIX``.
     By default this is ``'test'``, which matches the way :mod:`unittest` finds tests.
     You can specify an alternative prefix by setting ``patch.TEST_PREFIX``.
@@ -1487,9 +1487,9 @@ patch
     Patch can be used as a context manager, with the with statement. Here the
     patching applies to the indented block after the with statement. If you
     use "as" then the patched object will be bound to the name after the
-    "as"; very useful if :func:`patch` is creating a mock object for you.
+    "as"; very useful if :func:`!patch` is creating a mock object for you.
 
-    :func:`patch` takes arbitrary keyword arguments. These will be passed to
+    :func:`!patch` takes arbitrary keyword arguments. These will be passed to
     :class:`AsyncMock` if the patched object is asynchronous, to
     :class:`MagicMock` otherwise or to *new_callable* if specified.
 
@@ -1626,13 +1626,13 @@ patch.object
     patch the named member (*attribute*) on an object (*target*) with a mock
     object.
 
-    :func:`patch.object` can be used as a decorator, class decorator or a context
+    :func:`!patch.object` can be used as a decorator, class decorator or a context
     manager. Arguments *new*, *spec*, *create*, *spec_set*, *autospec* and
     *new_callable* have the same meaning as for :func:`patch`. Like :func:`patch`,
-    :func:`patch.object` takes arbitrary keyword arguments for configuring the mock
+    :func:`!patch.object` takes arbitrary keyword arguments for configuring the mock
     object it creates.
 
-    When used as a class decorator :func:`patch.object` honours ``patch.TEST_PREFIX``
+    When used as a class decorator :func:`!patch.object` honours ``patch.TEST_PREFIX``
     for choosing which methods to wrap.
 
 You can either call :func:`patch.object` with three arguments or two arguments. The
@@ -1676,12 +1676,12 @@ patch.dict
     If *clear* is true then the dictionary will be cleared before the new
     values are set.
 
-    :func:`patch.dict` can also be called with arbitrary keyword arguments to set
+    :func:`!patch.dict` can also be called with arbitrary keyword arguments to set
     values in the dictionary.
 
     .. versionchanged:: 3.8
 
-        :func:`patch.dict` now returns the patched dictionary when used as a context
+        :func:`!patch.dict` now returns the patched dictionary when used as a context
         manager.
 
 :func:`patch.dict` can be used as a context manager, decorator or class
@@ -1782,17 +1782,17 @@ patch.multiple
         with patch.multiple(settings, FIRST_PATCH='one', SECOND_PATCH='two'):
             ...
 
-    Use :data:`DEFAULT` as the value if you want :func:`patch.multiple` to create
+    Use :data:`DEFAULT` as the value if you want :func:`!patch.multiple` to create
     mocks for you. In this case the created mocks are passed into a decorated
-    function by keyword, and a dictionary is returned when :func:`patch.multiple` is
+    function by keyword, and a dictionary is returned when :func:`!patch.multiple` is
     used as a context manager.
 
-    :func:`patch.multiple` can be used as a decorator, class decorator or a context
+    :func:`!patch.multiple` can be used as a decorator, class decorator or a context
     manager. The arguments *spec*, *spec_set*, *create*, *autospec* and
     *new_callable* have the same meaning as for :func:`patch`. These arguments will
-    be applied to *all* patches done by :func:`patch.multiple`.
+    be applied to *all* patches done by :func:`!patch.multiple`.
 
-    When used as a class decorator :func:`patch.multiple` honours ``patch.TEST_PREFIX``
+    When used as a class decorator :func:`!patch.multiple` honours ``patch.TEST_PREFIX``
     for choosing which methods to wrap.
 
 If you want :func:`patch.multiple` to create mocks for you, then you can use
@@ -2307,7 +2307,7 @@ DEFAULT
 
 .. data:: DEFAULT
 
-    The :data:`DEFAULT` object is a pre-created sentinel (actually
+    The :data:`!DEFAULT` object is a pre-created sentinel (actually
     ``sentinel.DEFAULT``). It can be used by :attr:`~Mock.side_effect`
     functions to indicate that the normal return value should be used.
 
@@ -2317,9 +2317,9 @@ call
 
 .. function:: call(*args, **kwargs)
 
-    :func:`call` is a helper object for making simpler assertions, for comparing with
+    :func:`!call` is a helper object for making simpler assertions, for comparing with
     :attr:`~Mock.call_args`, :attr:`~Mock.call_args_list`,
-    :attr:`~Mock.mock_calls` and :attr:`~Mock.method_calls`. :func:`call` can also be
+    :attr:`~Mock.mock_calls` and :attr:`~Mock.method_calls`. :func:`!call` can also be
     used with :meth:`~Mock.assert_has_calls`.
 
         >>> m = MagicMock(return_value=None)
@@ -2420,7 +2420,7 @@ create_autospec
     spec for an instance object by passing ``instance=True``. The returned mock
     will only be callable if instances of the mock are callable.
 
-    :func:`create_autospec` also takes arbitrary keyword arguments that are passed to
+    :func:`!create_autospec` also takes arbitrary keyword arguments that are passed to
     the constructor of the created mock.
 
 See :ref:`auto-speccing` for examples of how to use auto-speccing with

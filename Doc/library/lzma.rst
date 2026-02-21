@@ -72,12 +72,12 @@ Reading and writing compressed files
 
    Open an LZMA-compressed file in binary mode.
 
-   An :class:`LZMAFile` can wrap an already-open :term:`file object`, or operate
+   An :class:`!LZMAFile` can wrap an already-open :term:`file object`, or operate
    directly on a named file. The *filename* argument specifies either the file
    object to wrap, or the name of the file to open (as a :class:`str`,
    :class:`bytes` or :term:`path-like <path-like object>` object). When wrapping an
    existing file object, the wrapped file will not be closed when the
-   :class:`LZMAFile` is closed.
+   :class:`!LZMAFile` is closed.
 
    The *mode* argument can be either ``"r"`` for reading (default), ``"w"`` for
    overwriting, ``"x"`` for exclusive creation, or ``"a"`` for appending. These
@@ -98,7 +98,7 @@ Reading and writing compressed files
    When opening a file for writing, the *format*, *check*, *preset* and
    *filters* arguments have the same meanings as for :class:`LZMACompressor`.
 
-   :class:`LZMAFile` supports all the members specified by
+   :class:`!LZMAFile` supports all the members specified by
    :class:`io.BufferedIOBase`, except for :meth:`~io.BufferedIOBase.detach`
    and :meth:`~io.IOBase.truncate`.
    Iteration and the :keyword:`with` statement are supported.
@@ -112,8 +112,8 @@ Reading and writing compressed files
       number of bytes returned is unspecified (the *size* argument is ignored).
 
       .. note:: While calling :meth:`peek` does not change the file position of
-         the :class:`LZMAFile`, it may change the position of the underlying
-         file object (e.g. if the :class:`LZMAFile` was constructed by passing a
+         the :class:`!LZMAFile`, it may change the position of the underlying
+         file object (e.g. if the :class:`!LZMAFile` was constructed by passing a
          file object for *filename*).
 
    .. attribute:: mode
@@ -200,7 +200,7 @@ Compressing and decompressing data in memory
       In addition to being more CPU-intensive, compression with higher presets
       also requires much more memory (and produces output that needs more memory
       to decompress). With preset ``9`` for example, the overhead for an
-      :class:`LZMACompressor` object can be as high as 800 MiB. For this reason,
+      :class:`!LZMACompressor` object can be as high as 800 MiB. For this reason,
       it is generally best to stick with the default preset.
 
    The *filters* argument (if provided) should be a filter chain specifier.
@@ -248,7 +248,7 @@ Compressing and decompressing data in memory
    .. note::
       This class does not transparently handle inputs containing multiple
       compressed streams, unlike :func:`decompress` and :class:`LZMAFile`. To
-      decompress a multi-stream input with :class:`LZMADecompressor`, you must
+      decompress a multi-stream input with :class:`!LZMADecompressor`, you must
       create a new decompressor for each stream.
 
    .. method:: decompress(data, max_length=-1)

@@ -29,28 +29,28 @@ The module defines the following functions:
    not encoded in *priority* using logical-or (``LOG_INFO | LOG_USER``), the
    value given in the :func:`openlog` call is used.
 
-   If :func:`openlog` has not been called prior to the call to :func:`syslog`,
+   If :func:`openlog` has not been called prior to the call to :func:`!syslog`,
    :func:`openlog` will be called with no arguments.
 
    .. audit-event:: syslog.syslog priority,message syslog.syslog
 
    .. versionchanged:: 3.2
       In previous versions, :func:`openlog` would not be called automatically if
-      it wasn't called prior to the call to :func:`syslog`, deferring to the syslog
+      it wasn't called prior to the call to :func:`!syslog`, deferring to the syslog
       implementation to call ``openlog()``.
 
    .. versionchanged:: 3.12
       This function is restricted in subinterpreters.
       (Only code that runs in multiple interpreters is affected and
       the restriction is not relevant for most users.)
-      :func:`openlog` must be called in the main interpreter before :func:`syslog` may be used
+      :func:`openlog` must be called in the main interpreter before :func:`!syslog` may be used
       in a subinterpreter.  Otherwise it will raise :exc:`RuntimeError`.
 
 
 .. function:: openlog([ident[, logoption[, facility]]])
 
    Logging options of subsequent :func:`syslog` calls can be set by calling
-   :func:`openlog`.  :func:`syslog` will call :func:`openlog` with no arguments
+   :func:`!openlog`.  :func:`syslog` will call :func:`!openlog` with no arguments
    if the log is not currently open.
 
    The optional *ident* keyword argument is a string which is prepended to every

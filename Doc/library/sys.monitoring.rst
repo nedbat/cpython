@@ -341,7 +341,7 @@ Registering callback functions
 
    If another callback was registered for the given *tool_id* and *event*,
    it is unregistered and returned.
-   Otherwise :func:`register_callback` returns ``None``.
+   Otherwise :func:`!register_callback` returns ``None``.
 
    .. audit-event:: sys.monitoring.register_callback func sys.monitoring.register_callback
 

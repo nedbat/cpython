@@ -140,7 +140,7 @@ available for subclassing as well:
 
 .. class:: FileInput(files=None, inplace=False, backup='', *, mode='r', openhook=None, encoding=None, errors=None)
 
-   Class :class:`FileInput` is the implementation; its methods :meth:`filename`,
+   Class :class:`!FileInput` is the implementation; its methods :meth:`filename`,
    :meth:`fileno`, :meth:`lineno`, :meth:`filelineno`, :meth:`isfirstline`,
    :meth:`isstdin`, :meth:`nextfile` and :meth:`close` correspond to the
    functions of the same name in the module. In addition it is :term:`iterable`
@@ -157,7 +157,7 @@ available for subclassing as well:
 
    You can specify *encoding* and *errors* that is passed to :func:`open` or *openhook*.
 
-   A :class:`FileInput` instance can be used as a context manager in the
+   A :class:`!FileInput` instance can be used as a context manager in the
    :keyword:`with` statement.  In this example, *input* is closed after the
    :keyword:`!with` statement is exited, even if an exception occurs::
 

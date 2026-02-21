@@ -20,7 +20,7 @@ The different font weights and slants are:
 
 .. class:: Font(root=None, font=None, name=None, exists=False, **options)
 
-   The :class:`Font` class represents a named font. *Font* instances are given
+   The :class:`!Font` class represents a named font. *Font* instances are given
    unique names and can be specified by their family, size, and style
    configuration. Named fonts are Tk's method of creating and identifying
    fonts as a single object, rather than specifying a font by its attributes

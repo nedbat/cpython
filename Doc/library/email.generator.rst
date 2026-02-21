@@ -44,7 +44,7 @@ To accommodate reproducible processing of SMIME-signed messages
 .. class:: BytesGenerator(outfp, mangle_from_=None, maxheaderlen=None, *, \
                           policy=None)
 
-   Return a :class:`BytesGenerator` object that will write any message provided
+   Return a :class:`!BytesGenerator` object that will write any message provided
    to the :meth:`flatten` method, or any surrogateescape encoded text provided
    to the :meth:`write` method, to the :term:`file-like object` *outfp*.
    *outfp* must support a ``write`` method that accepts binary data.
@@ -81,7 +81,7 @@ To accommodate reproducible processing of SMIME-signed messages
    .. method:: flatten(msg, unixfrom=False, linesep=None)
 
       Print the textual representation of the message object structure rooted
-      at *msg* to the output file specified when the :class:`BytesGenerator`
+      at *msg* to the output file specified when the :class:`!BytesGenerator`
       instance was created.
 
       If the :mod:`~email.policy` option :attr:`~email.policy.Policy.cte_type`
@@ -116,7 +116,7 @@ To accommodate reproducible processing of SMIME-signed messages
 
    .. method:: clone(fp)
 
-      Return an independent clone of this :class:`BytesGenerator` instance with
+      Return an independent clone of this :class:`!BytesGenerator` instance with
       the exact same option settings, and *fp* as the new *outfp*.
 
 
@@ -124,7 +124,7 @@ To accommodate reproducible processing of SMIME-signed messages
 
       Encode *s* using the ``ASCII`` codec and the ``surrogateescape`` error
       handler, and pass it to the *write* method of the *outfp* passed to the
-      :class:`BytesGenerator`'s constructor.
+      :class:`!BytesGenerator`'s constructor.
 
 
 As a convenience, :class:`~email.message.EmailMessage` provides the methods
@@ -145,7 +145,7 @@ to be using :class:`BytesGenerator`, and not :class:`Generator`.
 .. class:: Generator(outfp, mangle_from_=None, maxheaderlen=None, *, \
                      policy=None)
 
-   Return a :class:`Generator` object that will write any message provided
+   Return a :class:`!Generator` object that will write any message provided
    to the :meth:`flatten` method, or any text provided to the :meth:`write`
    method, to the :term:`file-like object` *outfp*.  *outfp* must support a
    ``write`` method that accepts string data.
@@ -180,7 +180,7 @@ to be using :class:`BytesGenerator`, and not :class:`Generator`.
    .. method:: flatten(msg, unixfrom=False, linesep=None)
 
       Print the textual representation of the message object structure rooted
-      at *msg* to the output file specified when the :class:`Generator`
+      at *msg* to the output file specified when the :class:`!Generator`
       instance was created.
 
       If the :mod:`~email.policy` option :attr:`~email.policy.Policy.cte_type`
@@ -213,15 +213,15 @@ to be using :class:`BytesGenerator`, and not :class:`Generator`.
 
    .. method:: clone(fp)
 
-      Return an independent clone of this :class:`Generator` instance with the
+      Return an independent clone of this :class:`!Generator` instance with the
       exact same options, and *fp* as the new *outfp*.
 
 
    .. method:: write(s)
 
       Write *s* to the *write* method of the *outfp* passed to the
-      :class:`Generator`'s constructor.  This provides just enough file-like
-      API for :class:`Generator` instances to be used in the :func:`print`
+      :class:`!Generator`'s constructor.  This provides just enough file-like
+      API for :class:`!Generator` instances to be used in the :func:`print`
       function.
 
 

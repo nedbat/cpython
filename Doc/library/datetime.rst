@@ -825,7 +825,7 @@ Instance methods:
 
    on platforms where the native C
    :c:func:`ctime` function (which :func:`time.ctime` invokes, but which
-   :meth:`date.ctime` does not invoke) conforms to the C standard.
+   :meth:`!date.ctime` does not invoke) conforms to the C standard.
 
 
 .. method:: date.strftime(format)
@@ -1509,7 +1509,7 @@ Instance methods:
 
       Because naive ``datetime`` objects are treated by many ``datetime`` methods
       as local times, it is preferred to use aware datetimes to represent times
-      in UTC; as a result, using :meth:`datetime.utctimetuple` may give misleading
+      in UTC; as a result, using :meth:`!datetime.utctimetuple` may give misleading
       results. If you have a naive ``datetime`` representing UTC, use
       ``datetime.replace(tzinfo=timezone.utc)`` to make it aware, at which point
       you can use :meth:`.datetime.timetuple`.
@@ -1674,7 +1674,7 @@ Instance methods:
 
    on platforms where the native C :c:func:`ctime` function
    (which :func:`time.ctime` invokes, but which
-   :meth:`datetime.ctime` does not invoke) conforms to the C standard.
+   :meth:`!datetime.ctime` does not invoke) conforms to the C standard.
 
 
 .. method:: datetime.strftime(format)
@@ -2134,29 +2134,29 @@ Examples of working with a :class:`.time` object::
 .. class:: tzinfo()
 
    This is an :term:`abstract base class`, meaning that this class should not be
-   instantiated directly.  Define a subclass of :class:`tzinfo` to capture
+   instantiated directly.  Define a subclass of :class:`!tzinfo` to capture
    information about a particular time zone.
 
-   An instance of (a concrete subclass of) :class:`tzinfo` can be passed to the
+   An instance of (a concrete subclass of) :class:`!tzinfo` can be passed to the
    constructors for :class:`.datetime` and :class:`.time` objects. The latter objects
-   view their attributes as being in local time, and the :class:`tzinfo` object
+   view their attributes as being in local time, and the :class:`!tzinfo` object
    supports methods revealing offset of local time from UTC, the name of the time
    zone, and DST offset, all relative to a date or time object passed to them.
 
    You need to derive a concrete subclass, and (at least)
-   supply implementations of the standard :class:`tzinfo` methods needed by the
+   supply implementations of the standard :class:`!tzinfo` methods needed by the
    :class:`.datetime` methods you use. The :mod:`!datetime` module provides
-   :class:`timezone`, a simple concrete subclass of :class:`tzinfo` which can
+   :class:`timezone`, a simple concrete subclass of :class:`!tzinfo` which can
    represent time zones with fixed offset from UTC such as UTC itself or North
    American EST and EDT.
 
-   Special requirement for pickling:  A :class:`tzinfo` subclass must have an
+   Special requirement for pickling:  A :class:`!tzinfo` subclass must have an
    :meth:`~object.__init__` method that can be called with no arguments,
    otherwise it can be
    pickled but possibly not unpickled again. This is a technical requirement that
    may be relaxed in the future.
 
-   A concrete subclass of :class:`tzinfo` may need to implement the following
+   A concrete subclass of :class:`!tzinfo` may need to implement the following
    methods. Exactly which methods are needed depends on the uses made of aware
    :mod:`!datetime` objects. If in doubt, simply implement all of them.
 

@@ -1211,7 +1211,7 @@ Connection objects
          If *category* is not recognised by the underlying SQLite library.
 
       Example, query the maximum length of an SQL statement
-      for :class:`Connection` ``con`` (the default is 1000000000):
+      for :class:`!Connection` ``con`` (the default is 1000000000):
 
       .. testsetup:: sqlite3.limits
 
@@ -1248,7 +1248,7 @@ Connection objects
          If *category* is not recognised by the underlying SQLite library.
 
       Example, limit the number of attached databases to 1
-      for :class:`Connection` ``con`` (the default limit is 10):
+      for :class:`!Connection` ``con`` (the default limit is 10):
 
       .. doctest:: sqlite3.limits
 
@@ -1315,7 +1315,7 @@ Connection objects
    .. method:: deserialize(data, /, *, name="main")
 
       Deserialize a :meth:`serialized <serialize>` database into a
-      :class:`Connection`.
+      :class:`!Connection`.
       This method causes the database connection to disconnect from database
       *name*, and reopen *name* as an in-memory database based on the
       serialization contained in *data*.
@@ -1469,7 +1469,7 @@ Cursor objects
 
 .. class:: Cursor
 
-   A :class:`Cursor` instance has the following attributes and methods.
+   A :class:`!Cursor` instance has the following attributes and methods.
 
    .. index:: single: ? (question mark); in SQL statements
    .. index:: single: : (colon); in SQL statements
@@ -1647,7 +1647,7 @@ Cursor objects
    .. attribute:: connection
 
       Read-only attribute that provides the SQLite database :class:`Connection`
-      belonging to the cursor.  A :class:`Cursor` object created by
+      belonging to the cursor.  A :class:`!Cursor` object created by
       calling :meth:`con.cursor() <Connection.cursor>` will have a
       :attr:`connection` attribute that refers to *con*:
 
@@ -1699,7 +1699,7 @@ Cursor objects
       If ``None``, a row is represented as a :class:`tuple`.
       Can be set to the included :class:`sqlite3.Row`;
       or a :term:`callable` that accepts two arguments,
-      a :class:`Cursor` object and the :class:`!tuple` of row values,
+      a :class:`!Cursor` object and the :class:`!tuple` of row values,
       and returns a custom object representing an SQLite row.
 
       Defaults to what :attr:`Connection.row_factory` was set to
@@ -1751,12 +1751,12 @@ Blob objects
 
    .. versionadded:: 3.11
 
-   A :class:`Blob` instance is a :term:`file-like object`
+   A :class:`!Blob` instance is a :term:`file-like object`
    that can read and write data in an SQLite :abbr:`BLOB (Binary Large OBject)`.
    Call :func:`len(blob) <len>` to get the size (number of bytes) of the blob.
    Use indices and :term:`slices <slice>` for direct access to the blob data.
 
-   Use the :class:`Blob` as a :term:`context manager` to ensure that the blob
+   Use the :class:`!Blob` as a :term:`context manager` to ensure that the blob
    handle is closed after use.
 
    .. testcode::
@@ -1798,7 +1798,7 @@ Blob objects
       Read *length* bytes of data from the blob at the current offset position.
       If the end of the blob is reached, the data up to
       :abbr:`EOF (End of File)` will be returned.  When *length* is not
-      specified, or is negative, :meth:`~Blob.read` will read until the end of
+      specified, or is negative, :meth:`!Blob.read` will read until the end of
       the blob.
 
    .. method:: write(data, /)

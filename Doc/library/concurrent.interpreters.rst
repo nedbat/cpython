@@ -237,7 +237,7 @@ Interpreter objects
 
    A single interpreter in the current process.
 
-   Generally, :class:`Interpreter` shouldn't be called directly.
+   Generally, :class:`!Interpreter` shouldn't be called directly.
    Instead, use :func:`create` or one of the other module functions.
 
    .. attribute:: id

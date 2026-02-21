@@ -204,7 +204,7 @@ wider range of codecs when working with binary files:
       underlying encoded files are always opened in binary mode.
       No automatic conversion of ``'\n'`` is done on reading and writing.
       The *mode* argument may be any binary mode acceptable to the built-in
-      :func:`open` function; the ``'b'`` is automatically added.
+      :func:`!open` function; the ``'b'`` is automatically added.
 
    *encoding* specifies the encoding which is to be used for the file.
    Any encoding that encodes to and decodes from bytes is allowed, and
@@ -213,7 +213,7 @@ wider range of codecs when working with binary files:
    *errors* may be given to define the error handling. It defaults to ``'strict'``
    which causes a :exc:`ValueError` to be raised in case an encoding error occurs.
 
-   *buffering* has the same meaning as for the built-in :func:`open` function.
+   *buffering* has the same meaning as for the built-in :func:`!open` function.
    It defaults to -1 which means that the default buffer size will be used.
 
    .. versionchanged:: 3.11
@@ -221,7 +221,7 @@ wider range of codecs when working with binary files:
 
    .. deprecated:: 3.14
 
-      :func:`codecs.open` has been superseded by :func:`open`.
+      :func:`codecs.open` has been superseded by :func:`!open`.
 
 
 .. function:: EncodedFile(file, data_encoding, file_encoding=None, errors='strict')
@@ -561,7 +561,7 @@ function interfaces of the stateless encoder and decoder:
       The *errors* argument defines the error handling to apply.
       It defaults to ``'strict'`` handling.
 
-      The method may not store state in the :class:`Codec` instance. Use
+      The method may not store state in the :class:`!Codec` instance. Use
       :class:`StreamWriter` for codecs which have to keep state in order to make
       encoding efficient.
 
@@ -583,7 +583,7 @@ function interfaces of the stateless encoder and decoder:
       The *errors* argument defines the error handling to apply.
       It defaults to ``'strict'`` handling.
 
-      The method may not store state in the :class:`Codec` instance. Use
+      The method may not store state in the :class:`!Codec` instance. Use
       :class:`StreamReader` for codecs which have to keep state in order to make
       decoding efficient.
 
@@ -620,19 +620,19 @@ define in order to be compatible with the Python codec registry.
 
 .. class:: IncrementalEncoder(errors='strict')
 
-   Constructor for an :class:`IncrementalEncoder` instance.
+   Constructor for an :class:`!IncrementalEncoder` instance.
 
    All incremental encoders must provide this constructor interface. They are free
    to add additional keyword arguments, but only the ones defined here are used by
    the Python codec registry.
 
-   The :class:`IncrementalEncoder` may implement different error handling schemes
+   The :class:`!IncrementalEncoder` may implement different error handling schemes
    by providing the *errors* keyword argument. See :ref:`error-handlers` for
    possible values.
 
    The *errors* argument will be assigned to an attribute of the same name.
    Assigning to this attribute makes it possible to switch between different error
-   handling strategies during the lifetime of the :class:`IncrementalEncoder`
+   handling strategies during the lifetime of the :class:`!IncrementalEncoder`
    object.
 
 
@@ -677,19 +677,19 @@ define in order to be compatible with the Python codec registry.
 
 .. class:: IncrementalDecoder(errors='strict')
 
-   Constructor for an :class:`IncrementalDecoder` instance.
+   Constructor for an :class:`!IncrementalDecoder` instance.
 
    All incremental decoders must provide this constructor interface. They are free
    to add additional keyword arguments, but only the ones defined here are used by
    the Python codec registry.
 
-   The :class:`IncrementalDecoder` may implement different error handling schemes
+   The :class:`!IncrementalDecoder` may implement different error handling schemes
    by providing the *errors* keyword argument. See :ref:`error-handlers` for
    possible values.
 
    The *errors* argument will be assigned to an attribute of the same name.
    Assigning to this attribute makes it possible to switch between different error
-   handling strategies during the lifetime of the :class:`IncrementalDecoder`
+   handling strategies during the lifetime of the :class:`!IncrementalDecoder`
    object.
 
 
@@ -751,7 +751,7 @@ compatible with the Python codec registry.
 
 .. class:: StreamWriter(stream, errors='strict')
 
-   Constructor for a :class:`StreamWriter` instance.
+   Constructor for a :class:`!StreamWriter` instance.
 
    All stream writers must provide this constructor interface. They are free to add
    additional keyword arguments, but only the ones defined here are used by the
@@ -760,13 +760,13 @@ compatible with the Python codec registry.
    The *stream* argument must be a file-like object open for writing
    text or binary data, as appropriate for the specific codec.
 
-   The :class:`StreamWriter` may implement different error handling schemes by
+   The :class:`!StreamWriter` may implement different error handling schemes by
    providing the *errors* keyword argument. See :ref:`error-handlers` for
    the standard error handlers the underlying stream codec may support.
 
    The *errors* argument will be assigned to an attribute of the same name.
    Assigning to this attribute makes it possible to switch between different error
-   handling strategies during the lifetime of the :class:`StreamWriter` object.
+   handling strategies during the lifetime of the :class:`!StreamWriter` object.
 
    .. method:: write(object)
 
@@ -806,7 +806,7 @@ compatible with the Python codec registry.
 
 .. class:: StreamReader(stream, errors='strict')
 
-   Constructor for a :class:`StreamReader` instance.
+   Constructor for a :class:`!StreamReader` instance.
 
    All stream readers must provide this constructor interface. They are free to add
    additional keyword arguments, but only the ones defined here are used by the
@@ -815,13 +815,13 @@ compatible with the Python codec registry.
    The *stream* argument must be a file-like object open for reading
    text or binary data, as appropriate for the specific codec.
 
-   The :class:`StreamReader` may implement different error handling schemes by
+   The :class:`!StreamReader` may implement different error handling schemes by
    providing the *errors* keyword argument. See :ref:`error-handlers` for
    the standard error handlers the underlying stream codec may support.
 
    The *errors* argument will be assigned to an attribute of the same name.
    Assigning to this attribute makes it possible to switch between different error
-   handling strategies during the lifetime of the :class:`StreamReader` object.
+   handling strategies during the lifetime of the :class:`!StreamReader` object.
 
    The set of allowed values for the *errors* argument can be extended with
    :func:`register_error`.
@@ -901,7 +901,7 @@ The design is such that one can use the factory functions returned by the
 
 .. class:: StreamReaderWriter(stream, Reader, Writer, errors='strict')
 
-   Creates a :class:`StreamReaderWriter` instance. *stream* must be a file-like
+   Creates a :class:`!StreamReaderWriter` instance. *stream* must be a file-like
    object. *Reader* and *Writer* must be factory functions or classes providing the
    :class:`StreamReader` and :class:`StreamWriter` interface resp. Error handling
    is done in the same way as defined for the stream readers and writers.
@@ -925,7 +925,7 @@ The design is such that one can use the factory functions returned by the
 
 .. class:: StreamRecoder(stream, encode, decode, Reader, Writer, errors='strict')
 
-   Creates a :class:`StreamRecoder` instance which implements a two-way conversion:
+   Creates a :class:`!StreamRecoder` instance which implements a two-way conversion:
    *encode* and *decode* work on the frontend — the data visible to
    code calling :meth:`~StreamReader.read` and :meth:`~StreamWriter.write`,
    while *Reader* and *Writer*

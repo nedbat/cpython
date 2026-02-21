@@ -107,7 +107,7 @@ The module defines these functions:
    .. note::
 
       If an object containing an unsupported type was marshalled with :func:`dump`,
-      :func:`load` will substitute ``None`` for the unmarshallable type.
+      :func:`!load` will substitute ``None`` for the unmarshallable type.
 
    .. versionchanged:: 3.10
 

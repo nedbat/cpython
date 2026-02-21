@@ -75,7 +75,7 @@ The :mod:`!functools` module defines the following functions:
            def stdev(self):
                return statistics.stdev(self._data)
 
-   The mechanics of :func:`cached_property` are somewhat different from
+   The mechanics of :func:`!cached_property` are somewhat different from
    :func:`property`.  A regular property blocks attribute writes unless a
    setter is defined. In contrast, a *cached_property* allows writes.
 
@@ -108,9 +108,9 @@ The :mod:`!functools` module defines the following functions:
    (as such classes don't provide a ``__dict__`` attribute at all).
 
    If a mutable mapping is not available or if space-efficient key sharing is
-   desired, an effect similar to :func:`cached_property` can also be achieved by
+   desired, an effect similar to :func:`!cached_property` can also be achieved by
    stacking :func:`property` on top of :func:`lru_cache`. See
-   :ref:`faq-cache-method-calls` for more details on how this differs from :func:`cached_property`.
+   :ref:`faq-cache-method-calls` for more details on how this differs from :func:`!cached_property`.
 
    .. versionadded:: 3.8
 
@@ -358,7 +358,7 @@ The :mod:`!functools` module defines the following functions:
 
    The :func:`!partial` function is used for partial function application which "freezes"
    some portion of a function's arguments and/or keywords resulting in a new object
-   with a simplified signature.  For example, :func:`partial` can be used to create
+   with a simplified signature.  For example, :func:`!partial` can be used to create
    a callable that behaves like the :func:`int` function where the *base* argument
    defaults to ``2``:
 
@@ -413,7 +413,7 @@ The :mod:`!functools` module defines the following functions:
 
 .. class:: partialmethod(func, /, *args, **keywords)
 
-   Return a new :class:`partialmethod` descriptor which behaves
+   Return a new :class:`!partialmethod` descriptor which behaves
    like :class:`partial` except that it is designed to be used as a method
    definition rather than being directly callable.
 
@@ -422,7 +422,7 @@ The :mod:`!functools` module defines the following functions:
 
    When *func* is a descriptor (such as a normal Python function,
    :func:`classmethod`, :func:`staticmethod`, :func:`~abc.abstractmethod` or
-   another instance of :class:`partialmethod`), calls to ``__get__`` are
+   another instance of :class:`!partialmethod`), calls to ``__get__`` are
    delegated to the underlying descriptor, and an appropriate
    :ref:`partial object<partial-objects>` returned as the result.
 
@@ -430,7 +430,7 @@ The :mod:`!functools` module defines the following functions:
    created dynamically. This behaves like a normal Python function when
    used as a method: the *self* argument will be inserted as the first
    positional argument, even before the *args* and *keywords* supplied to
-   the :class:`partialmethod` constructor.
+   the :class:`!partialmethod` constructor.
 
    Example::
 
@@ -742,7 +742,7 @@ The :mod:`!functools` module defines the following functions:
    definition rather than the original function definition, which is typically less
    than helpful.
 
-   :func:`update_wrapper` may be used with callables other than functions. Any
+   :func:`!update_wrapper` may be used with callables other than functions. Any
    attributes named in *assigned* or *updated* that are missing from the object
    being wrapped are ignored (i.e. this function will not attempt to set them
    on the wrapper function). :exc:`AttributeError` is still raised if the

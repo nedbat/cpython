@@ -43,7 +43,7 @@ The :mod:`!wave` module defines the following function and exception:
    ``close()`` method is called; it is the caller's responsibility to close
    the file object.
 
-   The :func:`.open` function may be used in a :keyword:`with` statement.  When
+   The :func:`!open` function may be used in a :keyword:`with` statement.  When
    the :keyword:`!with` block completes, the :meth:`Wave_read.close` or
    :meth:`Wave_write.close` method is called.
 

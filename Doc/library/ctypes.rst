@@ -1465,7 +1465,7 @@ way is to instantiate one of the following classes:
    libraries use the standard C calling convention, and are assumed to return
    :c:expr:`int`.
 
-   On Windows creating a :class:`CDLL` instance may fail even if the DLL name
+   On Windows creating a :class:`!CDLL` instance may fail even if the DLL name
    exists. When a dependent DLL of the loaded DLL is not found, a
    :exc:`OSError` error is raised with the message *"[WinError 126] The
    specified module could not be found".* This error message does not contain
@@ -2434,7 +2434,7 @@ Fundamental data types
 
    This non-public class is the base class of all fundamental ctypes data
    types. It is mentioned here because it contains the common attributes of the
-   fundamental ctypes data types.  :class:`_SimpleCData` is a subclass of
+   fundamental ctypes data types.  :class:`!_SimpleCData` is a subclass of
    :class:`_CData`, so it inherits their methods and attributes. ctypes data
    types that are not and do not contain pointers can now be pickled.
 
@@ -3019,7 +3019,7 @@ Arrays and pointers
    this type and define :attr:`_length_` and :attr:`_type_` class variables.
    Array elements can be read and written using standard
    subscript and slice accesses; for slice reads, the resulting object is
-   *not* itself an :class:`Array`.
+   *not* itself an :class:`!Array`.
 
 
    .. attribute:: _length_

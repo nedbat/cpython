@@ -291,7 +291,7 @@ However, for reading convenience, most of the examples show sorted sequences.
 
    `Wikipedia has an example
    <https://en.wikipedia.org/wiki/Kernel_density_estimation#Example>`_
-   where we can use :func:`kde` to generate and plot a probability
+   where we can use :func:`!kde` to generate and plot a probability
    density function estimated from a small sample:
 
    .. doctest::
@@ -321,7 +321,7 @@ However, for reading convenience, most of the examples show sorted sequences.
    A :exc:`StatisticsError` will be raised if the *data* sequence is empty.
 
    Continuing the example for :func:`kde`, we can use
-   :func:`kde_random` to generate new random selections from an
+   :func:`!kde_random` to generate new random selections from an
    estimated probability density function:
 
       >>> data = [-2.1, -1.3, -0.4, 1.9, 5.1, 6.2]
@@ -437,7 +437,7 @@ However, for reading convenience, most of the examples show sorted sequences.
    tricenarian age group was exactly 35 years old.  A more tenable
    assumption is that the 484 members of that age group are evenly
    distributed between 30 and 40.  For that, we use
-   :func:`median_grouped`:
+   :func:`!median_grouped`:
 
    .. doctest::
 
@@ -997,7 +997,7 @@ of applications in statistics.
 
         .. versionadded:: 3.9
 
-    Instances of :class:`NormalDist` support addition, subtraction,
+    Instances of :class:`!NormalDist` support addition, subtraction,
     multiplication and division by a constant.  These operations
     are used for translation and scaling.  For example:
 
@@ -1007,14 +1007,14 @@ of applications in statistics.
         >>> temperature_february * (9/5) + 32                     # Fahrenheit
         NormalDist(mu=41.0, sigma=4.5)
 
-    Dividing a constant by an instance of :class:`NormalDist` is not supported
+    Dividing a constant by an instance of :class:`!NormalDist` is not supported
     because the result wouldn't be normally distributed.
 
     Since normal distributions arise from additive effects of independent
     variables, it is possible to `add and subtract two independent normally
     distributed random variables
     <https://en.wikipedia.org/wiki/Sum_of_normally_distributed_random_variables>`_
-    represented as instances of :class:`NormalDist`.  For example:
+    represented as instances of :class:`!NormalDist`.  For example:
 
     .. doctest::
 

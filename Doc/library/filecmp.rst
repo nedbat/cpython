@@ -75,7 +75,7 @@ The :class:`dircmp` class
    :const:`filecmp.DEFAULT_IGNORES`.  *hide* is a list of names to hide, and
    defaults to ``[os.curdir, os.pardir]``.
 
-   The :class:`dircmp` class compares files by doing *shallow* comparisons
+   The :class:`!dircmp` class compares files by doing *shallow* comparisons
    as described for :func:`filecmp.cmp` by default using the *shallow*
    parameter.
 
@@ -83,7 +83,7 @@ The :class:`dircmp` class
 
       Added the *shallow* parameter.
 
-   The :class:`dircmp` class provides the following methods:
+   The :class:`!dircmp` class provides the following methods:
 
    .. method:: report()
 
@@ -99,7 +99,7 @@ The :class:`dircmp` class
       Print a comparison between *a* and *b* and common subdirectories
       (recursively).
 
-   The :class:`dircmp` class offers a number of interesting attributes that may be
+   The :class:`!dircmp` class offers a number of interesting attributes that may be
    used to get various bits of information about the directory trees being
    compared.
 
@@ -178,14 +178,14 @@ The :class:`dircmp` class
 
    .. attribute:: subdirs
 
-      A dictionary mapping names in :attr:`common_dirs` to :class:`dircmp`
+      A dictionary mapping names in :attr:`common_dirs` to :class:`!dircmp`
       instances (or MyDirCmp instances if this instance is of type MyDirCmp, a
-      subclass of :class:`dircmp`).
+      subclass of :class:`!dircmp`).
 
       .. versionchanged:: 3.10
-         Previously entries were always :class:`dircmp` instances. Now entries
+         Previously entries were always :class:`!dircmp` instances. Now entries
          are the same type as *self*, if *self* is a subclass of
-         :class:`dircmp`.
+         :class:`!dircmp`.
 
 .. data:: DEFAULT_IGNORES
 

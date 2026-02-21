@@ -67,7 +67,7 @@ are always available.  They are listed here in alphabetical order.
    Return an :term:`asynchronous iterator` for an :term:`asynchronous iterable`.
    Equivalent to calling ``x.__aiter__()``.
 
-   Note: Unlike :func:`iter`, :func:`aiter` has no 2-argument variant.
+   Note: Unlike :func:`iter`, :func:`!aiter` has no 2-argument variant.
 
    .. versionadded:: 3.10
 
@@ -149,7 +149,7 @@ are always available.  They are listed here in alphabetical order.
    is converted using the standard :ref:`truth testing procedure <truth>`.
    If the argument is false
    or omitted, this returns ``False``; otherwise, it returns ``True``.  The
-   :class:`bool` class is a subclass of :class:`int` (see :ref:`typesnumeric`).
+   :class:`!bool` class is a subclass of :class:`int` (see :ref:`typesnumeric`).
    It cannot be subclassed further.  Its only instances are ``False`` and
    ``True`` (see :ref:`typebool`).
 
@@ -167,12 +167,12 @@ are always available.  They are listed here in alphabetical order.
    purely a convenience function so you don't have to explicitly import
    :mod:`pdb` or type as much code to enter the debugger.  However,
    :func:`sys.breakpointhook` can be set to some other function and
-   :func:`breakpoint` will automatically call that, allowing you to drop into
+   :func:`!breakpoint` will automatically call that, allowing you to drop into
    the debugger of choice.
    If :func:`sys.breakpointhook` is not accessible, this function will
    raise :exc:`RuntimeError`.
 
-   By default, the behavior of :func:`breakpoint` can be changed with
+   By default, the behavior of :func:`!breakpoint` can be changed with
    the :envvar:`PYTHONBREAKPOINT` environment variable.
    See :func:`sys.breakpointhook` for usage details.
 
@@ -188,7 +188,7 @@ are always available.  They are listed here in alphabetical order.
            bytearray(source, encoding, errors='strict')
    :noindex:
 
-   Return a new array of bytes.  The :class:`bytearray` class is a mutable
+   Return a new array of bytes.  The :class:`!bytearray` class is a mutable
    sequence of integers in the range 0 <= x < 256.  It has most of the usual
    methods of mutable sequences, described in :ref:`typesseq-mutable`, as well
    as most methods that the :class:`bytes` type has, see :ref:`bytes-methods`.
@@ -220,7 +220,7 @@ are always available.  They are listed here in alphabetical order.
    :noindex:
 
    Return a new "bytes" object which is an immutable sequence of integers in
-   the range ``0 <= x < 256``.  :class:`bytes` is an immutable version of
+   the range ``0 <= x < 256``.  :class:`!bytes` is an immutable version of
    :class:`bytearray` -- it has the same non-mutating methods and the same
    indexing and slicing behavior.
 
@@ -317,7 +317,7 @@ are always available.  They are listed here in alphabetical order.
    :ref:`compiler options <ast-compiler-flags>` should be activated
    and which :ref:`future features <future>` should be allowed. If neither
    is present (or both are zero) the code is compiled with the same flags that
-   affect the code that is calling :func:`compile`. If the *flags*
+   affect the code that is calling :func:`!compile`. If the *flags*
    argument is given and *dont_inherit* is not (or is zero) then the compiler
    options and the future statements specified by the *flags* argument are used
    in addition to those that would be used anyway. If *dont_inherit* is a
@@ -482,8 +482,8 @@ are always available.  They are listed here in alphabetical order.
            dict(iterable, /, **kwargs)
    :noindex:
 
-   Create a new dictionary.  The :class:`dict` object is the dictionary class.
-   See :class:`dict` and :ref:`typesmapping` for documentation about this class.
+   Create a new dictionary.  The :class:`!dict` object is the dictionary class.
+   See :class:`!dict` and :ref:`typesmapping` for documentation about this class.
 
    For other containers see the built-in :class:`list`, :class:`set`, and
    :class:`tuple` classes, as well as the :mod:`collections` module.
@@ -500,7 +500,7 @@ are always available.  They are listed here in alphabetical order.
    must return the list of attributes. This allows objects that implement a custom
    :func:`~object.__getattr__` or :func:`~object.__getattribute__` function
    to customize the way
-   :func:`dir` reports their attributes.
+   :func:`!dir` reports their attributes.
 
    If the object does not provide :meth:`~object.__dir__`,
    the function tries its best to gather information from the object's
@@ -508,7 +508,7 @@ are always available.  They are listed here in alphabetical order.
    from its type object.  The resulting list is not necessarily complete and may
    be inaccurate when the object has a custom :func:`~object.__getattr__`.
 
-   The default :func:`dir` mechanism behaves differently with different types of
+   The default :func:`!dir` mechanism behaves differently with different types of
    objects, as it attempts to produce the most relevant, rather than complete,
    information:
 
@@ -542,7 +542,7 @@ are always available.  They are listed here in alphabetical order.
 
    .. note::
 
-      Because :func:`dir` is supplied primarily as a convenience for use at an
+      Because :func:`!dir` is supplied primarily as a convenience for use at an
       interactive prompt, it tries to supply an interesting set of names more
       than it tries to supply a rigorously or consistently defined set of names,
       and its detailed behavior may change across releases.  For example,
@@ -567,7 +567,7 @@ are always available.  They are listed here in alphabetical order.
    Return an enumerate object. *iterable* must be a sequence, an
    :term:`iterator`, or some other object which supports iteration.
    The :meth:`~iterator.__next__` method of the iterator returned by
-   :func:`enumerate` returns a tuple containing a count (from *start* which
+   :func:`!enumerate` returns a tuple containing a count (from *start* which
    defaults to 0) and the values obtained from iterating over *iterable*.
 
       >>> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
@@ -616,13 +616,13 @@ are always available.  They are listed here in alphabetical order.
    inserted under that key before *source* is parsed.  That way you can
    control what builtins are available to the executed code by inserting your
    own ``__builtins__`` dictionary into *globals* before passing it to
-   :func:`eval`.  If the *locals* mapping is omitted it defaults to the
+   :func:`!eval`.  If the *locals* mapping is omitted it defaults to the
    *globals* dictionary.  If both mappings are omitted, the source is
    executed with the *globals* and *locals* in the environment where
-   :func:`eval` is called.  Note, *eval()* will only have access to the
+   :func:`!eval` is called.  Note, *eval()* will only have access to the
    :term:`nested scopes <nested scope>` (non-locals) in the enclosing
    environment if they are already referenced in the scope that is calling
-   :func:`eval` (e.g. via a :keyword:`nonlocal` statement).
+   :func:`!eval` (e.g. via a :keyword:`nonlocal` statement).
 
    Example:
 
@@ -633,12 +633,12 @@ are always available.  They are listed here in alphabetical order.
    This function can also be used to execute arbitrary code objects (such as
    those created by :func:`compile`).  In this case, pass a code object instead
    of a string.  If the code object has been compiled with ``'exec'`` as the
-   *mode* argument, :func:`eval`\'s return value will be ``None``.
+   *mode* argument, :func:`!eval`\'s return value will be ``None``.
 
    Hints: dynamic execution of statements is supported by the :func:`exec`
    function.  The :func:`globals` and :func:`locals` functions
    return the current global and local dictionary, respectively, which may be
-   useful to pass around for use by :func:`eval` or :func:`exec`.
+   useful to pass around for use by :func:`!eval` or :func:`exec`.
 
    If the given source is a string, then leading and trailing spaces and tabs
    are stripped.
@@ -678,7 +678,7 @@ are always available.  They are listed here in alphabetical order.
    :keyword:`nonlocal`, :keyword:`yield`,  and :keyword:`return`
    statements may not be used outside of
    function definitions even within the context of code passed to the
-   :func:`exec` function. The return value is ``None``.
+   :func:`!exec` function. The return value is ``None``.
 
    In all cases, if the optional parts are omitted, the code is executed in the
    current scope.  If only *globals* is provided, it must be a dictionary
@@ -700,7 +700,7 @@ are always available.  They are listed here in alphabetical order.
    ``__builtins__``, a reference to the dictionary of the built-in module
    :mod:`builtins` is inserted under that key.  That way you can control what
    builtins are available to the executed code by inserting your own
-   ``__builtins__`` dictionary into *globals* before passing it to :func:`exec`.
+   ``__builtins__`` dictionary into *globals* before passing it to :func:`!exec`.
 
    The *closure* argument specifies a closure--a tuple of cellvars.
    It's only valid when the *object* is a code object containing
@@ -717,13 +717,13 @@ are always available.  They are listed here in alphabetical order.
 
       The built-in functions :func:`globals` and :func:`locals` return the current
       global and local namespace, respectively, which may be useful to pass around
-      for use as the second and third argument to :func:`exec`.
+      for use as the second and third argument to :func:`!exec`.
 
    .. note::
 
       The default *locals* act as described for function :func:`locals` below.
       Pass an explicit *locals* dictionary if you need to see effects of the
-      code on *locals* after function :func:`exec` returns.
+      code on *locals* after function :func:`!exec` returns.
 
    .. versionchanged:: 3.11
       Added the *closure* parameter.
@@ -858,8 +858,8 @@ are always available.  They are listed here in alphabetical order.
 .. class:: frozenset(iterable=(), /)
    :noindex:
 
-   Return a new :class:`frozenset` object, optionally with elements taken from
-   *iterable*.  ``frozenset`` is a built-in class.  See :class:`frozenset` and
+   Return a new :class:`!frozenset` object, optionally with elements taken from
+   *iterable*.  ``frozenset`` is a built-in class.  See :class:`!frozenset` and
    :ref:`types-set` for documentation about this class.
 
    For other containers see the built-in :class:`set`, :class:`list`,
@@ -882,7 +882,7 @@ are always available.  They are listed here in alphabetical order.
       Since :ref:`private name mangling <private-name-mangling>` happens at
       compilation time, one must manually mangle a private attribute's
       (attributes with two leading underscores) name in order to retrieve it with
-      :func:`getattr`.
+      :func:`!getattr`.
 
 
 .. function:: globals()
@@ -910,7 +910,7 @@ are always available.  They are listed here in alphabetical order.
    .. note::
 
       For objects with custom :meth:`~object.__hash__` methods,
-      note that :func:`hash`
+      note that :func:`!hash`
       truncates the return value based on the bit width of the host machine.
 
 .. function:: help()
@@ -924,7 +924,7 @@ are always available.  They are listed here in alphabetical order.
    kind of object, a help page on the object is generated.
 
    Note that if a slash(/) appears in the parameter list of a function when
-   invoking :func:`help`, it means that the parameters prior to the slash are
+   invoking :func:`!help`, it means that the parameters prior to the slash are
    positional-only. For more info, see
    :ref:`the FAQ entry on positional-only parameters <faq-positional-only-arguments>`.
 
@@ -971,7 +971,7 @@ are always available.  They are listed here in alphabetical order.
 
    Return the "identity" of an object.  This is an integer which
    is guaranteed to be unique and constant for this object during its lifetime.
-   Two objects with non-overlapping lifetimes may have the same :func:`id`
+   Two objects with non-overlapping lifetimes may have the same :func:`!id`
    value.
 
    .. impl-detail:: This is the address of the object in memory.
@@ -992,7 +992,7 @@ are always available.  They are listed here in alphabetical order.
       >>> s  # doctest: +SKIP
       "Monty Python's Flying Circus"
 
-   If the :mod:`readline` module was loaded, then :func:`input` will use it
+   If the :mod:`readline` module was loaded, then :func:`!input` will use it
    to provide elaborate line editing and history features.
 
    .. audit-event:: builtins.input prompt input
@@ -1054,7 +1054,7 @@ are always available.  They are listed here in alphabetical order.
    The integer type is described in :ref:`typesnumeric`.
 
    .. versionchanged:: 3.4
-      If *base* is not an instance of :class:`int` and the *base* object has a
+      If *base* is not an instance of :class:`!int` and the *base* object has a
       :meth:`base.__index__ <object.__index__>` method, that method is called
       to obtain an integer for the base.  Previous versions used
       :meth:`base.__int__ <object.__int__>` instead of :meth:`base.__index__
@@ -1070,10 +1070,10 @@ are always available.  They are listed here in alphabetical order.
       Falls back to :meth:`~object.__index__` if :meth:`~object.__int__` is not defined.
 
    .. versionchanged:: 3.11
-      :class:`int` string inputs and string representations can be limited to
+      :class:`!int` string inputs and string representations can be limited to
       help avoid denial of service attacks. A :exc:`ValueError` is raised when
-      the limit is exceeded while converting a string to an :class:`int` or
-      when converting an :class:`int` into a string would exceed the limit.
+      the limit is exceeded while converting a string to an :class:`!int` or
+      when converting an :class:`!int` into a string would exceed the limit.
       See the :ref:`integer string conversion length limitation
       <int_max_str_digits>` documentation.
 
@@ -1130,7 +1130,7 @@ are always available.  They are listed here in alphabetical order.
 
    See also :ref:`typeiter`.
 
-   One useful application of the second form of :func:`iter` is to build a
+   One useful application of the second form of :func:`!iter` is to build a
    block-reader. For example, reading fixed-width blocks from a binary
    database file until the end of file is reached::
 
@@ -1156,7 +1156,7 @@ are always available.  They are listed here in alphabetical order.
 .. class:: list(iterable=(), /)
    :noindex:
 
-   Rather than being a function, :class:`list` is actually a mutable
+   Rather than being a function, :class:`!list` is actually a mutable
    sequence type, as documented in :ref:`typesseq-list` and :ref:`typesseq`.
 
 
@@ -1313,9 +1313,9 @@ are always available.  They are listed here in alphabetical order.
 
    .. note::
 
-      :class:`object` instances do *not* have :attr:`~object.__dict__`
+      :class:`!object` instances do *not* have :attr:`~object.__dict__`
       attributes, so you can't assign arbitrary attributes to an instance of
-      :class:`object`.
+      :class:`!object`.
 
 
 .. function:: oct(integer, /)
@@ -1484,8 +1484,8 @@ are always available.  They are listed here in alphabetical order.
       ...
       >>> os.close(dir_fd)  # don't leak a file descriptor
 
-   The type of :term:`file object` returned by the :func:`open` function
-   depends on the mode.  When :func:`open` is used to open a file in a text
+   The type of :term:`file object` returned by the :func:`!open` function
+   depends on the mode.  When :func:`!open` is used to open a file in a text
    mode (``'w'``, ``'r'``, ``'wt'``, ``'rt'``, etc.), it returns a subclass of
    :class:`io.TextIOBase` (specifically :class:`io.TextIOWrapper`).  When used
    to open a file in a binary mode with buffering, the returned class is a
@@ -1506,7 +1506,7 @@ are always available.  They are listed here in alphabetical order.
       pair: module; sys
 
    See also the file handling modules, such as :mod:`fileinput`, :mod:`io`
-   (where :func:`open` is declared), :mod:`os`, :mod:`os.path`, :mod:`tempfile`,
+   (where :func:`!open` is declared), :mod:`os`, :mod:`os.path`, :mod:`tempfile`,
    and :mod:`shutil`.
 
    .. audit-event:: open path,mode,flags open
@@ -1607,12 +1607,12 @@ are always available.  They are listed here in alphabetical order.
    All non-keyword arguments are converted to strings like :func:`str` does and
    written to the stream, separated by *sep* and followed by *end*.  Both *sep*
    and *end* must be strings; they can also be ``None``, which means to use the
-   default values.  If no *objects* are given, :func:`print` will just write
+   default values.  If no *objects* are given, :func:`!print` will just write
    *end*.
 
    The *file* argument must be an object with a ``write(string)`` method; if it
    is not present or ``None``, :data:`sys.stdout` will be used.  Since printed
-   arguments are converted to text strings, :func:`print` cannot be used with
+   arguments are converted to text strings, :func:`!print` cannot be used with
    binary mode file objects.  For these, use ``file.write(...)`` instead.
 
    Output buffering is usually determined by *file*.
@@ -1719,7 +1719,7 @@ are always available.  They are listed here in alphabetical order.
            range(start, stop, step=1, /)
    :noindex:
 
-   Rather than being a function, :class:`range` is actually an immutable
+   Rather than being a function, :class:`!range` is actually an immutable
    sequence type, as documented in :ref:`typesseq-range` and :ref:`typesseq`.
 
 
@@ -1761,7 +1761,7 @@ are always available.  They are listed here in alphabetical order.
    point.  If *ndigits* is omitted or is ``None``, it returns the
    nearest integer to its input.
 
-   For the built-in types supporting :func:`round`, values are rounded to the
+   For the built-in types supporting :func:`!round`, values are rounded to the
    closest multiple of 10 to the power minus *ndigits*; if two multiples are
    equally close, rounding is done toward the even choice (so, for example,
    both ``round(0.5)`` and ``round(-0.5)`` are ``0``, and ``round(1.5)`` is
@@ -1775,7 +1775,7 @@ are always available.  They are listed here in alphabetical order.
 
    .. note::
 
-      The behavior of :func:`round` for floats can be surprising: for example,
+      The behavior of :func:`!round` for floats can be surprising: for example,
       ``round(2.675, 2)`` gives ``2.67`` instead of the expected ``2.68``.
       This is not a bug: it's a result of the fact that most decimal fractions
       can't be represented exactly as a float.  See :ref:`tut-fp-issues` for
@@ -1786,8 +1786,8 @@ are always available.  They are listed here in alphabetical order.
 .. class:: set(iterable=(), /)
    :noindex:
 
-   Return a new :class:`set` object, optionally with elements taken from
-   *iterable*.  ``set`` is a built-in class.  See :class:`set` and
+   Return a new :class:`!set` object, optionally with elements taken from
+   *iterable*.  ``set`` is a built-in class.  See :class:`!set` and
    :ref:`types-set` for documentation about this class.
 
    For other containers see the built-in :class:`frozenset`, :class:`list`,
@@ -1814,7 +1814,7 @@ are always available.  They are listed here in alphabetical order.
       Since :ref:`private name mangling <private-name-mangling>` happens at
       compilation time, one must manually mangle a private attribute's
       (attributes with two leading underscores) name in order to set it with
-      :func:`setattr`.
+      :func:`!setattr`.
 
 
 .. class:: slice(stop, /)
@@ -1858,7 +1858,7 @@ are always available.  They are listed here in alphabetical order.
    Use :func:`functools.cmp_to_key` to convert an old-style *cmp* function to a
    *key* function.
 
-   The built-in :func:`sorted` function is guaranteed to be stable. A sort is
+   The built-in :func:`!sorted` function is guaranteed to be stable. A sort is
    stable if it guarantees not to change the relative order of elements that
    compare equal --- this is helpful for sorting in multiple passes (for
    example, sort by department, then by salary grade).
@@ -1929,7 +1929,7 @@ are always available.  They are listed here in alphabetical order.
            str(object, *, errors)
    :noindex:
 
-   Return a :class:`str` version of *object*.  See :func:`str` for details.
+   Return a :class:`!str` version of *object*.  See :func:`str` for details.
 
    ``str`` is the built-in string :term:`class`.  For general information
    about strings, see :ref:`textseq`.
@@ -1941,7 +1941,7 @@ are always available.  They are listed here in alphabetical order.
    total.  The *iterable*'s items are normally numbers, and the start value is not
    allowed to be a string.
 
-   For some use cases, there are good alternatives to :func:`sum`.
+   For some use cases, there are good alternatives to :func:`!sum`.
    The preferred, fast way to concatenate a sequence of strings is by calling
    ``''.join(sequence)``.  To add floating-point values with extended precision,
    see :func:`math.fsum`\.  To concatenate a series of iterables, consider using
@@ -2036,7 +2036,7 @@ are always available.  They are listed here in alphabetical order.
    <https://rhettinger.wordpress.com/2011/05/26/super-considered-super/>`_.
 
    .. versionchanged:: 3.14
-     :class:`super` objects are now :mod:`pickleable <pickle>` and
+     :class:`!super` objects are now :mod:`pickleable <pickle>` and
       :mod:`copyable <copy>`.
 
 
@@ -2044,7 +2044,7 @@ are always available.  They are listed here in alphabetical order.
 .. class:: tuple(iterable=(), /)
    :noindex:
 
-   Rather than being a function, :class:`tuple` is actually an immutable
+   Rather than being a function, :class:`!tuple` is actually an immutable
    sequence type, as documented in :ref:`typesseq-tuple` and :ref:`typesseq`.
 
 
@@ -2102,7 +2102,7 @@ are always available.  They are listed here in alphabetical order.
    :attr:`!__dict__` attributes (for example, classes use a
    :class:`types.MappingProxyType` to prevent direct dictionary updates).
 
-   Without an argument, :func:`vars` acts like :func:`locals`.
+   Without an argument, :func:`!vars` acts like :func:`locals`.
 
    A :exc:`TypeError` exception is raised if an object is specified but
    it doesn't have a :attr:`~object.__dict__` attribute (for example, if
@@ -2128,32 +2128,32 @@ are always available.  They are listed here in alphabetical order.
       (2, 'spice')
       (3, 'everything nice')
 
-   More formally: :func:`zip` returns an iterator of tuples, where the *i*-th
+   More formally: :func:`!zip` returns an iterator of tuples, where the *i*-th
    tuple contains the *i*-th element from each of the argument iterables.
 
-   Another way to think of :func:`zip` is that it turns rows into columns, and
+   Another way to think of :func:`!zip` is that it turns rows into columns, and
    columns into rows.  This is similar to `transposing a matrix
    <https://en.wikipedia.org/wiki/Transpose>`_.
 
-   :func:`zip` is lazy: The elements won't be processed until the iterable is
+   :func:`!zip` is lazy: The elements won't be processed until the iterable is
    iterated on, e.g. by a :keyword:`!for` loop or by wrapping in a
    :class:`list`.
 
-   One thing to consider is that the iterables passed to :func:`zip` could have
+   One thing to consider is that the iterables passed to :func:`!zip` could have
    different lengths; sometimes by design, and sometimes because of a bug in
    the code that prepared these iterables.  Python offers three different
    approaches to dealing with this issue:
 
-   * By default, :func:`zip` stops when the shortest iterable is exhausted.
+   * By default, :func:`!zip` stops when the shortest iterable is exhausted.
      It will ignore the remaining items in the longer iterables, cutting off
      the result to the length of the shortest iterable::
 
         >>> list(zip(range(3), ['fee', 'fi', 'fo', 'fum']))
         [(0, 'fee'), (1, 'fi'), (2, 'fo')]
 
-   * :func:`zip` is often used in cases where the iterables are assumed to be
+   * :func:`!zip` is often used in cases where the iterables are assumed to be
      of equal length.  In such cases, it's recommended to use the ``strict=True``
-     option. Its output is the same as regular :func:`zip`::
+     option. Its output is the same as regular :func:`!zip`::
 
         >>> list(zip(('a', 'b', 'c'), (1, 2, 3), strict=True))
         [('a', 1), ('b', 2), ('c', 3)]
@@ -2184,7 +2184,7 @@ are always available.  They are listed here in alphabetical order.
      iterables have the same length.  This is done by
      :func:`itertools.zip_longest`.
 
-   Edge cases: With a single iterable argument, :func:`zip` returns an
+   Edge cases: With a single iterable argument, :func:`!zip` returns an
    iterator of 1-tuples.  With no arguments, it returns an empty iterator.
 
    Tips and tricks:
@@ -2195,7 +2195,7 @@ are always available.  They are listed here in alphabetical order.
      ``n`` times so that each output tuple has the result of ``n`` calls to the
      iterator. This has the effect of dividing the input into n-length chunks.
 
-   * :func:`zip` in conjunction with the ``*`` operator can be used to unzip a
+   * :func:`!zip` in conjunction with the ``*`` operator can be used to unzip a
      list::
 
         >>> x = [1, 2, 3]
@@ -2227,7 +2227,7 @@ are always available.  They are listed here in alphabetical order.
    :keyword:`!import` statement, but doing so is **strongly** discouraged as it
    is usually simpler to use import hooks (see :pep:`302`) to attain the same
    goals and does not cause issues with code which assumes the default import
-   implementation is in use.  Direct use of :func:`__import__` is also
+   implementation is in use.  Direct use of :func:`!__import__` is also
    discouraged in favor of :func:`importlib.import_module`.
 
    The function imports the module *name*, potentially using the given *globals*
@@ -2240,7 +2240,7 @@ are always available.  They are listed here in alphabetical order.
    *level* specifies whether to use absolute or relative imports. ``0`` (the
    default) means only perform absolute imports.  Positive values for
    *level* indicate the number of parent directories to search relative to the
-   directory of the module calling :func:`__import__` (see :pep:`328` for the
+   directory of the module calling :func:`!__import__` (see :pep:`328` for the
    details).
 
    When the *name* variable is of the form ``package.module``, normally, the
@@ -2257,7 +2257,7 @@ are always available.  They are listed here in alphabetical order.
 
       spam = __import__('spam.ham', globals(), locals(), [], 0)
 
-   Note how :func:`__import__` returns the toplevel module here because this is
+   Note how :func:`!__import__` returns the toplevel module here because this is
    the object that is bound to a name by the :keyword:`import` statement.
 
    On the other hand, the statement ``from spam.ham import eggs, sausage as
@@ -2267,7 +2267,7 @@ are always available.  They are listed here in alphabetical order.
       eggs = _temp.eggs
       saus = _temp.sausage
 
-   Here, the ``spam.ham`` module is returned from :func:`__import__`.  From this
+   Here, the ``spam.ham`` module is returned from :func:`!__import__`.  From this
    object, the names to import are retrieved and assigned to their respective
    names.
 

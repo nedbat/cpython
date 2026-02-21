@@ -152,7 +152,7 @@ PrettyPrinter Objects
 .. class:: PrettyPrinter(indent=1, width=80, depth=None, stream=None, *, \
                          compact=False, sort_dicts=True, underscore_numbers=False)
 
-   Construct a :class:`PrettyPrinter` instance.
+   Construct a :class:`!PrettyPrinter` instance.
 
    Arguments have the same meaning as for :func:`~pprint.pp`.
    Note that they are in a different order, and that *sort_dicts* defaults to ``True``.

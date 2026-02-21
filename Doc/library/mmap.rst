@@ -450,25 +450,25 @@ MAP_* Constants
           MAP_TRANSLATED_ALLOW_EXECUTE
           MAP_UNIX03
 
-    These are the various flags that can be passed to :meth:`mmap.mmap`.  :data:`MAP_ALIGNED_SUPER`
-    is only available at FreeBSD and :data:`MAP_CONCEAL` is only available at OpenBSD.  Note
+    These are the various flags that can be passed to :meth:`mmap.mmap`.  :data:`!MAP_ALIGNED_SUPER`
+    is only available at FreeBSD and :data:`!MAP_CONCEAL` is only available at OpenBSD.  Note
     that some options might not be present on some systems.
 
     .. versionchanged:: 3.10
-       Added :data:`MAP_POPULATE` constant.
+       Added :data:`!MAP_POPULATE` constant.
 
     .. versionadded:: 3.11
-       Added :data:`MAP_STACK` constant.
+       Added :data:`!MAP_STACK` constant.
 
     .. versionadded:: 3.12
-       Added :data:`MAP_ALIGNED_SUPER` and :data:`MAP_CONCEAL` constants.
+       Added :data:`!MAP_ALIGNED_SUPER` and :data:`!MAP_CONCEAL` constants.
 
     .. versionadded:: 3.13
-       Added :data:`MAP_32BIT`, :data:`MAP_HASSEMAPHORE`, :data:`MAP_JIT`,
-       :data:`MAP_NOCACHE`, :data:`MAP_NOEXTEND`, :data:`MAP_NORESERVE`,
-       :data:`MAP_RESILIENT_CODESIGN`, :data:`MAP_RESILIENT_MEDIA`,
-       :data:`MAP_TPRO`, :data:`MAP_TRANSLATED_ALLOW_EXECUTE`, and
-       :data:`MAP_UNIX03` constants.
+       Added :data:`!MAP_32BIT`, :data:`!MAP_HASSEMAPHORE`, :data:`!MAP_JIT`,
+       :data:`!MAP_NOCACHE`, :data:`!MAP_NOEXTEND`, :data:`!MAP_NORESERVE`,
+       :data:`!MAP_RESILIENT_CODESIGN`, :data:`!MAP_RESILIENT_MEDIA`,
+       :data:`!MAP_TPRO`, :data:`!MAP_TRANSLATED_ALLOW_EXECUTE`, and
+       :data:`!MAP_UNIX03` constants.
 
 .. _ms-constants:
 
@@ -481,11 +481,11 @@ MS_* Constants
 
     These flags control the synchronization behavior for :meth:`mmap.flush`:
 
-    * :data:`MS_SYNC` - Synchronous flush: writes are scheduled and the call
+    * :data:`!MS_SYNC` - Synchronous flush: writes are scheduled and the call
       blocks until they are physically written to storage.
-    * :data:`MS_ASYNC` - Asynchronous flush: writes are scheduled but the call
+    * :data:`!MS_ASYNC` - Asynchronous flush: writes are scheduled but the call
       returns immediately without waiting for completion.
-    * :data:`MS_INVALIDATE` - Invalidate cached data: invalidates other mappings
+    * :data:`!MS_INVALIDATE` - Invalidate cached data: invalidates other mappings
       of the same file so they can see the changes.
 
     .. versionadded:: 3.15

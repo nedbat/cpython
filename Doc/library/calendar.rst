@@ -28,15 +28,15 @@ interpreted as prescribed by the ISO 8601 standard.  Year 0 is 1 BC, year -1 is
 
 .. class:: Calendar(firstweekday=0)
 
-   Creates a :class:`Calendar` object. *firstweekday* is an integer specifying the
+   Creates a :class:`!Calendar` object. *firstweekday* is an integer specifying the
    first day of the week. :const:`MONDAY` is ``0`` (the default), :const:`SUNDAY` is ``6``.
 
-   A :class:`Calendar` object provides several methods that can be used for
+   A :class:`!Calendar` object provides several methods that can be used for
    preparing the calendar data for formatting. This class doesn't do any formatting
    itself. This is the job of subclasses.
 
 
-   :class:`Calendar` instances have the following methods and attributes:
+   :class:`!Calendar` instances have the following methods and attributes:
 
    .. attribute:: firstweekday
 
@@ -154,7 +154,7 @@ interpreted as prescribed by the ISO 8601 standard.  Year 0 is 1 BC, year -1 is
 
    This class can be used to generate plain text calendars.
 
-   :class:`TextCalendar` instances have the following methods:
+   :class:`!TextCalendar` instances have the following methods:
 
    .. method:: prweek(theweek, width)
 
@@ -446,7 +446,7 @@ For simple text calendars this module provides the following functions.
    An unrelated but handy function that takes a time tuple such as returned by
    the :func:`~time.gmtime` function in the :mod:`time` module, and returns the
    corresponding Unix timestamp value, assuming an epoch of 1970, and the POSIX
-   encoding.  In fact, :func:`time.gmtime` and :func:`timegm` are each others'
+   encoding.  In fact, :func:`time.gmtime` and :func:`!timegm` are each others'
    inverse.
 
 

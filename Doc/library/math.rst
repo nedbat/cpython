@@ -191,7 +191,7 @@ Floating point arithmetic
    for float arguments. For example, ``fmod(-1e-100, 1e100)`` is ``-1e-100``, but
    the result of Python's ``-1e-100 % 1e100`` is ``1e100-1e-100``, which cannot be
    represented exactly as a float, and rounds to the surprising ``1e100``.  For
-   this reason, function :func:`fmod` is generally preferred when working with
+   this reason, function :func:`!fmod` is generally preferred when working with
    floats, while Python's ``x % y`` is preferred when working with integers.
 
 
@@ -200,7 +200,7 @@ Floating point arithmetic
    Return the fractional and integer parts of *x*.  Both results carry the sign
    of *x* and are floats.
 
-   Note that :func:`modf` has a different call/return pattern
+   Note that :func:`!modf` has a different call/return pattern
    than its C equivalents: it takes a single argument and return a pair of
    values, rather than returning its second return value through an 'output
    parameter' (there is no such thing in Python).
@@ -260,7 +260,7 @@ Floating point manipulation functions
    returns ``(0.0, 0)``, otherwise ``0.5 <= abs(m) < 1``.  This is used to "pick
    apart" the internal representation of a float in a portable way.
 
-   Note that :func:`frexp` has a different call/return pattern
+   Note that :func:`!frexp` has a different call/return pattern
    than its C equivalents: it takes a single argument and return a pair of
    values, rather than returning its second return value through an 'output
    parameter' (there is no such thing in Python).
@@ -426,7 +426,7 @@ Power, exponential and logarithmic functions
    Return *e* raised to the power *x*, minus 1.  Here *e* is the base of natural
    logarithms.  For small floats *x*, the subtraction in ``exp(x) - 1``
    can result in a `significant loss of precision
-   <https://en.wikipedia.org/wiki/Loss_of_significance>`_\; the :func:`expm1`
+   <https://en.wikipedia.org/wiki/Loss_of_significance>`_\; the :func:`!expm1`
    function provides a way to compute this quantity to full precision:
 
       >>> from math import exp, expm1
@@ -482,7 +482,7 @@ Power, exponential and logarithmic functions
 
    Unlike the built-in ``**`` operator, :func:`math.pow` converts both
    its arguments to type :class:`float`.  Use ``**`` or the built-in
-   :func:`pow` function for computing exact integer powers.
+   :func:`!pow` function for computing exact integer powers.
 
    .. versionchanged:: 3.11
       The special cases ``pow(0.0, -inf)`` and ``pow(-0.0, -inf)`` were
@@ -613,7 +613,7 @@ Trigonometric functions
 
    Return ``atan(y / x)``, in radians. The result is between ``-pi`` and ``pi``.
    The vector in the plane from the origin to point ``(x, y)`` makes this angle
-   with the positive X axis. The point of :func:`atan2` is that the signs of both
+   with the positive X axis. The point of :func:`!atan2` is that the signs of both
    inputs are known to it, so it can compute the correct quadrant for the angle.
    For example, ``atan(1)`` and ``atan2(1, 1)`` are both ``pi/4``, but ``atan2(-1,
    -1)`` is ``-3*pi/4``.
@@ -679,7 +679,7 @@ Special functions
    Return the `error function <https://en.wikipedia.org/wiki/Error_function>`_ at
    *x*.
 
-   The :func:`erf` function can be used to compute traditional statistical
+   The :func:`!erf` function can be used to compute traditional statistical
    functions such as the `cumulative standard normal distribution
    <https://en.wikipedia.org/wiki/Cumulative_distribution_function>`_::
 

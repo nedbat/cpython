@@ -45,7 +45,7 @@ The :mod:`!runpy` module provides two functions:
    the module's globals dictionary before the code is executed.
    *init_globals* will not be modified. If any of the special global variables
    below are defined in *init_globals*, those definitions are
-   overridden by :func:`run_module`.
+   overridden by :func:`!run_module`.
 
    The special global variables ``__name__``, ``__spec__``, ``__file__``,
    ``__loader__`` and ``__package__`` are set in the globals dictionary before
@@ -123,7 +123,7 @@ The :mod:`!runpy` module provides two functions:
    the module's globals dictionary before the code is executed.
    *init_globals* will not be modified. If any of the special global variables
    below are defined in *init_globals*, those definitions are
-   overridden by :func:`run_path`.
+   overridden by :func:`!run_path`.
 
    The special global variables ``__name__``, ``__spec__``, ``__file__``,
    ``__loader__`` and ``__package__`` are set in the globals dictionary before

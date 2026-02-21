@@ -731,9 +731,9 @@ useful unless you intend to extend :mod:`!doctest` internals via subclassing:
 .. function:: register_optionflag(name)
 
    Create a new option flag with a given name, and return the new flag's integer
-   value.  :func:`register_optionflag` can be used when subclassing
+   value.  :func:`!register_optionflag` can be used when subclassing
    :class:`OutputChecker` or :class:`DocTestRunner` to create new options that are
-   supported by your subclasses.  :func:`register_optionflag` should always be
+   supported by your subclasses.  :func:`!register_optionflag` should always be
    called using the following idiom::
 
       MY_FLAG = register_optionflag('MY_FLAG')
@@ -995,7 +995,7 @@ and :ref:`doctest-simple-testfile`.
    no doctests are found are excluded from consideration. The default is a backward
    compatibility hack, so that code still using
    :meth:`doctest.master.summarize <DocTestRunner.summarize>` in
-   conjunction with :func:`testmod` continues to get output for objects with no
+   conjunction with :func:`!testmod` continues to get output for objects with no
    tests. The *exclude_empty* argument to the newer :class:`DocTestFinder`
    constructor defaults to true.
 
@@ -1116,7 +1116,7 @@ from text files and modules with doctests:
    convert the file to unicode.
 
    The global ``__file__`` is added to the globals provided to doctests loaded
-   from a text file using :func:`DocFileSuite`.
+   from a text file using :func:`!DocFileSuite`.
 
    .. versionchanged:: 3.15
       Run each example as a :ref:`subtest <subtests>`.
@@ -1156,7 +1156,7 @@ from text files and modules with doctests:
    This function uses the same search technique as :func:`testmod`.
 
    .. versionchanged:: 3.5
-      :func:`DocTestSuite` returns an empty :class:`unittest.TestSuite` if *module*
+      :func:`!DocTestSuite` returns an empty :class:`unittest.TestSuite` if *module*
       contains no docstrings instead of raising :exc:`ValueError`.
 
    .. versionchanged:: 3.15
@@ -1268,7 +1268,7 @@ DocTest Objects
    constructor arguments are used to initialize the attributes of the same names.
 
 
-   :class:`DocTest` defines the following attributes.  They are initialized by
+   :class:`!DocTest` defines the following attributes.  They are initialized by
    the constructor, and should not be modified directly.
 
 
@@ -1288,20 +1288,20 @@ DocTest Objects
 
    .. attribute:: name
 
-      A string name identifying the :class:`DocTest`.  Typically, this is the name
+      A string name identifying the :class:`!DocTest`.  Typically, this is the name
       of the object or file that the test was extracted from.
 
 
    .. attribute:: filename
 
-      The name of the file that this :class:`DocTest` was extracted from; or
+      The name of the file that this :class:`!DocTest` was extracted from; or
       ``None`` if the filename is unknown, or if the :class:`!DocTest` was not
       extracted from a file.
 
 
    .. attribute:: lineno
 
-      The line number within :attr:`filename` where this :class:`DocTest` begins, or
+      The line number within :attr:`filename` where this :class:`!DocTest` begins, or
       ``None`` if the line number is unavailable.  This line number is zero-based
       with respect to the beginning of the file.
 
@@ -1325,7 +1325,7 @@ Example Objects
    the same names.
 
 
-   :class:`Example` defines the following attributes.  They are initialized by
+   :class:`!Example` defines the following attributes.  They are initialized by
    the constructor, and should not be modified directly.
 
 
@@ -1401,7 +1401,7 @@ DocTestFinder objects
    :meth:`DocTestFinder.find` will include tests for objects with empty docstrings.
 
 
-   :class:`DocTestFinder` defines the following method:
+   :class:`!DocTestFinder` defines the following method:
 
 
    .. method:: find(obj[, name][, module][, globs][, extraglobs])
@@ -1453,7 +1453,7 @@ DocTestParser objects
    them to create a :class:`DocTest` object.
 
 
-   :class:`DocTestParser` defines the following methods:
+   :class:`!DocTestParser` defines the following methods:
 
 
    .. method:: get_doctest(string, globs, name, filename, lineno)
@@ -1531,7 +1531,7 @@ DocTestRunner objects
    object (or drop-in replacement) that should be used to compare the expected
    outputs to the actual outputs of doctest examples.
 
-   The optional keyword argument *verbose* controls the :class:`DocTestRunner`'s
+   The optional keyword argument *verbose* controls the :class:`!DocTestRunner`'s
    verbosity.  If *verbose* is ``True``, then information is printed about each
    example, as it is run.  If *verbose* is ``False``, then only failures are
    printed.  If *verbose* is unspecified, or ``None``, then verbose output is used
@@ -1546,13 +1546,13 @@ DocTestRunner objects
    :attr:`failures` and :attr:`skips` attributes. The :meth:`run` and
    :meth:`summarize` methods return a :class:`TestResults` instance.
 
-   :class:`DocTestRunner` defines the following methods:
+   :class:`!DocTestRunner` defines the following methods:
 
 
    .. method:: report_skip(out, test, example)
 
       Report that the given example was skipped.  This method is provided to
-      allow subclasses of :class:`DocTestRunner` to customize their output; it
+      allow subclasses of :class:`!DocTestRunner` to customize their output; it
       should not be called directly.
 
       *example* is the example about to be processed.  *test* is the test
@@ -1565,7 +1565,7 @@ DocTestRunner objects
    .. method:: report_start(out, test, example)
 
       Report that the test runner is about to process the given example. This method
-      is provided to allow subclasses of :class:`DocTestRunner` to customize their
+      is provided to allow subclasses of :class:`!DocTestRunner` to customize their
       output; it should not be called directly.
 
       *example* is the example about to be processed.  *test* is the test
@@ -1576,7 +1576,7 @@ DocTestRunner objects
    .. method:: report_success(out, test, example, got)
 
       Report that the given example ran successfully.  This method is provided to
-      allow subclasses of :class:`DocTestRunner` to customize their output; it
+      allow subclasses of :class:`!DocTestRunner` to customize their output; it
       should not be called directly.
 
       *example* is the example about to be processed.  *got* is the actual output
@@ -1587,7 +1587,7 @@ DocTestRunner objects
    .. method:: report_failure(out, test, example, got)
 
       Report that the given example failed.  This method is provided to allow
-      subclasses of :class:`DocTestRunner` to customize their output; it should not
+      subclasses of :class:`!DocTestRunner` to customize their output; it should not
       be called directly.
 
       *example* is the example about to be processed.  *got* is the actual output
@@ -1598,7 +1598,7 @@ DocTestRunner objects
    .. method:: report_unexpected_exception(out, test, example, exc_info)
 
       Report that the given example raised an unexpected exception. This method is
-      provided to allow subclasses of :class:`DocTestRunner` to customize their
+      provided to allow subclasses of :class:`!DocTestRunner` to customize their
       output; it should not be called directly.
 
       *example* is the example about to be processed. *exc_info* is a tuple
@@ -1622,7 +1622,7 @@ DocTestRunner objects
       compiler when running the examples.  If not specified, then it will default to
       the set of future-import flags that apply to *globs*.
 
-      The output of each example is checked using the :class:`DocTestRunner`'s
+      The output of each example is checked using the :class:`!DocTestRunner`'s
       output checker, and the results are formatted by the
       :meth:`!DocTestRunner.report_\*` methods.
 
@@ -1633,7 +1633,7 @@ DocTestRunner objects
       and return a :class:`TestResults` instance.
 
       The optional *verbose* argument controls how detailed the summary is.  If the
-      verbosity is not specified, then the :class:`DocTestRunner`'s verbosity is
+      verbosity is not specified, then the :class:`!DocTestRunner`'s verbosity is
       used.
 
    :class:`DocTestParser` has the following attributes:
@@ -1662,13 +1662,13 @@ OutputChecker objects
 .. class:: OutputChecker()
 
    A class used to check the whether the actual output from a doctest example
-   matches the expected output.  :class:`OutputChecker` defines two methods:
+   matches the expected output.  :class:`!OutputChecker` defines two methods:
    :meth:`check_output`, which compares a given pair of outputs, and returns ``True``
    if they match; and :meth:`output_difference`, which returns a string describing
    the differences between two outputs.
 
 
-   :class:`OutputChecker` defines the following methods:
+   :class:`!OutputChecker` defines the following methods:
 
    .. method:: check_output(want, got, optionflags)
 

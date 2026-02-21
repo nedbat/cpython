@@ -94,12 +94,12 @@ Reading and writing compressed files
 
    Open a Zstandard-compressed file in binary mode.
 
-   A :class:`ZstdFile` can wrap an already-open :term:`file object`, or operate
+   A :class:`!ZstdFile` can wrap an already-open :term:`file object`, or operate
    directly on a named file. The *file* argument specifies either the file
    object to wrap, or the name of the file to open (as a :class:`str`,
    :class:`bytes` or :term:`path-like <path-like object>` object). If
    wrapping an existing file object, the wrapped file will not be closed when
-   the :class:`ZstdFile` is closed.
+   the :class:`!ZstdFile` is closed.
 
    The *mode* argument can be either ``'rb'`` for reading (default), ``'wb'``
    for overwriting, ``'xb'`` for exclusive creation, or ``'ab'`` for appending.
@@ -138,8 +138,8 @@ Reading and writing compressed files
       number of bytes returned is unspecified (the *size* argument is ignored).
 
       .. note:: While calling :meth:`peek` does not change the file position of
-         the :class:`ZstdFile`, it may change the position of the underlying
-         file object (for example, if the :class:`ZstdFile` was constructed by
+         the :class:`!ZstdFile`, it may change the position of the underlying
+         file object (for example, if the :class:`!ZstdFile` was constructed by
          passing a file object for *file*).
 
    .. attribute:: mode
@@ -231,7 +231,7 @@ Compressing and decompressing data in memory
       data should be concatenated with the output of any previous calls to
       :meth:`~.compress`.
 
-      The *mode* argument is a :class:`ZstdCompressor` attribute, either
+      The *mode* argument is a :class:`!ZstdCompressor` attribute, either
       :attr:`~.CONTINUE`, :attr:`~.FLUSH_BLOCK`,
       or :attr:`~.FLUSH_FRAME`.
 
@@ -246,7 +246,7 @@ Compressing and decompressing data in memory
       Finish the compression process, returning a :class:`bytes` object
       containing any data stored in the compressor's internal buffers.
 
-      The *mode* argument is a :class:`ZstdCompressor` attribute, either
+      The *mode* argument is a :class:`!ZstdCompressor` attribute, either
       :attr:`~.FLUSH_BLOCK`, or :attr:`~.FLUSH_FRAME`.
 
    .. method:: set_pledged_input_size(size)

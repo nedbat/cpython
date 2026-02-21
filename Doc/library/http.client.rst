@@ -36,7 +36,7 @@ The module provides the following classes:
 .. class:: HTTPConnection(host, port=None[, timeout], source_address=None, \
                           blocksize=8192, max_response_headers=None)
 
-   An :class:`HTTPConnection` instance represents one transaction with an HTTP
+   An :class:`!HTTPConnection` instance represents one transaction with an HTTP
    server.  It should be instantiated by passing it a host and optional port
    number.  If no port number is passed, the port is extracted from the host
    string if it has the form ``host:port``, else the default HTTP port (80) is
@@ -382,7 +382,7 @@ HTTPConnection Objects
    For example, to tunnel through a HTTPS proxy server running locally on port
    8080, we would pass the address of the proxy to the :class:`HTTPSConnection`
    constructor, and the address of the host that we eventually want to reach to
-   the :meth:`~HTTPConnection.set_tunnel` method::
+   the :meth:`!HTTPConnection.set_tunnel` method::
 
       >>> import http.client
       >>> conn = http.client.HTTPSConnection("localhost", 8080)

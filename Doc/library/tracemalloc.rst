@@ -340,7 +340,7 @@ Functions
 
    This function only modifies the recorded peak size, and does not modify or
    clear any traces, unlike :func:`clear_traces`. Snapshots taken with
-   :func:`take_snapshot` before a call to :func:`reset_peak` can be
+   :func:`take_snapshot` before a call to :func:`!reset_peak` can be
    meaningfully compared to snapshots taken after the call.
 
    See also :func:`get_traced_memory`.
@@ -511,7 +511,7 @@ Frame
 
    Frame of a traceback.
 
-   The :class:`Traceback` class is a sequence of :class:`Frame` instances.
+   The :class:`Traceback` class is a sequence of :class:`!Frame` instances.
 
    .. attribute:: filename
 
@@ -554,10 +554,10 @@ Snapshot
 
    .. method:: filter_traces(filters)
 
-      Create a new :class:`Snapshot` instance with a filtered :attr:`traces`
+      Create a new :class:`!Snapshot` instance with a filtered :attr:`traces`
       sequence, *filters* is a list of :class:`DomainFilter` and
       :class:`Filter` instances.  If *filters* is an empty list, return a new
-      :class:`Snapshot` instance with a copy of the traces.
+      :class:`!Snapshot` instance with a copy of the traces.
 
       All inclusive filters are applied at once, a trace is ignored if no
       inclusive filters match it. A trace is ignored if at least one exclusive
@@ -618,7 +618,7 @@ Statistic
 
    Statistic on memory allocations.
 
-   :func:`Snapshot.statistics` returns a list of :class:`Statistic` instances.
+   :func:`Snapshot.statistics` returns a list of :class:`!Statistic` instances.
 
    See also the :class:`StatisticDiff` class.
 
@@ -644,7 +644,7 @@ StatisticDiff
    Statistic difference on memory allocations between an old and a new
    :class:`Snapshot` instance.
 
-   :func:`Snapshot.compare_to` returns a list of :class:`StatisticDiff`
+   :func:`Snapshot.compare_to` returns a list of :class:`!StatisticDiff`
    instances. See also the :class:`Statistic` class.
 
    .. attribute:: count
@@ -682,7 +682,7 @@ Trace
 
    Trace of a memory block.
 
-   The :attr:`Snapshot.traces` attribute is a sequence of :class:`Trace`
+   The :attr:`Snapshot.traces` attribute is a sequence of :class:`!Trace`
    instances.
 
    .. versionchanged:: 3.6
@@ -723,7 +723,7 @@ Traceback
    :attr:`Traceback.total_nframe` attribute. That allows one to know if a traceback
    has been truncated by the traceback limit.
 
-   The :attr:`Trace.traceback` attribute is a :class:`Traceback` instance.
+   The :attr:`Trace.traceback` attribute is a :class:`!Traceback` instance.
 
    .. versionchanged:: 3.7
       Frames are now sorted from the oldest to the most recent, instead of most recent to oldest.

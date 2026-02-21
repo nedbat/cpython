@@ -231,10 +231,10 @@ process and user.
 
    Bytes version of :data:`environ`: a :term:`mapping` object where both keys
    and values are :class:`bytes` objects representing the process environment.
-   :data:`environ` and :data:`environb` are synchronized (modifying
-   :data:`environb` updates :data:`environ`, and vice versa).
+   :data:`environ` and :data:`!environb` are synchronized (modifying
+   :data:`!environb` updates :data:`environ`, and vice versa).
 
-   :data:`environb` is only available if :const:`supports_bytes_environ` is
+   :data:`!environb` is only available if :const:`supports_bytes_environ` is
    ``True``.
 
    .. versionadded:: 3.2
@@ -331,7 +331,7 @@ process and user.
 
    Return the value of the environment variable *key* as a string if it exists, or
    *default* if it doesn't. *key* is a string. Note that
-   since :func:`getenv` uses :data:`os.environ`, the mapping of :func:`getenv` is
+   since :func:`!getenv` uses :data:`os.environ`, the mapping of :func:`!getenv` is
    similarly also captured on import, and the function may not reflect
    future environment changes.
 
@@ -346,12 +346,12 @@ process and user.
 
    Return the value of the environment variable *key* as bytes if it exists, or
    *default* if it doesn't. *key* must be bytes. Note that
-   since :func:`getenvb` uses :data:`os.environb`, the mapping of :func:`getenvb` is
+   since :func:`!getenvb` uses :data:`os.environb`, the mapping of :func:`!getenvb` is
    similarly also captured on import, and the function may not reflect
    future environment changes.
 
 
-   :func:`getenvb` is only available if :const:`supports_bytes_environ`
+   :func:`!getenvb` is only available if :const:`supports_bytes_environ`
    is ``True``.
 
    .. availability:: Unix.
@@ -419,14 +419,14 @@ process and user.
 
    .. note::
 
-      On macOS, :func:`getgroups` behavior differs somewhat from
+      On macOS, :func:`!getgroups` behavior differs somewhat from
       other Unix platforms. If the Python interpreter was built with a
-      deployment target of ``10.5`` or earlier, :func:`getgroups` returns
+      deployment target of ``10.5`` or earlier, :func:`!getgroups` returns
       the list of effective group ids associated with the current user process;
       this list is limited to a system-defined number of entries, typically 16,
       and may be modified by calls to :func:`setgroups` if suitably privileged.
       If built with a deployment target greater than ``10.5``,
-      :func:`getgroups` returns the current group access list for the user
+      :func:`!getgroups` returns the current group access list for the user
       associated with the effective user id of the process; the group access
       list may change over the lifetime of the process, it is not affected by
       calls to :func:`setgroups`, and its length is not limited to 16.  The
@@ -576,7 +576,7 @@ process and user.
    :func:`popen` or :func:`fork` and :func:`execv`.
 
    Assignments to items in :data:`os.environ` are automatically translated into
-   corresponding calls to :func:`putenv`; however, calls to :func:`putenv`
+   corresponding calls to :func:`!putenv`; however, calls to :func:`!putenv`
    don't update :data:`os.environ`, so it is actually preferable to assign to items
    of :data:`os.environ`. This also applies to :func:`getenv` and :func:`getenvb`, which
    respectively use :data:`os.environ` and :data:`os.environb` in their implementations.
@@ -827,7 +827,7 @@ process and user.
    :func:`fork` and :func:`execv`.
 
    Deletion of items in :data:`os.environ` is automatically translated into a
-   corresponding call to :func:`unsetenv`; however, calls to :func:`unsetenv`
+   corresponding call to :func:`!unsetenv`; however, calls to :func:`!unsetenv`
    don't update :data:`os.environ`, so it is actually preferable to delete items of
    :data:`os.environ`.
 
@@ -895,7 +895,7 @@ These functions create new :term:`file objects <file object>`.  (See also
 
    Return an open file object connected to the file descriptor *fd*.  This is an
    alias of the :func:`open` built-in function and accepts the same arguments.
-   The only difference is that the first argument of :func:`fdopen` must always
+   The only difference is that the first argument of :func:`!fdopen` must always
    be an integer.
 
 
@@ -1158,7 +1158,7 @@ as internal buffering of data.
    master pseudo-terminal device to which the file descriptor *fd* refers.
    The file descriptor *fd* is not closed upon failure.
 
-   Calls the C standard library function :c:func:`grantpt`.
+   Calls the C standard library function :c:func:`!grantpt`.
 
    .. availability:: Unix, not WASI.
 
@@ -1293,7 +1293,7 @@ as internal buffering of data.
    .. note::
 
       This function is intended for low-level I/O.  For normal usage, use the
-      built-in function :func:`open`, which returns a :term:`file object` with
+      built-in function :func:`!open`, which returns a :term:`file object` with
       :meth:`~file.read` and :meth:`~file.write` methods (and many more).  To
       wrap a file descriptor in a file object, use :func:`fdopen`.
 
@@ -1337,7 +1337,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
    The above constants are only available on Unix.
 
    .. versionchanged:: 3.3
-      Add :data:`O_CLOEXEC` constant.
+      Add :data:`!O_CLOEXEC` constant.
 
 .. data:: O_BINARY
           O_NOINHERIT
@@ -1357,8 +1357,8 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
    The above constants are only available on macOS.
 
    .. versionchanged:: 3.10
-      Add :data:`O_EVTONLY`, :data:`O_FSYNC`, :data:`O_SYMLINK`
-      and :data:`O_NOFOLLOW_ANY` constants.
+      Add :data:`!O_EVTONLY`, :data:`!O_FSYNC`, :data:`!O_SYMLINK`
+      and :data:`!O_NOFOLLOW_ANY` constants.
 
 .. data:: O_ASYNC
           O_DIRECT
@@ -1374,8 +1374,8 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
    the C library.
 
    .. versionchanged:: 3.4
-      Add :data:`O_PATH` on systems that support it.
-      Add :data:`O_TMPFILE`, only available on Linux Kernel 3.11
+      Add :data:`!O_PATH` on systems that support it.
+      Add :data:`!O_TMPFILE`, only available on Linux Kernel 3.11
         or newer.
 
 
@@ -1476,9 +1476,9 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
    Open and return a file descriptor for a master pseudo-terminal device.
 
-   Calls the C standard library function :c:func:`posix_openpt`. The *oflag*
+   Calls the C standard library function :c:func:`!posix_openpt`. The *oflag*
    argument is used to set file status flags and file access modes as
-   specified in the manual page of :c:func:`posix_openpt` of your system.
+   specified in the manual page of :c:func:`!posix_openpt` of your system.
 
    The returned file descriptor is :ref:`non-inheritable <fd_inheritance>`.
    If the value :data:`O_CLOEXEC` is available on the system, it is added to
@@ -1573,7 +1573,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
    Calls the reentrant C standard library function :c:func:`ptsname_r` if
    it is available; otherwise, the C standard library function
-   :c:func:`ptsname`, which is not guaranteed to be thread-safe, is called.
+   :c:func:`!ptsname`, which is not guaranteed to be thread-safe, is called.
 
    .. availability:: Unix, not WASI.
 
@@ -1713,7 +1713,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
    Return the number of bytes sent. When EOF is reached return ``0``.
 
    The first function notation is supported by all platforms that define
-   :func:`sendfile`.
+   :func:`!sendfile`.
 
    On Linux, if *offset* is given as ``None``, the bytes are read from the
    current position of *in_fd* and the position of *in_fd* is updated.
@@ -1735,7 +1735,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
 
    .. note::
 
-      For a higher-level wrapper of :func:`sendfile`, see
+      For a higher-level wrapper of :func:`!sendfile`, see
       :meth:`socket.socket.sendfile`.
 
    .. versionadded:: 3.3
@@ -1886,7 +1886,7 @@ or `the MSDN <https://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ on Windo
    pseudo-terminal device to which the file descriptor *fd* refers.
    The file descriptor *fd* is not closed upon failure.
 
-   Calls the C standard library function :c:func:`unlockpt`.
+   Calls the C standard library function :c:func:`!unlockpt`.
 
    .. availability:: Unix, not WASI.
 
@@ -2080,7 +2080,7 @@ features:
    This function can support specifying :ref:`paths relative to directory
    descriptors <dir_fd>` and :ref:`not following symlinks <follow_symlinks>`.
 
-   If *effective_ids* is ``True``, :func:`access` will perform its access
+   If *effective_ids* is ``True``, :func:`!access` will perform its access
    checks using the effective uid/gid instead of the real uid/gid.
    *effective_ids* may not be supported on your platform; you can check whether
    or not it is available using :data:`os.supports_effective_ids`.  If it is
@@ -2088,7 +2088,7 @@ features:
 
    .. note::
 
-      Using :func:`access` to check if a user is authorized to e.g. open a file
+      Using :func:`!access` to check if a user is authorized to e.g. open a file
       before actually doing so using :func:`open` creates a security hole,
       because the user might exploit the short time interval between checking
       and opening the file to manipulate it. It's preferable to use :term:`EAFP`
@@ -2111,7 +2111,7 @@ features:
 
    .. note::
 
-      I/O operations may fail even when :func:`access` indicates that they would
+      I/O operations may fail even when :func:`!access` indicates that they would
       succeed, particularly for operations on network filesystems which may have
       permissions semantics beyond the usual POSIX permission-bit model.
 
@@ -2217,7 +2217,7 @@ features:
 
    .. note::
 
-      Although Windows supports :func:`chmod`, you can only set the file's
+      Although Windows supports :func:`!chmod`, you can only set the file's
       read-only flag with it (via the ``stat.S_IWRITE`` and ``stat.S_IREAD``
       constants or a corresponding integer value).  All other bits are ignored.
       The default value of *follow_symlinks* is ``False`` on Windows.
@@ -2557,7 +2557,7 @@ features:
    The *mode* parameter is passed to :func:`mkdir` for creating the leaf
    directory; see :ref:`the mkdir() description <mkdir_modebits>` for how it
    is interpreted.  To set the file permission bits of any newly created parent
-   directories you can set the umask before invoking :func:`makedirs`.  The
+   directories you can set the umask before invoking :func:`!makedirs`.  The
    file permission bits of existing parent directories are not changed.
 
    If *exist_ok* is ``False`` (the default), a :exc:`FileExistsError` is
@@ -2565,7 +2565,7 @@ features:
 
    .. note::
 
-      :func:`makedirs` will become confused if the path elements to create
+      :func:`!makedirs` will become confused if the path elements to create
       include :data:`pardir` (eg. ".." on UNIX systems).
 
    This function handles UNC paths correctly.
@@ -2578,7 +2578,7 @@ features:
    .. versionchanged:: 3.4.1
 
       Before Python 3.4.1, if *exist_ok* was ``True`` and the directory existed,
-      :func:`makedirs` would still raise an error if *mode* did not match the
+      :func:`!makedirs` would still raise an error if *mode* did not match the
       mode of the existing directory. Since this behavior was impossible to
       implement safely, it was removed in Python 3.4.1. See :issue:`21082`.
 
@@ -2601,7 +2601,7 @@ features:
    FIFOs are pipes that can be accessed like regular files.  FIFOs exist until they
    are deleted (for example with :func:`os.unlink`). Generally, FIFOs are used as
    rendezvous between "client" and "server" type processes: the server opens the
-   FIFO for reading, and the client opens it for writing.  Note that :func:`mkfifo`
+   FIFO for reading, and the client opens it for writing.  Note that :func:`!mkfifo`
    doesn't open the FIFO --- it just creates the rendezvous point.
 
    .. availability:: Unix, not WASI.
@@ -2758,7 +2758,7 @@ features:
    .. index:: single: directory; deleting
 
    Remove directories recursively.  Works like :func:`rmdir` except that, if the
-   leaf directory is successfully removed, :func:`removedirs`  tries to
+   leaf directory is successfully removed, :func:`!removedirs`  tries to
    successively remove every parent directory mentioned in  *path* until an error
    is raised (which is ignored, because it generally means that a parent directory
    is not empty). For example, ``os.removedirs('foo/bar/baz')`` will first remove
@@ -2869,7 +2869,7 @@ features:
    creating the iterator, whether an entry for that file be included is
    unspecified.
 
-   Using :func:`scandir` instead of :func:`listdir` can significantly
+   Using :func:`!scandir` instead of :func:`listdir` can significantly
    increase the performance of code that also needs file type or file
    attribute information, because :class:`os.DirEntry` objects expose this
    information if the operating system provides it when scanning a directory.
@@ -2890,7 +2890,7 @@ features:
 
    .. audit-event:: os.scandir path os.scandir
 
-   The :func:`scandir` iterator supports the :term:`context manager` protocol
+   The :func:`!scandir` iterator supports the :term:`context manager` protocol
    and has the following method:
 
    .. method:: scandir.close()
@@ -2904,7 +2904,7 @@ features:
 
       .. versionadded:: 3.6
 
-   The following example shows a simple use of :func:`scandir` to display all
+   The following example shows a simple use of :func:`!scandir` to display all
    the files (excluding directories) in the given *path* that don't start with
    ``'.'``. The ``entry.is_file()`` call will generally not make an additional
    system call::
@@ -2916,7 +2916,7 @@ features:
 
    .. note::
 
-      On Unix-based systems, :func:`scandir` uses the system's
+      On Unix-based systems, :func:`!scandir` uses the system's
       `opendir() <https://pubs.opengroup.org/onlinepubs/009695399/functions/opendir.html>`_
       and
       `readdir() <https://pubs.opengroup.org/onlinepubs/009695399/functions/readdir_r.html>`_
@@ -2930,7 +2930,7 @@ features:
 
    .. versionchanged:: 3.6
       Added support for the :term:`context manager` protocol and the
-      :func:`~scandir.close` method.  If a :func:`scandir` iterator is neither
+      :func:`~scandir.close` method.  If a :func:`!scandir` iterator is neither
       exhausted nor explicitly closed a :exc:`ResourceWarning` will be emitted
       in its destructor.
 
@@ -3103,7 +3103,7 @@ features:
 .. function:: stat(path, *, dir_fd=None, follow_symlinks=True)
 
    Get the status of a file or a file descriptor. Perform the equivalent of a
-   :c:func:`stat` system call on the given path. *path* may be specified as
+   :c:func:`!stat` system call on the given path. *path* may be specified as
    either a string or bytes -- directly or indirectly through the :class:`PathLike`
    interface -- or as an open file descriptor. Return a :class:`stat_result`
    object.
@@ -3354,14 +3354,14 @@ features:
    useful for extracting information from a :c:struct:`stat` structure. (On
    Windows, some items are filled with dummy values.)
 
-   For backward compatibility, a :class:`stat_result` instance is also
+   For backward compatibility, a :class:`!stat_result` instance is also
    accessible as a tuple of at least 10 integers giving the most important (and
    portable) members of the :c:struct:`stat` structure, in the order
    :attr:`st_mode`, :attr:`st_ino`, :attr:`st_dev`, :attr:`st_nlink`,
    :attr:`st_uid`, :attr:`st_gid`, :attr:`st_size`, :attr:`st_atime`,
    :attr:`st_mtime`, :attr:`st_ctime`. More items may be added at the end by
    some implementations. For compatibility with older Python versions,
-   accessing :class:`stat_result` as a tuple always returns integers.
+   accessing :class:`!stat_result` as a tuple always returns integers.
 
    .. versionchanged:: 3.5
       Windows now returns the file index as :attr:`st_ino` when
@@ -3977,7 +3977,7 @@ features:
 
    Set the access and modified times of the file specified by *path*.
 
-   :func:`utime` takes two optional parameters, *times* and *ns*.
+   :func:`!utime` takes two optional parameters, *times* and *ns*.
    These specify the times set on *path* and are used as follows:
 
    - If *ns* is specified,
@@ -3998,7 +3998,7 @@ features:
    system records access and modification times; see :func:`~os.stat`. The best
    way to preserve exact times is to use the *st_atime_ns* and *st_mtime_ns*
    fields from the :func:`os.stat` result object with the *ns* parameter to
-   :func:`utime`.
+   :func:`!utime`.
 
    This function can support :ref:`specifying a file descriptor <path_fd>`,
    :ref:`paths relative to directory descriptors <dir_fd>` and :ref:`not
@@ -4048,11 +4048,11 @@ features:
    its subdirectories are generated.
 
    When *topdown* is ``True``, the caller can modify the *dirnames* list in-place
-   (perhaps using :keyword:`del` or slice assignment), and :func:`walk` will only
+   (perhaps using :keyword:`del` or slice assignment), and :func:`!walk` will only
    recurse into the subdirectories whose names remain in *dirnames*; this can be
    used to prune the search, impose a specific order of visiting, or even to inform
-   :func:`walk` about directories the caller creates or renames before it resumes
-   :func:`walk` again.  Modifying *dirnames* when *topdown* is ``False`` has
+   :func:`!walk` about directories the caller creates or renames before it resumes
+   :func:`!walk` again.  Modifying *dirnames* when *topdown* is ``False`` has
    no effect on the behavior of the walk, because in bottom-up mode the directories
    in *dirnames* are generated before *dirpath* itself is generated.
 
@@ -4062,20 +4062,20 @@ features:
    with the walk, or raise the exception to abort the walk.  Note that the filename
    is available as the ``filename`` attribute of the exception object.
 
-   By default, :func:`walk` will not walk down into symbolic links that resolve to
+   By default, :func:`!walk` will not walk down into symbolic links that resolve to
    directories. Set *followlinks* to ``True`` to visit directories pointed to by
    symlinks, on systems that support them.
 
    .. note::
 
       Be aware that setting *followlinks* to ``True`` can lead to infinite
-      recursion if a link points to a parent directory of itself. :func:`walk`
+      recursion if a link points to a parent directory of itself. :func:`!walk`
       does not keep track of the directories it visited already.
 
    .. note::
 
       If you pass a relative pathname, don't change the current working directory
-      between resumptions of :func:`walk`.  :func:`walk` never changes the current
+      between resumptions of :func:`!walk`.  :func:`!walk` never changes the current
       directory, and assumes that its caller doesn't either.
 
    This example displays the number of bytes taken by non-directory files in each
@@ -4131,12 +4131,12 @@ features:
 
    This function always supports :ref:`paths relative to directory descriptors
    <dir_fd>` and :ref:`not following symlinks <follow_symlinks>`.  Note however
-   that, unlike other functions, the :func:`fwalk` default value for
+   that, unlike other functions, the :func:`!fwalk` default value for
    *follow_symlinks* is ``False``.
 
    .. note::
 
-      Since :func:`fwalk` yields file descriptors, those are only valid until
+      Since :func:`!fwalk` yields file descriptors, those are only valid until
       the next iteration step, so you should duplicate them (e.g. with
       :func:`dup`) if you want to keep them longer.
 
@@ -4337,7 +4337,7 @@ Naturally, they are all only available on Linux.
 
    Create and return a timer file descriptor (*timerfd*).
 
-   The file descriptor returned by :func:`timerfd_create` supports:
+   The file descriptor returned by :func:`!timerfd_create` supports:
 
    - :func:`read`
    - :func:`~select.select`
@@ -4563,7 +4563,7 @@ These functions are all available on Linux only.
 
    Return a list of the extended filesystem attributes on *path*.  The
    attributes in the list are represented as strings decoded with the filesystem
-   encoding.  If *path* is ``None``, :func:`listxattr` will examine the current
+   encoding.  If *path* is ``None``, :func:`!listxattr` will examine the current
    directory.
 
    This function can support :ref:`specifying a file descriptor <path_fd>` and
@@ -4709,9 +4709,9 @@ to be ignored.
    descriptors are not flushed, so if there may be data buffered
    on these open files, you should flush them using
    :func:`sys.stdout.flush` or :func:`os.fsync` before calling an
-   :func:`exec\* <execl>` function.
+   :func:`!exec\*` function.
 
-   The "l" and "v" variants of the :func:`exec\* <execl>` functions differ in how
+   The "l" and "v" variants of the :func:`!exec\*` functions differ in how
    command-line arguments are passed.  The "l" variants are perhaps the easiest
    to work with if the number of parameters is fixed when the code is written; the
    individual parameters simply become additional parameters to the :func:`!execl\*`
@@ -4720,25 +4720,25 @@ to be ignored.
    parameter.  In either case, the arguments to the child process should start with
    the name of the command being run, but this is not enforced.
 
-   The variants which include a "p" near the end (:func:`execlp`,
-   :func:`execlpe`, :func:`execvp`, and :func:`execvpe`) will use the
+   The variants which include a "p" near the end (:func:`!execlp`,
+   :func:`!execlpe`, :func:`!execvp`, and :func:`!execvpe`) will use the
    :envvar:`PATH` environment variable to locate the program *file*.  When the
-   environment is being replaced (using one of the :func:`exec\*e <execl>` variants,
+   environment is being replaced (using one of the :func:`!exec\*e` variants,
    discussed in the next paragraph), the new environment is used as the source of
-   the :envvar:`PATH` variable. The other variants, :func:`execl`, :func:`execle`,
-   :func:`execv`, and :func:`execve`, will not use the :envvar:`PATH` variable to
+   the :envvar:`PATH` variable. The other variants, :func:`!execl`, :func:`!execle`,
+   :func:`!execv`, and :func:`!execve`, will not use the :envvar:`PATH` variable to
    locate the executable; *path* must contain an appropriate absolute or relative
    path. Relative paths must include at least one slash, even on Windows, as
    plain names will not be resolved.
 
-   For :func:`execle`, :func:`execlpe`, :func:`execve`, and :func:`execvpe` (note
+   For :func:`!execle`, :func:`!execlpe`, :func:`!execve`, and :func:`!execvpe` (note
    that these all end in "e"), the *env* parameter must be a mapping which is
    used to define the environment variables for the new process (these are used
-   instead of the current process' environment); the functions :func:`execl`,
-   :func:`execlp`, :func:`execv`, and :func:`execvp` all cause the new process to
+   instead of the current process' environment); the functions :func:`!execl`,
+   :func:`!execlp`, :func:`!execv`, and :func:`!execvp` all cause the new process to
    inherit the environment of the current process.
 
-   For :func:`execve` on some platforms, *path* may also be specified as an open
+   For :func:`!execve` on some platforms, *path* may also be specified as an open
    file descriptor.  This functionality may not be supported on your platform;
    you can check whether or not it is available using :data:`os.supports_fd`.
    If it is unavailable, using it will raise a :exc:`NotImplementedError`.
@@ -4749,7 +4749,7 @@ to be ignored.
 
    .. versionchanged:: 3.3
       Added support for specifying *path* as an open file descriptor
-      for :func:`execve`.
+      for :func:`!execve`.
 
    .. versionchanged:: 3.6
       Accepts a :term:`path-like object`.
@@ -5094,7 +5094,7 @@ written in Python, such as a mail server's external command delivery program.
       The :ref:`Python UTF-8 Mode <utf8-mode>` affects encodings used
       for *cmd* and pipe contents.
 
-      :func:`popen` is a simple wrapper around :class:`subprocess.Popen`.
+      :func:`!popen` is a simple wrapper around :class:`subprocess.Popen`.
       Use :class:`subprocess.Popen` or :func:`subprocess.run` to
       control options like encodings.
 
@@ -5109,7 +5109,7 @@ written in Python, such as a mail server's external command delivery program.
 
    Wraps the :c:func:`!posix_spawn` C library API for use from Python.
 
-   Most users should use :func:`subprocess.run` instead of :func:`posix_spawn`.
+   Most users should use :func:`subprocess.run` instead of :func:`!posix_spawn`.
 
    The positional-only arguments *path*, *args*, and *env* are similar to
    :func:`execve`. *env* is allowed to be ``None``, in which case current
@@ -5279,7 +5279,7 @@ written in Python, such as a mail server's external command delivery program.
    Note on VxWorks, this function doesn't return ``-signal`` when the new process is
    killed. Instead it raises OSError exception.
 
-   The "l" and "v" variants of the :func:`spawn\* <spawnl>` functions differ in how
+   The "l" and "v" variants of the :func:`!spawn\*` functions differ in how
    command-line arguments are passed.  The "l" variants are perhaps the easiest
    to work with if the number of parameters is fixed when the code is written; the
    individual parameters simply become additional parameters to the
@@ -5288,26 +5288,26 @@ written in Python, such as a mail server's external command delivery program.
    the *args* parameter.  In either case, the arguments to the child process must
    start with the name of the command being run.
 
-   The variants which include a second "p" near the end (:func:`spawnlp`,
-   :func:`spawnlpe`, :func:`spawnvp`, and :func:`spawnvpe`) will use the
+   The variants which include a second "p" near the end (:func:`!spawnlp`,
+   :func:`!spawnlpe`, :func:`!spawnvp`, and :func:`!spawnvpe`) will use the
    :envvar:`PATH` environment variable to locate the program *file*.  When the
-   environment is being replaced (using one of the :func:`spawn\*e <spawnl>` variants,
+   environment is being replaced (using one of the :func:`!spawn\*e` variants,
    discussed in the next paragraph), the new environment is used as the source of
-   the :envvar:`PATH` variable.  The other variants, :func:`spawnl`,
-   :func:`spawnle`, :func:`spawnv`, and :func:`spawnve`, will not use the
+   the :envvar:`PATH` variable.  The other variants, :func:`!spawnl`,
+   :func:`!spawnle`, :func:`!spawnv`, and :func:`!spawnve`, will not use the
    :envvar:`PATH` variable to locate the executable; *path* must contain an
    appropriate absolute or relative path.
 
-   For :func:`spawnle`, :func:`spawnlpe`, :func:`spawnve`, and :func:`spawnvpe`
+   For :func:`!spawnle`, :func:`!spawnlpe`, :func:`!spawnve`, and :func:`!spawnvpe`
    (note that these all end in "e"), the *env* parameter must be a mapping
    which is used to define the environment variables for the new process (they are
    used instead of the current process' environment); the functions
-   :func:`spawnl`, :func:`spawnlp`, :func:`spawnv`, and :func:`spawnvp` all cause
+   :func:`!spawnl`, :func:`!spawnlp`, :func:`!spawnv`, and :func:`!spawnvp` all cause
    the new process to inherit the environment of the current process.  Note that
    keys and values in the *env* dictionary must be strings; invalid keys or
    values will cause the function to fail, with a return value of ``127``.
 
-   As an example, the following calls to :func:`spawnlp` and :func:`spawnvpe` are
+   As an example, the following calls to :func:`!spawnlp` and :func:`!spawnvpe` are
    equivalent::
 
       import os
@@ -5393,7 +5393,7 @@ written in Python, such as a mail server's external command delivery program.
    effect will depend on the application being launched. Values are integers as
    supported by the Win32 :c:func:`!ShellExecute` function.
 
-   :func:`startfile` returns as soon as the associated application is launched.
+   :func:`!startfile` returns as soon as the associated application is launched.
    There is no option to wait for the application to close, and no way to retrieve
    the application's exit status.  The *path* parameter is relative to the current
    directory or *cwd*.  If you want to use an absolute path, make sure the first
@@ -5419,7 +5419,7 @@ written in Python, such as a mail server's external command delivery program.
 .. function:: system(command)
 
    Execute the command (a string) in a subshell.  This is implemented by calling
-   the Standard C function :c:func:`system`, and has the same limitations.
+   the Standard C function :c:func:`!system`, and has the same limitations.
    Changes to :data:`sys.stdin`, etc. are not reflected in the environment of
    the executed command. If *command* generates any output, it will be sent to
    the interpreter standard output stream. The C standard does not
@@ -5541,7 +5541,7 @@ written in Python, such as a mail server's external command delivery program.
    for :func:`wait`).  The semantics of the call are affected by the value of the
    integer *options*, which should be ``0`` for normal operation.
 
-   If *pid* is greater than ``0``, :func:`waitpid` requests status information for
+   If *pid* is greater than ``0``, :func:`!waitpid` requests status information for
    that specific process.  If *pid* is ``0``, the request is for the status of any
    child in the process group of the current process.  If *pid* is ``-1``, the
    request pertains to any child of the current process.  If *pid* is less than
@@ -5593,7 +5593,7 @@ written in Python, such as a mail server's external command delivery program.
    Similar to :func:`waitpid`, except a 3-element tuple, containing the child's
    process id, exit status indication, and resource usage information is
    returned.  Refer to :func:`resource.getrusage` for details on resource usage
-   information.  The arguments to :func:`wait4` are the same as those provided
+   information.  The arguments to :func:`!wait4` are the same as those provided
    to :func:`waitpid`.
 
    :func:`waitstatus_to_exitcode` can be used to convert the exit status into an
@@ -5704,7 +5704,7 @@ written in Python, such as a mail server's external command delivery program.
    .. versionadded:: 3.3
 
    .. versionchanged:: 3.9
-      Added :data:`CLD_KILLED` and :data:`CLD_STOPPED` values.
+      Added :data:`!CLD_KILLED` and :data:`!CLD_STOPPED` values.
 
 
 .. function:: waitstatus_to_exitcode(status)
@@ -5769,7 +5769,7 @@ used to determine the disposition of a process.
    Return ``True`` if the process was stopped by delivery of a signal,
    otherwise return ``False``.
 
-   :func:`WIFSTOPPED` only returns ``True`` if the :func:`waitpid` call was
+   :func:`!WIFSTOPPED` only returns ``True`` if the :func:`waitpid` call was
    done using :data:`WUNTRACED` option or when the process is being traced (see
    :manpage:`ptrace(2)`).
 
@@ -6004,7 +6004,7 @@ Miscellaneous System Information
 
    .. versionchanged:: 3.13
       If :option:`-X cpu_count <-X>` is given or :envvar:`PYTHON_CPU_COUNT` is set,
-      :func:`cpu_count` returns the override value *n*.
+      :func:`!cpu_count` returns the override value *n*.
 
 
 .. function:: getloadavg()
@@ -6026,7 +6026,7 @@ Miscellaneous System Information
    in the **system**.
 
    If :option:`-X cpu_count <-X>` is given or :envvar:`PYTHON_CPU_COUNT` is set,
-   :func:`process_cpu_count` returns the override value *n*.
+   :func:`!process_cpu_count` returns the override value *n*.
 
    See also the :func:`sched_getaffinity` function.
 
@@ -6226,7 +6226,7 @@ Random numbers
    no random bytes are available, and when reading from ``/dev/urandom``, it blocks
    if the entropy pool has not yet been initialized.
 
-   If the :py:data:`GRND_NONBLOCK` flag is set, then :func:`getrandom` does not
+   If the :py:data:`!GRND_NONBLOCK` flag is set, then :func:`getrandom` does not
    block in these cases, but instead immediately raises :exc:`BlockingIOError`.
 
    .. versionadded:: 3.6

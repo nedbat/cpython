@@ -147,7 +147,7 @@ purposes.
    default CA certificates.
 
    When :attr:`~SSLContext.keylog_filename` is supported and the environment
-   variable :envvar:`SSLKEYLOGFILE` is set, :func:`create_default_context`
+   variable :envvar:`SSLKEYLOGFILE` is set, :func:`!create_default_context`
    enables key logging.
 
    The default settings for this context include
@@ -243,10 +243,10 @@ Exceptions
    problem in the higher-level encryption and authentication layer that's
    superimposed on the underlying network connection.  This error
    is a subtype of :exc:`OSError`.  The error code and message of
-   :exc:`SSLError` instances are provided by the OpenSSL library.
+   :exc:`!SSLError` instances are provided by the OpenSSL library.
 
    .. versionchanged:: 3.3
-      :exc:`SSLError` used to be a subtype of :exc:`socket.error`.
+      :exc:`!SSLError` used to be a subtype of :exc:`socket.error`.
 
    .. attribute:: library
 
@@ -1069,7 +1069,7 @@ Constants
    .. deprecated:: 3.10
 
       All :class:`TLSVersion` members except :attr:`TLSVersion.TLSv1_2` and
-      :attr:`TLSVersion.TLSv1_3` are deprecated.
+      :attr:`!TLSVersion.TLSv1_3` are deprecated.
 
 
 SSL Sockets
@@ -1105,7 +1105,7 @@ SSL Sockets
    the specification of normal, OS-level sockets.  See especially the
    :ref:`notes on non-blocking sockets <ssl-nonblocking>`.
 
-   Instances of :class:`SSLSocket` must be created using the
+   Instances of :class:`!SSLSocket` must be created using the
    :meth:`SSLContext.wrap_socket` method.
 
    .. versionchanged:: 3.5
@@ -1117,11 +1117,11 @@ SSL Sockets
       of the shutdown.
 
    .. deprecated:: 3.6
-      It is deprecated to create a :class:`SSLSocket` instance directly, use
+      It is deprecated to create a :class:`!SSLSocket` instance directly, use
       :meth:`SSLContext.wrap_socket` to wrap a socket.
 
    .. versionchanged:: 3.7
-      :class:`SSLSocket` instances must to created with
+      :class:`!SSLSocket` instances must to created with
       :meth:`~SSLContext.wrap_socket`. In earlier versions, it was possible
       to create instances directly. This was never documented or officially
       supported.
@@ -1156,7 +1156,7 @@ SSL sockets also have the following additional methods and attributes:
       bytes.
 
    .. deprecated:: 3.6
-      Use :meth:`~SSLSocket.recv` instead of :meth:`~SSLSocket.read`.
+      Use :meth:`~SSLSocket.recv` instead of :meth:`!SSLSocket.read`.
 
 .. method:: SSLSocket.write(data)
 
@@ -1174,7 +1174,7 @@ SSL sockets also have the following additional methods and attributes:
       The socket timeout is now the maximum total duration to write *data*.
 
    .. deprecated:: 3.6
-      Use :meth:`~SSLSocket.send` instead of :meth:`~SSLSocket.write`.
+      Use :meth:`~SSLSocket.send` instead of :meth:`!SSLSocket.write`.
 
 .. note::
 
@@ -1304,7 +1304,7 @@ SSL sockets also have the following additional methods and attributes:
    Return the list of ciphers available in both the client and server.  Each
    entry of the returned list is a three-value tuple containing the name of the
    cipher, the version of the SSL protocol that defines its use, and the number
-   of secret bits the cipher uses.  :meth:`~SSLSocket.shared_ciphers` returns
+   of secret bits the cipher uses.  :meth:`!SSLSocket.shared_ciphers` returns
    ``None`` if no connection has been established or the socket is a client
    socket.
 
@@ -1500,8 +1500,8 @@ to speed up repeated connections from the same clients.
       ========================  ============  ============  =============  =========  ===========  ===========
 
    .. rubric:: Footnotes
-   .. [1] :class:`SSLContext` disables SSLv2 with :data:`OP_NO_SSLv2` by default.
-   .. [2] :class:`SSLContext` disables SSLv3 with :data:`OP_NO_SSLv3` by default.
+   .. [1] :class:`!SSLContext` disables SSLv2 with :data:`OP_NO_SSLv2` by default.
+   .. [2] :class:`!SSLContext` disables SSLv3 with :data:`OP_NO_SSLv3` by default.
    .. [3] TLS 1.3 protocol will be available with :data:`PROTOCOL_TLS` in
       OpenSSL >= 1.1.1. There is no dedicated PROTOCOL constant for just
       TLS 1.3.
@@ -1522,7 +1522,7 @@ to speed up repeated connections from the same clients.
 
    .. deprecated:: 3.10
 
-      :class:`SSLContext` without protocol argument is deprecated. The
+      :class:`!SSLContext` without protocol argument is deprecated. The
       context class will either require :data:`PROTOCOL_TLS_CLIENT` or
       :data:`PROTOCOL_TLS_SERVER` protocol in the future.
 
@@ -1536,14 +1536,14 @@ to speed up repeated connections from the same clients.
 
    .. note::
 
-      :class:`SSLContext` only supports limited mutation once it has been used
+      :class:`!SSLContext` only supports limited mutation once it has been used
       by a connection. Adding new certificates to the internal trust store is
       allowed, but changing ciphers, verification settings, or mTLS
       certificates may result in surprising behavior.
 
    .. note::
 
-      :class:`SSLContext` is designed to be shared and used by multiple
+      :class:`!SSLContext` is designed to be shared and used by multiple
       connections.
       Thus, it is thread-safe as long as it is not reconfigured after being
       used by a connection.
@@ -2072,13 +2072,13 @@ to speed up repeated connections from the same clients.
    The attribute is read-only for protocols other than :const:`PROTOCOL_TLS`,
    :const:`PROTOCOL_TLS_CLIENT`, and :const:`PROTOCOL_TLS_SERVER`.
 
-   The attributes :attr:`~SSLContext.maximum_version`,
+   The attributes :attr:`!SSLContext.maximum_version`,
    :attr:`~SSLContext.minimum_version` and
    :attr:`SSLContext.options` all affect the supported SSL
    and TLS versions of the context. The implementation does not prevent
    invalid combination. For example a context with
    :attr:`OP_NO_TLSv1_2` in :attr:`~SSLContext.options` and
-   :attr:`~SSLContext.maximum_version` set to :attr:`TLSVersion.TLSv1_2`
+   :attr:`!SSLContext.maximum_version` set to :attr:`TLSVersion.TLSv1_2`
    will not be able to establish a TLS 1.2 connection.
 
    .. versionadded:: 3.7
@@ -2105,7 +2105,7 @@ to speed up repeated connections from the same clients.
    such as :data:`OP_NO_SSLv2` by ORing them together.
 
    .. versionchanged:: 3.6
-      :attr:`SSLContext.options` returns :class:`Options` flags:
+      :attr:`!SSLContext.options` returns :class:`Options` flags:
 
          >>> ssl.create_default_context().options  # doctest: +SKIP
          <Options.OP_ALL|OP_NO_SSLv3|OP_NO_SSLv2|OP_NO_COMPRESSION: 2197947391>
@@ -2169,7 +2169,7 @@ to speed up repeated connections from the same clients.
    .. versionadded:: 3.4
 
    .. versionchanged:: 3.6
-      :attr:`SSLContext.verify_flags` returns :class:`VerifyFlags` flags:
+      :attr:`!SSLContext.verify_flags` returns :class:`VerifyFlags` flags:
 
          >>> ssl.create_default_context().verify_flags  # doctest: +SKIP
          <VerifyFlags.VERIFY_X509_TRUSTED_FIRST: 32768>
@@ -2181,7 +2181,7 @@ to speed up repeated connections from the same clients.
    :data:`CERT_NONE`, :data:`CERT_OPTIONAL` or :data:`CERT_REQUIRED`.
 
    .. versionchanged:: 3.6
-      :attr:`SSLContext.verify_mode` returns :class:`VerifyMode` enum:
+      :attr:`!SSLContext.verify_mode` returns :class:`VerifyMode` enum:
 
          >>> ssl.create_default_context().verify_mode  # doctest: +SKIP
          <VerifyMode.CERT_REQUIRED: 2>
@@ -2690,9 +2690,9 @@ provided.
    but does not provide any network IO itself. IO needs to be performed through
    separate "BIO" objects which are OpenSSL's IO abstraction layer.
 
-   This class has no public constructor.  An :class:`SSLObject` instance
+   This class has no public constructor.  An :class:`!SSLObject` instance
    must be created using the :meth:`~SSLContext.wrap_bio` method. This
-   method will create the :class:`SSLObject` instance and bind it to a
+   method will create the :class:`!SSLObject` instance and bind it to a
    pair of BIOs. The *incoming* BIO is used to pass data from Python to the
    SSL protocol instance, while the *outgoing* BIO is used to pass data the
    other way around.
@@ -2738,18 +2738,18 @@ provided.
      unlike for an SSL socket where it returns the underlying socket.
 
    - The *server_name_callback* callback passed to
-     :meth:`SSLContext.set_servername_callback` will get an :class:`SSLObject`
+     :meth:`SSLContext.set_servername_callback` will get an :class:`!SSLObject`
      instance instead of a :class:`SSLSocket` instance as its first parameter.
 
-   Some notes related to the use of :class:`SSLObject`:
+   Some notes related to the use of :class:`!SSLObject`:
 
-   - All IO on an :class:`SSLObject` is :ref:`non-blocking <ssl-nonblocking>`.
+   - All IO on an :class:`!SSLObject` is :ref:`non-blocking <ssl-nonblocking>`.
      This means that for example :meth:`~SSLSocket.read` will raise an
      :exc:`SSLWantReadError` if it needs more data than the incoming BIO has
      available.
 
    .. versionchanged:: 3.7
-      :class:`SSLObject` instances must be created with
+      :class:`!SSLObject` instances must be created with
       :meth:`~SSLContext.wrap_bio`. In earlier versions, it was possible to
       create instances directly. This was never documented or officially
       supported.

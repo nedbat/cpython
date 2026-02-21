@@ -179,7 +179,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
 
    When running under :ref:`sys-path-init-virtual-environments`,
    :data:`exec_prefix` gets overwritten to the virtual environment prefix.
-   :data:`base_exec_prefix`, conversely, does not change, and always points to
+   :data:`!base_exec_prefix`, conversely, does not change, and always points to
    the base Python installation.
    Refer to :ref:`sys-path-init-virtual-environments` for more information.
 
@@ -192,7 +192,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
 
    When running under :ref:`virtual environment <venv-def>`,
    :data:`prefix` gets overwritten to the virtual environment prefix.
-   :data:`base_prefix`, conversely, does not change, and always points to
+   :data:`!base_prefix`, conversely, does not change, and always points to
    the base Python installation.
    Refer to :ref:`sys-path-init-virtual-environments` for more information.
 
@@ -496,7 +496,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
 
    This function returns the old-style representation of the handled
    exception. If an exception ``e`` is currently handled (so
-   :func:`exception` would return ``e``), :func:`exc_info` returns the
+   :func:`exception` would return ``e``), :func:`!exc_info` returns the
    tuple ``(type(e), e, e.__traceback__)``.
    That is, a tuple containing the type of the exception (a subclass of
    :exc:`BaseException`), the exception itself, and a :ref:`traceback
@@ -512,7 +512,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
       The ``type`` and ``traceback`` fields are now derived from the ``value``
       (the exception instance), so when an exception is modified while it is
       being handled, the changes are reflected in the results of subsequent
-      calls to :func:`exc_info`.
+      calls to :func:`!exc_info`.
 
 .. data:: exec_prefix
 
@@ -527,7 +527,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
 
    .. note::
 
-      If a :ref:`virtual environment <venv-def>` is in effect, this :data:`exec_prefix`
+      If a :ref:`virtual environment <venv-def>` is in effect, this :data:`!exec_prefix`
       will point to the virtual environment. The value for the Python installation
       will still be available, via :data:`base_exec_prefix`.
       Refer to :ref:`sys-path-init-virtual-environments` for more information.
@@ -535,10 +535,10 @@ always available. Unless explicitly noted otherwise, all variables are read-only
    .. versionchanged:: 3.14
 
       When running under a :ref:`virtual environment <venv-def>`,
-      :data:`prefix` and :data:`exec_prefix` are now set to the virtual
+      :data:`prefix` and :data:`!exec_prefix` are now set to the virtual
       environment prefix by the :ref:`path initialization <sys-path-init>`,
       instead of :mod:`site`. This means that :data:`prefix` and
-      :data:`exec_prefix` always point to the virtual environment, even when
+      :data:`!exec_prefix` always point to the virtual environment, even when
       :mod:`site` is disabled (:option:`-S`).
 
 .. data:: executable
@@ -566,7 +566,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
    particular, ``sys.exit("some error message")`` is a quick way to exit a
    program when an error occurs.
 
-   Since :func:`exit` ultimately "only" raises an exception, it will only exit
+   Since :func:`!exit` ultimately "only" raises an exception, it will only exit
    the process when called from the main thread, and the exception is not
    intercepted. Cleanup actions specified by :keyword:`finally` clauses of
    :keyword:`try` statements are honored, and it is possible to intercept the
@@ -814,7 +814,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
    predictable results.
 
    If a Python build or implementation cannot reasonably compute this
-   information, :func:`getallocatedblocks` is allowed to return 0 instead.
+   information, :func:`!getallocatedblocks` is allowed to return 0 instead.
 
    .. versionadded:: 3.4
 
@@ -875,7 +875,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
    :c:member:`~PyConfig.filesystem_errors` members of :c:type:`PyConfig`.
 
    .. versionchanged:: 3.2
-      :func:`getfilesystemencoding` result cannot be ``None`` anymore.
+      :func:`!getfilesystemencoding` result cannot be ``None`` anymore.
 
    .. versionchanged:: 3.6
       Windows is no longer guaranteed to return ``'mbcs'``. See :pep:`529`
@@ -944,7 +944,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
 
    Return the reference count of the *object*.  The count returned is generally one
    higher than you might expect, because it includes the (temporary) reference as
-   an argument to :func:`getrefcount`.
+   an argument to :func:`!getrefcount`.
 
    Note that the returned value may not actually reflect how many
    references to the object are actually held.  For example, some
@@ -982,12 +982,12 @@ always available. Unless explicitly noted otherwise, all variables are read-only
    If given, *default* will be returned if the object does not provide means to
    retrieve the size.  Otherwise a :exc:`TypeError` will be raised.
 
-   :func:`getsizeof` calls the object's ``__sizeof__`` method and adds an
+   :func:`!getsizeof` calls the object's ``__sizeof__`` method and adds an
    additional garbage collector overhead if the object is managed by the garbage
    collector.
 
    See `recursive sizeof recipe <https://code.activestate.com/recipes/577504-compute-memory-footprint-of-an-object-and-its-cont/>`_
-   for an example of using :func:`getsizeof` recursively to find the size of
+   for an example of using :func:`!getsizeof` recursively to find the size of
    containers and all their contents.
 
 .. function:: getswitchinterval()
@@ -1352,7 +1352,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
    used to hold module, class or instance attributes have interned keys.
 
    Interned strings are not :term:`immortal`; you must keep a reference to the
-   return value of :func:`intern` around to benefit from it.
+   return value of :func:`!intern` around to benefit from it.
 
 
 .. function:: _is_gil_enabled()
@@ -1518,7 +1518,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
 
         :class:`importlib.abc.MetaPathFinder`
           The abstract base class defining the interface of finder objects on
-          :data:`meta_path`.
+          :data:`!meta_path`.
         :class:`importlib.machinery.ModuleSpec`
           The concrete class which
           :meth:`~importlib.abc.MetaPathFinder.find_spec` should return
@@ -1532,7 +1532,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
     .. versionchanged:: 3.12
 
         Removed the fallback that looked for a :meth:`!find_module` method
-        if a :data:`meta_path` entry didn't have a
+        if a :data:`!meta_path` entry didn't have a
         :meth:`~importlib.abc.MetaPathFinder.find_spec` method.
 
 .. data:: modules
@@ -1696,7 +1696,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
 
    .. note::
 
-      If a :ref:`virtual environment <venv-def>` is in effect, this :data:`prefix`
+      If a :ref:`virtual environment <venv-def>` is in effect, this :data:`!prefix`
       will point to the virtual environment. The value for the Python installation
       will still be available, via :data:`base_prefix`.
       Refer to :ref:`sys-path-init-virtual-environments` for more information.
@@ -1704,9 +1704,9 @@ always available. Unless explicitly noted otherwise, all variables are read-only
    .. versionchanged:: 3.14
 
       When running under a :ref:`virtual environment <venv-def>`,
-      :data:`prefix` and :data:`exec_prefix` are now set to the virtual
+      :data:`!prefix` and :data:`exec_prefix` are now set to the virtual
       environment prefix by the :ref:`path initialization <sys-path-init>`,
-      instead of :mod:`site`. This means that :data:`prefix` and
+      instead of :mod:`site`. This means that :data:`!prefix` and
       :data:`exec_prefix` always point to the virtual environment, even when
       :mod:`site` is disabled (:option:`-S`).
 
@@ -1895,7 +1895,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
    Set the system's trace function, which allows you to implement a Python
    source code debugger in Python.  The function is thread-specific; for a
    debugger to support multiple threads, it must register a trace function using
-   :func:`settrace` for each thread being debugged or use :func:`threading.settrace`.
+   :func:`!settrace` for each thread being debugged or use :func:`threading.settrace`.
 
    Trace functions should have three arguments: *frame*, *event*, and
    *arg*. *frame* is the :ref:`current stack frame <frame-objects>`. *event* is a string: ``'call'``,
@@ -1960,9 +1960,9 @@ always available. Unless explicitly noted otherwise, all variables are read-only
    assigning ``frame.f_trace = tracefunc`` explicitly, rather than relying on
    it being set indirectly via the return value from an already installed
    trace function. This is also required for activating the trace function on
-   the current frame, which :func:`settrace` doesn't do. Note that in order
+   the current frame, which :func:`!settrace` doesn't do. Note that in order
    for this to work, a global tracing function must have been installed
-   with :func:`settrace` in order to enable the runtime tracing machinery,
+   with :func:`!settrace` in order to enable the runtime tracing machinery,
    but it doesn't need to be the same tracing function (e.g. it could be a
    low overhead tracing function that simply returns ``None`` to disable
    itself immediately on each frame).
@@ -2185,7 +2185,7 @@ always available. Unless explicitly noted otherwise, all variables are read-only
 
       To write or read binary data from/to the standard streams, use the
       underlying binary :data:`~io.TextIOBase.buffer` object.  For example, to
-      write bytes to :data:`stdout`, use ``sys.stdout.buffer.write(b'abc')``.
+      write bytes to :data:`!stdout`, use ``sys.stdout.buffer.write(b'abc')``.
 
       However, if you are writing a library (and do not control in which
       context its code will be executed), be aware that the standard streams

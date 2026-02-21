@@ -171,7 +171,7 @@ Restrictions
    The *serializer* and *deserializer* parameters have the same interpretation
    as in :func:`~shelve.open`.
 
-   A :class:`Shelf` object can also be used as a context manager, in which
+   A :class:`!Shelf` object can also be used as a context manager, in which
    case it will be automatically closed when the :keyword:`with` block ends.
 
    .. versionchanged:: 3.2

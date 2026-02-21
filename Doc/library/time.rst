@@ -131,11 +131,11 @@ Functions
    e.g.: ``'Wed Jun  9 04:26:40 1993'``.
 
    If *t* is not provided, the current time as returned by :func:`localtime`
-   is used. Locale information is not used by :func:`asctime`.
+   is used. Locale information is not used by :func:`!asctime`.
 
    .. note::
 
-      Unlike the C function of the same name, :func:`asctime` does not add a
+      Unlike the C function of the same name, :func:`!asctime` does not add a
       trailing newline.
 
 .. function:: pthread_getcpuclockid(thread_id)
@@ -224,7 +224,7 @@ Functions
    If *secs* is not provided or :const:`None`, the current time as
    returned by :func:`.time` is used. ``ctime(secs)`` is equivalent to
    ``asctime(localtime(secs))``. Locale information is not used by
-   :func:`ctime`.
+   :func:`!ctime`.
 
    .. versionchanged:: 3.15
       Accepts any real number, not only integer or float.
@@ -274,9 +274,9 @@ Functions
    :const:`None`, the current time as returned by :func:`.time` is used.  The dst
    flag is set to ``1`` when DST applies to the given time.
 
-   :func:`localtime` may raise :exc:`OverflowError`, if the timestamp is
-   outside the range of values supported by the platform C :c:func:`localtime`
-   or :c:func:`gmtime` functions, and :exc:`OSError` on :c:func:`localtime` or
+   :func:`!localtime` may raise :exc:`OverflowError`, if the timestamp is
+   outside the range of values supported by the platform C :c:func:`!localtime`
+   or :c:func:`gmtime` functions, and :exc:`OSError` on :c:func:`!localtime` or
    :c:func:`gmtime` failure. It's common for this to be restricted to years
    between 1970 and 2038.
 
@@ -458,7 +458,7 @@ Functions
 
    The following directives can be embedded in the *format* string. They are shown
    without the optional field width and precision specification, and are replaced
-   by the indicated characters in the :func:`strftime` result:
+   by the indicated characters in the :func:`!strftime` result:
 
    +-----------+------------------------------------------------+-------+
    | Directive | Meaning                                        | Notes |
@@ -564,7 +564,7 @@ Functions
 
    (1)
        The ``%f`` format directive only applies to :func:`strptime`,
-       not to :func:`strftime`. However, see also :meth:`datetime.datetime.strptime` and
+       not to :func:`!strftime`. However, see also :meth:`datetime.datetime.strptime` and
        :meth:`datetime.datetime.strftime` where the ``%f`` format directive
        :ref:`applies to microseconds <format-codes>`.
 
@@ -702,7 +702,7 @@ Functions
    this is not known, and will usually result in the correct state being filled in.
 
    When a tuple with an incorrect length is passed to a function expecting a
-   :class:`struct_time`, or having elements of the wrong type, a
+   :class:`!struct_time`, or having elements of the wrong type, a
    :exc:`TypeError` is raised.
 
 .. function:: time() -> float
@@ -719,7 +719,7 @@ Functions
    lower value than a previous call if the system clock has been set back
    between the two calls.
 
-   The number returned by :func:`.time` may be converted into a more common
+   The number returned by :func:`!time` may be converted into a more common
    time format (i.e. year, month, day, hour, etc...) in UTC by passing it to
    :func:`gmtime` function or in local time by passing it to the
    :func:`localtime` function. In both cases a
@@ -795,7 +795,7 @@ Functions
 
       Although in many cases, changing the :envvar:`TZ` environment variable may
       affect the output of functions like :func:`localtime` without calling
-      :func:`tzset`, this behavior should not be relied on.
+      :func:`!tzset`, this behavior should not be relied on.
 
       The :envvar:`TZ` environment variable should contain no whitespace.
 

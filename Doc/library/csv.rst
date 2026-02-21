@@ -211,7 +211,7 @@ The :mod:`!csv` module defines the following classes:
    :class:`writer` instance.
 
    Note that unlike the :class:`DictReader` class, the *fieldnames* parameter
-   of the :class:`DictWriter` class is not optional.
+   of the :class:`!DictWriter` class is not optional.
 
    If the argument passed to *fieldnames* is an iterator, it will be coerced to a :class:`list`.
 
@@ -231,13 +231,13 @@ The :mod:`!csv` module defines the following classes:
 
 .. class:: Dialect
 
-   The :class:`Dialect` class is a container class whose attributes contain
+   The :class:`!Dialect` class is a container class whose attributes contain
    information for how to handle doublequotes, whitespace, delimiters, etc.
    Due to the lack of a strict CSV specification, different applications
-   produce subtly different CSV data.  :class:`Dialect` instances define how
+   produce subtly different CSV data.  :class:`!Dialect` instances define how
    :class:`reader` and :class:`writer` instances behave.
 
-   All available :class:`Dialect` names are returned by :func:`list_dialects`,
+   All available :class:`!Dialect` names are returned by :func:`list_dialects`,
    and they can be registered with specific :class:`reader` and :class:`writer`
    classes through their initializer (``__init__``) functions like this::
 
@@ -249,19 +249,19 @@ The :mod:`!csv` module defines the following classes:
 
 .. class:: excel()
 
-   The :class:`excel` class defines the usual properties of an Excel-generated CSV
+   The :class:`!excel` class defines the usual properties of an Excel-generated CSV
    file.  It is registered with the dialect name ``'excel'``.
 
 
 .. class:: excel_tab()
 
-   The :class:`excel_tab` class defines the usual properties of an Excel-generated
+   The :class:`!excel_tab` class defines the usual properties of an Excel-generated
    TAB-delimited file.  It is registered with the dialect name ``'excel-tab'``.
 
 
 .. class:: unix_dialect()
 
-   The :class:`unix_dialect` class defines the usual properties of a CSV file
+   The :class:`!unix_dialect` class defines the usual properties of a CSV file
    generated on UNIX systems, i.e. using ``'\n'`` as line terminator and quoting
    all fields.  It is registered with the dialect name ``'unix'``.
 
@@ -270,9 +270,9 @@ The :mod:`!csv` module defines the following classes:
 
 .. class:: Sniffer()
 
-   The :class:`Sniffer` class is used to deduce the format of a CSV file.
+   The :class:`!Sniffer` class is used to deduce the format of a CSV file.
 
-   The :class:`Sniffer` class provides two methods:
+   The :class:`!Sniffer` class provides two methods:
 
    .. method:: sniff(sample, delimiters=None)
 
@@ -336,7 +336,7 @@ The :mod:`!csv` module defines the following constants:
       Some numeric types, such as :class:`bool`, :class:`~fractions.Fraction`,
       or :class:`~enum.IntEnum`, have a string representation that cannot be
       converted to :class:`float`.
-      They cannot be read in the :data:`QUOTE_NONNUMERIC` and
+      They cannot be read in the :data:`!QUOTE_NONNUMERIC` and
       :data:`QUOTE_STRINGS` modes.
 
 .. data:: QUOTE_NONE

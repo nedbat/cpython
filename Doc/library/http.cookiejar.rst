@@ -38,10 +38,10 @@ The module defines the following exception:
 .. exception:: LoadError
 
    Instances of :class:`FileCookieJar` raise this exception on failure to load
-   cookies from a file.  :exc:`LoadError` is a subclass of :exc:`OSError`.
+   cookies from a file.  :exc:`!LoadError` is a subclass of :exc:`OSError`.
 
    .. versionchanged:: 3.3
-      :exc:`LoadError` used to be a subtype of :exc:`IOError`, which is now an
+      :exc:`!LoadError` used to be a subtype of :exc:`IOError`, which is now an
       alias of :exc:`OSError`.
 
 
@@ -52,8 +52,8 @@ The following classes are provided:
 
    *policy* is an object implementing the :class:`CookiePolicy` interface.
 
-   The :class:`CookieJar` class stores HTTP cookies.  It extracts cookies from HTTP
-   requests, and returns them in HTTP responses. :class:`CookieJar` instances
+   The :class:`!CookieJar` class stores HTTP cookies.  It extracts cookies from HTTP
+   requests, and returns them in HTTP responses. :class:`!CookieJar` instances
    automatically expire contained cookies when necessary.  Subclasses are also
    responsible for storing and retrieving cookies from a file or database.
 
@@ -90,23 +90,23 @@ The following classes are provided:
    *secure_protocols* is a sequence of protocols for which secure cookies can be
    added to. By default *https* and *wss* (secure websocket) are considered
    secure protocols. For all other arguments, see the documentation for
-   :class:`CookiePolicy` and :class:`DefaultCookiePolicy` objects.
+   :class:`CookiePolicy` and :class:`!DefaultCookiePolicy` objects.
 
-   :class:`DefaultCookiePolicy` implements the standard accept / reject rules for
+   :class:`!DefaultCookiePolicy` implements the standard accept / reject rules for
    Netscape and :rfc:`2965` cookies.  By default, :rfc:`2109` cookies (ie. cookies
    received in a :mailheader:`Set-Cookie` header with a version cookie-attribute of
    1) are treated according to the RFC 2965 rules.  However, if RFC 2965 handling
    is turned off or :attr:`rfc2109_as_netscape` is ``True``, RFC 2109 cookies are
    'downgraded' by the :class:`CookieJar` instance to Netscape cookies, by
    setting the :attr:`version` attribute of the :class:`Cookie` instance to 0.
-   :class:`DefaultCookiePolicy` also provides some parameters to allow some
+   :class:`!DefaultCookiePolicy` also provides some parameters to allow some
    fine-tuning of policy.
 
 
 .. class:: Cookie()
 
    This class represents Netscape, :rfc:`2109` and :rfc:`2965` cookies.  It is not
-   expected that users of :mod:`!http.cookiejar` construct their own :class:`Cookie`
+   expected that users of :mod:`!http.cookiejar` construct their own :class:`!Cookie`
    instances.  Instead, if necessary, call :meth:`make_cookies` on a
    :class:`CookieJar` instance.
 

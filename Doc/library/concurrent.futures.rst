@@ -60,7 +60,7 @@ Executor Objects
 
       The returned iterator raises a :exc:`TimeoutError`
       if :meth:`~iterator.__next__` is called and the result isn't available
-      after *timeout* seconds from the original call to :meth:`Executor.map`.
+      after *timeout* seconds from the original call to :meth:`!Executor.map`.
       *timeout* can be an int or a float.  If *timeout* is not specified or
       ``None``, there is no limit to the wait time.
 
@@ -108,7 +108,7 @@ Executor Objects
 
       You can avoid having to call this method explicitly if you use the executor
       as a :term:`context manager` via the  :keyword:`with` statement, which
-      will shutdown the :class:`Executor` (waiting as if :meth:`Executor.shutdown`
+      will shutdown the :class:`!Executor` (waiting as if :meth:`!Executor.shutdown`
       were called with *wait* set to ``True``)::
 
          import shutil
@@ -180,7 +180,7 @@ And::
    .. versionchanged:: 3.5
       If *max_workers* is ``None`` or
       not given, it will default to the number of processors on the machine,
-      multiplied by ``5``, assuming that :class:`ThreadPoolExecutor` is often
+      multiplied by ``5``, assuming that :class:`!ThreadPoolExecutor` is often
       used to overlap I/O instead of CPU work and the number of workers
       should be higher than the number of workers
       for :class:`ProcessPoolExecutor`.
@@ -386,7 +386,7 @@ in a REPL or a lambda should not be expected to work.
 
    .. note::
       Bugs have been reported when using the *max_tasks_per_child* feature that
-      can result in the :class:`ProcessPoolExecutor` hanging in some
+      can result in the :class:`!ProcessPoolExecutor` hanging in some
       circumstances. Follow its eventual resolution in :gh:`115634`.
 
    .. versionchanged:: 3.3
@@ -421,7 +421,7 @@ in a REPL or a lambda should not be expected to work.
    .. versionchanged:: 3.14
       The default process start method (see
       :ref:`multiprocessing-start-methods`) changed away from *fork*. If you
-      require the *fork* start method for :class:`ProcessPoolExecutor` you must
+      require the *fork* start method for :class:`!ProcessPoolExecutor` you must
       explicitly pass ``mp_context=multiprocessing.get_context("fork")``.
 
    .. method:: terminate_workers()
@@ -496,7 +496,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
 
 .. class:: Future
 
-   Encapsulates the asynchronous execution of a callable.  :class:`Future`
+   Encapsulates the asynchronous execution of a callable.  :class:`!Future`
    instances are created by :meth:`Executor.submit` and should not be created
    directly except for testing.
 
@@ -564,21 +564,21 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
       If the future has already completed or been cancelled, *fn* will be
       called immediately.
 
-   The following :class:`Future` methods are meant for use in unit tests and
+   The following :class:`!Future` methods are meant for use in unit tests and
    :class:`Executor` implementations.
 
    .. method:: set_running_or_notify_cancel()
 
       This method should only be called by :class:`Executor` implementations
-      before executing the work associated with the :class:`Future` and by unit
+      before executing the work associated with the :class:`!Future` and by unit
       tests.
 
-      If the method returns ``False`` then the :class:`Future` was cancelled,
+      If the method returns ``False`` then the :class:`!Future` was cancelled,
       i.e. :meth:`Future.cancel` was called and returned ``True``.  Any threads
-      waiting on the :class:`Future` completing (i.e. through
+      waiting on the :class:`!Future` completing (i.e. through
       :func:`as_completed` or :func:`wait`) will be woken up.
 
-      If the method returns ``True`` then the :class:`Future` was not cancelled
+      If the method returns ``True`` then the :class:`!Future` was not cancelled
       and has been put in the running state, i.e. calls to
       :meth:`Future.running` will return ``True``.
 
@@ -588,7 +588,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
 
    .. method:: set_result(result)
 
-      Sets the result of the work associated with the :class:`Future` to
+      Sets the result of the work associated with the :class:`!Future` to
       *result*.
 
       This method should only be used by :class:`Executor` implementations and
@@ -596,12 +596,12 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
 
       .. versionchanged:: 3.8
          This method raises
-         :exc:`concurrent.futures.InvalidStateError` if the :class:`Future` is
+         :exc:`concurrent.futures.InvalidStateError` if the :class:`!Future` is
          already done.
 
    .. method:: set_exception(exception)
 
-      Sets the result of the work associated with the :class:`Future` to the
+      Sets the result of the work associated with the :class:`!Future` to the
       :class:`Exception` *exception*.
 
       This method should only be used by :class:`Executor` implementations and
@@ -609,7 +609,7 @@ The :class:`Future` class encapsulates the asynchronous execution of a callable.
 
       .. versionchanged:: 3.8
          This method raises
-         :exc:`concurrent.futures.InvalidStateError` if the :class:`Future` is
+         :exc:`concurrent.futures.InvalidStateError` if the :class:`!Future` is
          already done.
 
 Module Functions
@@ -655,10 +655,10 @@ Module Functions
    different :class:`Executor` instances) given by *fs* that yields futures as
    they complete (finished or cancelled futures). Any futures given by *fs* that
    are duplicated will be returned once. Any futures that completed before
-   :func:`as_completed` is called will be yielded first.  The returned iterator
+   :func:`!as_completed` is called will be yielded first.  The returned iterator
    raises a :exc:`TimeoutError` if :meth:`~iterator.__next__`
    is called and the result isn't available after *timeout* seconds from the
-   original call to :func:`as_completed`.  *timeout* can be an int or float. If
+   original call to :func:`!as_completed`.  *timeout* can be an int or float. If
    *timeout* is not specified or ``None``, there is no limit to the wait time.
 
 
@@ -680,12 +680,12 @@ Exception classes
 
 .. exception:: TimeoutError
 
-   A deprecated alias of :exc:`TimeoutError`,
+   A deprecated alias of :exc:`!TimeoutError`,
    raised when a future operation exceeds the given timeout.
 
    .. versionchanged:: 3.11
 
-      This class was made an alias of :exc:`TimeoutError`.
+      This class was made an alias of :exc:`!TimeoutError`.
 
 
 .. exception:: BrokenExecutor

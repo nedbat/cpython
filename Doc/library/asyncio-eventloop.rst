@@ -52,7 +52,7 @@ an event loop:
 
    Because this function has rather complex behavior (especially
    when custom event loop policies are in use), using the
-   :func:`get_running_loop` function is preferred to :func:`get_event_loop`
+   :func:`get_running_loop` function is preferred to :func:`!get_event_loop`
    in coroutines and callbacks.
 
    As noted above, consider using the higher-level :func:`asyncio.run` function,
@@ -307,7 +307,7 @@ clocks to track time.
 
    .. note::
 
-      For performance, callbacks scheduled with :meth:`loop.call_later`
+      For performance, callbacks scheduled with :meth:`!loop.call_later`
       may run up to one clock-resolution early (see
       ``time.get_clock_info('monotonic').resolution``).
 
@@ -333,7 +333,7 @@ clocks to track time.
 
    .. note::
 
-      For performance, callbacks scheduled with :meth:`loop.call_at`
+      For performance, callbacks scheduled with :meth:`!loop.call_at`
       may run up to one clock-resolution early (see
       ``time.get_clock_info('monotonic').resolution``).
 

@@ -115,7 +115,7 @@ server is the address family.
    :class:`UDPServer`.  Setting the various attributes also changes the
    behavior of the underlying server mechanism.
 
-   :class:`ForkingMixIn` and the Forking classes mentioned below are
+   :class:`!ForkingMixIn` and the Forking classes mentioned below are
    only available on POSIX platforms that support :func:`~os.fork`.
 
    .. attribute:: block_on_close
@@ -131,12 +131,12 @@ server is the address family.
    .. attribute:: max_children
 
       Specify how many child processes will exist to handle requests at a time
-      for :class:`ForkingMixIn`.  If the limit is reached,
+      for :class:`!ForkingMixIn`.  If the limit is reached,
       new requests will wait until one child process has finished.
 
    .. attribute:: daemon_threads
 
-      For :class:`ThreadingMixIn` use daemonic threads by setting
+      For :class:`!ThreadingMixIn` use daemonic threads by setting
       :data:`ThreadingMixIn.daemon_threads <daemon_threads>`
       to ``True`` to not wait until threads complete.
 

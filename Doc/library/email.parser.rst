@@ -72,7 +72,7 @@ Here is the API for the :class:`BytesFeedParser`:
 
 .. class:: BytesFeedParser(_factory=None, *, policy=policy.compat32)
 
-   Create a :class:`BytesFeedParser` instance.  Optional *_factory* is a
+   Create a :class:`!BytesFeedParser` instance.  Optional *_factory* is a
    no-argument callable; if not specified use the
    :attr:`~email.policy.Policy.message_factory` from the *policy*.  Call
    *_factory* whenever a new message object is needed.
@@ -138,7 +138,7 @@ message body, instead setting the payload to the raw body.
 
 .. class:: BytesParser(_class=None, *, policy=policy.compat32)
 
-   Create a :class:`BytesParser` instance.  The *_class* and *policy*
+   Create a :class:`!BytesParser` instance.  The *_class* and *policy*
    arguments have the same meaning and semantics as the *_factory*
    and *policy* arguments of :class:`BytesFeedParser`.
 

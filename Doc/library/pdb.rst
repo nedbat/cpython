@@ -179,14 +179,14 @@ slightly different way:
 .. function:: runeval(expression, globals=None, locals=None)
 
    Evaluate the *expression* (given as a string or a code object) under debugger
-   control.  When :func:`runeval` returns, it returns the value of the
+   control.  When :func:`!runeval` returns, it returns the value of the
    *expression*.  Otherwise this function is similar to :func:`run`.
 
 
 .. function:: runcall(function, *args, **kwds)
 
    Call the *function* (a function or method object, not a string) with the
-   given arguments.  When :func:`runcall` returns, it returns whatever the
+   given arguments.  When :func:`!runcall` returns, it returns whatever the
    function call returned.  The debugger prompt appears as soon as the function
    is entered.
 
@@ -205,7 +205,7 @@ slightly different way:
       The keyword-only argument *header*.
 
    .. versionchanged:: 3.13
-      :func:`set_trace` will enter the debugger immediately, rather than
+      :func:`!set_trace` will enter the debugger immediately, rather than
       on the next line of code to be executed.
 
    .. versionadded:: 3.14
@@ -268,7 +268,7 @@ access further features, you have to do this yourself:
 .. class:: Pdb(completekey='tab', stdin=None, stdout=None, skip=None, \
                nosigint=False, readrc=True, mode=None, backend=None, colorize=False)
 
-   :class:`Pdb` is the debugger class.
+   :class:`!Pdb` is the debugger class.
 
    The *completekey*, *stdin* and *stdout* arguments are passed to the
    underlying :class:`cmd.Cmd` class; see the description there.

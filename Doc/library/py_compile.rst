@@ -55,7 +55,7 @@ byte-code cache files in the directory containing the source code.
    file into place to prevent concurrent file writing issues.
 
    *optimize* controls the optimization level and is passed to the built-in
-   :func:`compile` function.  The default of ``-1`` selects the optimization
+   :func:`!compile` function.  The default of ``-1`` selects the optimization
    level of the current interpreter.
 
    *invalidation_mode* should be a member of the :class:`PycInvalidationMode`

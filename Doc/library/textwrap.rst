@@ -29,7 +29,7 @@ functions should be good enough; otherwise, you should use an instance of
    :class:`TextWrapper`, documented below.
 
    See the :meth:`TextWrapper.wrap` method for additional details on how
-   :func:`wrap` behaves.
+   :func:`!wrap` behaves.
 
 
 .. function:: fill(text, width=70, *, initial_indent="", \
@@ -40,11 +40,11 @@ functions should be good enough; otherwise, you should use an instance of
                    max_lines=None, placeholder=' [...]')
 
    Wraps the single paragraph in *text*, and returns a single string containing the
-   wrapped paragraph.  :func:`fill` is shorthand for  ::
+   wrapped paragraph.  :func:`!fill` is shorthand for  ::
 
       "\n".join(wrap(text, ...))
 
-   In particular, :func:`fill` accepts exactly the same keyword arguments as
+   In particular, :func:`!fill` accepts exactly the same keyword arguments as
    :func:`wrap`.
 
 
@@ -144,7 +144,7 @@ hyphenated words; only then will long words be broken if necessary, unless
 
 .. class:: TextWrapper(**kwargs)
 
-   The :class:`TextWrapper` constructor accepts a number of optional keyword
+   The :class:`!TextWrapper` constructor accepts a number of optional keyword
    arguments.  Each keyword argument corresponds to an instance attribute, so
    for example ::
 
@@ -155,11 +155,11 @@ hyphenated words; only then will long words be broken if necessary, unless
       wrapper = TextWrapper()
       wrapper.initial_indent = "* "
 
-   You can reuse the same :class:`TextWrapper` object many times, and you can
+   You can reuse the same :class:`!TextWrapper` object many times, and you can
    change any of its options through direct assignment to instance attributes
    between uses.
 
-   The :class:`TextWrapper` instance attributes (and keyword arguments to the
+   The :class:`!TextWrapper` instance attributes (and keyword arguments to the
    constructor) are as follows:
 
 
@@ -167,7 +167,7 @@ hyphenated words; only then will long words be broken if necessary, unless
 
       (default: ``70``) The maximum length of wrapped lines.  As long as there
       are no individual words in the input text longer than :attr:`width`,
-      :class:`TextWrapper` guarantees that no output line will be longer than
+      :class:`!TextWrapper` guarantees that no output line will be longer than
       :attr:`width` characters.
 
 
@@ -233,7 +233,7 @@ hyphenated words; only then will long words be broken if necessary, unless
 
    .. attribute:: fix_sentence_endings
 
-      (default: ``False``) If true, :class:`TextWrapper` attempts to detect
+      (default: ``False``) If true, :class:`!TextWrapper` attempts to detect
       sentence endings and ensure that sentences are always separated by exactly
       two spaces.  This is generally desired for text in a monospaced font.
       However, the sentence detection algorithm is imperfect: it assumes that a
@@ -293,14 +293,14 @@ hyphenated words; only then will long words be broken if necessary, unless
       .. versionadded:: 3.4
 
 
-   :class:`TextWrapper` also provides some public methods, analogous to the
+   :class:`!TextWrapper` also provides some public methods, analogous to the
    module-level convenience functions:
 
    .. method:: wrap(text)
 
       Wraps the single paragraph in *text* (a string) so every line is at most
       :attr:`width` characters long.  All wrapping options are taken from
-      instance attributes of the :class:`TextWrapper` instance.  Returns a list
+      instance attributes of the :class:`!TextWrapper` instance.  Returns a list
       of output lines, without final newlines.  If the wrapped output has no
       content, the returned list is empty.
 

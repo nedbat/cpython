@@ -35,7 +35,7 @@ The primary entry point is a :term:`generator`:
 
 .. function:: tokenize(readline)
 
-   The :func:`.tokenize` generator requires one argument, *readline*, which
+   The :func:`!tokenize` generator requires one argument, *readline*, which
    must be a callable object which provides the same interface as the
    :meth:`io.IOBase.readline` method of file objects.  Each call to the
    function should return one line of input as bytes.
@@ -60,7 +60,7 @@ The primary entry point is a :term:`generator`:
    .. versionchanged:: 3.3
       Added support for ``exact_type``.
 
-   :func:`.tokenize` determines the source encoding of the file by looking for a
+   :func:`!tokenize` determines the source encoding of the file by looking for a
    UTF-8 BOM or encoding cookie, according to :pep:`263`.
 
 .. function:: generate_tokens(readline)
@@ -68,7 +68,7 @@ The primary entry point is a :term:`generator`:
    Tokenize a source reading unicode strings instead of bytes.
 
    Like :func:`.tokenize`, the *readline* argument is a callable returning
-   a single line of input. However, :func:`generate_tokens` expects *readline*
+   a single line of input. However, :func:`!generate_tokens` expects *readline*
    to return a str object rather than bytes.
 
    The result is an iterator yielding named tuples, exactly like
@@ -103,7 +103,7 @@ function it uses to do this is available:
 
 .. function:: detect_encoding(readline)
 
-    The :func:`detect_encoding` function is used to detect the encoding that
+    The :func:`!detect_encoding` function is used to detect the encoding that
     should be used to decode a Python source file. It requires one argument,
     readline, in the same way as the :func:`.tokenize` generator.
 
@@ -120,7 +120,7 @@ function it uses to do this is available:
     returned.
 
     Use :func:`.open` to open Python source files: it uses
-    :func:`detect_encoding` to detect the file encoding.
+    :func:`!detect_encoding` to detect the file encoding.
 
 
 .. function:: open(filename)

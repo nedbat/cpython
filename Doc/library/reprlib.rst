@@ -24,7 +24,7 @@ This module provides a class, an instance, and a function:
    are added to avoid the generation of representations which are excessively long.
 
    The keyword arguments of the constructor can be used as a shortcut to set the
-   attributes of the :class:`Repr` instance. Which means that the following
+   attributes of the :class:`!Repr` instance. Which means that the following
    initialization::
 
       aRepr = reprlib.Repr(maxlevel=3)
@@ -34,7 +34,7 @@ This module provides a class, an instance, and a function:
       aRepr = reprlib.Repr()
       aRepr.maxlevel = 3
 
-   See section `Repr Objects`_ for more information about :class:`Repr`
+   See section `Repr Objects`_ for more information about :class:`!Repr`
    attributes.
 
    .. versionchanged:: 3.12
@@ -157,7 +157,7 @@ which format specific object types.
       >>> print(aRepr.repr(example))
       [1, 'spam', {'a': 2, 'b': 'spam eggs', 'c': {3: 4.5, 6: []}}, 'ham']
 
-   If :attr:`~Repr.indent` is set to a string, each recursion level
+   If :attr:`!Repr.indent` is set to a string, each recursion level
    is placed on its own line, indented by that string:
 
    .. doctest:: indent
@@ -178,7 +178,7 @@ which format specific object types.
       -->'ham',
       ]
 
-   Setting :attr:`~Repr.indent` to a positive integer value behaves as if it
+   Setting :attr:`!Repr.indent` to a positive integer value behaves as if it
    was set to a string with that number of spaces:
 
    .. doctest:: indent

@@ -76,7 +76,7 @@ The module defines the following items:
 
 .. class:: GzipFile(filename=None, mode=None, compresslevel=6, fileobj=None, mtime=None)
 
-   Constructor for the :class:`GzipFile` class, which simulates most of the
+   Constructor for the :class:`!GzipFile` class, which simulates most of the
    methods of a :term:`file object`, with the exception of the :meth:`~io.IOBase.truncate`
    method.  At least one of *fileobj* and *filename* must be given a non-trivial
    value.
@@ -99,7 +99,7 @@ The module defines the following items:
    not be used.  It is better to always specify *mode* for writing.
 
    Note that the file is always opened in binary mode. To open a compressed file
-   in text mode, use :func:`.open` (or wrap your :class:`GzipFile` with an
+   in text mode, use :func:`.open` (or wrap your :class:`!GzipFile` with an
    :class:`io.TextIOWrapper`).
 
    The *compresslevel* argument is an integer from ``0`` to ``9`` controlling
@@ -114,17 +114,17 @@ The module defines the following items:
 
    See below for the :attr:`mtime` attribute that is set when decompressing.
 
-   Calling a :class:`GzipFile` object's :meth:`!close` method does not close
+   Calling a :class:`!GzipFile` object's :meth:`!close` method does not close
    *fileobj*, since you might wish to append more material after the compressed
    data.  This also allows you to pass an :class:`io.BytesIO` object opened for
    writing as *fileobj*, and retrieve the resulting memory buffer using the
    :class:`io.BytesIO` object's :meth:`~io.BytesIO.getvalue` method.
 
-   :class:`GzipFile` supports the :class:`io.BufferedIOBase` interface,
+   :class:`!GzipFile` supports the :class:`io.BufferedIOBase` interface,
    including iteration and the :keyword:`with` statement.  Only the
    :meth:`~io.IOBase.truncate` method isn't implemented.
 
-   :class:`GzipFile` also provides the following method and attribute:
+   :class:`!GzipFile` also provides the following method and attribute:
 
    .. method:: peek(n)
 
@@ -132,8 +132,8 @@ The module defines the following items:
       The number of bytes returned may be more or less than requested.
 
       .. note:: While calling :meth:`peek` does not change the file position of
-         the :class:`GzipFile`, it may change the position of the underlying
-         file object (e.g. if the :class:`GzipFile` was constructed with the
+         the :class:`!GzipFile`, it may change the position of the underlying
+         file object (e.g. if the :class:`!GzipFile` was constructed with the
          *fileobj* parameter).
 
       .. versionadded:: 3.2
@@ -181,7 +181,7 @@ The module defines the following items:
       Accepts a :term:`path-like object`.
 
    .. deprecated:: 3.9
-      Opening :class:`GzipFile` for writing without specifying the *mode*
+      Opening :class:`!GzipFile` for writing without specifying the *mode*
       argument is deprecated.
 
    .. versionchanged:: 3.12

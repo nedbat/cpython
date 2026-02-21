@@ -263,7 +263,7 @@ Condition
 
       Note that a task *may* return from this call spuriously,
       which is why the caller should always re-check the state
-      and be prepared to :meth:`~Condition.wait` again. For this reason, you may
+      and be prepared to :meth:`!Condition.wait` again. For this reason, you may
       prefer to use :meth:`~Condition.wait_for` instead.
 
    .. method:: wait_for(predicate)
@@ -335,7 +335,7 @@ Semaphore
       Release a semaphore, incrementing the internal counter by one.
       Can wake up a task waiting to acquire the semaphore.
 
-      Unlike :class:`BoundedSemaphore`, :class:`Semaphore` allows
+      Unlike :class:`BoundedSemaphore`, :class:`!Semaphore` allows
       making more ``release()`` calls than ``acquire()`` calls.
 
 

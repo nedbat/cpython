@@ -126,7 +126,7 @@ language using this mechanism:
 
    *CompilerFlag* is the (bitfield) flag that should be passed in the fourth
    argument to the built-in function :func:`compile` to enable the feature in
-   dynamically compiled code.  This flag is stored in the :attr:`_Feature.compiler_flag`
+   dynamically compiled code.  This flag is stored in the :attr:`!_Feature.compiler_flag`
    attribute on :class:`_Feature` instances.
 
 .. [1]

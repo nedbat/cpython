@@ -73,7 +73,7 @@ ArgumentParser objects
                           add_help=True, allow_abbrev=True, exit_on_error=True, \
                           *, suggest_on_error=True, color=True)
 
-   Create a new :class:`ArgumentParser` object. All parameters should be passed
+   Create a new :class:`!ArgumentParser` object. All parameters should be passed
    as keyword arguments. Each parameter has its own more detailed description
    below, but in short they are:
 
@@ -88,7 +88,7 @@ ArgumentParser objects
 
    * epilog_ - Text to display after the argument help (by default, no text)
 
-   * parents_ - A list of :class:`ArgumentParser` objects whose arguments should
+   * parents_ - A list of :class:`!ArgumentParser` objects whose arguments should
      also be included
 
    * formatter_class_ - A class for customizing the help output
@@ -1680,7 +1680,7 @@ The Namespace object
       {'foo': 'BAR'}
 
    It may also be useful to have an :class:`ArgumentParser` assign attributes to an
-   already existing object, rather than a new :class:`Namespace` object.  This can
+   already existing object, rather than a new :class:`!Namespace` object.  This can
    be achieved by specifying the ``namespace=`` keyword argument::
 
       >>> class C:
@@ -1811,7 +1811,7 @@ Subcommands
        -h, --help     show this help message and exit
        --baz {X,Y,Z}  baz help
 
-   The :meth:`~ArgumentParser.add_subparsers` method also supports ``title`` and ``description``
+   The :meth:`!ArgumentParser.add_subparsers` method also supports ``title`` and ``description``
    keyword arguments.  When either is present, the subparser's commands will
    appear in their own group in the help output.  For example::
 
@@ -1833,7 +1833,7 @@ Subcommands
        {foo,bar}   additional help
 
    One particularly effective way of handling subcommands is to combine the use
-   of the :meth:`~ArgumentParser.add_subparsers` method with calls to :meth:`~ArgumentParser.set_defaults` so
+   of the :meth:`!ArgumentParser.add_subparsers` method with calls to :meth:`~ArgumentParser.set_defaults` so
    that each subparser knows which Python function it should execute.  For
    example::
 
@@ -1874,7 +1874,7 @@ Subcommands
    functions with actions like this is typically the easiest way to handle the
    different actions for each of your subparsers.  However, if it is necessary
    to check the name of the subparser that was invoked, the ``dest`` keyword
-   argument to the :meth:`~ArgumentParser.add_subparsers` call will work::
+   argument to the :meth:`!ArgumentParser.add_subparsers` call will work::
 
      >>> parser = argparse.ArgumentParser()
      >>> subparsers = parser.add_subparsers(dest='subparser_name')
@@ -1935,9 +1935,9 @@ FileType objects
 
 .. class:: FileType(mode='r', bufsize=-1, encoding=None, errors=None)
 
-   The :class:`FileType` factory creates objects that can be passed to the type
+   The :class:`!FileType` factory creates objects that can be passed to the type
    argument of :meth:`ArgumentParser.add_argument`.  Arguments that have
-   :class:`FileType` objects as their type will open command-line arguments as
+   :class:`!FileType` objects as their type will open command-line arguments as
    files with the requested modes, buffer sizes, encodings and error handling
    (see the :func:`open` function for more details)::
 
@@ -1948,8 +1948,8 @@ FileType objects
       Namespace(out=<_io.TextIOWrapper name='file.txt' mode='w' encoding='UTF-8'>, raw=<_io.FileIO name='raw.dat' mode='wb'>)
 
    FileType objects understand the pseudo-argument ``'-'`` and automatically
-   convert this into :data:`sys.stdin` for readable :class:`FileType` objects and
-   :data:`sys.stdout` for writable :class:`FileType` objects::
+   convert this into :data:`sys.stdin` for readable :class:`!FileType` objects and
+   :data:`sys.stdout` for writable :class:`!FileType` objects::
 
       >>> parser = argparse.ArgumentParser()
       >>> parser.add_argument('infile', type=argparse.FileType('r'))
@@ -2183,7 +2183,7 @@ Partial parsing
 
    Sometimes a script only needs to handle a specific set of command-line
    arguments, leaving any unrecognized arguments for another script or program.
-   In these cases, the :meth:`~ArgumentParser.parse_known_args` method can be
+   In these cases, the :meth:`!ArgumentParser.parse_known_args` method can be
    useful.
 
    This method works similarly to :meth:`~ArgumentParser.parse_args`, but it does
@@ -2257,7 +2257,7 @@ Intermixed parsing
 
    A number of Unix commands allow the user to intermix optional arguments with
    positional arguments.  The :meth:`~ArgumentParser.parse_intermixed_args`
-   and :meth:`~ArgumentParser.parse_known_intermixed_args` methods
+   and :meth:`!ArgumentParser.parse_known_intermixed_args` methods
    support this parsing style.
 
    These parsers do not support all the :mod:`!argparse` features, and will raise
@@ -2280,7 +2280,7 @@ Intermixed parsing
       >>> parser.parse_intermixed_args('doit 1 --foo bar 2 3'.split())
       Namespace(cmd='doit', foo='bar', rest=[1, 2, 3])
 
-   :meth:`~ArgumentParser.parse_known_intermixed_args` returns a two item tuple
+   :meth:`!ArgumentParser.parse_known_intermixed_args` returns a two item tuple
    containing the populated namespace and the list of remaining argument strings.
    :meth:`~ArgumentParser.parse_intermixed_args` raises an error if there are any
    remaining unparsed argument strings.

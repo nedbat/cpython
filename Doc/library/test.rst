@@ -297,7 +297,7 @@ The :mod:`!test.support` module defines the following constants:
    The timeout is short enough to prevent a test to wait for too long if the
    internet request is blocked for whatever reason.
 
-   Usually, a timeout using :data:`INTERNET_TIMEOUT` should not mark a test as
+   Usually, a timeout using :data:`!INTERNET_TIMEOUT` should not mark a test as
    failed, but skip the test instead: see
    :func:`~test.support.socket_helper.transient_internet`.
 
@@ -312,7 +312,7 @@ The :mod:`!test.support` module defines the following constants:
 
    The timeout value depends on the regrtest ``--timeout`` command line option.
 
-   If a test using :data:`SHORT_TIMEOUT` starts to fail randomly on slow
+   If a test using :data:`!SHORT_TIMEOUT` starts to fail randomly on slow
    buildbots, use :data:`LONG_TIMEOUT` instead.
 
    Its default value is 30 seconds.
@@ -1122,7 +1122,7 @@ The :mod:`!test.support.socket_helper` module provides support for socket tests.
    socket, or if an unused port needs to be provided in a constructor
    or passed to an external program (i.e. the ``-accept`` argument to
    openssl's s_server mode).  Always prefer :func:`bind_port` over
-   :func:`find_unused_port` where possible.  Using a hard coded port is
+   :func:`!find_unused_port` where possible.  Using a hard coded port is
    discouraged since it can make multiple instances of the test impossible to
    run simultaneously, which is a problem for buildbots.
 
@@ -1794,7 +1794,7 @@ The :mod:`!test.support.warnings_helper` module provides support for warnings te
           warnings.warn(UserWarning("Hide me!"))
 
    In this case if either warning was not raised, or some other warning was
-   raised, :func:`check_warnings` would raise an error.
+   raised, :func:`!check_warnings` would raise an error.
 
    When a test needs to look more deeply into the warnings, rather than
    just checking whether or not they occurred, code like this can be used::

@@ -83,12 +83,12 @@ The :mod:`!bz2` module contains:
    If *mode* is ``'r'``, the input file may be the concatenation of multiple
    compressed streams.
 
-   :class:`BZ2File` provides all of the members specified by the
+   :class:`!BZ2File` provides all of the members specified by the
    :class:`io.BufferedIOBase`, except for :meth:`~io.BufferedIOBase.detach`
    and :meth:`~io.IOBase.truncate`.
    Iteration and the :keyword:`with` statement are supported.
 
-   :class:`BZ2File` also provides the following methods and attributes:
+   :class:`!BZ2File` also provides the following methods and attributes:
 
    .. method:: peek([n])
 
@@ -97,8 +97,8 @@ The :mod:`!bz2` module contains:
       returned is unspecified.
 
       .. note:: While calling :meth:`peek` does not change the file position of
-         the :class:`BZ2File`, it may change the position of the underlying file
-         object (e.g. if the :class:`BZ2File` was constructed by passing a file
+         the :class:`!BZ2File`, it may change the position of the underlying file
+         object (e.g. if the :class:`!BZ2File` was constructed by passing a file
          object for *filename*).
 
       .. versionadded:: 3.3
@@ -230,7 +230,7 @@ Incremental (de)compression
    .. note::
       This class does not transparently handle inputs containing multiple
       compressed streams, unlike :func:`decompress` and :class:`BZ2File`. If
-      you need to decompress a multi-stream input with :class:`BZ2Decompressor`,
+      you need to decompress a multi-stream input with :class:`!BZ2Decompressor`,
       you must use a new decompressor for each stream.
 
    .. method:: decompress(data, max_length=-1)

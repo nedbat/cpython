@@ -192,7 +192,7 @@ or on combining URL components into a URL string.
 
    .. warning::
 
-      :func:`urlsplit` does not perform validation.  See :ref:`URL parsing
+      :func:`!urlsplit` does not perform validation.  See :ref:`URL parsing
       security <url-parsing-security>` for details.
 
    .. versionchanged:: 3.2
@@ -350,7 +350,7 @@ or on combining URL components into a URL string.
    listed *params* as the main URL component.
    The more recent URL syntax allows parameters to be applied to each segment
    of the *path* portion of the URL (see :rfc:`3986`).
-   :func:`urlsplit` should generally be used instead of :func:`urlparse`.
+   :func:`urlsplit` should generally be used instead of :func:`!urlparse`.
    A separate function is needed to separate the path segments and parameters.
 
 .. function:: urlunparse(parts)

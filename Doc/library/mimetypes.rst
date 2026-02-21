@@ -103,7 +103,7 @@ behavior of the module.
    the file names to use are taken from :const:`knownfiles`; on Windows, the
    current registry settings are loaded.  Each file named in *files* or
    :const:`knownfiles` takes precedence over those named before it.  Calling
-   :func:`init` repeatedly is allowed.
+   :func:`!init` repeatedly is allowed.
 
    Specifying an empty list for *files* will prevent the system defaults from
    being applied: only the well-known values will be present from a built-in list.

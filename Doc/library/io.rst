@@ -168,7 +168,7 @@ High-level Module Interface
 
 .. function:: open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
 
-   This is an alias for the builtin :func:`open` function.
+   This is an alias for the builtin :func:`!open` function.
 
    .. audit-event:: open path,mode,flags io.open
 
@@ -220,13 +220,13 @@ High-level Module Interface
    .. versionadded:: 3.10
 
    .. versionchanged:: 3.11
-      :func:`text_encoding` returns "utf-8" when UTF-8 mode is enabled and
+      :func:`!text_encoding` returns "utf-8" when UTF-8 mode is enabled and
       *encoding* is ``None``.
 
 
 .. exception:: BlockingIOError
 
-   This is a compatibility alias for the builtin :exc:`BlockingIOError`
+   This is a compatibility alias for the builtin :exc:`!BlockingIOError`
    exception.
 
 
@@ -318,7 +318,7 @@ I/O Base Classes
    implementations represent a file that cannot be read, written or
    seeked.
 
-   Even though :class:`IOBase` does not declare :meth:`!read`
+   Even though :class:`!IOBase` does not declare :meth:`!read`
    or :meth:`!write` because their signatures will vary, implementations and
    clients should consider those methods part of the interface.  Also,
    implementations may raise a :exc:`ValueError` (or :exc:`UnsupportedOperation`)
@@ -331,20 +331,20 @@ I/O Base Classes
    Note that calling any method (even inquiries) on a closed stream is
    undefined.  Implementations may raise :exc:`ValueError` in this case.
 
-   :class:`IOBase` (and its subclasses) supports the iterator protocol, meaning
-   that an :class:`IOBase` object can be iterated over yielding the lines in a
+   :class:`!IOBase` (and its subclasses) supports the iterator protocol, meaning
+   that an :class:`!IOBase` object can be iterated over yielding the lines in a
    stream.  Lines are defined slightly differently depending on whether the
    stream is a binary stream (yielding bytes), or a text stream (yielding
    character strings).  See :meth:`~IOBase.readline` below.
 
-   :class:`IOBase` is also a context manager and therefore supports the
+   :class:`!IOBase` is also a context manager and therefore supports the
    :keyword:`with` statement.  In this example, *file* is closed after the
    :keyword:`!with` statement's suite is finished---even if an exception occurs::
 
       with open('spam.txt', 'w') as file:
           file.write('Spam and eggs!')
 
-   :class:`IOBase` provides these data attributes and methods:
+   :class:`!IOBase` provides these data attributes and methods:
 
    .. method:: close()
 
@@ -457,7 +457,7 @@ I/O Base Classes
 
    .. method:: __del__()
 
-      Prepare for object destruction. :class:`IOBase` provides a default
+      Prepare for object destruction. :class:`!IOBase` provides a default
       implementation of this method that calls the instance's
       :meth:`~IOBase.close` method.
 
@@ -471,7 +471,7 @@ I/O Base Classes
    (this functionality is done at a higher-level in buffered binary streams and text streams, described later
    in this page).
 
-   :class:`RawIOBase` provides these methods in addition to those from
+   :class:`!RawIOBase` provides these methods in addition to those from
    :class:`IOBase`:
 
    .. method:: read(size=-1, /)
@@ -531,18 +531,18 @@ I/O Base Classes
    Besides, the :meth:`read` method does not have a default
    implementation that defers to :meth:`readinto`.
 
-   A typical :class:`BufferedIOBase` implementation should not inherit from a
+   A typical :class:`!BufferedIOBase` implementation should not inherit from a
    :class:`RawIOBase` implementation, but wrap one, like
    :class:`BufferedWriter` and :class:`BufferedReader` do.
 
-   :class:`BufferedIOBase` provides or overrides these data attributes and
+   :class:`!BufferedIOBase` provides or overrides these data attributes and
    methods in addition to those from :class:`IOBase`:
 
    .. attribute:: raw
 
       The underlying raw stream (a :class:`RawIOBase` instance) that
-      :class:`BufferedIOBase` deals with.  This is not part of the
-      :class:`BufferedIOBase` API and may not exist on some implementations.
+      :class:`!BufferedIOBase` deals with.  This is not part of the
+      :class:`!BufferedIOBase` API and may not exist on some implementations.
 
    .. method:: detach()
 
@@ -649,7 +649,7 @@ Raw File I/O
      file which will be opened. In this case closefd must be ``True`` (the default)
      otherwise an error will be raised.
    * an integer representing the number of an existing OS-level file descriptor
-     to which the resulting :class:`FileIO` object will give access. When the
+     to which the resulting :class:`!FileIO` object will give access. When the
      FileIO object is closed this fd will be closed as well, unless *closefd*
      is set to ``False``.
 
@@ -683,7 +683,7 @@ Raw File I/O
    .. versionchanged:: 3.4
       The file is now non-inheritable.
 
-   :class:`FileIO` provides these data attributes in addition to those from
+   :class:`!FileIO` provides these data attributes in addition to those from
    :class:`RawIOBase` and :class:`IOBase`:
 
    .. attribute:: mode
@@ -714,7 +714,7 @@ than raw I/O does.
    Methods may be used from multiple threads without external locking in
    :term:`free-threaded builds <free-threaded build>`.
 
-   :class:`BytesIO` provides or overrides these methods in addition to those
+   :class:`!BytesIO` provides or overrides these methods in addition to those
    from :class:`BufferedIOBase` and :class:`IOBase`:
 
    .. method:: getbuffer()
@@ -730,7 +730,7 @@ than raw I/O does.
          b'ab56ef'
 
       .. note::
-         As long as the view exists, the :class:`BytesIO` object cannot be
+         As long as the view exists, the :class:`!BytesIO` object cannot be
          resized or closed.
 
       .. versionadded:: 3.2
@@ -742,14 +742,14 @@ than raw I/O does.
 
    .. method:: read1(size=-1, /)
 
-      In :class:`BytesIO`, this is the same as :meth:`~BufferedIOBase.read`.
+      In :class:`!BytesIO`, this is the same as :meth:`~BufferedIOBase.read`.
 
       .. versionchanged:: 3.7
          The *size* argument is now optional.
 
    .. method:: readinto1(b, /)
 
-      In :class:`BytesIO`, this is the same as :meth:`~BufferedIOBase.readinto`.
+      In :class:`!BytesIO`, this is the same as :meth:`~BufferedIOBase.readinto`.
 
       .. versionadded:: 3.5
 
@@ -763,11 +763,11 @@ than raw I/O does.
    requested from the underlying raw stream, and kept in an internal buffer.
    The buffered data can then be returned directly on subsequent reads.
 
-   The constructor creates a :class:`BufferedReader` for the given readable
+   The constructor creates a :class:`!BufferedReader` for the given readable
    *raw* stream and *buffer_size*.  If *buffer_size* is omitted,
    :data:`DEFAULT_BUFFER_SIZE` is used.
 
-   :class:`BufferedReader` provides or overrides these methods in addition to
+   :class:`!BufferedReader` provides or overrides these methods in addition to
    those from :class:`BufferedIOBase` and :class:`IOBase`:
 
    .. method:: peek(size=0, /)
@@ -778,11 +778,11 @@ than raw I/O does.
 
    .. method:: read(size=-1, /)
 
-      In :class:`BufferedReader` this is the same as :meth:`io.BufferedIOBase.read`
+      In :class:`!BufferedReader` this is the same as :meth:`io.BufferedIOBase.read`
 
    .. method:: read1(size=-1, /)
 
-      In :class:`BufferedReader` this is the same as :meth:`io.BufferedIOBase.read1`
+      In :class:`!BufferedReader` this is the same as :meth:`io.BufferedIOBase.read1`
 
       .. versionchanged:: 3.7
          The *size* argument is now optional.
@@ -800,13 +800,13 @@ than raw I/O does.
    * when the buffer gets too small for all pending data;
    * when :meth:`flush` is called;
    * when a :meth:`~IOBase.seek` is requested (for :class:`BufferedRandom` objects);
-   * when the :class:`BufferedWriter` object is closed or destroyed.
+   * when the :class:`!BufferedWriter` object is closed or destroyed.
 
-   The constructor creates a :class:`BufferedWriter` for the given writeable
+   The constructor creates a :class:`!BufferedWriter` for the given writeable
    *raw* stream.  If the *buffer_size* is not given, it defaults to
    :data:`DEFAULT_BUFFER_SIZE`.
 
-   :class:`BufferedWriter` provides or overrides these methods in addition to
+   :class:`!BufferedWriter` provides or overrides these methods in addition to
    those from :class:`BufferedIOBase` and :class:`IOBase`:
 
    .. method:: flush()
@@ -832,7 +832,7 @@ than raw I/O does.
    in the first argument.  If the *buffer_size* is omitted it defaults to
    :data:`DEFAULT_BUFFER_SIZE`.
 
-   :class:`BufferedRandom` is capable of anything :class:`BufferedReader` or
+   :class:`!BufferedRandom` is capable of anything :class:`BufferedReader` or
    :class:`BufferedWriter` can do.  In addition, :meth:`~IOBase.seek` and
    :meth:`~IOBase.tell` are guaranteed to be implemented.
 
@@ -847,13 +847,13 @@ than raw I/O does.
    writeable respectively.  If the *buffer_size* is omitted it defaults to
    :data:`DEFAULT_BUFFER_SIZE`.
 
-   :class:`BufferedRWPair` implements all of :class:`BufferedIOBase`\'s methods
+   :class:`!BufferedRWPair` implements all of :class:`BufferedIOBase`\'s methods
    except for :meth:`~BufferedIOBase.detach`, which raises
    :exc:`UnsupportedOperation`.
 
    .. warning::
 
-      :class:`BufferedRWPair` does not attempt to synchronize accesses to
+      :class:`!BufferedRWPair` does not attempt to synchronize accesses to
       its underlying raw streams.  You should not pass it the same object
       as reader and writer; use :class:`BufferedRandom` instead.
 
@@ -866,7 +866,7 @@ Text I/O
    Base class for text streams.  This class provides a character and line based
    interface to stream I/O.  It inherits from :class:`IOBase`.
 
-   :class:`TextIOBase` provides or overrides these data attributes and
+   :class:`!TextIOBase` provides or overrides these data attributes and
    methods in addition to those from :class:`IOBase`:
 
    .. attribute:: encoding
@@ -887,19 +887,19 @@ Text I/O
    .. attribute:: buffer
 
       The underlying binary buffer (a :class:`BufferedIOBase`
-      or :class:`RawIOBase` instance) that :class:`TextIOBase` deals with.
-      This is not part of the :class:`TextIOBase` API and may not exist
+      or :class:`RawIOBase` instance) that :class:`!TextIOBase` deals with.
+      This is not part of the :class:`!TextIOBase` API and may not exist
       in some implementations.
 
    .. method:: detach()
 
-      Separate the underlying binary buffer from the :class:`TextIOBase` and
+      Separate the underlying binary buffer from the :class:`!TextIOBase` and
       return it.
 
-      After the underlying buffer has been detached, the :class:`TextIOBase` is
+      After the underlying buffer has been detached, the :class:`!TextIOBase` is
       in an unusable state.
 
-      Some :class:`TextIOBase` implementations, like :class:`StringIO`, may not
+      Some :class:`!TextIOBase` implementations, like :class:`StringIO`, may not
       have the concept of an underlying buffer and calling this method will
       raise :exc:`UnsupportedOperation`.
 
@@ -1001,7 +1001,7 @@ Text I/O
    write contains a newline character or a carriage return.
 
    If *write_through* is ``True``, calls to :meth:`~BufferedIOBase.write` are guaranteed
-   not to be buffered: any data written on the :class:`TextIOWrapper`
+   not to be buffered: any data written on the :class:`!TextIOWrapper`
    object is immediately handled to its underlying binary *buffer*.
 
    .. versionchanged:: 3.3
@@ -1021,7 +1021,7 @@ Text I/O
       When the underlying raw stream is non-blocking, a :exc:`BlockingIOError`
       may be raised if a read operation cannot be completed immediately.
 
-   :class:`TextIOWrapper` provides these data attributes and methods in
+   :class:`!TextIOWrapper` provides these data attributes and methods in
    addition to those from :class:`TextIOBase` and :class:`IOBase`:
 
    .. attribute:: line_buffering
@@ -1106,7 +1106,7 @@ Text I/O
    except that when writing output to the stream, if *newline* is ``None``,
    newlines are written as ``\n`` on all platforms.
 
-   :class:`StringIO` provides this method in addition to those from
+   :class:`!StringIO` provides this method in addition to those from
    :class:`TextIOBase` and :class:`IOBase`:
 
    .. method:: getvalue()

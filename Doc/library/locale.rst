@@ -29,7 +29,7 @@ The :mod:`!locale` module defines the following exception and functions:
 
 .. function:: setlocale(category, locale=None)
 
-   If *locale* is given and not ``None``, :func:`setlocale` modifies the locale
+   If *locale* is given and not ``None``, :func:`!setlocale` modifies the locale
    setting for the *category*. The available categories are listed in the data
    description below. *locale* may be a :ref:`string <locale_name>`, or a pair,
    language code and encoding. An empty string specifies the user's
@@ -56,7 +56,7 @@ The :mod:`!locale` module defines the following exception and functions:
       >>> locale.setlocale(locale.LC_ALL, 'C')  # use default (C) locale
       >>> locale.setlocale(locale.LC_ALL, loc)  # restore saved locale
 
-   :func:`setlocale` is not thread-safe on most systems. Applications typically
+   :func:`!setlocale` is not thread-safe on most systems. Applications typically
    start with a call of::
 
       import locale
@@ -179,7 +179,7 @@ The :mod:`!locale` module defines the following exception and functions:
    across platforms.  The possible argument values are numbers, for which
    symbolic constants are available in the locale module.
 
-   The :func:`nl_langinfo` function accepts one of the following keys.  Most
+   The :func:`!nl_langinfo` function accepts one of the following keys.  Most
    descriptions are taken from the corresponding description in the GNU C
    library.
 

@@ -221,7 +221,7 @@ Collections Abstract Base Classes -- Detailed Descriptions
    ABC for classes that provide the :meth:`~container.__iter__` method.
 
    Checking ``isinstance(obj, Iterable)`` detects classes that are registered
-   as :class:`Iterable` or that have an :meth:`~container.__iter__` method,
+   as :class:`!Iterable` or that have an :meth:`~container.__iter__` method,
    but it does
    not detect classes that iterate with the :meth:`~object.__getitem__` method.
    The only reliable way to determine whether an object is :term:`iterable`
@@ -346,7 +346,7 @@ Collections Abstract Base Classes -- Detailed Descriptions
    following methods, defined in :ref:`coroutine-objects`:
    :meth:`~coroutine.send`, :meth:`~coroutine.throw`, and
    :meth:`~coroutine.close`.  Custom implementations must also implement
-   :meth:`~object.__await__`.  All :class:`Coroutine` instances are also
+   :meth:`~object.__await__`.  All :class:`!Coroutine` instances are also
    instances of :class:`Awaitable`.
 
    .. note::

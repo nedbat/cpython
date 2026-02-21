@@ -56,7 +56,7 @@ The :mod:`!shlex` module defines the following functions:
 
       The ``shlex`` module is **only designed for Unix shells**.
 
-      The :func:`quote` function is not guaranteed to be correct on non-POSIX
+      The :func:`!quote` function is not guaranteed to be correct on non-POSIX
       compliant shells or shells from other operating systems such as Windows.
       Executing commands quoted by this module on such shells can open up the
       possibility of a command injection vulnerability.
@@ -71,7 +71,7 @@ The :mod:`!shlex` module defines the following functions:
       >>> print(command)  # executed by a shell: boom!
       ls -l somefile; rm -rf ~
 
-   :func:`quote` lets you plug the security hole:
+   :func:`!quote` lets you plug the security hole:
 
       >>> from shlex import quote
       >>> command = 'ls -l {}'.format(quote(filename))

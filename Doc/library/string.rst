@@ -94,7 +94,7 @@ implementation as the built-in :meth:`~str.format` method.
 
 .. class:: Formatter
 
-   The :class:`Formatter` class has the following public methods:
+   The :class:`!Formatter` class has the following public methods:
 
    .. method:: format(format_string, /, *args, **kwargs)
 
@@ -116,7 +116,7 @@ implementation as the built-in :meth:`~str.format` method.
       into character data and replacement fields.  It calls the various
       methods described below.
 
-   In addition, the :class:`Formatter` defines a number of methods that are
+   In addition, the :class:`!Formatter` defines a number of methods that are
    intended to be replaced by subclasses:
 
    .. method:: parse(format_string)
@@ -889,7 +889,7 @@ these rules.  The methods of :class:`Template` are:
 
       .. versionadded:: 3.11
 
-   :class:`Template` instances also provide one public data attribute:
+   :class:`!Template` instances also provide one public data attribute:
 
    .. attribute:: template
 

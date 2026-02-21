@@ -541,7 +541,7 @@ Expressions
            Not
            Invert
 
-   Unary operator tokens. :class:`Not` is the ``not`` keyword, :class:`Invert`
+   Unary operator tokens. :class:`!Not` is the ``not`` keyword, :class:`!Invert`
    is the ``~`` operator.
 
    .. doctest::
@@ -1168,7 +1168,7 @@ Control flow
    node. ``body`` and ``orelse`` each hold a list of nodes.
 
    ``elif`` clauses don't have a special representation in the AST, but rather
-   appear as extra :class:`If` nodes within the ``orelse`` section of the
+   appear as extra :class:`!If` nodes within the ``orelse`` section of the
    previous one.
 
    .. doctest::
@@ -2416,7 +2416,7 @@ and classes for traversing abstract syntax trees:
 
       Handles all constant nodes.
 
-   Don't use the :class:`NodeVisitor` if you want to apply changes to nodes
+   Don't use the :class:`!NodeVisitor` if you want to apply changes to nodes
    during traversal.  For this a special visitor exists
    (:class:`NodeTransformer`) that allows modifications.
 
@@ -2433,7 +2433,7 @@ and classes for traversing abstract syntax trees:
    A :class:`NodeVisitor` subclass that walks the abstract syntax tree and
    allows modification of nodes.
 
-   The :class:`NodeTransformer` will walk the AST and use the return value of
+   The :class:`!NodeTransformer` will walk the AST and use the return value of
    the visitor methods to replace or remove the old node.  If the return value
    of the visitor method is ``None``, the node will be removed from its
    location, otherwise it is replaced with the return value.  The return value
@@ -2459,7 +2459,7 @@ and classes for traversing abstract syntax trees:
    statement nodes), the visitor may also return a list of nodes rather than
    just a single node.
 
-   If :class:`NodeTransformer` introduces new nodes (that weren't part of
+   If :class:`!NodeTransformer` introduces new nodes (that weren't part of
    original tree) without giving them location information (such as
    :attr:`~ast.AST.lineno`), :func:`fix_missing_locations` should be called with
    the new sub-tree to recalculate the location information::

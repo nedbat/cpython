@@ -302,7 +302,7 @@ Data Types
       No longer used, kept for backward compatibility.
       (class attribute, removed during class creation).
 
-      The :attr:`~Enum._order_` attribute can be provided to help keep Python 2 / Python 3 code in sync.
+      The :attr:`!Enum._order_` attribute can be provided to help keep Python 2 / Python 3 code in sync.
       It will be checked against the actual order of the enumeration and raise an error if the two do not match::
 
          >>> class Color(Enum):
@@ -319,7 +319,7 @@ Data Types
 
       .. note::
 
-         In Python 2 code the :attr:`~Enum._order_` attribute is necessary as definition
+         In Python 2 code the :attr:`!Enum._order_` attribute is necessary as definition
          order is lost before it can be recorded.
 
       .. versionadded:: 3.6
@@ -368,7 +368,7 @@ Data Types
       :class:`auto`.
 
       .. note::
-         For standard :class:`Enum` classes the next value chosen is the highest
+         For standard :class:`!Enum` classes the next value chosen is the highest
          value seen incremented by one.
 
          For :class:`Flag` classes the next value chosen will be the next highest
@@ -499,7 +499,7 @@ Data Types
 
    .. note::
 
-      Using :class:`auto` with :class:`Enum` results in integers of increasing value,
+      Using :class:`auto` with :class:`!Enum` results in integers of increasing value,
       starting with ``1``.
 
    .. versionchanged:: 3.12 Added :ref:`enum-dataclass-support`
@@ -553,7 +553,7 @@ Data Types
 
    .. note::
 
-      Using :class:`auto` with :class:`IntEnum` results in integers of increasing
+      Using :class:`auto` with :class:`!IntEnum` results in integers of increasing
       value, starting with ``1``.
 
    .. versionchanged:: 3.11 :meth:`~object.__str__` is now :meth:`!int.__str__` to
@@ -591,7 +591,7 @@ Data Types
 
    .. note::
 
-      Using :class:`auto` with :class:`StrEnum` results in the lower-cased member
+      Using :class:`auto` with :class:`!StrEnum` results in the lower-cased member
       name as the value.
 
    .. note::
@@ -706,7 +706,7 @@ Data Types
 
    .. note::
 
-      Using :class:`auto` with :class:`Flag` results in integers that are powers
+      Using :class:`auto` with :class:`!Flag` results in integers that are powers
       of two, starting with ``1``.
 
    .. versionchanged:: 3.11 The *repr()* of zero-valued flags has changed.  It
@@ -749,7 +749,7 @@ Data Types
 
    .. note::
 
-      Using :class:`auto` with :class:`IntFlag` results in integers that are powers
+      Using :class:`auto` with :class:`!IntFlag` results in integers that are powers
       of two, starting with ``1``.
 
    .. versionchanged:: 3.11
@@ -1073,7 +1073,7 @@ Utilities and Decorators
 
 .. function:: bin(num, max_bits=None)
 
-   Like built-in :func:`bin`, except negative values are represented in
+   Like built-in :func:`!bin`, except negative values are represented in
    two's complement, and the leading bit always indicates sign
    (``0`` implies positive, ``1`` implies negative).
 

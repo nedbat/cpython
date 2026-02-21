@@ -168,14 +168,14 @@ Programmatic Interface
 
    .. method:: runfunc(func, /, *args, **kwds)
 
-      Call *func* with the given arguments under control of the :class:`Trace`
+      Call *func* with the given arguments under control of the :class:`!Trace`
       object with the current tracing parameters.
 
    .. method:: results()
 
       Return a :class:`CoverageResults` object that contains the cumulative
       results of all previous calls to ``run``, ``runctx`` and ``runfunc``
-      for the given :class:`Trace` instance.  Does not reset the accumulated
+      for the given :class:`!Trace` instance.  Does not reset the accumulated
       trace results.
 
 .. class:: CoverageResults
@@ -185,7 +185,7 @@ Programmatic Interface
 
    .. method:: update(other)
 
-      Merge in data from another :class:`CoverageResults` object.
+      Merge in data from another :class:`!CoverageResults` object.
 
    .. method:: write_results(show_missing=True, summary=False, coverdir=None,\
                              *, ignore_missing_files=False)

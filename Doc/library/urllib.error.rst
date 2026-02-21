@@ -24,14 +24,14 @@ The following exceptions are raised by :mod:`!urllib.error` as appropriate:
       exception instance.
 
    .. versionchanged:: 3.3
-      :exc:`URLError` used to be a subtype of :exc:`IOError`, which is now an
+      :exc:`!URLError` used to be a subtype of :exc:`IOError`, which is now an
       alias of :exc:`OSError`.
 
 
 .. exception:: HTTPError(url, code, msg, hdrs, fp)
 
    Though being an exception (a subclass of :exc:`URLError`), an
-   :exc:`HTTPError` can also function as a non-exceptional file-like return
+   :exc:`!HTTPError` can also function as a non-exceptional file-like return
    value (the same thing that :func:`~urllib.request.urlopen` returns).  This
    is useful when handling exotic HTTP errors, such as requests for
    authentication.
@@ -55,7 +55,7 @@ The following exceptions are raised by :mod:`!urllib.error` as appropriate:
    .. attribute:: headers
 
       The HTTP response headers for the HTTP request that caused the
-      :exc:`HTTPError`.
+      :exc:`!HTTPError`.
       An alias for *hdrs* attribute.
 
       .. versionadded:: 3.4

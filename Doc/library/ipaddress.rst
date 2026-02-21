@@ -261,7 +261,7 @@ write code that handles both IP versions correctly.  Address objects are
 
    .. attribute:: ipv6_mapped
 
-      :class:`IPv4Address` object representing the IPv4-mapped IPv6 address. See :RFC:`4291`.
+      :class:`!IPv4Address` object representing the IPv4-mapped IPv6 address. See :RFC:`4291`.
 
       .. versionadded:: 3.13
 
@@ -872,7 +872,7 @@ dictionaries.
    constructor of :class:`IPv4Network`, except that arbitrary host addresses
    are always accepted.
 
-   :class:`IPv4Interface` is a subclass of :class:`IPv4Address`, so it inherits
+   :class:`!IPv4Interface` is a subclass of :class:`IPv4Address`, so it inherits
    all the attributes from that class.  In addition, the following attributes
    are available:
 
@@ -923,7 +923,7 @@ dictionaries.
    constructor of :class:`IPv6Network`, except that arbitrary host addresses
    are always accepted.
 
-   :class:`IPv6Interface` is a subclass of :class:`IPv6Address`, so it inherits
+   :class:`!IPv6Interface` is a subclass of :class:`IPv6Address`, so it inherits
    all the attributes from that class.  In addition, the following attributes
    are available:
 

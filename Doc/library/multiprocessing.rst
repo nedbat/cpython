@@ -544,7 +544,7 @@ or creating these objects.
                    *, daemon=None)
 
    Process objects represent activity that is run in a separate process. The
-   :class:`Process` class has equivalents of all the methods of
+   :class:`!Process` class has equivalents of all the methods of
    :class:`threading.Thread`.
 
    The constructor should always be called with keyword arguments. *group*
@@ -568,8 +568,8 @@ or creating these objects.
 
    .. note::
 
-      In general, all arguments to :class:`Process` must be picklable.  This is
-      frequently observed when trying to create a :class:`Process` or use a
+      In general, all arguments to :class:`!Process` must be picklable.  This is
+      frequently observed when trying to create a :class:`!Process` or use a
       :class:`concurrent.futures.ProcessPoolExecutor` from a REPL with a
       locally defined *target* function.
 
@@ -611,7 +611,7 @@ or creating these objects.
       the target argument, if any, with sequential and keyword arguments taken
       from the *args* and *kwargs* arguments, respectively.
 
-      Using a list or tuple as the *args* argument passed to :class:`Process`
+      Using a list or tuple as the *args* argument passed to :class:`!Process`
       achieves the same effect.
 
       Example::
@@ -679,7 +679,7 @@ or creating these objects.
       Unix daemons or services, they are normal processes that will be
       terminated (and not joined) if non-daemonic processes have exited.
 
-   In addition to the  :class:`threading.Thread` API, :class:`Process` objects
+   In addition to the  :class:`threading.Thread` API, :class:`!Process` objects
    also support the following attributes and methods:
 
    .. attribute:: pid
@@ -707,7 +707,7 @@ or creating these objects.
       When :mod:`!multiprocessing` is initialized the main process is assigned a
       random string using :func:`os.urandom`.
 
-      When a :class:`Process` object is created, it will inherit the
+      When a :class:`!Process` object is created, it will inherit the
       authentication key of its parent process, although this may be changed by
       setting :attr:`authkey` to another byte string.
 
@@ -772,10 +772,10 @@ or creating these objects.
 
    .. method:: close()
 
-      Close the :class:`Process` object, releasing all resources associated
+      Close the :class:`!Process` object, releasing all resources associated
       with it.  :exc:`ValueError` is raised if the underlying process
       is still running.  Once :meth:`close` returns successfully, most
-      other methods and attributes of the :class:`Process` object will
+      other methods and attributes of the :class:`!Process` object will
       raise :exc:`ValueError`.
 
       .. versionadded:: 3.7
@@ -784,7 +784,7 @@ or creating these objects.
    :meth:`terminate` and :attr:`exitcode` methods should only be called by
    the process that created the process object.
 
-   Example usage of some of the methods of :class:`Process`:
+   Example usage of some of the methods of :class:`!Process`:
 
    .. doctest::
 
@@ -812,7 +812,7 @@ or creating these objects.
    Exception raised by :meth:`Connection.recv_bytes_into` when the supplied
    buffer object is too small for the message read.
 
-   If ``e`` is an instance of :exc:`BufferTooShort` then ``e.args[0]`` will give
+   If ``e`` is an instance of :exc:`!BufferTooShort` then ``e.args[0]`` will give
    the message as a byte string.
 
 .. exception:: AuthenticationError
@@ -931,7 +931,7 @@ For an example of the usage of queues for interprocess communication see
    The usual :exc:`queue.Empty` and :exc:`queue.Full` exceptions from the
    standard library's :mod:`queue` module are raised to signal timeouts.
 
-   :class:`Queue` implements all the methods of :class:`queue.Queue` except for
+   :class:`!Queue` implements all the methods of :class:`queue.Queue` except for
    :meth:`~queue.Queue.task_done` and :meth:`~queue.Queue.join`.
 
    .. method:: qsize()
@@ -1035,7 +1035,7 @@ For an example of the usage of queues for interprocess communication see
       This class's functionality requires a functioning shared semaphore
       implementation on the host operating system. Without one, the
       functionality in this class will be disabled, and attempts to
-      instantiate a :class:`Queue` will result in an :exc:`ImportError`. See
+      instantiate a :class:`!Queue` will result in an :exc:`ImportError`. See
       :issue:`3770` for additional information.  The same holds true for any
       of the specialized queue types listed below.
 
@@ -1073,7 +1073,7 @@ For an example of the usage of queues for interprocess communication see
 
 .. class:: JoinableQueue([maxsize])
 
-   :class:`JoinableQueue`, a :class:`Queue` subclass, is a queue which
+   :class:`!JoinableQueue`, a :class:`Queue` subclass, is a queue which
    additionally has :meth:`task_done` and :meth:`join` methods.
 
    Instantiating this class may set the global start method. See
@@ -1498,14 +1498,14 @@ object -- see :ref:`multiprocessing-managers`.
    :class:`multiprocessing.Lock` as it applies to either processes or threads,
    except as noted.
 
-   Note that :class:`Lock` is actually a factory function which returns an
+   Note that :class:`!Lock` is actually a factory function which returns an
    instance of ``multiprocessing.synchronize.Lock`` initialized with a
    default context.
 
    Instantiating this class may set the global start method. See
    :ref:`global-start-method` for more details.
 
-   :class:`Lock` supports the :term:`context manager` protocol and thus may be
+   :class:`!Lock` supports the :term:`context manager` protocol and thus may be
    used in :keyword:`with` statements.
 
    .. method:: acquire(block=True, timeout=None)
@@ -1558,14 +1558,14 @@ object -- see :ref:`multiprocessing-managers`.
    or thread may acquire it again without blocking; that process or thread
    must release it once for each time it has been acquired.
 
-   Note that :class:`RLock` is actually a factory function which returns an
+   Note that :class:`!RLock` is actually a factory function which returns an
    instance of ``multiprocessing.synchronize.RLock`` initialized with a
    default context.
 
    Instantiating this class may set the global start method. See
    :ref:`global-start-method` for more details.
 
-   :class:`RLock` supports the :term:`context manager` protocol and thus may be
+   :class:`!RLock` supports the :term:`context manager` protocol and thus may be
    used in :keyword:`with` statements.
 
 
@@ -2028,7 +2028,7 @@ their parent process exits.  The manager classes are defined in the
       *typeid* which can be used to tell the server process to create a new
       shared object and return a proxy for it.  By default it is ``True``.
 
-   :class:`BaseManager` instances also have one read-only property:
+   :class:`!BaseManager` instances also have one read-only property:
 
    .. attribute:: address
 
@@ -2133,7 +2133,7 @@ their parent process exits.  The manager classes are defined in the
    .. versionchanged:: 3.6
       Shared objects are capable of being nested.  For example, a shared
       container object such as a shared list can contain other shared objects
-      which will all be managed and synchronized by the :class:`SyncManager`.
+      which will all be managed and synchronized by the :class:`!SyncManager`.
 
 .. class:: Namespace
 
@@ -2343,7 +2343,7 @@ demonstrates a level of control over the synchronization.
 
 .. class:: BaseProxy
 
-   Proxy objects are instances of subclasses of :class:`BaseProxy`.
+   Proxy objects are instances of subclasses of :class:`!BaseProxy`.
 
    .. method:: _callmethod(methodname[, args[, kwds]])
 
@@ -2469,13 +2469,13 @@ with the :class:`Pool` class.
 
    .. note::
 
-      Worker processes within a :class:`Pool` typically live for the complete
+      Worker processes within a :class:`!Pool` typically live for the complete
       duration of the Pool's work queue. A frequent pattern found in other
       systems (such as Apache, mod_wsgi, etc) to free resources held by
       workers is to allow a worker within a pool to complete only a set
       amount of work before exiting, being cleaned up and a new
       process spawned to replace the old one. The *maxtasksperchild*
-      argument to the :class:`Pool` exposes this ability to the end user.
+      argument to the :class:`!Pool` exposes this ability to the end user.
 
    .. method:: apply(func[, args[, kwds]])
 
@@ -2784,7 +2784,7 @@ multiple connections at the same time.
    ``select.select(object_list, [], [], timeout)``.  The difference is
    that, if :func:`select.select` is interrupted by a signal, it can
    raise :exc:`OSError` with an error number of ``EINTR``, whereas
-   :func:`wait` will not.
+   :func:`!wait` will not.
 
    **Windows**: An item in *object_list* must either be an integer
    handle which is waitable (according to the definition used by the
@@ -2985,7 +2985,7 @@ worker threads rather than worker processes.
 .. class:: ThreadPool([processes[, initializer[, initargs]]])
 
    A thread pool object which controls a pool of worker threads to which jobs
-   can be submitted.  :class:`ThreadPool` instances are fully interface
+   can be submitted.  :class:`!ThreadPool` instances are fully interface
    compatible with :class:`Pool` instances, and their resources must also be
    properly managed, either by using the pool as a context manager or by
    calling :meth:`~multiprocessing.pool.Pool.close` and
@@ -3001,7 +3001,7 @@ worker threads rather than worker processes.
 
    .. note::
 
-      A :class:`ThreadPool` shares the same interface as :class:`Pool`, which
+      A :class:`!ThreadPool` shares the same interface as :class:`Pool`, which
       is designed around a pool of processes and predates the introduction of
       the :class:`concurrent.futures` module.  As such, it inherits some
       operations that don't make sense for a pool backed by threads, and it

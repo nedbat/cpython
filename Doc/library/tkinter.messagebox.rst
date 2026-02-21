@@ -153,7 +153,7 @@ Predefined sets of buttons:
    :value: 'ok'
    :noindex:
 
-   Displays one button whose symbolic name is :data:`OK`.
+   Displays one button whose symbolic name is :data:`!OK`.
 
 .. data:: OKCANCEL
    :value: 'okcancel'

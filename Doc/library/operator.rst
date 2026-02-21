@@ -352,7 +352,7 @@ expect a function argument.
       >>> itemgetter('rank')(soldier)
       'captain'
 
-   Example of using :func:`itemgetter` to retrieve specific fields from a
+   Example of using :func:`!itemgetter` to retrieve specific fields from a
    tuple record:
 
       >>> inventory = [('apple', 3), ('banana', 2), ('pear', 5), ('orange', 1)]

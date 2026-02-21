@@ -521,7 +521,7 @@ subclasses. However, the :meth:`!__init__` method in subclasses needs to call
 
    .. method:: Handler.__init__(level=NOTSET)
 
-      Initializes the :class:`Handler` instance by setting its level, setting the list
+      Initializes the :class:`!Handler` instance by setting its level, setting the list
       of filters to the empty list and creating a lock (using :meth:`createLock`) for
       serializing access to an I/O mechanism.
 
@@ -714,7 +714,7 @@ Formatter Objects
       that the formatted exception information is cached in attribute
       *exc_text*. This is useful because the exception information can be
       pickled and sent across the wire, but you should be careful if you have
-      more than one :class:`Formatter` subclass which customizes the formatting
+      more than one :class:`!Formatter` subclass which customizes the formatting
       of exception information. In this case, you will have to clear the cached
       value (by setting the *exc_text* attribute to ``None``) after a formatter
       has done its formatting, so that the next formatter to handle the event
@@ -817,7 +817,7 @@ empty string, all events are passed.
 
 .. class:: Filter(name='')
 
-   Returns an instance of the :class:`Filter` class. If *name* is specified, it
+   Returns an instance of the :class:`!Filter` class. If *name* is specified, it
    names a logger which, together with its children, will have its events allowed
    through the filter. If *name* is the empty string, allows every event.
 
@@ -932,7 +932,7 @@ wire).
 
    .. method:: getMessage()
 
-      Returns the message for this :class:`LogRecord` instance after merging any
+      Returns the message for this :class:`!LogRecord` instance after merging any
       user-supplied arguments with the message. If the user-supplied message
       argument to the logging call is not a string, :func:`str` is called on it to
       convert it to a string. This allows use of user-defined classes as
@@ -940,13 +940,13 @@ wire).
       be used.
 
    .. versionchanged:: 3.2
-      The creation of a :class:`LogRecord` has been made more configurable by
+      The creation of a :class:`!LogRecord` has been made more configurable by
       providing a factory which is used to create the record. The factory can be
       set using :func:`getLogRecordFactory` and :func:`setLogRecordFactory`
       (see this for the factory's signature).
 
    This functionality can be used to inject your own values into a
-   :class:`LogRecord` at creation time. You can use the following pattern::
+   :class:`!LogRecord` at creation time. You can use the following pattern::
 
       old_factory = logging.getLogRecordFactory()
 
@@ -1086,13 +1086,13 @@ information into logging calls. For a usage example, see the section on
 
 .. class:: LoggerAdapter(logger, extra=None, merge_extra=False)
 
-   Returns an instance of :class:`LoggerAdapter` initialized with an
+   Returns an instance of :class:`!LoggerAdapter` initialized with an
    underlying :class:`Logger` instance, an optional dict-like object (*extra*),
    and an optional boolean (*merge_extra*) indicating whether or not
    the *extra* argument of individual log calls should be merged with
-   the :class:`LoggerAdapter` extra.
+   the :class:`!LoggerAdapter` extra.
    The default behavior is to ignore the *extra* argument of individual log
-   calls and only use the one of the :class:`LoggerAdapter` instance
+   calls and only use the one of the :class:`!LoggerAdapter` instance
 
    .. method:: process(msg, kwargs)
 
@@ -1110,7 +1110,7 @@ information into logging calls. For a usage example, see the section on
 
       Delegates to the underlying :meth:`!_log` method on *logger*.
 
-   In addition to the above, :class:`LoggerAdapter` supports the following
+   In addition to the above, :class:`!LoggerAdapter` supports the following
    methods of :class:`Logger`: :meth:`~Logger.debug`, :meth:`~Logger.info`,
    :meth:`~Logger.warning`, :meth:`~Logger.error`, :meth:`~Logger.exception`,
    :meth:`~Logger.critical`, :meth:`~Logger.log`, :meth:`~Logger.isEnabledFor`,
@@ -1123,7 +1123,7 @@ information into logging calls. For a usage example, see the section on
 
       The :meth:`~Logger.isEnabledFor`, :meth:`~Logger.getEffectiveLevel`,
       :meth:`~Logger.setLevel` and :meth:`~Logger.hasHandlers` methods were added
-      to :class:`LoggerAdapter`.  These methods delegate to the underlying logger.
+      to :class:`!LoggerAdapter`.  These methods delegate to the underlying logger.
 
    .. versionchanged:: 3.6
 
@@ -1352,7 +1352,7 @@ functions.
    :class:`StreamHandler` with a default :class:`Formatter`
    or using the  given *formatter* instance, and adding it to the
    root logger. The functions :func:`debug`, :func:`info`, :func:`warning`,
-   :func:`error` and :func:`critical` will call :func:`basicConfig` automatically
+   :func:`error` and :func:`critical` will call :func:`!basicConfig` automatically
    if no handlers are defined for the root logger.
 
    This function does nothing if the root logger already has handlers
@@ -1539,7 +1539,7 @@ Module-Level Attributes
 
    Default: ``True``.
 
-   If :data:`raiseExceptions` is ``False``,
+   If :data:`!raiseExceptions` is ``False``,
    exceptions get silently ignored. This is what is mostly wanted
    for a logging system - most users will not care about errors in
    the logging system, they are more interested in application errors.

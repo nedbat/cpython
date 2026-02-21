@@ -111,10 +111,10 @@ of the new API.
 .. function:: parsedate(date)
 
    Attempts to parse a date according to the rules in :rfc:`2822`. however, some
-   mailers don't follow that format as specified, so :func:`parsedate` tries to
+   mailers don't follow that format as specified, so :func:`!parsedate` tries to
    guess correctly in such cases.  *date* is a string containing an :rfc:`2822`
    date, such as  ``"Mon, 20 Nov 1995 19:12:08 -0500"``.  If it succeeds in parsing
-   the date, :func:`parsedate` returns a 9-tuple that can be passed directly to
+   the date, :func:`!parsedate` returns a 9-tuple that can be passed directly to
    :func:`time.mktime`; otherwise ``None`` will be returned.  Note that indexes 6,
    7, and 8 of the result tuple are not usable.
 
@@ -205,13 +205,13 @@ of the new API.
    When a header parameter is encoded in :rfc:`2231` format,
    :meth:`Message.get_param <email.message.Message.get_param>` may return a
    3-tuple containing the character set,
-   language, and value.  :func:`collapse_rfc2231_value` turns this into a unicode
+   language, and value.  :func:`!collapse_rfc2231_value` turns this into a unicode
    string.  Optional *errors* is passed to the *errors* argument of :class:`str`'s
    :func:`~str.encode` method; it defaults to ``'replace'``.  Optional
    *fallback_charset* specifies the character set to use if the one in the
    :rfc:`2231` header is not known by Python; it defaults to ``'us-ascii'``.
 
-   For convenience, if the *value* passed to :func:`collapse_rfc2231_value` is not
+   For convenience, if the *value* passed to :func:`!collapse_rfc2231_value` is not
    a tuple, it should be a string and it is returned unquoted.
 
 

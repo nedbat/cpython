@@ -83,7 +83,7 @@ The :mod:`!pty` module defines the following functions:
    .. audit-event:: pty.spawn argv pty.spawn
 
    .. versionchanged:: 3.4
-      :func:`spawn` now returns the status value from :func:`os.waitpid`
+      :func:`!spawn` now returns the status value from :func:`os.waitpid`
       on the child process.
 
 Example

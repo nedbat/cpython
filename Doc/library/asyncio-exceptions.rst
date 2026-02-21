@@ -13,12 +13,12 @@ Exceptions
 
 .. exception:: TimeoutError
 
-   A deprecated alias of :exc:`TimeoutError`,
+   A deprecated alias of :exc:`!TimeoutError`,
    raised when the operation has exceeded the given deadline.
 
    .. versionchanged:: 3.11
 
-      This class was made an alias of :exc:`TimeoutError`.
+      This class was made an alias of :exc:`!TimeoutError`.
 
 
 .. exception:: CancelledError
@@ -31,7 +31,7 @@ Exceptions
 
    .. versionchanged:: 3.8
 
-      :exc:`CancelledError` is now a subclass of :class:`BaseException` rather than :class:`Exception`.
+      :exc:`!CancelledError` is now a subclass of :class:`BaseException` rather than :class:`Exception`.
 
 
 .. exception:: InvalidStateError

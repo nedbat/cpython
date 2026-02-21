@@ -88,11 +88,11 @@ Functions and classes provided:
    the exception has been handled, and execution will resume with the statement
    immediately following the :keyword:`!with` statement.
 
-   :func:`contextmanager` uses :class:`ContextDecorator` so the context managers
+   :func:`!contextmanager` uses :class:`ContextDecorator` so the context managers
    it creates can be used as decorators as well as in :keyword:`with` statements.
    When used as a decorator, a new generator instance is implicitly created on
    each function call (this allows the otherwise "one-shot" context managers
-   created by :func:`contextmanager` to meet the requirement that context
+   created by :func:`!contextmanager` to meet the requirement that context
    managers support multiple invocations in order to be used as decorators).
 
    .. versionchanged:: 3.2
@@ -128,7 +128,7 @@ Functions and classes provided:
 
    .. versionadded:: 3.7
 
-   Context managers defined with :func:`asynccontextmanager` can be used
+   Context managers defined with :func:`!asynccontextmanager` can be used
    either as decorators or with :keyword:`async with` statements::
 
      import time
@@ -148,11 +148,11 @@ Functions and classes provided:
 
    When used as a decorator, a new generator instance is implicitly created on
    each function call. This allows the otherwise "one-shot" context managers
-   created by :func:`asynccontextmanager` to meet the requirement that context
+   created by :func:`!asynccontextmanager` to meet the requirement that context
    managers support multiple invocations in order to be used as decorators.
 
    .. versionchanged:: 3.10
-      Async context managers created with :func:`asynccontextmanager` can
+      Async context managers created with :func:`!asynccontextmanager` can
       be used as decorators.
 
 
@@ -525,7 +525,7 @@ Functions and classes provided:
           # the with statement, even if attempts to open files later
           # in the list raise an exception
 
-   The :meth:`~object.__enter__` method returns the :class:`ExitStack` instance, and
+   The :meth:`~object.__enter__` method returns the :class:`!ExitStack` instance, and
    performs no additional operations.
 
    Each instance maintains a stack of registered callbacks that are called in
@@ -602,7 +602,7 @@ Functions and classes provided:
 
    .. method:: pop_all()
 
-      Transfers the callback stack to a fresh :class:`ExitStack` instance
+      Transfers the callback stack to a fresh :class:`!ExitStack` instance
       and returns it. No callbacks are invoked by this operation - instead,
       they will now be invoked when the new stack is closed (either
       explicitly or implicitly at the end of a :keyword:`with` statement).

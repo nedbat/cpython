@@ -90,7 +90,7 @@ diffs. For comparing directories and files, see also, the :mod:`filecmp` module.
 
    .. method:: __init__(tabsize=8, wrapcolumn=None, linejunk=None, charjunk=IS_CHARACTER_JUNK)
 
-      Initializes instance of :class:`HtmlDiff`.
+      Initializes instance of :class:`!HtmlDiff`.
 
       *tabsize* is an optional keyword argument to specify tab stop spacing and
       defaults to ``8``.
@@ -99,7 +99,7 @@ diffs. For comparing directories and files, see also, the :mod:`filecmp` module.
       broken and wrapped, defaults to ``None`` where lines are not wrapped.
 
       *linejunk* and *charjunk* are optional keyword arguments passed into :func:`ndiff`
-      (used by :class:`HtmlDiff` to generate the side by side HTML differences).  See
+      (used by :class:`!HtmlDiff` to generate the side by side HTML differences).  See
       :func:`ndiff` documentation for argument default values and descriptions.
 
    The following methods are public:
@@ -400,13 +400,13 @@ The :class:`SequenceMatcher` class has this constructor:
    .. versionadded:: 3.2
       The *bjunk* and *bpopular* attributes.
 
-   :class:`SequenceMatcher` objects have the following methods:
+   :class:`!SequenceMatcher` objects have the following methods:
 
    .. method:: set_seqs(a, b)
 
       Set the two sequences to be compared.
 
-   :class:`SequenceMatcher` computes and caches detailed information about the
+   :class:`!SequenceMatcher` computes and caches detailed information about the
    second sequence, so if you want to compare one sequence against many
    sequences, use :meth:`set_seq2` to set the commonly used sequence once and
    call :meth:`set_seq1` repeatedly, once for each of the other sequences.
@@ -673,7 +673,7 @@ The :class:`Differ` class has this constructor:
    :meth:`~SequenceMatcher.find_longest_match` method's *isjunk*
    parameter for an explanation.
 
-   :class:`Differ` objects are used (deltas generated) via a single method:
+   :class:`!Differ` objects are used (deltas generated) via a single method:
 
 
    .. method:: Differ.compare(a, b)

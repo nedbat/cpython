@@ -3418,7 +3418,7 @@ left undefined.
 
    .. versionchanged:: 3.14
 
-      Three-argument :func:`pow` now try calling :meth:`~object.__rpow__` if necessary.
+      Three-argument :func:`pow` now try calling :meth:`!object.__rpow__` if necessary.
       Previously it was only called in two-argument :func:`!pow` and the binary
       power operator.
 
@@ -3512,7 +3512,7 @@ left undefined.
    (typically an :class:`int`).
 
    .. versionchanged:: 3.14
-      :func:`int` no longer delegates to the :meth:`~object.__trunc__` method.
+      :func:`int` no longer delegates to the :meth:`!object.__trunc__` method.
 
 
 .. _context-managers:
@@ -3555,7 +3555,7 @@ The :class:`object` class itself does not provide the context manager methods.
    (i.e., prevent it from being propagated), it should return a true value.
    Otherwise, the exception will be processed normally upon exit from this method.
 
-   Note that :meth:`~object.__exit__` methods should not reraise the passed-in exception;
+   Note that :meth:`!object.__exit__` methods should not reraise the passed-in exception;
    this is the caller's responsibility.
 
 

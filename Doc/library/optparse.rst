@@ -1144,7 +1144,7 @@ relevant to a particular option, or fail to pass a required option attribute,
    (default: derived from option strings)
 
    If the option's action implies writing or modifying a value somewhere, this
-   tells :mod:`!optparse` where to write it: :attr:`~Option.dest` names an
+   tells :mod:`!optparse` where to write it: :attr:`!Option.dest` names an
    attribute of the ``options`` object that :mod:`!optparse` builds as it parses
    the command line.
 
@@ -1185,7 +1185,7 @@ relevant to a particular option, or fail to pass a required option attribute,
 .. attribute:: Option.help
 
    Help text to print for this option when listing all available options after
-   the user supplies a :attr:`~Option.help` option (such as ``--help``).  If
+   the user supplies a :attr:`!Option.help` option (such as ``--help``).  If
    no help text is supplied, the option will be listed without help text.  To
    hide this option, use the special value :const:`optparse.SUPPRESS_HELP`.
 

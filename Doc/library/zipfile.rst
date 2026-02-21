@@ -256,7 +256,7 @@ ZipFile objects
       a Python-specific extension.
 
    .. versionchanged:: 3.2
-      Added the ability to use :class:`ZipFile` as a context manager.
+      Added the ability to use :class:`!ZipFile` as a context manager.
 
    .. versionchanged:: 3.3
       Added support for :mod:`bzip2 <bz2>` and :mod:`lzma` compression.
@@ -319,7 +319,7 @@ ZipFile objects
    or ``'w'``.  *pwd* is the password used to decrypt encrypted ZIP files as a
    :class:`bytes` object.
 
-   :meth:`~ZipFile.open` is also a context manager and therefore supports the
+   :meth:`!ZipFile.open` is also a context manager and therefore supports the
    :keyword:`with` statement::
 
       with ZipFile('spam.zip') as myzip:
@@ -359,7 +359,7 @@ ZipFile objects
       compressed text files in :term:`universal newlines` mode.
 
    .. versionchanged:: 3.6
-      :meth:`ZipFile.open` can now be used to write files into the archive with the
+      :meth:`!ZipFile.open` can now be used to write files into the archive with the
       ``mode='w'`` option.
 
    .. versionchanged:: 3.6
@@ -582,7 +582,7 @@ Path objects
    indicating the root.
 
    .. note::
-      The :class:`Path` class does not sanitize filenames within the ZIP archive. Unlike
+      The :class:`!Path` class does not sanitize filenames within the ZIP archive. Unlike
       the :meth:`ZipFile.extract` and :meth:`ZipFile.extractall` methods, it is the
       caller's responsibility to validate or sanitize filenames to prevent path traversal
       vulnerabilities (e.g., filenames containing ".." or absolute paths). When handling
@@ -651,21 +651,21 @@ Path objects are traversable using the ``/`` operator or ``joinpath``.
    This is commonly called the file extension.
 
    .. versionadded:: 3.11
-      Added :data:`Path.suffix` property.
+      Added :data:`!Path.suffix` property.
 
 .. data:: Path.stem
 
    The final path component, without its suffix.
 
    .. versionadded:: 3.11
-      Added :data:`Path.stem` property.
+      Added :data:`!Path.stem` property.
 
 .. data:: Path.suffixes
 
    A list of the path’s suffixes, commonly called file extensions.
 
    .. versionadded:: 3.11
-      Added :data:`Path.suffixes` property.
+      Added :data:`!Path.suffixes` property.
 
 .. method:: Path.read_text(*, **)
 
@@ -726,10 +726,10 @@ The :class:`PyZipFile` constructor takes the same parameters as the
       Search for files :file:`\*.py` and add the corresponding file to the
       archive.
 
-      If the *optimize* parameter to :class:`PyZipFile` was not given or ``-1``,
+      If the *optimize* parameter to :class:`!PyZipFile` was not given or ``-1``,
       the corresponding file is a :file:`\*.pyc` file, compiling if necessary.
 
-      If the *optimize* parameter to :class:`PyZipFile` was ``0``, ``1`` or
+      If the *optimize* parameter to :class:`!PyZipFile` was ``0``, ``1`` or
       ``2``, only files with that optimization level (see :func:`compile`) are
       added to the archive, compiling if necessary.
 

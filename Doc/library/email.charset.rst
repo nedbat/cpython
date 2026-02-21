@@ -46,7 +46,7 @@ Import this class from the :mod:`!email.charset` module.
    will not be encoded, but output text will be converted from the ``euc-jp``
    character set to the ``iso-2022-jp`` character set.
 
-   :class:`Charset` instances have the following data attributes:
+   :class:`!Charset` instances have the following data attributes:
 
    .. attribute:: input_charset
 
@@ -93,7 +93,7 @@ Import this class from the :mod:`!email.charset` module.
       will have the same value as the *input_codec*.
 
 
-   :class:`Charset` instances also have the following methods:
+   :class:`!Charset` instances also have the following methods:
 
    .. method:: get_body_encoding()
 
@@ -143,7 +143,7 @@ Import this class from the :mod:`!email.charset` module.
       The type of encoding (base64 or quoted-printable) will be based on the
       *body_encoding* attribute.
 
-   The :class:`Charset` class also provides a number of methods to support
+   The :class:`!Charset` class also provides a number of methods to support
    standard operations and built-in functions.
 
 
@@ -155,13 +155,13 @@ Import this class from the :mod:`!email.charset` module.
 
    .. method:: __eq__(other)
 
-      This method allows you to compare two :class:`Charset` instances for
+      This method allows you to compare two :class:`!Charset` instances for
       equality.
 
 
    .. method:: __ne__(other)
 
-      This method allows you to compare two :class:`Charset` instances for
+      This method allows you to compare two :class:`!Charset` instances for
       inequality.
 
 The :mod:`!email.charset` module also provides the following functions for adding

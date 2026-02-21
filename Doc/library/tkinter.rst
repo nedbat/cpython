@@ -130,7 +130,7 @@ the modern themed widget set and API::
    application, and initialize a Tcl interpreter for this widget.  Each
    instance has its own associated Tcl interpreter.
 
-   The :class:`Tk` class is typically instantiated using all default values.
+   The :class:`!Tk` class is typically instantiated using all default values.
    However, the following keyword arguments are currently recognized:
 
    *screenName*
@@ -158,7 +158,7 @@ the modern themed widget set and API::
       Note that on some platforms this will only work correctly if *id* refers
       to a Tk frame or toplevel that has its -container option enabled.
 
-   :class:`Tk` reads and interprets profile files, named
+   :class:`!Tk` reads and interprets profile files, named
    :file:`.{className}.tcl` and :file:`.{baseName}.tcl`, into the Tcl
    interpreter and calls :func:`exec` on the contents of
    :file:`.{className}.py` and :file:`.{baseName}.py`.  The path for the
@@ -167,14 +167,14 @@ the modern themed widget set and API::
 
    .. attribute:: tk
 
-      The Tk application object created by instantiating :class:`Tk`.  This
+      The Tk application object created by instantiating :class:`!Tk`.  This
       provides access to the Tcl interpreter.  Each widget that is attached
-      the same instance of :class:`Tk` has the same value for its :attr:`tk`
+      the same instance of :class:`!Tk` has the same value for its :attr:`tk`
       attribute.
 
    .. attribute:: master
 
-      The widget object that contains this widget.  For :class:`Tk`, the
+      The widget object that contains this widget.  For :class:`!Tk`, the
       :attr:`!master` is :const:`None` because it is the main window.  The terms
       *master* and *parent* are similar and sometimes used interchangeably
       as argument names; however, calling :meth:`winfo_parent` returns a
@@ -191,12 +191,12 @@ the modern themed widget set and API::
 
 .. function:: Tcl(screenName=None, baseName=None, className='Tk', useTk=False)
 
-   The :func:`Tcl` function is a factory function which creates an object much like
+   The :func:`!Tcl` function is a factory function which creates an object much like
    that created by the :class:`Tk` class, except that it does not initialize the Tk
    subsystem.  This is most often useful when driving the Tcl interpreter in an
    environment where one doesn't want to create extraneous toplevel windows, or
    where one cannot (such as Unix/Linux systems without an X server).  An object
-   created by the :func:`Tcl` object can have a Toplevel window created (and the Tk
+   created by the :func:`!Tcl` object can have a Toplevel window created (and the Tk
    subsystem initialized) by calling its :meth:`loadtk` method.
 
 

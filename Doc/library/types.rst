@@ -465,7 +465,7 @@ Additional Utility Classes and Functions
    Unlike :class:`object`, with :class:`!SimpleNamespace` you can add and remove
    attributes.
 
-   :py:class:`SimpleNamespace` objects may be initialized
+   :py:class:`!SimpleNamespace` objects may be initialized
    in the same way as :class:`dict`: either with keyword arguments,
    with a single positional argument, or with both.
    When initialized with keyword arguments,

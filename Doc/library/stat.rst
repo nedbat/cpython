@@ -269,7 +269,7 @@ The following flags can also be used in the *mode* argument of :func:`os.chmod`:
    it indicates that BSD semantics is to be used for that directory:
    files created there inherit their group ID from the directory, not
    from the effective group ID of the creating process, and directories
-   created there will also get the :data:`S_ISGID` bit set.  For a
+   created there will also get the :data:`!S_ISGID` bit set.  For a
    file that does not have the group execution bit (:data:`S_IXGRP`)
    set, the set-group-ID bit indicates mandatory file/record locking
    (see also :data:`S_ENFMT`).

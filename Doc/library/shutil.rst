@@ -44,7 +44,7 @@ Directory and files operations
    0, only the contents from the current file position to the end of the file will
    be copied.
 
-   :func:`copyfileobj` will *not* guarantee that the destination stream has
+   :func:`!copyfileobj` will *not* guarantee that the destination stream has
    been flushed on completion of the copy. If you want to read from the
    destination at the completion of the copy operation (for example, reading
    the contents of a temporary file that has been copied from a HTTP stream),
@@ -108,10 +108,10 @@ Directory and files operations
    group are unaffected.  *src* and *dst* are :term:`path-like objects <path-like object>` or path names
    given as strings.
    If *follow_symlinks* is false, and both *src* and *dst* are symbolic links,
-   :func:`copymode` will attempt to modify the mode of *dst* itself (rather
+   :func:`!copymode` will attempt to modify the mode of *dst* itself (rather
    than the file it points to).  This functionality is not available on every
    platform; please see :func:`copystat` for more information.  If
-   :func:`copymode` cannot modify symbolic links on the local platform, and it
+   :func:`!copymode` cannot modify symbolic links on the local platform, and it
    is asked to do so, it will do nothing and return.
 
    .. audit-event:: shutil.copymode src,dst shutil.copymode
@@ -122,13 +122,13 @@ Directory and files operations
 .. function:: copystat(src, dst, *, follow_symlinks=True)
 
    Copy the permission bits, last access time, last modification time, and
-   flags from *src* to *dst*.  On Linux, :func:`copystat` also copies the
+   flags from *src* to *dst*.  On Linux, :func:`!copystat` also copies the
    "extended attributes" where possible.  The file contents, owner, and
    group are unaffected.  *src* and *dst* are :term:`path-like objects <path-like object>` or path
    names given as strings.
 
    If *follow_symlinks* is false, and *src* and *dst* both
-   refer to symbolic links, :func:`copystat` will operate on
+   refer to symbolic links, :func:`!copystat` will operate on
    the symbolic links themselves rather than the files the
    symbolic links refer to—reading the information from the
    *src* symbolic link, and writing the information to the
@@ -141,22 +141,22 @@ Directory and files operations
       functionality is locally available.
 
       * If ``os.chmod in os.supports_follow_symlinks`` is
-        ``True``, :func:`copystat` can modify the permission
+        ``True``, :func:`!copystat` can modify the permission
         bits of a symbolic link.
 
       * If ``os.utime in os.supports_follow_symlinks`` is
-        ``True``, :func:`copystat` can modify the last access
+        ``True``, :func:`!copystat` can modify the last access
         and modification times of a symbolic link.
 
       * If ``os.chflags in os.supports_follow_symlinks`` is
-        ``True``, :func:`copystat` can modify the flags of
+        ``True``, :func:`!copystat` can modify the flags of
         a symbolic link.  (``os.chflags`` is not available on
         all platforms.)
 
       On platforms where some or all of this functionality
       is unavailable, when asked to modify a symbolic link,
-      :func:`copystat` will copy everything it can.
-      :func:`copystat` never returns failure.
+      :func:`!copystat` will copy everything it can.
+      :func:`!copystat` never returns failure.
 
       Please see :data:`os.supports_follow_symlinks`
       for more information.
@@ -200,19 +200,19 @@ Directory and files operations
 
 .. function:: copy2(src, dst, *, follow_symlinks=True)
 
-   Identical to :func:`~shutil.copy` except that :func:`copy2`
+   Identical to :func:`~shutil.copy` except that :func:`!copy2`
    also attempts to preserve file metadata.
 
    When *follow_symlinks* is false, and *src* is a symbolic
-   link, :func:`copy2` attempts to copy all metadata from the
+   link, :func:`!copy2` attempts to copy all metadata from the
    *src* symbolic link to the newly created *dst* symbolic link.
    However, this functionality is not available on all platforms.
    On platforms where some or all of this functionality is
-   unavailable, :func:`copy2` will preserve all the metadata
-   it can; :func:`copy2` never raises an exception because it
+   unavailable, :func:`!copy2` will preserve all the metadata
+   it can; :func:`!copy2` never raises an exception because it
    cannot preserve file metadata.
 
-   :func:`copy2` uses :func:`copystat` to copy the file metadata.
+   :func:`!copy2` uses :func:`copystat` to copy the file metadata.
    Please see :func:`copystat` for more information
    about platform support for modifying symbolic link metadata.
 
@@ -261,8 +261,8 @@ Directory and files operations
    on platforms that don't support :func:`os.symlink`.
 
    If *ignore* is given, it must be a callable that will receive as its
-   arguments the directory being visited by :func:`copytree`, and a list of its
-   contents, as returned by :func:`os.listdir`.  Since :func:`copytree` is
+   arguments the directory being visited by :func:`!copytree`, and a list of its
+   contents, as returned by :func:`os.listdir`.  Since :func:`!copytree` is
    called recursively, the *ignore* callable will be called once for each
    directory that is copied.  The callable must return a sequence of directory
    and file names relative to the current directory (i.e. a subset of the items
@@ -319,8 +319,8 @@ Directory and files operations
    .. note::
 
       On platforms that support the necessary fd-based functions a symlink
-      attack resistant version of :func:`rmtree` is used by default.  On other
-      platforms, the :func:`rmtree` implementation is susceptible to a symlink
+      attack resistant version of :func:`!rmtree` is used by default.  On other
+      platforms, the :func:`!rmtree` implementation is susceptible to a symlink
       attack: given proper timing and circumstances, attackers can manipulate
       symlinks on the filesystem to delete files they wouldn't be able to access
       otherwise.  Applications can use the :data:`rmtree.avoids_symlink_attacks`
@@ -367,7 +367,7 @@ Directory and files operations
    .. attribute:: rmtree.avoids_symlink_attacks
 
       Indicates whether the current platform and implementation provides a
-      symlink attack resistant version of :func:`rmtree`.  Currently this is
+      symlink attack resistant version of :func:`!rmtree`.  Currently this is
       only true for platforms supporting fd-based directory access functions.
 
       .. versionadded:: 3.3
@@ -482,7 +482,7 @@ Directory and files operations
 
    Also on Windows, the :envvar:`PATHEXT` environment variable is used to
    resolve commands that may not already include an extension. For example,
-   if you call ``shutil.which("python")``, :func:`which` will search ``PATHEXT``
+   if you call ``shutil.which("python")``, :func:`!which` will search ``PATHEXT``
    to know that it should look for ``python.exe`` within the *path*
    directories. For example, on Windows::
 
@@ -727,7 +727,7 @@ provided.  They rely on the :mod:`zipfile` and :mod:`tarfile` modules.
 
    *format* is the archive format: one of "zip", "tar", "gztar", "bztar",
    "xztar", or "zstdtar".  Or any other format registered with
-   :func:`register_unpack_format`.  If not provided, :func:`unpack_archive`
+   :func:`register_unpack_format`.  If not provided, :func:`!unpack_archive`
    will use the archive file name extension and see if an unpacker was
    registered for that extension.  In case none is found,
    a :exc:`ValueError` is raised.

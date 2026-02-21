@@ -1114,7 +1114,7 @@ Drawing state
    * "outline": positive number
    * "tilt": number
 
-   This dictionary can be used as argument for a subsequent call to :func:`pen`
+   This dictionary can be used as argument for a subsequent call to :func:`!pen`
    to restore the former pen-state.  Moreover one or more of these attributes
    can be provided as keyword-arguments.  This can be used to set several pen
    attributes in one statement.
@@ -2097,7 +2097,7 @@ Using screen events
 .. function:: listen(xdummy=None, ydummy=None)
 
    Set focus on TurtleScreen (in order to collect key-events).  Dummy arguments
-   are provided in order to be able to pass :func:`listen` to the onclick method.
+   are provided in order to be able to pass :func:`!listen` to the onclick method.
 
 
 .. function:: onkey(fun, key)

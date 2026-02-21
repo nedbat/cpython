@@ -77,7 +77,7 @@ Here are the methods of the :class:`Message` class:
       This can be used to control some of the formatting produced by the
       method, since the specified *policy* will be passed to the ``Generator``.
 
-      Flattening the message may trigger changes to the :class:`Message` if
+      Flattening the message may trigger changes to the :class:`!Message` if
       defaults need to be filled in to complete the transformation to a string
       (for example, MIME boundaries may be generated or modified).
 
@@ -119,7 +119,7 @@ Here are the methods of the :class:`Message` class:
       method, since the specified *policy* will be passed to the
       ``BytesGenerator``.
 
-      Flattening the message may trigger changes to the :class:`Message` if
+      Flattening the message may trigger changes to the :class:`!Message` if
       defaults need to be filled in to complete the transformation to a string
       (for example, MIME boundaries may be generated or modified).
 
@@ -152,13 +152,13 @@ Here are the methods of the :class:`Message` class:
    .. method:: is_multipart()
 
       Return ``True`` if the message's payload is a list of
-      sub-\ :class:`Message` objects, otherwise return ``False``.  When
+      sub-\ :class:`!Message` objects, otherwise return ``False``.  When
       :meth:`is_multipart` returns ``False``, the payload should be a string
       object (which might be a CTE encoded binary payload).  (Note that
       :meth:`is_multipart` returning ``True`` does not necessarily mean that
       "msg.get_content_maintype() == 'multipart'" will return the ``True``.
       For example, ``is_multipart`` will return ``True`` when the
-      :class:`Message` is of type ``message/rfc822``.)
+      :class:`!Message` is of type ``message/rfc822``.)
 
 
    .. method:: set_unixfrom(unixfrom)
@@ -175,8 +175,8 @@ Here are the methods of the :class:`Message` class:
    .. method:: attach(payload)
 
       Add the given *payload* to the current payload, which must be ``None`` or
-      a list of :class:`Message` objects before the call. After the call, the
-      payload will always be a list of :class:`Message` objects.  If you want to
+      a list of :class:`!Message` objects before the call. After the call, the
+      payload will always be a list of :class:`!Message` objects.  If you want to
       set the payload to a scalar object (e.g. a string), use
       :meth:`set_payload` instead.
 
@@ -189,7 +189,7 @@ Here are the methods of the :class:`Message` class:
    .. method:: get_payload(i=None, decode=False)
 
       Return the current payload, which will be a list of
-      :class:`Message` objects when :meth:`is_multipart` is ``True``, or a
+      :class:`!Message` objects when :meth:`is_multipart` is ``True``, or a
       string when :meth:`is_multipart` is ``False``.  If the payload is a list
       and you mutate the list object, you modify the message's payload in place.
 
@@ -285,7 +285,7 @@ Here are the methods of the :class:`Message` class:
    between these methods and a normal mapping (i.e. dictionary) interface.  For
    example, in a dictionary there are no duplicate keys, but here there may be
    duplicate message headers.  Also, in dictionaries there is no guaranteed
-   order to the keys returned by :meth:`keys`, but in a :class:`Message` object,
+   order to the keys returned by :meth:`keys`, but in a :class:`!Message` object,
    headers are always returned in the order they appeared in the original
    message, or were added to the message later.  Any header deleted and then
    re-added are always appended to the end of the header list.
@@ -715,7 +715,7 @@ Here are the methods of the :class:`Message` class:
       into the subparts.
 
 
-   :class:`Message` objects can also optionally contain two instance attributes,
+   :class:`!Message` objects can also optionally contain two instance attributes,
    which can be used when generating the plain text of a MIME message.
 
 

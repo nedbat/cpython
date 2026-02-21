@@ -994,7 +994,7 @@ ConfigParser Objects
    `"Unnamed Sections" section <#unnamed-sections>`_.
 
    It is possible to read several configurations into a single
-   :class:`ConfigParser`, where the most recently added configuration has the
+   :class:`!ConfigParser`, where the most recently added configuration has the
    highest priority. Any conflicting keys are taken from the more recent
    configuration while the previously existing keys are retained. The example
    below reads in an ``override.ini`` file, which will override any conflicting
@@ -1099,7 +1099,7 @@ ConfigParser Objects
       directory), and all existing configuration files in the iterable will be
       read.
 
-      If none of the named files exist, the :class:`ConfigParser`
+      If none of the named files exist, the :class:`!ConfigParser`
       instance will contain an empty dataset.  An application which requires
       initial values to be loaded from a file should load the required file or
       files using :meth:`read_file` before calling :meth:`read` for any
@@ -1355,7 +1355,7 @@ RawConfigParser Objects
 
       If the given section exists, set the given option to the specified value;
       otherwise raise :exc:`NoSectionError`.  While it is possible to use
-      :class:`RawConfigParser` (or :class:`ConfigParser` with *raw* parameters
+      :class:`!RawConfigParser` (or :class:`ConfigParser` with *raw* parameters
       set to true) for *internal* storage of non-string values, full
       functionality (including interpolation and output to files) can only be
       achieved using string values.

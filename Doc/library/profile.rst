@@ -95,7 +95,7 @@ following functions:
    example, if the timer returns times measured in thousands of seconds, the
    time unit would be ``.001``.
 
-   Directly using the :class:`Profile` class allows formatting profile results
+   Directly using the :class:`!Profile` class allows formatting profile results
    without writing the profile data to a file::
 
       import profiling.tracing
@@ -113,7 +113,7 @@ following functions:
       ps.print_stats()
       print(s.getvalue())
 
-   The :class:`Profile` class can also be used as a context manager (supported
+   The :class:`!Profile` class can also be used as a context manager (supported
    only in :mod:`profiling.tracing`, not in the deprecated :mod:`!profile`
    module; see :ref:`typecontextmanager`)::
 
@@ -150,7 +150,7 @@ following functions:
       multi-level sorting, as in :meth:`pstats.Stats.sort_stats`.
 
       .. versionadded:: 3.13
-         :meth:`~Profile.print_stats` now accepts a tuple of keys.
+         :meth:`!Profile.print_stats` now accepts a tuple of keys.
 
    .. method:: dump_stats(filename)
 

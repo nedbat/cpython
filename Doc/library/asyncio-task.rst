@@ -1352,7 +1352,7 @@ Task Object
 
    .. method:: get_coro()
 
-      Return the coroutine object wrapped by the :class:`Task`.
+      Return the coroutine object wrapped by the :class:`!Task`.
 
       .. note::
 
@@ -1407,7 +1407,7 @@ Task Object
       The coroutine then has a chance to clean up or even deny the
       request by suppressing the exception with a :keyword:`try` ...
       ... ``except CancelledError`` ... :keyword:`finally` block.
-      Therefore, unlike :meth:`Future.cancel`, :meth:`Task.cancel` does
+      Therefore, unlike :meth:`Future.cancel`, :meth:`!Task.cancel` does
       not guarantee that the Task will be cancelled, although
       suppressing cancellation completely is not common and is actively
       discouraged.  Should the coroutine nevertheless decide to suppress

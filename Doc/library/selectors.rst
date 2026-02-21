@@ -68,7 +68,7 @@ constants below:
 
 .. class:: SelectorKey
 
-   A :class:`SelectorKey` is a :class:`~collections.namedtuple` used to
+   A :class:`!SelectorKey` is a :class:`~collections.namedtuple` used to
    associate a file object to its underlying file descriptor, selected event
    mask and attached data. It is returned by several :class:`BaseSelector`
    methods.
@@ -93,14 +93,14 @@ constants below:
 
 .. class:: BaseSelector
 
-   A :class:`BaseSelector` is used to wait for I/O event readiness on multiple
+   A :class:`!BaseSelector` is used to wait for I/O event readiness on multiple
    file objects. It supports file stream registration, unregistration, and a
    method to wait for I/O events on those streams, with an optional timeout.
    It's an abstract base class, so cannot be instantiated. Use
    :class:`DefaultSelector` instead, or one of :class:`SelectSelector`,
    :class:`KqueueSelector` etc. if you want to specifically use an
    implementation, and your platform supports it.
-   :class:`BaseSelector` and its concrete implementations support the
+   :class:`!BaseSelector` and its concrete implementations support the
    :term:`context manager` protocol.
 
    .. method:: register(fileobj, events, data=None)

@@ -324,7 +324,7 @@ Installation path functions
    for each platform, with variables to be expanded.  For instance the *stdlib*
    path for the *nt* scheme is: ``{base}/Lib``.
 
-   :func:`get_path` will use the variables returned by :func:`get_config_vars`
+   :func:`!get_path` will use the variables returned by :func:`get_config_vars`
    to expand the path.  All variables have default values for each platform so
    one may call this function and get the default value.
 
@@ -354,7 +354,7 @@ Installation path functions
 
    If *expand* is set to false, the paths will not be expanded.
 
-   If *scheme* is not an existing scheme, :func:`get_paths` will raise a
+   If *scheme* is not an existing scheme, :func:`!get_paths` will raise a
    :exc:`KeyError`.
 
 

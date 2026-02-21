@@ -37,7 +37,7 @@ and :meth:`flush` methods).
 
 .. class:: StreamHandler(stream=None)
 
-   Returns a new instance of the :class:`StreamHandler` class. If *stream* is
+   Returns a new instance of the :class:`!StreamHandler` class. If *stream* is
    specified, the instance will use it for logging output; otherwise, *sys.stderr*
    will be used.
 
@@ -92,7 +92,7 @@ sends logging output to a disk file.  It inherits the output functionality from
 
 .. class:: FileHandler(filename, mode='a', encoding=None, delay=False, errors=None)
 
-   Returns a new instance of the :class:`FileHandler` class. The specified file is
+   Returns a new instance of the :class:`!FileHandler` class. The specified file is
    opened and used as the stream for logging. If *mode* is not specified,
    ``'a'`` is used.  If *encoding* is not ``None``, it is used to open the file
    with that encoding.  If *delay* is true, then file opening is deferred until the
@@ -131,7 +131,7 @@ for use by library developers.
 
 .. class:: NullHandler()
 
-   Returns a new instance of the :class:`NullHandler` class.
+   Returns a new instance of the :class:`!NullHandler` class.
 
    .. method:: emit(record)
 
@@ -177,7 +177,7 @@ for this value.
 
 .. class:: WatchedFileHandler(filename, mode='a', encoding=None, delay=False, errors=None)
 
-   Returns a new instance of the :class:`WatchedFileHandler` class. The specified
+   Returns a new instance of the :class:`!WatchedFileHandler` class. The specified
    file is opened and used as the stream for logging. If *mode* is not specified,
    ``'a'`` is used.  If *encoding* is not ``None``, it is used to open the file
    with that encoding.  If *delay* is true, then file opening is deferred until the
@@ -310,7 +310,7 @@ module, supports rotation of disk log files.
 
 .. class:: RotatingFileHandler(filename, mode='a', maxBytes=0, backupCount=0, encoding=None, delay=False, errors=None)
 
-   Returns a new instance of the :class:`RotatingFileHandler` class. The specified
+   Returns a new instance of the :class:`!RotatingFileHandler` class. The specified
    file is opened and used as the stream for logging. If *mode* is not specified,
    ``'a'`` is used.  If *encoding* is not ``None``, it is used to open the file
    with that encoding.  If *delay* is true, then file opening is deferred until the
@@ -365,7 +365,7 @@ timed intervals.
 
 .. class:: TimedRotatingFileHandler(filename, when='h', interval=1, backupCount=0, encoding=None, delay=False, utc=False, atTime=None, errors=None)
 
-   Returns a new instance of the :class:`TimedRotatingFileHandler` class. The
+   Returns a new instance of the :class:`!TimedRotatingFileHandler` class. The
    specified file is opened and used as the stream for logging. On rotating it also
    sets the filename suffix. Rotating happens based on the product of *when* and
    *interval*.
@@ -478,7 +478,7 @@ sends logging output to a network socket. The base class uses a TCP socket.
 
 .. class:: SocketHandler(host, port)
 
-   Returns a new instance of the :class:`SocketHandler` class intended to
+   Returns a new instance of the :class:`!SocketHandler` class intended to
    communicate with a remote machine whose address is given by *host* and *port*.
 
    .. versionchanged:: 3.4
@@ -575,7 +575,7 @@ over UDP sockets.
 
 .. class:: DatagramHandler(host, port)
 
-   Returns a new instance of the :class:`DatagramHandler` class intended to
+   Returns a new instance of the :class:`!DatagramHandler` class intended to
    communicate with a remote machine whose address is given by *host* and *port*.
 
    .. note:: As UDP is not a streaming protocol, there is no persistent connection
@@ -621,7 +621,7 @@ supports sending logging messages to a remote or local Unix syslog.
 
 .. class:: SysLogHandler(address=('localhost', SYSLOG_UDP_PORT), facility=LOG_USER, socktype=socket.SOCK_DGRAM, timeout=None)
 
-   Returns a new instance of the :class:`SysLogHandler` class intended to
+   Returns a new instance of the :class:`!SysLogHandler` class intended to
    communicate with a remote Unix machine whose address is given by *address* in
    the form of a ``(host, port)`` tuple.  If *address* is not specified,
    ``('localhost', 514)`` is used.  The address is used to open a socket.  An
@@ -639,7 +639,7 @@ supports sending logging messages to a remote or local Unix syslog.
 
 
    Note that if your server is not listening on UDP port 514,
-   :class:`SysLogHandler` may appear not to work. In that case, check what
+   :class:`!SysLogHandler` may appear not to work. In that case, check what
    address you should be using for a domain socket - it's system dependent.
    For example, on Linux it's usually '/dev/log' but on OS/X it's
    '/var/run/syslog'. You'll need to check your platform and use the
@@ -649,7 +649,7 @@ supports sending logging messages to a remote or local Unix syslog.
 
    .. note:: On macOS 12.x (Monterey), Apple has changed the behaviour of their
       syslog daemon - it no longer listens on a domain socket. Therefore, you cannot
-      expect :class:`SysLogHandler` to work on this system.
+      expect :class:`!SysLogHandler` to work on this system.
 
       See :gh:`91070` for more information.
 
@@ -709,7 +709,7 @@ supports sending logging messages to a remote or local Unix syslog.
       or integers - if strings are passed, internal mapping dictionaries are
       used to convert them to integers.
 
-      The symbolic ``LOG_`` values are defined in :class:`SysLogHandler` and
+      The symbolic ``LOG_`` values are defined in :class:`!SysLogHandler` and
       mirror the values defined in the ``sys/syslog.h`` header file.
 
       **Priorities**
@@ -802,7 +802,7 @@ extensions for Python installed.
 
 .. class:: NTEventLogHandler(appname, dllname=None, logtype='Application')
 
-   Returns a new instance of the :class:`NTEventLogHandler` class. The *appname* is
+   Returns a new instance of the :class:`!NTEventLogHandler` class. The *appname* is
    used to define the application name as it appears in the event log. An
    appropriate registry entry is created using this name. The *dllname* should give
    the fully qualified pathname of a .dll or .exe which contains message
@@ -867,7 +867,7 @@ supports sending logging messages to an email address via SMTP.
 
 .. class:: SMTPHandler(mailhost, fromaddr, toaddrs, subject, credentials=None, secure=None, timeout=1.0)
 
-   Returns a new instance of the :class:`SMTPHandler` class. The instance is
+   Returns a new instance of the :class:`!SMTPHandler` class. The instance is
    initialized with the from and to addresses and subject line of the email. The
    *toaddrs* should be a list of strings. To specify a non-standard SMTP port, use
    the (host, port) tuple format for the *mailhost* argument. If you use a string,
@@ -928,7 +928,7 @@ should, then :meth:`flush` is expected to do the flushing.
 
    .. method:: flush()
 
-      For a :class:`BufferingHandler` instance, flushing means that it sets the
+      For a :class:`!BufferingHandler` instance, flushing means that it sets the
       buffer to an empty list. This method can be overwritten to implement more useful
       flushing behavior.
 
@@ -941,7 +941,7 @@ should, then :meth:`flush` is expected to do the flushing.
 
 .. class:: MemoryHandler(capacity, flushLevel=ERROR, target=None, flushOnClose=True)
 
-   Returns a new instance of the :class:`MemoryHandler` class. The instance is
+   Returns a new instance of the :class:`!MemoryHandler` class. The instance is
    initialized with a buffer size of *capacity* (number of records buffered).
    If *flushLevel* is not specified, :const:`ERROR` is used. If no *target* is
    specified, the target will need to be set using :meth:`setTarget` before this
@@ -962,7 +962,7 @@ should, then :meth:`flush` is expected to do the flushing.
 
    .. method:: flush()
 
-      For a :class:`MemoryHandler` instance, flushing means just sending the buffered
+      For a :class:`!MemoryHandler` instance, flushing means just sending the buffered
       records to the target, if there is one. The buffer is also cleared when
       buffered records are sent to the target. Override if you want different behavior.
 
@@ -989,7 +989,7 @@ supports sending logging messages to a web server, using either ``GET`` or
 
 .. class:: HTTPHandler(host, url, method='GET', secure=False, credentials=None, context=None)
 
-   Returns a new instance of the :class:`HTTPHandler` class. The *host* can be
+   Returns a new instance of the :class:`!HTTPHandler` class. The *host* can be
    of the form ``host:port``, should you need to use a specific port number.  If
    no *method* is specified, ``GET`` is used. If *secure* is true, a HTTPS
    connection will be used. The *context* parameter may be set to a
@@ -1020,7 +1020,7 @@ supports sending logging messages to a web server, using either ``GET`` or
    .. note:: Since preparing a record for sending it to a web server is not
       the same as a generic formatting operation, using
       :meth:`~logging.Handler.setFormatter` to specify a
-      :class:`~logging.Formatter` for a :class:`HTTPHandler` has no effect.
+      :class:`~logging.Formatter` for a :class:`!HTTPHandler` has no effect.
       Instead of calling :meth:`~logging.Handler.format`, this handler calls
       :meth:`mapLogRecord` and then :func:`urllib.parse.urlencode` to encode the
       dictionary in a form suitable for sending to a web server.
@@ -1047,7 +1047,7 @@ possible, while any potentially slow operations (such as sending an email via
 
 .. class:: QueueHandler(queue)
 
-   Returns a new instance of the :class:`QueueHandler` class. The instance is
+   Returns a new instance of the :class:`!QueueHandler` class. The instance is
    initialized with the queue to send messages to. The *queue* can be any
    queue-like object; it's used as-is by the :meth:`enqueue` method, which
    needs to know how to send messages to it. The queue is not *required* to
@@ -1063,7 +1063,7 @@ possible, while any potentially slow operations (such as sending an email via
       accessed via :meth:`~multiprocessing.get_logger`.
       :class:`multiprocessing.Queue` will log ``DEBUG`` level messages upon
       items being queued. If those log messages are processed by a
-      :class:`QueueHandler` using the same :class:`multiprocessing.Queue` instance,
+      :class:`!QueueHandler` using the same :class:`multiprocessing.Queue` instance,
       it will cause a deadlock or infinite recursion.
 
    .. method:: emit(record)
@@ -1144,7 +1144,7 @@ possible, while any potentially slow operations (such as sending an email via
 
 .. class:: QueueListener(queue, *handlers, respect_handler_level=False)
 
-   Returns a new instance of the :class:`QueueListener` class. The instance is
+   Returns a new instance of the :class:`!QueueListener` class. The instance is
    initialized with the queue to send messages to and a list of handlers which
    will handle entries placed on the queue. The queue can be any queue-like
    object; it's passed as-is to the :meth:`dequeue` method, which needs
@@ -1164,11 +1164,11 @@ possible, while any potentially slow operations (such as sending an email via
       The ``respect_handler_level`` argument was added.
 
    .. versionchanged:: 3.14
-      :class:`QueueListener` can now be used as a context manager via
+      :class:`!QueueListener` can now be used as a context manager via
       :keyword:`with`. When entering the context, the listener is started. When
       exiting the context, the listener is stopped.
       :meth:`~contextmanager.__enter__` returns the
-      :class:`QueueListener` object.
+      :class:`!QueueListener` object.
 
    .. method:: dequeue(block)
 

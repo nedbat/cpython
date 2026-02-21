@@ -329,7 +329,7 @@ The :mod:`!pickle` module exports three classes, :class:`Pickler`,
       Do nothing by default.  This exists so a subclass can override it.
 
       If :meth:`persistent_id` returns ``None``, *obj* is pickled as usual.  Any
-      other value causes :class:`Pickler` to emit the returned value as a
+      other value causes :class:`!Pickler` to emit the returned value as a
       persistent ID for *obj*.  The meaning of this persistent ID should be
       defined by :meth:`Unpickler.persistent_load`.  Note that the value
       returned by :meth:`persistent_id` cannot itself have a persistent ID.
@@ -355,7 +355,7 @@ The :mod:`!pickle` module exports three classes, :class:`Pickler`,
       global dispatch table managed by the :mod:`copyreg` module.
       However, to customize the pickling for a specific pickler object
       one can set the :attr:`dispatch_table` attribute to a dict-like
-      object.  Alternatively, if a subclass of :class:`Pickler` has a
+      object.  Alternatively, if a subclass of :class:`!Pickler` has a
       :attr:`dispatch_table` attribute then this will be used as the
       default dispatch table for instances of that class.
 
@@ -365,7 +365,7 @@ The :mod:`!pickle` module exports three classes, :class:`Pickler`,
 
    .. method:: reducer_override(obj)
 
-      Special reducer that can be defined in :class:`Pickler` subclasses. This
+      Special reducer that can be defined in :class:`!Pickler` subclasses. This
       method has priority over any reducer in the :attr:`dispatch_table`.  It
       should conform to the same interface as a :meth:`~object.__reduce__` method, and
       can optionally return :data:`NotImplemented` to fallback on
@@ -380,7 +380,7 @@ The :mod:`!pickle` module exports three classes, :class:`Pickler`,
       Deprecated. Enable fast mode if set to a true value.  The fast mode
       disables the usage of memo, therefore speeding the pickling process by not
       generating superfluous PUT opcodes.  It should not be used with
-      self-referential objects, doing otherwise will cause :class:`Pickler` to
+      self-referential objects, doing otherwise will cause :class:`!Pickler` to
       recurse infinitely.
 
       Use :func:`pickletools.optimize` if you need more compact pickles.
@@ -473,11 +473,11 @@ The :mod:`!pickle` module exports three classes, :class:`Pickler`,
    :ref:`buffer-providing <bufferobjects>` object, such as a
    :term:`bytes-like object` or a N-dimensional array.
 
-   :class:`PickleBuffer` is itself a buffer provider, therefore it is
+   :class:`!PickleBuffer` is itself a buffer provider, therefore it is
    possible to pass it to other APIs expecting a buffer-providing object,
    such as :class:`memoryview`.
 
-   :class:`PickleBuffer` objects can only be serialized using pickle
+   :class:`!PickleBuffer` objects can only be serialized using pickle
    protocol 5 or higher.  They are eligible for
    :ref:`out-of-band serialization <pickle-oob>`.
 

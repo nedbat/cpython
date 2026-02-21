@@ -585,7 +585,7 @@ since it is impossible to detect the termination of alien threads.
       the *target* argument, if any, with positional and keyword arguments taken
       from the *args* and *kwargs* arguments, respectively.
 
-      Using list or tuple as the *args* argument which passed to the :class:`Thread`
+      Using list or tuple as the *args* argument which passed to the :class:`!Thread`
       could achieve the same effect.
 
       Example::
@@ -603,25 +603,25 @@ since it is impossible to detect the termination of alien threads.
    .. method:: join(timeout=None)
 
       Wait until the thread terminates. This blocks the calling thread until
-      the thread whose :meth:`~Thread.join` method is called terminates -- either
+      the thread whose :meth:`!Thread.join` method is called terminates -- either
       normally or through an unhandled exception -- or until the optional
       timeout occurs.
 
       When the *timeout* argument is present and not ``None``, it should be a
       real number specifying a timeout for the operation in seconds
-      (or fractions thereof). As :meth:`~Thread.join` always returns ``None``,
-      you must call :meth:`~Thread.is_alive` after :meth:`~Thread.join` to
+      (or fractions thereof). As :meth:`!Thread.join` always returns ``None``,
+      you must call :meth:`~Thread.is_alive` after :meth:`!Thread.join` to
       decide whether a timeout happened -- if the thread is still alive, the
-      :meth:`~Thread.join` call timed out.
+      :meth:`!Thread.join` call timed out.
 
       When the *timeout* argument is not present or ``None``, the operation will
       block until the thread terminates.
 
       A thread can be joined many times.
 
-      :meth:`~Thread.join` raises a :exc:`RuntimeError` if an attempt is made
+      :meth:`!Thread.join` raises a :exc:`RuntimeError` if an attempt is made
       to join the current thread as that would cause a deadlock. It is also
-      an error to :meth:`~Thread.join` a thread before it has been started
+      an error to :meth:`!Thread.join` a thread before it has been started
       and attempts to do so raise the same exception.
 
       If an attempt is made to join a running daemonic thread in late stages
@@ -700,7 +700,7 @@ since it is impossible to detect the termination of alien threads.
       otherwise :exc:`RuntimeError` is raised.  Its initial value is inherited
       from the creating thread; the main thread is not a daemon thread and
       therefore all threads created in the main thread default to
-      :attr:`~Thread.daemon` = ``False``.
+      :attr:`!Thread.daemon` = ``False``.
 
       The entire Python program exits when no alive non-daemon threads are left.
 

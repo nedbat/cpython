@@ -165,7 +165,7 @@ zipimporter Objects
 
    The :attr:`archive` and :attr:`prefix` attributes, when combined with a
    slash, equal the original *archivepath* argument given to the
-   :class:`zipimporter` constructor.
+   :class:`!zipimporter` constructor.
 
 
 .. _zipimport-examples:

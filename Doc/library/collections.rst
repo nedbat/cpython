@@ -44,7 +44,7 @@ The class can be used to simulate nested scopes and is useful in templating.
 
 .. class:: ChainMap(*maps)
 
-    A :class:`ChainMap` groups multiple dicts or other mappings together to
+    A :class:`!ChainMap` groups multiple dicts or other mappings together to
     create a single, updateable view.  If no *maps* are specified, a single empty
     dictionary is provided so that a new chain always has at least one mapping.
 
@@ -54,9 +54,9 @@ The class can be used to simulate nested scopes and is useful in templating.
     Lookups search the underlying mappings successively until a key is found.  In
     contrast, writes, updates, and deletions only operate on the first mapping.
 
-    A :class:`ChainMap` incorporates the underlying mappings by reference.  So, if
+    A :class:`!ChainMap` incorporates the underlying mappings by reference.  So, if
     one of the underlying mappings gets updated, those changes will be reflected
-    in :class:`ChainMap`.
+    in :class:`!ChainMap`.
 
     All of the usual dictionary methods are supported.  In addition, there is a
     *maps* attribute, a method for creating new subcontexts, and a property for
@@ -71,7 +71,7 @@ The class can be used to simulate nested scopes and is useful in templating.
 
     .. method:: new_child(m=None, **kwargs)
 
-        Returns a new :class:`ChainMap` containing a new map followed by
+        Returns a new :class:`!ChainMap` containing a new map followed by
         all of the maps in the current instance.  If ``m`` is specified,
         it becomes the new map at the front of the list of mappings; if not
         specified, an empty dict is used, so that a call to ``d.new_child()``
@@ -88,7 +88,7 @@ The class can be used to simulate nested scopes and is useful in templating.
 
     .. attribute:: parents
 
-        Property returning a new :class:`ChainMap` containing all of the maps in
+        Property returning a new :class:`!ChainMap` containing all of the maps in
         the current instance except the first one.  This is useful for skipping
         the first map in the search.  Use cases are similar to those for the
         :keyword:`nonlocal` keyword used in :term:`nested scopes <nested
@@ -96,7 +96,7 @@ The class can be used to simulate nested scopes and is useful in templating.
         :func:`super` function.  A reference to ``d.parents`` is equivalent to:
         ``ChainMap(*d.maps[1:])``.
 
-    Note, the iteration order of a :class:`ChainMap` is determined by
+    Note, the iteration order of a :class:`!ChainMap` is determined by
     scanning the mappings last to first::
 
         >>> baseline = {'music': 'bach', 'art': 'rembrandt'}
@@ -239,10 +239,10 @@ For example::
 
 .. class:: Counter([iterable-or-mapping])
 
-    A :class:`Counter` is a :class:`dict` subclass for counting :term:`hashable` objects.
+    A :class:`!Counter` is a :class:`dict` subclass for counting :term:`hashable` objects.
     It is a collection where elements are stored as dictionary keys
     and their counts are stored as dictionary values.  Counts are allowed to be
-    any integer value including zero or negative counts.  The :class:`Counter`
+    any integer value including zero or negative counts.  The :class:`!Counter`
     class is similar to bags or multisets in other languages.
 
     Elements are counted from an *iterable* or initialized from another
@@ -268,7 +268,7 @@ For example::
 
     .. versionadded:: 3.1
 
-    .. versionchanged:: 3.7 As a :class:`dict` subclass, :class:`Counter`
+    .. versionchanged:: 3.7 As a :class:`dict` subclass, :class:`!Counter`
        inherited the capability to remember insertion order.  Math operations
        on *Counter* objects also preserve order.  Results are ordered
        according to when an element is first encountered in the left operand
@@ -321,12 +321,12 @@ For example::
 
         .. versionadded:: 3.10
 
-    The usual dictionary methods are available for :class:`Counter` objects
+    The usual dictionary methods are available for :class:`!Counter` objects
     except for two which work differently for counters.
 
     .. method:: fromkeys(iterable)
 
-        This class method is not implemented for :class:`Counter` objects.
+        This class method is not implemented for :class:`!Counter` objects.
 
     .. method:: update([iterable-or-mapping])
 
@@ -721,7 +721,7 @@ stack manipulations such as ``dup``, ``drop``, ``swap``, ``over``, ``pick``,
 
 .. class:: defaultdict(default_factory=None, /, [...])
 
-    Return a new dictionary-like object.  :class:`defaultdict` is a subclass of the
+    Return a new dictionary-like object.  :class:`!defaultdict` is a subclass of the
     built-in :class:`dict` class.  It overrides one method and adds one writable
     instance variable.  The remaining functionality is the same as for the
     :class:`dict` class and is not documented here.
@@ -732,7 +732,7 @@ stack manipulations such as ``dup``, ``drop``, ``swap``, ``over``, ``pick``,
     arguments.
 
 
-    :class:`defaultdict` objects support the following method in addition to the
+    :class:`!defaultdict` objects support the following method in addition to the
     standard :class:`dict` operations:
 
     .. method:: __missing__(key)
@@ -757,7 +757,7 @@ stack manipulations such as ``dup``, ``drop``, ``swap``, ``over``, ``pick``,
         :attr:`default_factory`.
 
 
-    :class:`defaultdict` objects support the following instance variable:
+    :class:`!defaultdict` objects support the following instance variable:
 
 
     .. attribute:: default_factory
@@ -1323,16 +1323,16 @@ attribute.
 
     Class that simulates a dictionary.  The instance's contents are kept in a
     regular dictionary, which is accessible via the :attr:`data` attribute of
-    :class:`UserDict` instances.  If *initialdata* is provided, :attr:`data` is
+    :class:`!UserDict` instances.  If *initialdata* is provided, :attr:`data` is
     initialized with its contents; note that a reference to *initialdata* will not
     be kept, allowing it to be used for other purposes.
 
     In addition to supporting the methods and operations of mappings,
-    :class:`UserDict` instances provide the following attribute:
+    :class:`!UserDict` instances provide the following attribute:
 
     .. attribute:: data
 
-        A real dictionary used to store the contents of the :class:`UserDict`
+        A real dictionary used to store the contents of the :class:`!UserDict`
         class.
 
 
@@ -1352,18 +1352,18 @@ to work with because the underlying list is accessible as an attribute.
 .. class:: UserList([list])
 
     Class that simulates a list.  The instance's contents are kept in a regular
-    list, which is accessible via the :attr:`data` attribute of :class:`UserList`
+    list, which is accessible via the :attr:`data` attribute of :class:`!UserList`
     instances.  The instance's contents are initially set to a copy of *list*,
     defaulting to the empty list ``[]``.  *list* can be any iterable, for
-    example a real Python list or a :class:`UserList` object.
+    example a real Python list or a :class:`!UserList` object.
 
     In addition to supporting the methods and operations of mutable sequences,
-    :class:`UserList` instances provide the following attribute:
+    :class:`!UserList` instances provide the following attribute:
 
     .. attribute:: data
 
         A real :class:`list` object used to store the contents of the
-        :class:`UserList` class.
+        :class:`!UserList` class.
 
 **Subclassing requirements:** Subclasses of :class:`UserList` are expected to
 offer a constructor which can be called with either no arguments or one
@@ -1390,18 +1390,18 @@ attribute.
 
     Class that simulates a string object.  The instance's
     content is kept in a regular string object, which is accessible via the
-    :attr:`data` attribute of :class:`UserString` instances.  The instance's
+    :attr:`data` attribute of :class:`!UserString` instances.  The instance's
     contents are initially set to a copy of *seq*.  The *seq* argument can
     be any object which can be converted into a string using the built-in
     :func:`str` function.
 
     In addition to supporting the methods and operations of strings,
-    :class:`UserString` instances provide the following attribute:
+    :class:`!UserString` instances provide the following attribute:
 
     .. attribute:: data
 
         A real :class:`str` object used to store the contents of the
-        :class:`UserString` class.
+        :class:`!UserString` class.
 
     .. versionchanged:: 3.5
        New methods ``__getnewargs__``, ``__rmod__``, ``casefold``,

@@ -95,18 +95,18 @@ The module defines the following functions:
    the argument of the operation as specified in the relevant C documentation.
 
    When *arg* is an integer, the function returns the integer
-   return value of the C :c:func:`fcntl` call.
+   return value of the C :c:func:`!fcntl` call.
 
    When the argument is bytes-like object, it represents a binary structure,
    for example, created by :func:`struct.pack`.
    A string value is encoded to binary using the UTF-8 encoding.
    The binary data is copied to a buffer whose address is
-   passed to the C :c:func:`fcntl` call.  The return value after a successful
+   passed to the C :c:func:`!fcntl` call.  The return value after a successful
    call is the contents of the buffer, converted to a :class:`bytes` object.
    The length of the returned object will be the same as the length of the
    *arg* argument.
 
-   If the :c:func:`fcntl` call fails, an :exc:`OSError` is raised.
+   If the :c:func:`!fcntl` call fails, an :exc:`OSError` is raised.
 
    .. note::
       If the type or size of *arg* does not match the type or size
@@ -150,12 +150,12 @@ The module defines the following functions:
    and *mutate_flag* is true (the default), then the buffer is (in effect) passed
    to the underlying :c:func:`!ioctl` system call, the latter's return code is
    passed back to the calling Python, and the buffer's new contents reflect the
-   action of the :c:func:`ioctl`.  This is a slight simplification, because if the
+   action of the :c:func:`!ioctl`.  This is a slight simplification, because if the
    supplied buffer is less than 1024 bytes long it is first copied into a static
-   buffer 1024 bytes long which is then passed to :func:`ioctl` and copied back
+   buffer 1024 bytes long which is then passed to :func:`!ioctl` and copied back
    into the supplied buffer.
 
-   If the :c:func:`ioctl` call fails, an :exc:`OSError` exception is raised.
+   If the :c:func:`!ioctl` call fails, an :exc:`OSError` exception is raised.
 
    .. note::
       If the type or size of *arg* does not match the type or size
@@ -195,7 +195,7 @@ The module defines the following functions:
    :manpage:`flock(2)` for details.  (On some systems, this function is emulated
    using :c:func:`fcntl`.)
 
-   If the :c:func:`flock` call fails, an :exc:`OSError` exception is raised.
+   If the :c:func:`!flock` call fails, an :exc:`OSError` exception is raised.
 
    .. audit-event:: fcntl.flock fd,operation fcntl.flock
 

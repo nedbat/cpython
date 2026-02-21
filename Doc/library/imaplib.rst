@@ -34,7 +34,7 @@ base class:
    parameter specifies a timeout in seconds for the connection attempt.
    If timeout is not given or is ``None``, the global default socket timeout is used.
 
-   The :class:`IMAP4` class supports the :keyword:`with` statement.  When used
+   The :class:`!IMAP4` class supports the :keyword:`with` statement.  When used
    like this, the IMAP4 ``LOGOUT`` command is issued automatically when the
    :keyword:`!with` statement exits.  E.g.::
 
@@ -364,7 +364,7 @@ An :class:`IMAP4` instance has the following methods:
       .. tip::
 
          The ``IDLE`` context's maximum duration, as passed to
-         :meth:`IMAP4.idle`, is respected when waiting for the first response
+         :meth:`!IMAP4.idle`, is respected when waiting for the first response
          in a burst. Therefore, an expired :class:`!Idler` will cause this
          generator to return immediately without producing anything. Callers
          should consider this if using it in a loop.
@@ -372,7 +372,7 @@ An :class:`IMAP4` instance has the following methods:
 
    .. note::
 
-      The iterator returned by :meth:`IMAP4.idle` is usable only within a
+      The iterator returned by :meth:`!IMAP4.idle` is usable only within a
       :keyword:`with` statement. Before or after that context, unsolicited
       responses are collected internally whenever a command finishes, and can
       be retrieved with :meth:`IMAP4.response`.

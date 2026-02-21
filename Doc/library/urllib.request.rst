@@ -320,7 +320,7 @@ The following classes are provided:
 
 .. class:: OpenerDirector()
 
-   The :class:`OpenerDirector` class opens URLs via :class:`BaseHandler`\ s chained
+   The :class:`!OpenerDirector` class opens URLs via :class:`BaseHandler`\ s chained
    together. It manages the chaining of handlers, and recovery from errors.
 
 
@@ -529,7 +529,7 @@ request.
    .. versionchanged:: 3.4
 
    Request.full_url is a property with setter, getter and a deleter. Getting
-   :attr:`~Request.full_url` returns the original request URL with the
+   :attr:`!Request.full_url` returns the original request URL with the
    fragment, if it was present.
 
 .. attribute:: Request.type
@@ -555,7 +555,7 @@ request.
    The entity body for the request, or ``None`` if not specified.
 
    .. versionchanged:: 3.4
-      Changing value of :attr:`Request.data` now deletes "Content-Length"
+      Changing value of :attr:`!Request.data` now deletes "Content-Length"
       header if it was previously set or calculated.
 
 .. attribute:: Request.unverifiable
@@ -1459,7 +1459,7 @@ some point in the future.
    :mimetype:`application/x-www-form-urlencoded` format; see the
    :func:`urllib.parse.urlencode` function.
 
-   :func:`urlretrieve` will raise :exc:`~urllib.error.ContentTooShortError` when it detects that
+   :func:`!urlretrieve` will raise :exc:`~urllib.error.ContentTooShortError` when it detects that
    the amount of data available  was less than the expected amount (which is the
    size reported by a  *Content-Length* header). This can occur, for example, when
    the  download is interrupted.

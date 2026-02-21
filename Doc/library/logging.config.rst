@@ -58,7 +58,7 @@ in :mod:`logging` itself) and defining handlers which are declared either in
    You can replace the value of :attr:`dictConfigClass` with a
    suitable implementation of your own.
 
-   :func:`dictConfig` calls :attr:`dictConfigClass` passing
+   :func:`!dictConfig` calls :attr:`dictConfigClass` passing
    the specified dictionary, and then calls the :meth:`configure` method on
    the returned object to put the configuration into effect::
 
@@ -69,7 +69,7 @@ in :mod:`logging` itself) and defining handlers which are declared either in
    ``DictConfigurator.__init__()`` in its own :meth:`__init__`, then
    set up custom prefixes which would be usable in the subsequent
    :meth:`configure` call. :attr:`dictConfigClass` would be bound to
-   this new subclass, and then :func:`dictConfig` could be called exactly as
+   this new subclass, and then :func:`!dictConfig` could be called exactly as
    in the default, uncustomized state.
 
    .. versionadded:: 3.2
@@ -166,15 +166,15 @@ in :mod:`logging` itself) and defining handlers which are declared either in
       While the function only binds to a socket on ``localhost``, and so does
       not accept connections from remote machines, there are scenarios where
       untrusted code could be run under the account of the process which calls
-      :func:`listen`. Specifically, if the process calling :func:`listen` runs
+      :func:`!listen`. Specifically, if the process calling :func:`!listen` runs
       on a multi-user machine where users cannot trust each other, then a
       malicious user could arrange to run essentially arbitrary code in a
       victim user's process, simply by connecting to the victim's
-      :func:`listen` socket and sending a configuration which runs whatever
+      :func:`!listen` socket and sending a configuration which runs whatever
       code the attacker wants to have executed in the victim's process. This is
       especially easy to do if the default port is used, but not hard even if a
       different port is used. To avoid the risk of this happening, use the
-      ``verify`` argument to :func:`listen` to prevent unrecognised
+      ``verify`` argument to :func:`!listen` to prevent unrecognised
       configurations from being applied.
 
    .. versionchanged:: 3.4

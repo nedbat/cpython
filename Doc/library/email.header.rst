@@ -144,12 +144,12 @@ Here is the :class:`Header` class description:
          Added the *linesep* argument.
 
 
-   The :class:`Header` class also provides a number of methods to support
+   The :class:`!Header` class also provides a number of methods to support
    standard operators and built-in functions.
 
    .. method:: __str__()
 
-      Returns an approximation of the :class:`Header` as a string, using an
+      Returns an approximation of the :class:`!Header` as a string, using an
       unlimited line length.  All pieces are converted to unicode using the
       specified encoding and joined together appropriately.  Any pieces with a
       charset of ``'unknown-8bit'`` are decoded as ASCII using the ``'replace'``
@@ -161,13 +161,13 @@ Here is the :class:`Header` class description:
 
    .. method:: __eq__(other)
 
-      This method allows you to compare two :class:`Header` instances for
+      This method allows you to compare two :class:`!Header` instances for
       equality.
 
 
    .. method:: __ne__(other)
 
-      This method allows you to compare two :class:`Header` instances for
+      This method allows you to compare two :class:`!Header` instances for
       inequality.
 
 The :mod:`!email.header` module also provides the following convenient functions.

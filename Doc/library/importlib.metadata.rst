@@ -420,7 +420,7 @@ Distributions
 
    .. method:: discover(cls, *, context=None, **kwargs)
 
-      Returns an iterable of :class:`Distribution` instances for all packages.
+      Returns an iterable of :class:`!Distribution` instances for all packages.
 
       The optional argument *context* is a :class:`DistributionFinder.Context`
       instance, used to modify the search for distributions. Alternatively,

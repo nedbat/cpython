@@ -49,7 +49,7 @@ for the current process:
    Return the current process-wide policy.
 
    .. deprecated:: 3.14
-      The :func:`get_event_loop_policy` function is deprecated and
+      The :func:`!get_event_loop_policy` function is deprecated and
       will be removed in Python 3.16.
 
 .. function:: set_event_loop_policy(policy)
@@ -59,7 +59,7 @@ for the current process:
    If *policy* is set to ``None``, the default policy is restored.
 
    .. deprecated:: 3.14
-      The :func:`set_event_loop_policy` function is deprecated and
+      The :func:`!set_event_loop_policy` function is deprecated and
       will be removed in Python 3.16.
 
 
@@ -96,7 +96,7 @@ The abstract event loop policy base class is defined as follows:
       This method should never return ``None``.
 
    .. deprecated:: 3.14
-      The :class:`AbstractEventLoopPolicy` class is deprecated and
+      The :class:`!AbstractEventLoopPolicy` class is deprecated and
       will be removed in Python 3.16.
 
 
@@ -122,7 +122,7 @@ asyncio ships with the following built-in policies:
       raises a :exc:`RuntimeError` if there is no set event loop.
 
    .. deprecated:: 3.14
-      The :class:`DefaultEventLoopPolicy` class is deprecated and
+      The :class:`!DefaultEventLoopPolicy` class is deprecated and
       will be removed in Python 3.16.
 
 
@@ -134,7 +134,7 @@ asyncio ships with the following built-in policies:
    .. availability:: Windows.
 
    .. deprecated:: 3.14
-      The :class:`WindowsSelectorEventLoopPolicy` class is deprecated and
+      The :class:`!WindowsSelectorEventLoopPolicy` class is deprecated and
       will be removed in Python 3.16.
 
 
@@ -146,7 +146,7 @@ asyncio ships with the following built-in policies:
    .. availability:: Windows.
 
    .. deprecated:: 3.14
-      The :class:`WindowsProactorEventLoopPolicy` class is deprecated and
+      The :class:`!WindowsProactorEventLoopPolicy` class is deprecated and
       will be removed in Python 3.16.
 
 

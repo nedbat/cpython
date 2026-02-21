@@ -70,7 +70,7 @@ message objects.
       formatting produced by the method, since the specified *policy* will be
       passed to the :class:`~email.generator.Generator`.
 
-      Flattening the message may trigger changes to the :class:`EmailMessage`
+      Flattening the message may trigger changes to the :class:`!EmailMessage`
       if defaults need to be filled in to complete the transformation to a
       string (for example, MIME boundaries may be generated or modified).
 
@@ -108,7 +108,7 @@ message objects.
       method, since the specified *policy* will be passed to the
       :class:`~email.generator.BytesGenerator`.
 
-      Flattening the message may trigger changes to the :class:`EmailMessage`
+      Flattening the message may trigger changes to the :class:`!EmailMessage`
       if defaults need to be filled in to complete the transformation to a
       string (for example, MIME boundaries may be generated or modified).
 
@@ -128,13 +128,13 @@ message objects.
    .. method:: is_multipart()
 
       Return ``True`` if the message's payload is a list of
-      sub-\ :class:`EmailMessage` objects, otherwise return ``False``.  When
+      sub-\ :class:`!EmailMessage` objects, otherwise return ``False``.  When
       :meth:`is_multipart` returns ``False``, the payload should be a string
       object (which might be a CTE encoded binary payload).  Note that
       :meth:`is_multipart` returning ``True`` does not necessarily mean that
       "msg.get_content_maintype() == 'multipart'" will return the ``True``.
       For example, ``is_multipart`` will return ``True`` when the
-      :class:`EmailMessage` is of type ``message/rfc822``.
+      :class:`!EmailMessage` is of type ``message/rfc822``.
 
 
    .. method:: set_unixfrom(unixfrom)
@@ -155,7 +155,7 @@ message objects.
    between these methods and a normal mapping (i.e. dictionary) interface.  For
    example, in a dictionary there are no duplicate keys, but here there may be
    duplicate message headers.  Also, in dictionaries there is no guaranteed
-   order to the keys returned by :meth:`keys`, but in an :class:`EmailMessage`
+   order to the keys returned by :meth:`keys`, but in an :class:`!EmailMessage`
    object, headers are always returned in the order they appeared in the
    original message, or in which they were added to the message later.  Any
    header deleted and then re-added is always appended to the end of the
@@ -371,7 +371,7 @@ message objects.
       end of the list of headers.  If *replace* is ``True``, the header
       will be updated in place.
 
-      Use of the *requote* parameter with :class:`EmailMessage` objects is
+      Use of the *requote* parameter with :class:`!EmailMessage` objects is
       deprecated.
 
       Note that existing parameter values of headers may be accessed through
@@ -388,7 +388,7 @@ message objects.
       its value.  Optional *header* specifies an alternative to
       :mailheader:`Content-Type`.
 
-      Use of the *requote* parameter with :class:`EmailMessage` objects is
+      Use of the *requote* parameter with :class:`!EmailMessage` objects is
       deprecated.
 
 
@@ -692,7 +692,7 @@ message objects.
       all other headers intact and in their original order.
 
 
-   :class:`EmailMessage` objects have the following instance attributes:
+   :class:`!EmailMessage` objects have the following instance attributes:
 
 
    .. attribute:: preamble

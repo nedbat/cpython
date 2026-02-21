@@ -100,7 +100,7 @@ instantiation, of which this module provides three different variants:
    This class is used to handle the HTTP requests that arrive at the server.  By
    itself, it cannot respond to any actual HTTP requests; it must be subclassed
    to handle each request method (e.g. GET or POST).
-   :class:`BaseHTTPRequestHandler` provides a number of class and instance
+   :class:`!BaseHTTPRequestHandler` provides a number of class and instance
    variables, and methods for use by subclasses.
 
    The handler will parse the request and the headers, then call a method
@@ -110,7 +110,7 @@ instantiation, of which this module provides three different variants:
    stored in instance variables of the handler.  Subclasses should not need to
    override or extend the :meth:`!__init__` method.
 
-   :class:`BaseHTTPRequestHandler` has the following instance variables:
+   :class:`!BaseHTTPRequestHandler` has the following instance variables:
 
    .. attribute:: client_address
 
@@ -171,7 +171,7 @@ instantiation, of which this module provides three different variants:
       .. versionchanged:: 3.6
          This is an :class:`io.BufferedIOBase` stream.
 
-   :class:`BaseHTTPRequestHandler` has the following attributes:
+   :class:`!BaseHTTPRequestHandler` has the following attributes:
 
    .. attribute:: server_version
 
@@ -221,7 +221,7 @@ instantiation, of which this module provides three different variants:
       error response, and *longmessage* as the *explain* key.  It is used by
       :meth:`send_response_only` and :meth:`send_error` methods.
 
-   A :class:`BaseHTTPRequestHandler` instance has the following methods:
+   A :class:`!BaseHTTPRequestHandler` instance has the following methods:
 
    .. method:: handle()
 
@@ -379,7 +379,7 @@ instantiation, of which this module provides three different variants:
    and :func:`do_HEAD` functions.
 
    The following are defined as class-level attributes of
-   :class:`SimpleHTTPRequestHandler`:
+   :class:`!SimpleHTTPRequestHandler`:
 
    .. attribute:: server_version
 
@@ -396,7 +396,7 @@ instantiation, of which this module provides three different variants:
          This dictionary is no longer filled with the default system mappings,
          but only contains overrides.
 
-   The :class:`SimpleHTTPRequestHandler` class defines the following methods:
+   The :class:`!SimpleHTTPRequestHandler` class defines the following methods:
 
    .. method:: do_HEAD()
 

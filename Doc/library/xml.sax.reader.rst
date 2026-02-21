@@ -61,8 +61,8 @@ a new  parser object.
    :meth:`XMLReader.parse` method and for returning from
    EntityResolver.resolveEntity.
 
-   An :class:`InputSource` belongs to the application, the :class:`XMLReader` is
-   not allowed to modify :class:`InputSource` objects passed to it from the
+   An :class:`!InputSource` belongs to the application, the :class:`XMLReader` is
+   not allowed to modify :class:`!InputSource` objects passed to it from the
    application, although it may make copies and modify those.
 
 

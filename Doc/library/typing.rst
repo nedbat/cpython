@@ -851,11 +851,11 @@ using ``[]``.
 
    Special type indicating an unconstrained type.
 
-   * Every type is compatible with :data:`Any`.
-   * :data:`Any` is compatible with every type.
+   * Every type is compatible with :data:`!Any`.
+   * :data:`!Any` is compatible with every type.
 
    .. versionchanged:: 3.11
-      :data:`Any` can now be used as a base class. This can be useful for
+      :data:`!Any` can now be used as a base class. This can be useful for
       avoiding type checker errors with classes that can duck type anywhere or
       are highly dynamic.
 
@@ -978,11 +978,11 @@ using ``[]``.
 
    .. versionadded:: 3.6.2
 
-      Added :data:`NoReturn`.
+      Added :data:`!NoReturn`.
 
    .. versionadded:: 3.11
 
-      Added :data:`Never`.
+      Added :data:`!Never`.
 
 .. data:: Self
 
@@ -1076,13 +1076,13 @@ using ``[]``.
    .. versionadded:: 3.10
 
    .. deprecated:: 3.12
-      :data:`TypeAlias` is deprecated in favor of the :keyword:`type` statement,
+      :data:`!TypeAlias` is deprecated in favor of the :keyword:`type` statement,
       which creates instances of :class:`TypeAliasType`
       and which natively supports forward references.
-      Note that while :data:`TypeAlias` and :class:`TypeAliasType` serve
+      Note that while :data:`!TypeAlias` and :class:`TypeAliasType` serve
       similar purposes and have similar names, they are distinct and the
       latter is not the type of the former.
-      Removal of :data:`TypeAlias` is not currently planned, but users
+      Removal of :data:`!TypeAlias` is not currently planned, but users
       are encouraged to migrate to :keyword:`type` statements.
 
 Special forms
@@ -1133,7 +1133,7 @@ These can be used as types in annotations. They all support subscription using
       :ref:`union type expressions<types-union>`.
 
    .. versionchanged:: 3.14
-      :class:`types.UnionType` is now an alias for :class:`Union`, and both
+      :class:`types.UnionType` is now an alias for :class:`!Union`, and both
       ``Union[int, str]`` and ``int | str`` create instances of the same class.
       To check whether an object is a ``Union`` at runtime, use
       ``isinstance(obj, Union)``. For compatibility with earlier versions of
@@ -1289,11 +1289,11 @@ These can be used as types in annotations. They all support subscription using
           stats: ClassVar[dict[str, int]] = {} # class variable
           damage: int = 10                     # instance variable
 
-   :data:`ClassVar` accepts only types and cannot be further subscribed.
+   :data:`!ClassVar` accepts only types and cannot be further subscribed.
 
-   :data:`ClassVar` is not a class itself, and should not
+   :data:`!ClassVar` is not a class itself, and should not
    be used with :func:`isinstance` or :func:`issubclass`.
-   :data:`ClassVar` does not change Python runtime behavior, but
+   :data:`!ClassVar` does not change Python runtime behavior, but
    it can be used by third-party type checkers. For example, a type checker
    might flag the following code as an error::
 
@@ -1305,7 +1305,7 @@ These can be used as types in annotations. They all support subscription using
 
    .. versionchanged:: 3.13
 
-      :data:`ClassVar` can now be nested in :data:`Final` and vice versa.
+      :data:`!ClassVar` can now be nested in :data:`Final` and vice versa.
 
 .. data:: Final
 
@@ -1332,7 +1332,7 @@ These can be used as types in annotations. They all support subscription using
 
    .. versionchanged:: 3.13
 
-      :data:`Final` can now be nested in :data:`ClassVar` and vice versa.
+      :data:`!Final` can now be nested in :data:`ClassVar` and vice versa.
 
 .. data:: Required
 

@@ -21,7 +21,7 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
 
 .. class:: SMTP(host='', port=0, local_hostname=None[, timeout], source_address=None)
 
-   An :class:`SMTP` instance encapsulates an SMTP connection.  It has methods
+   An :class:`!SMTP` instance encapsulates an SMTP connection.  It has methods
    that support a full repertoire of SMTP and ESMTP operations.
 
    If the host parameter is set to a truthy value, :meth:`SMTP.connect` is called with
@@ -46,7 +46,7 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
    :meth:`sendmail`, and :meth:`SMTP.quit` methods.
    An example is included below.
 
-   The :class:`SMTP` class supports the :keyword:`with` statement.  When used
+   The :class:`!SMTP` class supports the :keyword:`with` statement.  When used
    like this, the SMTP ``QUIT`` command is issued automatically when the
    :keyword:`!with` statement exits.  E.g.::
 
@@ -83,8 +83,8 @@ Protocol) and :rfc:`1869` (SMTP Service Extensions).
 .. class:: SMTP_SSL(host='', port=0, local_hostname=None, * [, timeout], \
                     context=None, source_address=None)
 
-   An :class:`SMTP_SSL` instance behaves exactly the same as instances of
-   :class:`SMTP`. :class:`SMTP_SSL` should be used for situations where SSL is
+   An :class:`!SMTP_SSL` instance behaves exactly the same as instances of
+   :class:`SMTP`. :class:`!SMTP_SSL` should be used for situations where SSL is
    required from the beginning of the connection and using :meth:`SMTP.starttls` is
    not appropriate.
 

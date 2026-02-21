@@ -525,7 +525,7 @@ Available Functions
    resulting string to *file*, which defaults to :data:`sys.stderr`.  You may replace
    this function with any callable by assigning to ``warnings.showwarning``.
    *line* is a line of source code to be included in the warning
-   message; if *line* is not supplied, :func:`showwarning` will
+   message; if *line* is not supplied, :func:`!showwarning` will
    try to read the line specified by *filename* and *lineno*.
 
 
@@ -534,7 +534,7 @@ Available Functions
    Format a warning the standard way.  This returns a string which may contain
    embedded newlines and ends in a newline.  *line* is a line of source code to
    be included in the warning message; if *line* is not supplied,
-   :func:`formatwarning` will try to read the line specified by *filename* and
+   :func:`!formatwarning` will try to read the line specified by *filename* and
    *lineno*.
 
 
@@ -645,7 +645,7 @@ Available Context Managers
     .. note::
 
         See :ref:`warning-concurrent-safe` for details on the
-        concurrency-safety of the :class:`catch_warnings` context manager when
+        concurrency-safety of the :class:`!catch_warnings` context manager when
         used in programs using multiple threads or async functions.
 
 

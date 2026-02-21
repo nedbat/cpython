@@ -436,7 +436,7 @@ be finalized; only the internally used file object will be closed. See the
 
    .. note::
 
-      *fileobj* is not closed, when :class:`TarFile` is closed.
+      *fileobj* is not closed, when :class:`!TarFile` is closed.
 
    *format* controls the archive format for writing. It must be one of the constants
    :const:`USTAR_FORMAT`, :const:`GNU_FORMAT` or :const:`PAX_FORMAT` that are
@@ -773,7 +773,7 @@ Different :class:`TarInfo` methods handle ``None`` differently:
 
 .. class:: TarInfo(name="")
 
-   Create a :class:`TarInfo` object.
+   Create a :class:`!TarInfo` object.
 
 
 .. classmethod:: TarInfo.frombuf(buf, encoding, errors)

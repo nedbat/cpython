@@ -400,14 +400,14 @@ loops that truncate the stream.
    the element unchanged.  Generally, the iterable needs to already be sorted on
    the same key function.
 
-   The operation of :func:`groupby` is similar to the ``uniq`` filter in Unix.  It
+   The operation of :func:`!groupby` is similar to the ``uniq`` filter in Unix.  It
    generates a break or new group every time the value of the key function changes
    (which is why it is usually necessary to have sorted the data using the same key
    function).  That behavior differs from SQL's GROUP BY which aggregates common
    elements regardless of their input order.
 
    The returned group is itself an iterator that shares the underlying iterable
-   with :func:`groupby`.  Because the source is shared, when the :func:`groupby`
+   with :func:`!groupby`.  Because the source is shared, when the :func:`!groupby`
    object is advanced, the previous group is no longer visible.  So, if that data
    is needed later, it should be stored as a list::
 
@@ -418,7 +418,7 @@ loops that truncate the stream.
           groups.append(list(g))      # Store group iterator as a list
           uniquekeys.append(k)
 
-   :func:`groupby` is roughly equivalent to::
+   :func:`!groupby` is roughly equivalent to::
 
       def groupby(iterable, key=None):
           # [k for k, g in groupby('AAAABBBCCDAABBB')] → A B C D A B
@@ -608,7 +608,7 @@ loops that truncate the stream.
            for prod in result:
                yield tuple(prod)
 
-   Before :func:`product` runs, it completely consumes the input iterables,
+   Before :func:`!product` runs, it completely consumes the input iterables,
    keeping pools of values in memory to generate the products.  Accordingly,
    it is only useful with finite inputs.
 
@@ -644,7 +644,7 @@ loops that truncate the stream.
    from the *iterable*.  Used instead of :func:`map` when argument
    parameters have already been "pre-zipped" into tuples.
 
-   The difference between :func:`map` and :func:`starmap` parallels the
+   The difference between :func:`map` and :func:`!starmap` parallels the
    distinction between ``function(a,b)`` and ``function(*c)``. Roughly
    equivalent to::
 
@@ -716,8 +716,8 @@ loops that truncate the stream.
 
    When the input *iterable* is already a tee iterator object, all
    members of the return tuple are constructed as if they had been
-   produced by the upstream :func:`tee` call.  This "flattening step"
-   allows nested :func:`tee` calls to share the same underlying data
+   produced by the upstream :func:`!tee` call.  This "flattening step"
+   allows nested :func:`!tee` calls to share the same underlying data
    chain and to have a single update step rather than a chain of calls.
 
    The flattening property makes tee iterators efficiently peekable:
@@ -741,13 +741,13 @@ loops that truncate the stream.
       'b'
 
    ``tee`` iterators are not threadsafe. A :exc:`RuntimeError` may be
-   raised when simultaneously using iterators returned by the same :func:`tee`
+   raised when simultaneously using iterators returned by the same :func:`!tee`
    call, even if the original *iterable* is threadsafe.
 
    This itertool may require significant auxiliary storage (depending on how
    much temporary data needs to be stored). In general, if one iterator uses
    most or all of the data before another iterator starts, it is faster to use
-   :func:`list` instead of :func:`tee`.
+   :func:`list` instead of :func:`!tee`.
 
 
 .. function:: zip_longest(*iterables, fillvalue=None)
@@ -784,7 +784,7 @@ loops that truncate the stream.
                   values.append(value)
               yield tuple(values)
 
-   If one of the iterables is potentially infinite, then the :func:`zip_longest`
+   If one of the iterables is potentially infinite, then the :func:`!zip_longest`
    function should be wrapped with something that limits the number of calls
    (for example :func:`islice` or :func:`takewhile`).
 

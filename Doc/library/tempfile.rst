@@ -227,11 +227,11 @@ The module defines the following user-callable items:
 
    The file descriptor is :ref:`not inherited by child processes <fd_inheritance>`.
 
-   Unlike :func:`TemporaryFile`, the user of :func:`mkstemp` is responsible
+   Unlike :func:`TemporaryFile`, the user of :func:`!mkstemp` is responsible
    for deleting the temporary file when done with it.
 
    If *suffix* is not ``None``, the file name will end with that suffix,
-   otherwise there will be no suffix.  :func:`mkstemp` does not put a dot
+   otherwise there will be no suffix.  :func:`!mkstemp` does not put a dot
    between the file name and the suffix; if you need one, put it at the
    beginning of *suffix*.
 
@@ -256,7 +256,7 @@ The module defines the following user-callable items:
    If *text* is specified and true, the file is opened in text mode.
    Otherwise, (the default) the file is opened in binary mode.
 
-   :func:`mkstemp` returns a tuple containing an OS-level handle to an open
+   :func:`!mkstemp` returns a tuple containing an OS-level handle to an open
    file (as would be returned by :func:`os.open`) and the absolute pathname
    of that file, in that order.
 
@@ -278,13 +278,13 @@ The module defines the following user-callable items:
    are no race conditions in the directory's creation.  The directory is
    readable, writable, and searchable only by the creating user ID.
 
-   The user of :func:`mkdtemp` is responsible for deleting the temporary
+   The user of :func:`!mkdtemp` is responsible for deleting the temporary
    directory and its contents when done with it.
 
    The *prefix*, *suffix*, and *dir* arguments are the same as for
    :func:`mkstemp`.
 
-   :func:`mkdtemp` returns the absolute pathname of the new directory.
+   :func:`!mkdtemp` returns the absolute pathname of the new directory.
 
    .. audit-event:: tempfile.mkdtemp fullpath tempfile.mkdtemp
 
@@ -298,7 +298,7 @@ The module defines the following user-callable items:
       The *dir* parameter now accepts a :term:`path-like object`.
 
    .. versionchanged:: 3.12
-      :func:`mkdtemp` now always returns an absolute path, even if *dir* is relative.
+      :func:`!mkdtemp` now always returns an absolute path, even if *dir* is relative.
 
 
 .. function:: gettempdir()
@@ -454,7 +454,7 @@ other functions described above.
 
       Use of this function may introduce a security hole in your program.  By
       the time you get around to doing anything with the file name it returns,
-      someone else may have beaten you to the punch.  :func:`mktemp` usage can
+      someone else may have beaten you to the punch.  :func:`!mktemp` usage can
       be replaced easily with :func:`NamedTemporaryFile`, passing it the
       ``delete=False`` parameter::
 

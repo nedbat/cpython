@@ -93,7 +93,7 @@ Functions
 
 .. function:: __import__(name, globals=None, locals=None, fromlist=(), level=0)
 
-    An implementation of the built-in :func:`__import__` function.
+    An implementation of the built-in :func:`!__import__` function.
 
     .. note::
        Programmatic importing of modules should use :func:`import_module`
@@ -109,10 +109,10 @@ Functions
     package name (e.g. ``import_module('..mod', 'pkg.subpkg')`` will import
     ``pkg.mod``).
 
-    The :func:`import_module` function acts as a simplifying wrapper around
+    The :func:`!import_module` function acts as a simplifying wrapper around
     :func:`importlib.__import__`. This means all semantics of the function are
     derived from :func:`importlib.__import__`. The most important difference
-    between these two functions is that :func:`import_module` returns the
+    between these two functions is that :func:`!import_module` returns the
     specified package or module (e.g. ``pkg.mod``), while :func:`__import__`
     returns the top-level package or module (e.g. ``pkg``).
 
@@ -121,7 +121,7 @@ Functions
     need to call :func:`invalidate_caches` in order for the new module to be
     noticed by the import system.
 
-    If the module cannot be imported, :func:`import_module` will raise
+    If the module cannot be imported, :func:`!import_module` will raise
     :exc:`ImportError` or an appropriate subclass like
     :exc:`ModuleNotFoundError`.
 
@@ -151,7 +151,7 @@ Functions
    is the module object (which can be different if re-importing causes a
    different object to be placed in :data:`sys.modules`).
 
-   When :func:`reload` is executed:
+   When :func:`!reload` is executed:
 
    * Python module's code is recompiled and the module-level code re-executed,
      defining a new set of objects which are bound to names in the module's
@@ -192,7 +192,7 @@ Functions
    when reloaded.
 
    If a module imports objects from another module using :keyword:`from` ...
-   :keyword:`import` ..., calling :func:`reload` for the other module does not
+   :keyword:`import` ..., calling :func:`!reload` for the other module does not
    redefine the objects imported from it --- one way around this is to
    re-execute the :keyword:`!from` statement, another is to use :keyword:`!import`
    and qualified names (*module.name*) instead.
@@ -275,7 +275,7 @@ ABC hierarchy::
    .. method:: discover(parent=None)
 
       An optional method which searches for possible specs with given *parent*
-      module spec. If *parent* is *None*, :meth:`MetaPathFinder.discover` will
+      module spec. If *parent* is *None*, :meth:`!MetaPathFinder.discover` will
       search for top-level modules.
 
       Returns an iterable of possible specs.
@@ -329,7 +329,7 @@ ABC hierarchy::
    .. method:: discover(parent=None)
 
       An optional method which searches for possible specs with given *parent*
-      module spec. If *parent* is *None*, :meth:`PathEntryFinder.discover` will
+      module spec. If *parent* is *None*, :meth:`!PathEntryFinder.discover` will
       search for top-level modules.
 
       Returns an iterable of possible specs.
@@ -835,7 +835,7 @@ find and load modules.
    .. classmethod:: path_hook(*loader_details)
 
       A class method which returns a closure for use on :data:`sys.path_hooks`.
-      An instance of :class:`FileFinder` is returned by the closure using the
+      An instance of :class:`!FileFinder` is returned by the closure using the
       path argument given to the closure directly and *loader_details*
       indirectly.
 
@@ -867,7 +867,7 @@ find and load modules.
 
    .. note::
 
-      :meth:`PathFinder.invalidate_caches` invalidates :class:`NamespacePath`,
+      :meth:`PathFinder.invalidate_caches` invalidates :class:`!NamespacePath`,
       forcing the path value to be recomputed next time it is accessed.
 
    .. versionadded:: 3.15
@@ -1313,7 +1313,7 @@ an :term:`importer`.
 .. function:: source_hash(source_bytes)
 
    Return the hash of *source_bytes* as bytes. A hash-based ``.pyc`` file embeds
-   the :func:`source_hash` of the corresponding source file's contents in its
+   the :func:`!source_hash` of the corresponding source file's contents in its
    header.
 
    .. versionadded:: 3.7

@@ -1143,7 +1143,7 @@ The :mod:`!socket` module also offers various network-related services:
    Translate a host name to IPv4 address format.  The IPv4 address is returned as a
    string, such as  ``'100.50.200.5'``.  If the host name is an IPv4 address itself
    it is returned unchanged.  See :func:`gethostbyname_ex` for a more complete
-   interface. :func:`gethostbyname` does not support IPv6 name resolution, and
+   interface. :func:`!gethostbyname` does not support IPv6 name resolution, and
    :func:`getaddrinfo` should be used instead for IPv4/v6 dual stack support.
 
    .. audit-event:: socket.gethostbyname hostname socket.gethostbyname
@@ -1158,7 +1158,7 @@ The :mod:`!socket` module also offers various network-related services:
    primary host name, *aliaslist* is a (possibly
    empty) list of alternative host names for the same address, and *ipaddrlist* is
    a list of IPv4 addresses for the same interface on the same host (often but not
-   always a single address). :func:`gethostbyname_ex` does not support IPv6 name
+   always a single address). :func:`!gethostbyname_ex` does not support IPv6 name
    resolution, and :func:`getaddrinfo` should be used instead for IPv4/v6 dual
    stack support.
 
@@ -1174,7 +1174,7 @@ The :mod:`!socket` module also offers various network-related services:
 
    .. audit-event:: socket.gethostname "" socket.gethostname
 
-   Note: :func:`gethostname` doesn't always return the fully qualified domain
+   Note: :func:`!gethostname` doesn't always return the fully qualified domain
    name; use :func:`getfqdn` for that.
 
    .. availability:: not WASI.
@@ -1187,7 +1187,7 @@ The :mod:`!socket` module also offers various network-related services:
    (possibly empty) list of alternative host names for the same address, and
    *ipaddrlist* is a list of IPv4/v6 addresses for the same interface on the same
    host (most likely containing only a single address). To find the fully qualified
-   domain name, use the function :func:`getfqdn`. :func:`gethostbyaddr` supports
+   domain name, use the function :func:`getfqdn`. :func:`!gethostbyaddr` supports
    both IPv4 and IPv6.
 
    .. audit-event:: socket.gethostbyaddr ip_address socket.gethostbyaddr
@@ -1289,14 +1289,14 @@ The :mod:`!socket` module also offers various network-related services:
    library and needs objects of type :c:struct:`in_addr`, which is the C type
    for the 32-bit packed binary this function returns.
 
-   :func:`inet_aton` also accepts strings with less than three dots; see the
+   :func:`!inet_aton` also accepts strings with less than three dots; see the
    Unix manual page :manpage:`inet(3)` for details.
 
    If the IPv4 address string passed to this function is invalid,
    :exc:`OSError` will be raised. Note that exactly what is valid depends on
-   the underlying C implementation of :c:func:`inet_aton`.
+   the underlying C implementation of :c:func:`!inet_aton`.
 
-   :func:`inet_aton` does not support IPv6, and :func:`inet_pton` should be used
+   :func:`!inet_aton` does not support IPv6, and :func:`inet_pton` should be used
    instead for IPv4/v6 dual stack support.
 
 
@@ -1310,7 +1310,7 @@ The :mod:`!socket` module also offers various network-related services:
    argument.
 
    If the byte sequence passed to this function is not exactly 4 bytes in
-   length, :exc:`OSError` will be raised. :func:`inet_ntoa` does not
+   length, :exc:`OSError` will be raised. :func:`!inet_ntoa` does not
    support IPv6, and :func:`inet_ntop` should be used instead for IPv4/v6 dual
    stack support.
 
@@ -1321,7 +1321,7 @@ The :mod:`!socket` module also offers various network-related services:
 .. function:: inet_pton(address_family, ip_string)
 
    Convert an IP address from its family-specific string format to a packed,
-   binary format. :func:`inet_pton` is useful when a library or network protocol
+   binary format. :func:`!inet_pton` is useful when a library or network protocol
    calls for an object of type :c:struct:`in_addr` (similar to
    :func:`inet_aton`) or :c:struct:`in6_addr`.
 
@@ -1329,7 +1329,7 @@ The :mod:`!socket` module also offers various network-related services:
    :const:`AF_INET6`. If the IP address string *ip_string* is invalid,
    :exc:`OSError` will be raised. Note that exactly what is valid depends on
    both the value of *address_family* and the underlying implementation of
-   :c:func:`inet_pton`.
+   :c:func:`!inet_pton`.
 
    .. availability:: Unix, Windows.
 
@@ -1342,14 +1342,14 @@ The :mod:`!socket` module also offers various network-related services:
    Convert a packed IP address (a :term:`bytes-like object` of some number of
    bytes) to its standard, family-specific string representation (for
    example, ``'7.10.0.5'`` or ``'5aef:2b::8'``).
-   :func:`inet_ntop` is useful when a library or network protocol returns an
+   :func:`!inet_ntop` is useful when a library or network protocol returns an
    object of type :c:struct:`in_addr` (similar to :func:`inet_ntoa`) or
    :c:struct:`in6_addr`.
 
    Supported values for *address_family* are currently :const:`AF_INET` and
    :const:`AF_INET6`. If the bytes object *packed_ip* is not the correct
    length for the specified address family, :exc:`ValueError` will be raised.
-   :exc:`OSError` is raised for errors from the call to :func:`inet_ntop`.
+   :exc:`OSError` is raised for errors from the call to :func:`!inet_ntop`.
 
    .. availability:: Unix, Windows.
 
@@ -1389,7 +1389,7 @@ The :mod:`!socket` module also offers various network-related services:
    Return the buffer size needed for :meth:`~socket.recvmsg` to
    receive an ancillary data item with associated data of the given
    *length*, along with any trailing padding.  The buffer space needed
-   to receive multiple items is the sum of the :func:`CMSG_SPACE`
+   to receive multiple items is the sum of the :func:`!CMSG_SPACE`
    values for their associated data lengths.  Raises
    :exc:`OverflowError` if *length* is outside the permissible range
    of values.

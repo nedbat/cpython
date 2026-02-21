@@ -108,7 +108,7 @@ The module :mod:`!curses` defines the following functions:
    line buffering is turned off and characters are available to be read one by one.
    However, unlike raw mode, special characters (interrupt, quit, suspend, and flow
    control) retain their effects on the tty driver and calling program.  Calling
-   first :func:`raw` then :func:`cbreak` leaves the terminal in cbreak mode.
+   first :func:`raw` then :func:`!cbreak` leaves the terminal in cbreak mode.
 
 
 .. function:: color_content(color_number)
@@ -162,7 +162,7 @@ The module :mod:`!curses` defines the following functions:
 
    Update the physical screen.  The curses library keeps two data structures, one
    representing the current physical screen contents and a virtual screen
-   representing the desired next state.  The :func:`doupdate` ground updates the
+   representing the desired next state.  The :func:`!doupdate` ground updates the
    physical screen to match the virtual screen.
 
    The virtual screen may be updated by a :meth:`~window.noutrefresh` call after write
@@ -193,7 +193,7 @@ The module :mod:`!curses` defines the following functions:
 
 .. function:: filter()
 
-   The :func:`.filter` routine, if used, must be called before :func:`initscr` is
+   The :func:`!filter` routine, if used, must be called before :func:`initscr` is
    called.  The effect is that, during those calls, :envvar:`LINES` is set to ``1``; the
    capabilities ``clear``, ``cup``, ``cud``, ``cud1``, ``cuu1``, ``cuu``, ``vpa`` are disabled; and the ``home``
    string is set to the value of ``cr``. The effect is that the cursor is confined to
@@ -295,7 +295,7 @@ The module :mod:`!curses` defines the following functions:
    followed by three RGB values (for the amounts of red, green, and blue
    components).  The value of *color_number* must be between ``0`` and
    ``COLORS - 1``.  Each of *r*, *g*, *b*, must be a value between ``0`` and
-   ``1000``.  When :func:`init_color` is used, all occurrences of that color on the
+   ``1000``.  When :func:`!init_color` is used, all occurrences of that color on the
    screen immediately change to the new definition.  This function is a no-op on
    most terminals; it is active only if :func:`can_change_color` returns ``True``.
 
@@ -472,7 +472,7 @@ The module :mod:`!curses` defines the following functions:
 .. function:: putp(str)
 
    Equivalent to ``tputs(str, 1, putchar)``; emit the value of a specified
-   terminfo capability for the current terminal.  Note that the output of :func:`putp`
+   terminfo capability for the current terminal.  Note that the output of :func:`!putp`
    always goes to standard output.
 
 
@@ -511,7 +511,7 @@ The module :mod:`!curses` defines the following functions:
 .. function:: resize_term(nlines, ncols)
 
    Backend function used by :func:`resizeterm`, performing most of the work;
-   when resizing the windows, :func:`resize_term` blank-fills the areas that are
+   when resizing the windows, :func:`!resize_term` blank-fills the areas that are
    extended.  The calling application should fill in these areas with
    appropriate data.  The :func:`!resize_term` function attempts to resize all
    windows.  However, due to the calling convention of pads, it is not possible
@@ -578,7 +578,7 @@ The module :mod:`!curses` defines the following functions:
    manipulation routine is called.  It is good practice to call this routine right
    after :func:`initscr`.
 
-   :func:`start_color` initializes eight basic colors (black, red,  green, yellow,
+   :func:`!start_color` initializes eight basic colors (black, red,  green, yellow,
    blue, magenta, cyan, and white), and two global variables in the :mod:`!curses`
    module, :const:`COLORS` and :const:`COLOR_PAIRS`, containing the maximum number
    of colors and color-pairs the terminal can support.  It also restores the colors
@@ -1865,7 +1865,7 @@ You can instantiate a :class:`Textbox` object as follows:
    upper left hand corner of the containing window, with coordinates ``(0, 0)``.
    The instance's :attr:`stripspaces` flag is initially on.
 
-   :class:`Textbox` objects have the following methods:
+   :class:`!Textbox` objects have the following methods:
 
 
    .. method:: edit([validator])

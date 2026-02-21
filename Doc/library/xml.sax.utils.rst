@@ -42,7 +42,7 @@ or as base classes.
 
    Similar to :func:`escape`, but also prepares *data* to be used as an
    attribute value.  The return value is a quoted version of *data* with any
-   additional required replacements. :func:`quoteattr` will select a quote
+   additional required replacements. :func:`!quoteattr` will select a quote
    character based on the content of *data*, attempting to avoid encoding any
    quote characters in the string.  If both single- and double-quote characters
    are already in *data*, the double-quote characters will be encoded and *data*
@@ -60,7 +60,7 @@ or as base classes.
 
    This class implements the :class:`~xml.sax.handler.ContentHandler` interface
    by writing SAX
-   events back into an XML document. In other words, using an :class:`XMLGenerator`
+   events back into an XML document. In other words, using an :class:`!XMLGenerator`
    as the content handler will reproduce the original document being parsed. *out*
    should be a file-like object which will default to *sys.stdout*. *encoding* is
    the encoding of the output stream which defaults to ``'iso-8859-1'``.

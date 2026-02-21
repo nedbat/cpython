@@ -36,7 +36,7 @@ Here are the classes:
 
    This is the base class for all the MIME-specific subclasses of
    :class:`~email.message.Message`.  Ordinarily you won't create instances
-   specifically of :class:`MIMEBase`, although you could.  :class:`MIMEBase`
+   specifically of :class:`!MIMEBase`, although you could.  :class:`!MIMEBase`
    is provided primarily as a convenient base class for more specific
    MIME-aware subclasses.
 
@@ -50,7 +50,7 @@ Here are the classes:
    :class:`compat32 <email.policy.Compat32>` policy) it will be passed to
    :class:`~email.message.Message`.
 
-   The :class:`MIMEBase` class always adds a :mailheader:`Content-Type` header
+   The :class:`!MIMEBase` class always adds a :mailheader:`Content-Type` header
    (based on *_maintype*, *_subtype*, and *_params*), and a
    :mailheader:`MIME-Version` header (always set to ``1.0``).
 
@@ -113,14 +113,14 @@ Here are the classes:
    Module: :mod:`email.mime.application`
 
    A subclass of :class:`~email.mime.nonmultipart.MIMENonMultipart`, the
-   :class:`MIMEApplication` class is used to represent MIME message objects of
+   :class:`!MIMEApplication` class is used to represent MIME message objects of
    major type :mimetype:`application`.  *_data* contains the bytes for the raw
    application data.  Optional *_subtype* specifies the MIME subtype and defaults
    to :mimetype:`octet-stream`.
 
    Optional *_encoder* is a callable (i.e. function) which will perform the actual
    encoding of the data for transport.  This callable takes one argument, which is
-   the :class:`MIMEApplication` instance. It should use
+   the :class:`!MIMEApplication` instance. It should use
    :meth:`~email.message.Message.get_payload` and
    :meth:`~email.message.Message.set_payload` to change the payload to encoded
    form.  It should also add
@@ -144,7 +144,7 @@ Here are the classes:
    Module: :mod:`email.mime.audio`
 
    A subclass of :class:`~email.mime.nonmultipart.MIMENonMultipart`, the
-   :class:`MIMEAudio` class is used to create MIME message objects of major type
+   :class:`!MIMEAudio` class is used to create MIME message objects of major type
    :mimetype:`audio`. *_audiodata* contains the bytes for the raw audio data.  If
    this data can be decoded as au, wav, aiff, or aifc, then the
    subtype will be automatically included in the :mailheader:`Content-Type` header.
@@ -154,7 +154,7 @@ Here are the classes:
 
    Optional *_encoder* is a callable (i.e. function) which will perform the actual
    encoding of the audio data for transport.  This callable takes one argument,
-   which is the :class:`MIMEAudio` instance. It should use
+   which is the :class:`!MIMEAudio` instance. It should use
    :meth:`~email.message.Message.get_payload` and
    :meth:`~email.message.Message.set_payload` to change the payload to encoded
    form.  It should also add
@@ -178,7 +178,7 @@ Here are the classes:
    Module: :mod:`email.mime.image`
 
    A subclass of :class:`~email.mime.nonmultipart.MIMENonMultipart`, the
-   :class:`MIMEImage` class is used to create MIME message objects of major type
+   :class:`!MIMEImage` class is used to create MIME message objects of major type
    :mimetype:`image`. *_imagedata* contains the bytes for the raw image data.  If
    this data type can be detected (jpeg, png, gif, tiff, rgb, pbm, pgm, ppm,
    rast, xbm, bmp, webp, and exr attempted), then the subtype will be
@@ -189,7 +189,7 @@ Here are the classes:
 
    Optional *_encoder* is a callable (i.e. function) which will perform the actual
    encoding of the image data for transport.  This callable takes one argument,
-   which is the :class:`MIMEImage` instance. It should use
+   which is the :class:`!MIMEImage` instance. It should use
    :meth:`~email.message.Message.get_payload` and
    :meth:`~email.message.Message.set_payload` to change the payload to encoded
    form.  It should also add
@@ -212,7 +212,7 @@ Here are the classes:
    Module: :mod:`email.mime.message`
 
    A subclass of :class:`~email.mime.nonmultipart.MIMENonMultipart`, the
-   :class:`MIMEMessage` class is used to create MIME objects of main type
+   :class:`!MIMEMessage` class is used to create MIME objects of main type
    :mimetype:`message`. *_msg* is used as the payload, and must be an instance
    of class :class:`~email.message.Message` (or a subclass thereof), otherwise
    a :exc:`TypeError` is raised.
@@ -232,7 +232,7 @@ Here are the classes:
    Module: :mod:`email.mime.text`
 
    A subclass of :class:`~email.mime.nonmultipart.MIMENonMultipart`, the
-   :class:`MIMEText` class is used to create MIME objects of major type
+   :class:`!MIMEText` class is used to create MIME objects of major type
    :mimetype:`text`. *_text* is the string for the payload.  *_subtype* is the
    minor type and defaults to :mimetype:`plain`.  *_charset* is the character
    set of the text and is passed as an argument to the

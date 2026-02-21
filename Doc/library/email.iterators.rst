@@ -36,7 +36,7 @@ message object trees.
    done only with the main type.  *maintype* is optional too; it defaults to
    :mimetype:`text`.
 
-   Thus, by default :func:`typed_subpart_iterator` returns each subpart that has a
+   Thus, by default :func:`!typed_subpart_iterator` returns each subpart that has a
    MIME type of :mimetype:`text/\*`.
 
 

@@ -71,7 +71,7 @@ the :mod:`glob` module.)
    pair returned by passing *path* to the function :func:`split`.  Note that
    the result of this function is different
    from the Unix :program:`basename` program; where :program:`basename` for
-   ``'/foo/bar/'`` returns ``'bar'``, the :func:`basename` function returns an
+   ``'/foo/bar/'`` returns ``'bar'``, the :func:`!basename` function returns an
    empty string (``''``).
 
    .. versionchanged:: 3.6
@@ -267,7 +267,7 @@ the :mod:`glob` module.)
 .. function:: isfile(path)
 
    Return ``True`` if *path* is an :func:`existing <exists>` regular file.
-   This follows symbolic links, so both :func:`islink` and :func:`isfile` can
+   This follows symbolic links, so both :func:`islink` and :func:`!isfile` can
    be true for the same path.
 
    .. versionchanged:: 3.6
@@ -277,7 +277,7 @@ the :mod:`glob` module.)
 .. function:: isdir(path, /)
 
    Return ``True`` if *path* is an :func:`existing <exists>` directory.  This
-   follows symbolic links, so both :func:`islink` and :func:`isdir` can be true
+   follows symbolic links, so both :func:`islink` and :func:`!isdir` can be true
    for the same path.
 
    .. versionchanged:: 3.6

@@ -93,7 +93,7 @@ in type annotations.
    modifies the passed-in environment to make it suitable for invoking another WSGI
    application that is located at the target URI. For example, if there is a WSGI
    application at ``/foo``, and the request URI path is ``/foo/bar/baz``, and the
-   WSGI application at ``/foo`` calls :func:`shift_path_info`, it will receive the
+   WSGI application at ``/foo`` calls :func:`!shift_path_info`, it will receive the
    string "bar", and the environment will be updated to be suitable for passing to
    a WSGI application at ``/foo/bar``.  That is, ``SCRIPT_NAME`` will change from
    ``/foo`` to ``/foo/bar``, and ``PATH_INFO`` will change from ``/bar/baz`` to
@@ -203,7 +203,7 @@ manipulation of WSGI response headers using a mapping-like interface.
    name/value tuples as described in :pep:`3333`. The default value of *headers* is
    an empty list.
 
-   :class:`Headers` objects support typical mapping operations including
+   :class:`!Headers` objects support typical mapping operations including
    :meth:`~object.__getitem__`, :meth:`~dict.get`, :meth:`~object.__setitem__`,
    :meth:`~dict.setdefault`,
    :meth:`~object.__delitem__` and :meth:`~object.__contains__`.  For each of
@@ -213,25 +213,25 @@ manipulation of WSGI response headers using a mapping-like interface.
    the wrapped header list.  Headers' existing order is generally maintained, with
    new headers added to the end of the wrapped list.
 
-   Unlike a dictionary, :class:`Headers` objects do not raise an error when you try
+   Unlike a dictionary, :class:`!Headers` objects do not raise an error when you try
    to get or delete a key that isn't in the wrapped header list. Getting a
    nonexistent header just returns ``None``, and deleting a nonexistent header does
    nothing.
 
-   :class:`Headers` objects also support :meth:`keys`, :meth:`values`, and
+   :class:`!Headers` objects also support :meth:`keys`, :meth:`values`, and
    :meth:`items` methods.  The lists returned by :meth:`keys` and :meth:`items` can
    include the same key more than once if there is a multi-valued header.  The
-   ``len()`` of a :class:`Headers` object is the same as the length of its
+   ``len()`` of a :class:`!Headers` object is the same as the length of its
    :meth:`items`, which is the same as the length of the wrapped header list.  In
    fact, the :meth:`items` method just returns a copy of the wrapped header list.
 
-   Calling ``bytes()`` on a :class:`Headers` object returns a formatted bytestring
+   Calling ``bytes()`` on a :class:`!Headers` object returns a formatted bytestring
    suitable for transmission as HTTP response headers.  Each header is placed on a
    line with its value, separated by a colon and a space. Each line is terminated
    by a carriage return and line feed, and the bytestring is terminated with a
    blank line.
 
-   In addition to their mapping interface and formatting features, :class:`Headers`
+   In addition to their mapping interface and formatting features, :class:`!Headers`
    objects also have the following methods for querying and adding multi-valued
    headers, and for adding headers with MIME parameters:
 
@@ -320,7 +320,7 @@ request.  (E.g., using the :func:`shift_path_info` function from
 
 .. class:: WSGIServer(server_address, RequestHandlerClass)
 
-   Create a :class:`WSGIServer` instance.  *server_address* should be a
+   Create a :class:`!WSGIServer` instance.  *server_address* should be a
    ``(host,port)`` tuple, and *RequestHandlerClass* should be the subclass of
    :class:`http.server.BaseHTTPRequestHandler` that will be used to process
    requests.
@@ -328,9 +328,9 @@ request.  (E.g., using the :func:`shift_path_info` function from
    You do not normally need to call this constructor, as the :func:`make_server`
    function can handle all the details for you.
 
-   :class:`WSGIServer` is a subclass of :class:`http.server.HTTPServer`, so all
+   :class:`!WSGIServer` is a subclass of :class:`http.server.HTTPServer`, so all
    of its methods (such as :meth:`serve_forever` and :meth:`handle_request`) are
-   available. :class:`WSGIServer` also provides these WSGI-specific methods:
+   available. :class:`!WSGIServer` also provides these WSGI-specific methods:
 
 
    .. method:: WSGIServer.set_app(application)
@@ -544,14 +544,14 @@ input, output, and error streams.
    will handle a single HTTP request, although in principle you could create a
    subclass that was reusable for multiple requests.
 
-   :class:`BaseHandler` instances have only one method intended for external use:
+   :class:`!BaseHandler` instances have only one method intended for external use:
 
 
    .. method:: BaseHandler.run(app)
 
       Run the specified WSGI application, *app*.
 
-   All of the other :class:`BaseHandler` methods are invoked by this method in the
+   All of the other :class:`!BaseHandler` methods are invoked by this method in the
    process of running the application, and thus exist primarily to allow
    customizing the process.
 
@@ -561,7 +561,7 @@ input, output, and error streams.
    .. method:: BaseHandler._write(data)
 
       Buffer the bytes *data* for transmission to the client.  It's okay if this
-      method actually transmits the data; :class:`BaseHandler` just separates write
+      method actually transmits the data; :class:`!BaseHandler` just separates write
       and flush operations for greater efficiency when the underlying system actually
       has such a distinction.
 
@@ -593,7 +593,7 @@ input, output, and error streams.
    Here are some other methods and attributes you may wish to override. This list
    is only a summary, however, and does not include every method that can be
    overridden.  You should consult the docstrings and source code for additional
-   information before attempting to create a customized :class:`BaseHandler`
+   information before attempting to create a customized :class:`!BaseHandler`
    subclass.
 
    Attributes and methods for customizing the WSGI environment:
@@ -602,21 +602,21 @@ input, output, and error streams.
    .. attribute:: BaseHandler.wsgi_multithread
 
       The value to be used for the ``wsgi.multithread`` environment variable.  It
-      defaults to true in :class:`BaseHandler`, but may have a different default (or
+      defaults to true in :class:`!BaseHandler`, but may have a different default (or
       be set by the constructor) in the other subclasses.
 
 
    .. attribute:: BaseHandler.wsgi_multiprocess
 
       The value to be used for the ``wsgi.multiprocess`` environment variable.  It
-      defaults to true in :class:`BaseHandler`, but may have a different default (or
+      defaults to true in :class:`!BaseHandler`, but may have a different default (or
       be set by the constructor) in the other subclasses.
 
 
    .. attribute:: BaseHandler.wsgi_run_once
 
       The value to be used for the ``wsgi.run_once`` environment variable.  It
-      defaults to false in :class:`BaseHandler`, but :class:`CGIHandler` sets it to
+      defaults to false in :class:`!BaseHandler`, but :class:`CGIHandler` sets it to
       true by default.
 
 
@@ -747,7 +747,7 @@ input, output, and error streams.
       via a CGI-like gateway protocol that wants the HTTP status in a special
       ``Status:`` header.
 
-      This attribute's default value is true in :class:`BaseHandler`, but false in
+      This attribute's default value is true in :class:`!BaseHandler`, but false in
       :class:`BaseCGIHandler` and :class:`CGIHandler`.
 
 

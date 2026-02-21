@@ -160,7 +160,7 @@ Basic Usage
 
       Unlike :mod:`pickle` and :mod:`marshal`, JSON is not a framed protocol,
       so trying to serialize multiple objects with repeated calls to
-      :func:`dump` using the same *fp* will result in an invalid JSON file.
+      :func:`!dump` using the same *fp* will result in an invalid JSON file.
 
    :param object obj:
       The Python object to be serialized.
@@ -548,7 +548,7 @@ Encoders and Decoders
       :exc:`TypeError`).
 
       For example, to support arbitrary iterators, you could implement
-      :meth:`~JSONEncoder.default` like this::
+      :meth:`!JSONEncoder.default` like this::
 
          def default(self, o):
             try:

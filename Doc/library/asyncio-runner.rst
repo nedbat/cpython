@@ -148,7 +148,7 @@ Runner context manager
 
    .. note::
 
-      :class:`Runner` uses the lazy initialization strategy, its constructor doesn't
+      :class:`!Runner` uses the lazy initialization strategy, its constructor doesn't
       initialize underlying low-level structures.
 
       Embedded *loop* and *context* are created at the :keyword:`with` body entering

@@ -1306,12 +1306,12 @@ Regular Expression Objects
    :meth:`~Pattern.search` instead (see also :ref:`search-vs-match`).
 
    This method now has two names and has long been known as
-   :meth:`~Pattern.match`.  Use that name when you need to retain compatibility
+   :meth:`!Pattern.match`.  Use that name when you need to retain compatibility
    with older Python versions.
 
    .. versionchanged:: next
       The alternate :meth:`~Pattern.prefixmatch` name of this API was added as
-      a more explicitly descriptive name than :meth:`~Pattern.match`. Use it to
+      a more explicitly descriptive name than :meth:`!Pattern.match`. Use it to
       better express intent. The norm in other languages and regular expression
       implementations is to use the term *match* to refer to the behavior of
       what Python has always called :meth:`~Pattern.search`.

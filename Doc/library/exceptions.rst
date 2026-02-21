@@ -299,10 +299,10 @@ The following exceptions are the exceptions that are usually raised.
 
    .. note::
 
-      Catching a :exc:`KeyboardInterrupt` requires special consideration.
+      Catching a :exc:`!KeyboardInterrupt` requires special consideration.
       Because it can be raised at unpredictable points, it may, in some
       circumstances, leave the running program in an inconsistent state. It is
-      generally best to allow :exc:`KeyboardInterrupt` to end the program as
+      generally best to allow :exc:`!KeyboardInterrupt` to end the program as
       quickly as possible or avoid raising it entirely. (See
       :ref:`handlers-and-exceptions`.)
 
@@ -370,10 +370,10 @@ The following exceptions are the exceptions that are usually raised.
    the :attr:`~BaseException.args` attribute contains only a 2-tuple
    of the first two constructor arguments.
 
-   The constructor often actually returns a subclass of :exc:`OSError`, as
+   The constructor often actually returns a subclass of :exc:`!OSError`, as
    described in `OS exceptions`_ below.  The particular subclass depends on
    the final :attr:`.errno` value.  This behaviour only occurs when
-   constructing :exc:`OSError` directly or via an alias, and is not
+   constructing :exc:`!OSError` directly or via an alias, and is not
    inherited when subclassing.
 
    .. attribute:: errno
@@ -412,7 +412,7 @@ The following exceptions are the exceptions that are usually raised.
    .. versionchanged:: 3.3
       :exc:`EnvironmentError`, :exc:`IOError`, :exc:`WindowsError`,
       :exc:`socket.error`, :exc:`select.error` and
-      :exc:`!mmap.error` have been merged into :exc:`OSError`, and the
+      :exc:`!mmap.error` have been merged into :exc:`!OSError`, and the
       constructor may return a subclass.
 
    .. versionchanged:: 3.4
@@ -439,7 +439,7 @@ The following exceptions are the exceptions that are usually raised.
    :term:`Python finalization <interpreter shutdown>`.
 
    Examples of operations which can be blocked with a
-   :exc:`PythonFinalizationError` during the Python finalization:
+   :exc:`!PythonFinalizationError` during the Python finalization:
 
    * Creating a new Python thread.
    * :meth:`Joining <threading.Thread.join>` a running daemon thread.
@@ -499,13 +499,13 @@ The following exceptions are the exceptions that are usually raised.
       to :const:`None`.
 
    When a :term:`generator` or :term:`coroutine` function
-   returns, a new :exc:`StopIteration` instance is
+   returns, a new :exc:`!StopIteration` instance is
    raised, and the value returned by the function is used as the
    :attr:`value` parameter to the constructor of the exception.
 
-   If a generator code directly or indirectly raises :exc:`StopIteration`,
+   If a generator code directly or indirectly raises :exc:`!StopIteration`,
    it is converted into a :exc:`RuntimeError` (retaining the
-   :exc:`StopIteration` as the new exception's cause).
+   :exc:`!StopIteration` as the new exception's cause).
 
    .. versionchanged:: 3.3
       Added ``value`` attribute and the ability for generator functions to
@@ -516,7 +516,7 @@ The following exceptions are the exceptions that are usually raised.
       ``from __future__ import generator_stop``, see :pep:`479`.
 
    .. versionchanged:: 3.7
-      Enable :pep:`479` for all code by default: a :exc:`StopIteration`
+      Enable :pep:`479` for all code by default: a :exc:`!StopIteration`
       error raised in a generator is transformed into a :exc:`RuntimeError`.
 
 .. exception:: StopAsyncIteration
@@ -639,7 +639,7 @@ The following exceptions are the exceptions that are usually raised.
    implementation, :exc:`NotImplementedError` is the proper exception to raise.
 
    Passing arguments of the wrong type (e.g. passing a :class:`list` when an
-   :class:`int` is expected) should result in a :exc:`TypeError`, but passing
+   :class:`int` is expected) should result in a :exc:`!TypeError`, but passing
    arguments with the wrong value (e.g. a number outside expected boundaries)
    should result in a :exc:`ValueError`.
 
@@ -655,7 +655,7 @@ The following exceptions are the exceptions that are usually raised.
    Raised when a Unicode-related encoding or decoding error occurs.  It is a
    subclass of :exc:`ValueError`.
 
-   :exc:`UnicodeError` has attributes that describe the encoding or decoding
+   :exc:`!UnicodeError` has attributes that describe the encoding or decoding
    error.  For example, ``err.object[err.start:err.end]`` gives the particular
    invalid input that the codec failed on.
 
@@ -743,7 +743,7 @@ depending on the system error code.
    Corresponds to :c:data:`errno` :py:const:`~errno.EAGAIN`, :py:const:`~errno.EALREADY`,
    :py:const:`~errno.EWOULDBLOCK` and :py:const:`~errno.EINPROGRESS`.
 
-   In addition to those of :exc:`OSError`, :exc:`BlockingIOError` can have
+   In addition to those of :exc:`OSError`, :exc:`!BlockingIOError` can have
    one more attribute:
 
    .. attribute:: characters_written
@@ -807,7 +807,7 @@ depending on the system error code.
    .. versionchanged:: 3.5
       Python now retries system calls when a syscall is interrupted by a
       signal, except if the signal handler raises an exception (see :pep:`475`
-      for the rationale), instead of raising :exc:`InterruptedError`.
+      for the rationale), instead of raising :exc:`!InterruptedError`.
 
 .. exception:: IsADirectoryError
 
@@ -832,7 +832,7 @@ depending on the system error code.
 
    .. versionchanged:: 3.11.1
       WASI's :py:const:`~errno.ENOTCAPABLE` is now mapped to
-      :exc:`PermissionError`.
+      :exc:`!PermissionError`.
 
 .. exception:: ProcessLookupError
 
@@ -971,14 +971,14 @@ their subgroups based on the types of the contained exceptions.
 
    Both of these exception types wrap the exceptions in the sequence ``excs``.
    The ``msg`` parameter must be a string. The difference between the two
-   classes is that :exc:`BaseExceptionGroup` extends :exc:`BaseException` and
+   classes is that :exc:`!BaseExceptionGroup` extends :exc:`BaseException` and
    it can wrap any exception, while :exc:`ExceptionGroup` extends :exc:`Exception`
    and it can only wrap subclasses of :exc:`Exception`. This design is so that
    ``except Exception`` catches an :exc:`ExceptionGroup` but not
-   :exc:`BaseExceptionGroup`.
+   :exc:`!BaseExceptionGroup`.
 
-   The :exc:`BaseExceptionGroup` constructor returns an :exc:`ExceptionGroup`
-   rather than a :exc:`BaseExceptionGroup` if all contained exceptions are
+   The :exc:`!BaseExceptionGroup` constructor returns an :exc:`ExceptionGroup`
+   rather than a :exc:`!BaseExceptionGroup` if all contained exceptions are
    :exc:`Exception` instances, so it can be used to make the selection
    automatic. The :exc:`ExceptionGroup` constructor, on the other hand,
    raises a :exc:`TypeError` if any contained exception is not an
@@ -1074,7 +1074,7 @@ their subgroups based on the types of the contained exceptions.
          True
 
 
-   Note that :exc:`BaseExceptionGroup` defines :meth:`~object.__new__`, so
+   Note that :exc:`!BaseExceptionGroup` defines :meth:`~object.__new__`, so
    subclasses that need a different constructor signature need to
    override that rather than :meth:`~object.__init__`. For example, the following
    defines an exception group subclass which accepts an exit_code and
@@ -1089,7 +1089,7 @@ their subgroups based on the types of the contained exceptions.
          def derive(self, excs):
             return Errors(excs, self.exit_code)
 
-   Like :exc:`ExceptionGroup`, any subclass of :exc:`BaseExceptionGroup` which
+   Like :exc:`ExceptionGroup`, any subclass of :exc:`!BaseExceptionGroup` which
    is also a subclass of :exc:`Exception` can only wrap instances of
    :exc:`Exception`.
 

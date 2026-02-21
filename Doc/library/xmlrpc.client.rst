@@ -35,7 +35,7 @@ between conformable Python objects and XML on the wire.
                        allow_none=False, use_datetime=False, \
                        use_builtin_types=False, *, headers=(), context=None)
 
-   A :class:`ServerProxy` instance is an object that manages communication with a
+   A :class:`!ServerProxy` instance is an object that manages communication with a
    remote XML-RPC server.  The required first argument is a URI (Uniform Resource
    Indicator), and will normally be the URL of the server.  The optional second
    argument is a transport factory instance; by default it is an internal
@@ -142,8 +142,8 @@ between conformable Python objects and XML on the wire.
    via XML-RPC, use :class:`bytes` or :class:`bytearray` classes or the
    :class:`Binary` wrapper class described below.
 
-   :class:`Server` is retained as an alias for :class:`ServerProxy` for backwards
-   compatibility.  New code should use :class:`ServerProxy`.
+   :class:`Server` is retained as an alias for :class:`!ServerProxy` for backwards
+   compatibility.  New code should use :class:`!ServerProxy`.
 
    .. versionchanged:: 3.5
       Added the *context* argument.
@@ -263,7 +263,7 @@ DateTime Objects
 
    .. method:: encode(out)
 
-      Write the XML-RPC encoding of this :class:`DateTime` item to the *out* stream
+      Write the XML-RPC encoding of this :class:`!DateTime` item to the *out* stream
       object.
 
    It also supports certain of Python's built-in operators through
@@ -305,16 +305,16 @@ Binary Objects
 .. class:: Binary
 
    This class may be initialized from bytes data (which may include NULs). The
-   primary access to the content of a :class:`Binary` object is provided by an
+   primary access to the content of a :class:`!Binary` object is provided by an
    attribute:
 
 
    .. attribute:: data
 
-      The binary data encapsulated by the :class:`Binary` instance.  The data is
+      The binary data encapsulated by the :class:`!Binary` instance.  The data is
       provided as a :class:`bytes` object.
 
-   :class:`Binary` objects have the following methods, supported mainly for
+   :class:`!Binary` objects have the following methods, supported mainly for
    internal use by the marshalling/unmarshalling code:
 
 
@@ -366,7 +366,7 @@ Fault Objects
 
 .. class:: Fault
 
-   A :class:`Fault` object encapsulates the content of an XML-RPC fault tag. Fault
+   A :class:`!Fault` object encapsulates the content of an XML-RPC fault tag. Fault
    objects have the following attributes:
 
 
@@ -416,7 +416,7 @@ ProtocolError Objects
 
 .. class:: ProtocolError
 
-   A :class:`ProtocolError` object describes a protocol error in the underlying
+   A :class:`!ProtocolError` object describes a protocol error in the underlying
    transport layer (such as a 404 'not found' error if the server named by the URI
    does not exist).  It has the following attributes:
 
@@ -470,7 +470,7 @@ remote server into a single request [#]_.
    Create an object used to boxcar method calls. *server* is the eventual target of
    the call. Calls can be made to the result object, but they will immediately
    return ``None``, and only store the call name and arguments in the
-   :class:`MultiCall` object. Calling the object itself causes all stored calls to
+   :class:`!MultiCall` object. Calling the object itself causes all stored calls to
    be transmitted as a single ``system.multicall`` request. The result of this call
    is a :term:`generator`; iterating over this generator yields the individual
    results.

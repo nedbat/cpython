@@ -572,7 +572,7 @@ Functions
    *elem* is an element tree or an individual element.
 
    .. versionchanged:: 3.8
-      The :func:`dump` function now preserves the attribute order specified
+      The :func:`!dump` function now preserves the attribute order specified
       by the user.
 
 
@@ -630,14 +630,14 @@ Functions
    The iterator has the :meth:`!close` method that closes the internal
    file object if *source* is a filename.
 
-   Note that while :func:`iterparse` builds the tree incrementally, it issues
+   Note that while :func:`!iterparse` builds the tree incrementally, it issues
    blocking reads on *source* (or the file it names).  As such, it's unsuitable
    for applications where blocking reads can't be made.  For fully non-blocking
    parsing, see :class:`XMLPullParser`.
 
    .. note::
 
-      :func:`iterparse` only guarantees that it has seen the ">" character of a
+      :func:`!iterparse` only guarantees that it has seen the ">" character of a
       starting tag when it emits a "start" event, so the attributes are defined,
       but the contents of the text and tail attributes are undefined at that
       point.  The same applies to the element children; they may or may not be
@@ -723,7 +723,7 @@ Functions
       Added the *xml_declaration* and *default_namespace* parameters.
 
    .. versionchanged:: 3.8
-      The :func:`tostring` function now preserves the attribute order
+      The :func:`!tostring` function now preserves the attribute order
       specified by the user.
 
 
@@ -750,7 +750,7 @@ Functions
       Added the *xml_declaration* and *default_namespace* parameters.
 
    .. versionchanged:: 3.8
-      The :func:`tostringlist` function now preserves the attribute order
+      The :func:`!tostringlist` function now preserves the attribute order
       specified by the user.
 
 
@@ -967,13 +967,13 @@ Element Objects
 
       Adds the element *subelement* to the end of this element's internal list
       of subelements.  Raises :exc:`TypeError` if *subelement* is not an
-      :class:`Element`.
+      :class:`!Element`.
 
 
    .. method:: extend(subelements)
 
       Appends *subelements* from an iterable of elements.
-      Raises :exc:`TypeError` if a subelement is not an :class:`Element`.
+      Raises :exc:`TypeError` if a subelement is not an :class:`!Element`.
 
       .. versionadded:: 3.2
 
@@ -1010,7 +1010,7 @@ Element Objects
    .. method:: insert(index, subelement)
 
       Inserts *subelement* at the given position in this element.  Raises
-      :exc:`TypeError` if *subelement* is not an :class:`Element`.
+      :exc:`TypeError` if *subelement* is not an :class:`!Element`.
 
 
    .. method:: iter(tag=None)
@@ -1055,7 +1055,7 @@ Element Objects
       method compares elements based on the instance identity, not on tag value
       or contents.
 
-   :class:`Element` objects also support the following sequence type methods
+   :class:`!Element` objects also support the following sequence type methods
    for working with subelements: :meth:`~object.__delitem__`,
    :meth:`~object.__getitem__`, :meth:`~object.__setitem__`,
    :meth:`~object.__len__`.
@@ -1247,7 +1247,7 @@ QName Objects
    containing the QName value, in the form {uri}local, or, if the tag argument
    is given, the URI part of a QName.  If *tag* is given, the first argument is
    interpreted as a URI, and this argument is interpreted as a local name.
-   :class:`QName` instances are opaque.
+   :class:`!QName` instances are opaque.
 
 
 
@@ -1316,14 +1316,14 @@ TreeBuilder Objects
       .. versionadded:: 3.8
 
 
-   In addition, a custom :class:`TreeBuilder` object can provide the
+   In addition, a custom :class:`!TreeBuilder` object can provide the
    following methods:
 
    .. method:: doctype(name, pubid, system)
 
       Handles a doctype declaration.  *name* is the doctype name.  *pubid* is
       the public identifier.  *system* is the system identifier.  This method
-      does not exist on the default :class:`TreeBuilder` class.
+      does not exist on the default :class:`!TreeBuilder` class.
 
       .. versionadded:: 3.2
 
@@ -1412,7 +1412,7 @@ XMLParser Objects
    for each opening tag, its ``end(tag)`` method for each closing tag, and data
    is processed by method ``data(data)``.  For further supported callback
    methods, see the :class:`TreeBuilder` class.  :meth:`XMLParser.close` calls
-   *target*\'s method ``close()``. :class:`XMLParser` can be used not only for
+   *target*\'s method ``close()``. :class:`!XMLParser` can be used not only for
    building a tree structure. This is an example of counting the maximum depth
    of an XML file::
 
@@ -1458,7 +1458,7 @@ XMLPullParser Objects
 
    A pull parser suitable for non-blocking applications.  Its input-side API is
    similar to that of :class:`XMLParser`, but instead of pushing calls to a
-   callback target, :class:`XMLPullParser` collects an internal list of parsing
+   callback target, :class:`!XMLPullParser` collects an internal list of parsing
    events and lets the user read from it. *events* is a sequence of events to
    report back.  The supported events are the strings ``"start"``, ``"end"``,
    ``"comment"``, ``"pi"``, ``"start-ns"`` and ``"end-ns"`` (the "ns" events
@@ -1514,7 +1514,7 @@ XMLPullParser Objects
 
    .. note::
 
-      :class:`XMLPullParser` only guarantees that it has seen the ">"
+      :class:`!XMLPullParser` only guarantees that it has seen the ">"
       character of a starting tag when it emits a "start" event, so the
       attributes are defined, but the contents of the text and tail attributes
       are undefined at that point.  The same applies to the element children;

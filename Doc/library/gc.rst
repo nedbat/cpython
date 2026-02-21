@@ -174,12 +174,12 @@ The :mod:`!gc` module provides the following functions:
    Note that objects which have already been dereferenced, but which live in cycles
    and have not yet been collected by the garbage collector can be listed among the
    resulting referrers.  To get only currently live objects, call :func:`collect`
-   before calling :func:`get_referrers`.
+   before calling :func:`!get_referrers`.
 
    .. warning::
-      Care must be taken when using objects returned by :func:`get_referrers` because
+      Care must be taken when using objects returned by :func:`!get_referrers` because
       some of them could still be under construction and hence in a temporarily
-      invalid state. Avoid using :func:`get_referrers` for any purpose other than
+      invalid state. Avoid using :func:`!get_referrers` for any purpose other than
       debugging.
 
    .. audit-event:: gc.get_referrers objs gc.get_referrers

@@ -235,7 +235,7 @@ same issues as the :meth:`WeakKeyDictionary.keyrefs` method.
    A custom :class:`ref` subclass which simulates a weak reference to a bound
    method (i.e., a method defined on a class and looked up on an instance).
    Since a bound method is ephemeral, a standard weak reference cannot keep
-   hold of it.  :class:`WeakMethod` has special code to recreate the bound
+   hold of it.  :class:`!WeakMethod` has special code to recreate the bound
    method until either the object or the original function dies::
 
       >>> class C:

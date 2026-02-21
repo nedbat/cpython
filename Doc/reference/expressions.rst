@@ -747,7 +747,7 @@ is already executing raises a :exc:`ValueError` exception.
 
    Starts the execution of a generator function or resumes it at the last
    executed yield expression.  When a generator function is resumed with a
-   :meth:`~generator.__next__` method, the current yield expression always
+   :meth:`!generator.__next__` method, the current yield expression always
    evaluates to :const:`None`.  The execution then continues to the next yield
    expression, where the generator is suspended again, and the value of the
    :token:`~python-grammar:yield_list` is returned to :meth:`__next__`'s
@@ -933,7 +933,7 @@ which are used to control the execution of a generator function.
 
    Returns an awaitable which when run starts to execute the asynchronous
    generator or resumes it at the last executed yield expression.  When an
-   asynchronous generator function is resumed with an :meth:`~agen.__anext__`
+   asynchronous generator function is resumed with an :meth:`!agen.__anext__`
    method, the current yield expression always evaluates to :const:`None` in the
    returned awaitable, which when run will continue to the next yield
    expression. The value of the :token:`~python-grammar:yield_list` of the

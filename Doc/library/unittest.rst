@@ -714,24 +714,24 @@ Test cases
 
 .. class:: TestCase(methodName='runTest')
 
-   Instances of the :class:`TestCase` class represent the logical test units
+   Instances of the :class:`!TestCase` class represent the logical test units
    in the :mod:`!unittest` universe.  This class is intended to be used as a base
    class, with specific tests being implemented by concrete subclasses.  This class
    implements the interface needed by the test runner to allow it to drive the
    tests, and methods that the test code can use to check for and report various
    kinds of failure.
 
-   Each instance of :class:`TestCase` will run a single base method: the method
+   Each instance of :class:`!TestCase` will run a single base method: the method
    named *methodName*.
-   In most uses of :class:`TestCase`, you will neither change
+   In most uses of :class:`!TestCase`, you will neither change
    the *methodName* nor reimplement the default ``runTest()`` method.
 
    .. versionchanged:: 3.2
-      :class:`TestCase` can be instantiated successfully without providing a
-      *methodName*. This makes it easier to experiment with :class:`TestCase`
+      :class:`!TestCase` can be instantiated successfully without providing a
+      *methodName*. This makes it easier to experiment with :class:`!TestCase`
       from the interactive interpreter.
 
-   :class:`TestCase` instances provide three groups of methods: one group used
+   :class:`!TestCase` instances provide three groups of methods: one group used
    to run the test, another used by the test implementation to check conditions
    and report failures, and some inquiry methods allowing information about the
    test itself to be gathered.
@@ -797,7 +797,7 @@ Test cases
       method) and used. The result object is returned to :meth:`run`'s
       caller.
 
-      The same effect may be had by simply calling the :class:`TestCase`
+      The same effect may be had by simply calling the :class:`!TestCase`
       instance.
 
       .. versionchanged:: 3.3
@@ -835,7 +835,7 @@ Test cases
 
    .. _assert-methods:
 
-   The :class:`TestCase` class provides several assert methods to check for and
+   The :class:`!TestCase` class provides several assert methods to check for and
    report failures.  The following table lists the most commonly used methods
    (see the tables below for more assert methods):
 
@@ -1451,7 +1451,7 @@ Test cases
 
    .. _other-methods-and-attrs:
 
-   Finally the :class:`TestCase` provides the following methods and attributes:
+   Finally the :class:`!TestCase` provides the following methods and attributes:
 
 
    .. method:: fail(msg=None)
@@ -1508,7 +1508,7 @@ Test cases
    .. method:: countTestCases()
 
       Return the number of tests represented by this test object.  For
-      :class:`TestCase` instances, this will always be ``1``.
+      :class:`!TestCase` instances, this will always be ``1``.
 
 
    .. method:: defaultTestResult()
@@ -1517,8 +1517,8 @@ Test cases
       test case class (if no other result instance is provided to the
       :meth:`run` method).
 
-      For :class:`TestCase` instances, this will always be an instance of
-      :class:`TestResult`; subclasses of :class:`TestCase` should override this
+      For :class:`!TestCase` instances, this will always be an instance of
+      :class:`TestResult`; subclasses of :class:`!TestCase` should override this
       as necessary.
 
 
@@ -1741,40 +1741,40 @@ Grouping tests
 
    This class represents an aggregation of individual test cases and test suites.
    The class presents the interface needed by the test runner to allow it to be run
-   as any other test case.  Running a :class:`TestSuite` instance is the same as
+   as any other test case.  Running a :class:`!TestSuite` instance is the same as
    iterating over the suite, running each test individually.
 
    If *tests* is given, it must be an iterable of individual test cases or other
    test suites that will be used to build the suite initially. Additional methods
    are provided to add test cases and suites to the collection later on.
 
-   :class:`TestSuite` objects behave much like :class:`TestCase` objects, except
+   :class:`!TestSuite` objects behave much like :class:`TestCase` objects, except
    they do not actually implement a test.  Instead, they are used to aggregate
    tests into groups of tests that should be run together. Some additional
-   methods are available to add tests to :class:`TestSuite` instances:
+   methods are available to add tests to :class:`!TestSuite` instances:
 
 
    .. method:: TestSuite.addTest(test)
 
-      Add a :class:`TestCase` or :class:`TestSuite` to the suite.
+      Add a :class:`TestCase` or :class:`!TestSuite` to the suite.
 
 
    .. method:: TestSuite.addTests(tests)
 
-      Add all the tests from an iterable of :class:`TestCase` and :class:`TestSuite`
+      Add all the tests from an iterable of :class:`TestCase` and :class:`!TestSuite`
       instances to this test suite.
 
       This is equivalent to iterating over *tests*, calling :meth:`addTest` for
       each element.
 
-   :class:`TestSuite` shares the following methods with :class:`TestCase`:
+   :class:`!TestSuite` shares the following methods with :class:`TestCase`:
 
 
    .. method:: run(result)
 
       Run the tests associated with this suite, collecting the result into the
       test result object passed as *result*.  Note that unlike
-      :meth:`TestCase.run`, :meth:`TestSuite.run` requires the result object to
+      :meth:`TestCase.run`, :meth:`!TestSuite.run` requires the result object to
       be passed in.
 
 
@@ -1793,7 +1793,7 @@ Grouping tests
 
    .. method:: __iter__()
 
-      Tests grouped by a :class:`TestSuite` are always accessed by iteration.
+      Tests grouped by a :class:`!TestSuite` are always accessed by iteration.
       Subclasses can lazily provide tests by overriding :meth:`!__iter__`. Note
       that this method may be called several times on a single suite (for
       example when counting tests or comparing for equality) so the tests
@@ -1804,16 +1804,16 @@ Grouping tests
       test references.
 
       .. versionchanged:: 3.2
-         In earlier versions the :class:`TestSuite` accessed tests directly rather
+         In earlier versions the :class:`!TestSuite` accessed tests directly rather
          than through iteration, so overriding :meth:`!__iter__` wasn't sufficient
          for providing tests.
 
       .. versionchanged:: 3.4
-         In earlier versions the :class:`TestSuite` held references to each
+         In earlier versions the :class:`!TestSuite` held references to each
          :class:`TestCase` after :meth:`TestSuite.run`. Subclasses can restore
          that behavior by overriding :meth:`!TestSuite._removeTestAtIndex`.
 
-   In the typical usage of a :class:`TestSuite` object, the :meth:`run` method
+   In the typical usage of a :class:`!TestSuite` object, the :meth:`run` method
    is invoked by a :class:`!TestRunner` rather than by the end-user test harness.
 
 
@@ -1822,13 +1822,13 @@ Loading and running tests
 
 .. class:: TestLoader()
 
-   The :class:`TestLoader` class is used to create test suites from classes and
+   The :class:`!TestLoader` class is used to create test suites from classes and
    modules.  Normally, there is no need to create an instance of this class; the
    :mod:`!unittest` module provides an instance that can be shared as
    :data:`unittest.defaultTestLoader`.  Using a subclass or instance, however,
    allows customization of some configurable properties.
 
-   :class:`TestLoader` objects have the following attributes:
+   :class:`!TestLoader` objects have the following attributes:
 
 
    .. attribute:: errors
@@ -1842,7 +1842,7 @@ Loading and running tests
       .. versionadded:: 3.5
 
 
-   :class:`TestLoader` objects have the following methods:
+   :class:`!TestLoader` objects have the following methods:
 
 
    .. method:: loadTestsFromTestCase(testCaseClass)
@@ -1997,7 +1997,7 @@ Loading and running tests
       .. versionchanged:: 3.14
          *start_dir* can once again be a :term:`namespace package`.
 
-   The following attributes of a :class:`TestLoader` can be configured either by
+   The following attributes of a :class:`!TestLoader` can be configured either by
    subclassing or assignment on an instance:
 
 
@@ -2045,17 +2045,17 @@ Loading and running tests
    This class is used to compile information about which tests have succeeded
    and which have failed.
 
-   A :class:`TestResult` object stores the results of a set of tests.  The
+   A :class:`!TestResult` object stores the results of a set of tests.  The
    :class:`TestCase` and :class:`TestSuite` classes ensure that results are
    properly recorded; test authors do not need to worry about recording the
    outcome of tests.
 
    Testing frameworks built on top of :mod:`!unittest` may want access to the
-   :class:`TestResult` object generated by running a set of tests for reporting
-   purposes; a :class:`TestResult` instance is returned by the
+   :class:`!TestResult` object generated by running a set of tests for reporting
+   purposes; a :class:`!TestResult` instance is returned by the
    :meth:`!TestRunner.run` method for this purpose.
 
-   :class:`TestResult` instances have the following attributes that will be of
+   :class:`!TestResult` instances have the following attributes that will be of
    interest when inspecting the results of running a set of tests:
 
 
@@ -2147,7 +2147,7 @@ Loading and running tests
       keyboard.  Interactive tools which provide :class:`!TestRunner`
       implementations can use this in a similar manner.
 
-   The following methods of the :class:`TestResult` class are used to maintain
+   The following methods of the :class:`!TestResult` class are used to maintain
    the internal data structures, and may be extended in subclasses to support
    additional reporting requirements.  This is particularly useful in building
    tools which support interactive reporting while tests are being run.
@@ -2580,9 +2580,9 @@ To add cleanup code that must be run even in the case of an exception, use
    It is responsible for calling all the cleanup functions added by
    :func:`addModuleCleanup`. If you need cleanup functions to be called
    *prior* to :func:`tearDownModule` then you can call
-   :func:`doModuleCleanups` yourself.
+   :func:`!doModuleCleanups` yourself.
 
-   :func:`doModuleCleanups` pops methods off the stack of cleanup
+   :func:`!doModuleCleanups` pops methods off the stack of cleanup
    functions one at a time, so it can be called at any time.
 
    .. versionadded:: 3.8

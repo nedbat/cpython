@@ -347,7 +347,7 @@ Legacy Interface
    Encode the contents of the binary *input* file and write the resulting base64
    encoded data to the *output* file. *input* and *output* must be :term:`file
    objects <file object>`. *input* will be read until ``input.read()`` returns
-   an empty bytes object. :func:`encode` inserts a newline character (``b'\n'``)
+   an empty bytes object. :func:`!encode` inserts a newline character (``b'\n'``)
    after every 76 bytes of the output, as well as ensuring that the output
    always ends with a newline, as per :rfc:`2045` (MIME).
 

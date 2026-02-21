@@ -146,7 +146,7 @@ code.
    returned by :func:`compile`).
 
    This is a convenience wrapper around many of the functions listed below, most
-   notably :func:`get_instructions`, as iterating over a :class:`Bytecode`
+   notably :func:`get_instructions`, as iterating over a :class:`!Bytecode`
    instance yields the bytecode operations as :class:`Instruction` instances.
 
    If *first_line* is not ``None``, it indicates the line number that should be
@@ -172,7 +172,7 @@ code.
 
    .. classmethod:: from_traceback(tb, *, show_caches=False)
 
-      Construct a :class:`Bytecode` instance from the given traceback, setting
+      Construct a :class:`!Bytecode` instance from the given traceback, setting
       *current_offset* to the instruction responsible for the exception.
 
    .. data:: codeobj
@@ -417,7 +417,7 @@ operation is being performed, so the intermediate analysis object isn't useful:
 
    Compute the stack effect of *opcode* with argument *oparg*.
 
-   If the code has a jump target and *jump* is ``True``, :func:`~stack_effect`
+   If the code has a jump target and *jump* is ``True``, :func:`!stack_effect`
    will return the stack effect of jumping.  If *jump* is ``False``,
    it will return the stack effect of not jumping. And if *jump* is
    ``None`` (default), it will return the maximal stack effect of both cases.

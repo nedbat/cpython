@@ -21,14 +21,14 @@ a single number, or from a string.
            Fraction(string)
 
    The first version requires that *numerator* and *denominator* are instances
-   of :class:`numbers.Rational` and returns a new :class:`Fraction` instance
+   of :class:`numbers.Rational` and returns a new :class:`!Fraction` instance
    with a value equal to ``numerator/denominator``.
    If *denominator* is zero, it raises a :exc:`ZeroDivisionError`.
 
    The second version requires that *number* is an instance of
    :class:`numbers.Rational` or has the :meth:`!as_integer_ratio` method
    (this includes :class:`float` and :class:`decimal.Decimal`).
-   It returns a :class:`Fraction` instance with exactly the same value.
+   It returns a :class:`!Fraction` instance with exactly the same value.
    Assumed, that the :meth:`!as_integer_ratio` method returns a pair
    of coprime integers and last one is positive.
    Note that due to the
@@ -47,7 +47,7 @@ a single number, or from a string.
    decimal digits (underscores may be used to delimit digits as with
    integral literals in code).  In addition, any string that represents a finite
    value and is accepted by the :class:`float` constructor is also
-   accepted by the :class:`Fraction` constructor.  In either form the
+   accepted by the :class:`!Fraction` constructor.  In either form the
    input string may also have leading and/or trailing whitespace.
    Here are some examples::
 
@@ -77,14 +77,14 @@ a single number, or from a string.
       Fraction(11, 10)
 
 
-   The :class:`Fraction` class inherits from the abstract base class
+   The :class:`!Fraction` class inherits from the abstract base class
    :class:`numbers.Rational`, and implements all of the methods and
-   operations from that class.  :class:`Fraction` instances are :term:`hashable`,
+   operations from that class.  :class:`!Fraction` instances are :term:`hashable`,
    and should be treated as immutable.  In addition,
-   :class:`Fraction` has the following properties and methods:
+   :class:`!Fraction` has the following properties and methods:
 
    .. versionchanged:: 3.2
-      The :class:`Fraction` constructor now accepts :class:`float` and
+      The :class:`!Fraction` constructor now accepts :class:`float` and
       :class:`decimal.Decimal` instances.
 
    .. versionchanged:: 3.9
@@ -93,27 +93,27 @@ a single number, or from a string.
       Previously, the GCD type depended on *numerator* and *denominator*.
 
    .. versionchanged:: 3.11
-      Underscores are now permitted when creating a :class:`Fraction` instance
+      Underscores are now permitted when creating a :class:`!Fraction` instance
       from a string, following :PEP:`515` rules.
 
    .. versionchanged:: 3.11
-      :class:`Fraction` implements ``__int__`` now to satisfy
+      :class:`!Fraction` implements ``__int__`` now to satisfy
       ``typing.SupportsInt`` instance checks.
 
    .. versionchanged:: 3.12
       Space is allowed around the slash for string inputs: ``Fraction('2 / 3')``.
 
    .. versionchanged:: 3.12
-      :class:`Fraction` instances now support float-style formatting, with
+      :class:`!Fraction` instances now support float-style formatting, with
       presentation types ``"e"``, ``"E"``, ``"f"``, ``"F"``, ``"g"``, ``"G"``
       and ``"%""``.
 
    .. versionchanged:: 3.13
-      Formatting of :class:`Fraction` instances without a presentation type
+      Formatting of :class:`!Fraction` instances without a presentation type
       now supports fill, alignment, sign handling, minimum width and grouping.
 
    .. versionchanged:: 3.14
-      The :class:`Fraction` constructor now accepts any objects with the
+      The :class:`!Fraction` constructor now accepts any objects with the
       :meth:`!as_integer_ratio` method.
 
    .. attribute:: numerator
@@ -149,7 +149,7 @@ a single number, or from a string.
       .. note::
 
          From Python 3.2 onwards, you can also construct a
-         :class:`Fraction` instance directly from a :class:`float`.
+         :class:`!Fraction` instance directly from a :class:`float`.
 
 
    .. classmethod:: from_decimal(dec)
@@ -160,7 +160,7 @@ a single number, or from a string.
       .. note::
 
          From Python 3.2 onwards, you can also construct a
-         :class:`Fraction` instance directly from a :class:`decimal.Decimal`
+         :class:`!Fraction` instance directly from a :class:`decimal.Decimal`
          instance.
 
 
@@ -176,7 +176,7 @@ a single number, or from a string.
 
    .. method:: limit_denominator(max_denominator=1000000)
 
-      Finds and returns the closest :class:`Fraction` to ``self`` that has
+      Finds and returns the closest :class:`!Fraction` to ``self`` that has
       denominator at most max_denominator.  This method is useful for finding
       rational approximations to a given floating-point number:
 
@@ -222,7 +222,7 @@ a single number, or from a string.
 
    .. method:: __format__(format_spec, /)
 
-      Provides support for formatting of :class:`Fraction` instances via the
+      Provides support for formatting of :class:`!Fraction` instances via the
       :meth:`str.format` method, the :func:`format` built-in function, or
       :ref:`Formatted string literals <f-strings>`.
 

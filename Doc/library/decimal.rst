@@ -359,9 +359,9 @@ Decimal objects
 
 .. class:: Decimal(value="0", context=None)
 
-   Construct a new :class:`Decimal` object based from *value*.
+   Construct a new :class:`!Decimal` object based from *value*.
 
-   *value* can be an integer, string, tuple, :class:`float`, or another :class:`Decimal`
+   *value* can be an integer, string, tuple, :class:`float`, or another :class:`!Decimal`
    object. If no *value* is given, returns ``Decimal('0')``.  If *value* is a
    string, it should conform to the decimal numeric string syntax after leading
    and trailing whitespace characters, as well as underscores throughout, are removed::
@@ -405,7 +405,7 @@ Decimal objects
    is raised; otherwise, the constructor returns a new Decimal with the value of
    ``NaN``.
 
-   Once constructed, :class:`Decimal` objects are immutable.
+   Once constructed, :class:`!Decimal` objects are immutable.
 
    .. versionchanged:: 3.2
       The argument to the constructor is now permitted to be a :class:`float`
@@ -451,14 +451,14 @@ Decimal objects
 
    Decimal objects cannot generally be combined with floats or
    instances of :class:`fractions.Fraction` in arithmetic operations:
-   an attempt to add a :class:`Decimal` to a :class:`float`, for
+   an attempt to add a :class:`!Decimal` to a :class:`float`, for
    example, will raise a :exc:`TypeError`.  However, it is possible to
-   use Python's comparison operators to compare a :class:`Decimal`
+   use Python's comparison operators to compare a :class:`!Decimal`
    instance ``x`` with another number ``y``.  This avoids confusing results
    when doing equality comparisons between numbers of different types.
 
    .. versionchanged:: 3.2
-      Mixed-type comparisons between :class:`Decimal` instances and other
+      Mixed-type comparisons between :class:`!Decimal` instances and other
       numeric types are now fully supported.
 
    In addition to the standard numeric properties, decimal floating-point
@@ -475,7 +475,7 @@ Decimal objects
    .. method:: as_integer_ratio()
 
       Return a pair ``(n, d)`` of integers that represent the given
-      :class:`Decimal` instance as a fraction, in lowest terms and
+      :class:`!Decimal` instance as a fraction, in lowest terms and
       with a positive denominator::
 
           >>> Decimal('-3.14').as_integer_ratio()
@@ -495,7 +495,7 @@ Decimal objects
    .. method:: canonical()
 
       Return the canonical encoding of the argument.  Currently, the encoding of
-      a :class:`Decimal` instance is always canonical, so this operation returns
+      a :class:`!Decimal` instance is always canonical, so this operation returns
       its argument unchanged.
 
    .. method:: compare(other, context=None)
@@ -519,8 +519,8 @@ Decimal objects
 
       Compare two operands using their abstract representation rather than their
       numerical value.  Similar to the :meth:`compare` method, but the result
-      gives a total ordering on :class:`Decimal` instances.  Two
-      :class:`Decimal` instances with the same numeric value but different
+      gives a total ordering on :class:`!Decimal` instances.  Two
+      :class:`!Decimal` instances with the same numeric value but different
       representations compare unequal in this ordering:
 
          >>> Decimal('12.0').compare_total(Decimal('12'))
@@ -598,7 +598,7 @@ Decimal objects
       ``0x1.999999999999ap-4``.  That equivalent value in decimal is
       ``0.1000000000000000055511151231257827021181583404541015625``.
 
-      .. note:: From Python 3.2 onwards, a :class:`Decimal` instance
+      .. note:: From Python 3.2 onwards, a :class:`!Decimal` instance
          can also be constructed directly from a :class:`float`.
 
       .. doctest::
@@ -617,7 +617,7 @@ Decimal objects
    .. classmethod:: from_number(number, /)
 
       Alternative constructor that only accepts instances of
-      :class:`float`, :class:`int` or :class:`Decimal`, but not strings
+      :class:`float`, :class:`int` or :class:`!Decimal`, but not strings
       or tuples.
 
       .. doctest::
@@ -642,7 +642,7 @@ Decimal objects
    .. method:: is_canonical()
 
       Return :const:`True` if the argument is canonical and :const:`False`
-      otherwise.  Currently, a :class:`Decimal` instance is always canonical, so
+      otherwise.  Currently, a :class:`!Decimal` instance is always canonical, so
       this operation always returns :const:`True`.
 
    .. method:: is_finite()
@@ -703,7 +703,7 @@ Decimal objects
    .. method:: logb(context=None)
 
       For a nonzero number, return the adjusted exponent of its operand as a
-      :class:`Decimal` instance.  If the operand is a zero then
+      :class:`!Decimal` instance.  If the operand is a zero then
       ``Decimal('-Infinity')`` is returned and the :const:`DivisionByZero` flag
       is raised.  If the operand is an infinity then ``Decimal('Infinity')`` is
       returned.
@@ -838,7 +838,7 @@ Decimal objects
 
    .. method:: radix()
 
-      Return ``Decimal(10)``, the radix (base) in which the :class:`Decimal`
+      Return ``Decimal(10)``, the radix (base) in which the :class:`!Decimal`
       class does all its arithmetic.  Included for compatibility with the
       specification.
 
@@ -938,11 +938,11 @@ Decimal objects
       If *ndigits* is not given or ``None``,
       returns the nearest :class:`int` to *number*,
       rounding ties to even, and ignoring the rounding mode of the
-      :class:`Decimal` context.  Raises :exc:`OverflowError` if *number* is an
+      :class:`!Decimal` context.  Raises :exc:`OverflowError` if *number* is an
       infinity or :exc:`ValueError` if it is a (quiet or signaling) NaN.
 
       If *ndigits* is an :class:`int`, the context's rounding mode is respected
-      and a :class:`Decimal` representing *number* rounded to the nearest
+      and a :class:`!Decimal` representing *number* rounded to the nearest
       multiple of ``Decimal('1E-ndigits')`` is returned; in this case,
       ``round(number, ndigits)`` is equivalent to
       ``self.quantize(Decimal('1E-ndigits'))``.  Returns ``Decimal('NaN')`` if
@@ -1157,13 +1157,13 @@ In addition to the three supplied contexts, new contexts can be created with the
       A *clamp* value of ``1`` allows compatibility with the
       fixed-width decimal interchange formats specified in IEEE 754.
 
-   The :class:`Context` class defines several general purpose methods as well as
+   The :class:`!Context` class defines several general purpose methods as well as
    a large number of methods for doing arithmetic directly in a given context.
    In addition, for each of the :class:`Decimal` methods described above (with
    the exception of the :meth:`~Decimal.adjusted` and :meth:`~Decimal.as_tuple` methods) there is
-   a corresponding :class:`Context` method.  For example, for a :class:`Context`
+   a corresponding :class:`!Context` method.  For example, for a :class:`!Context`
    instance ``C`` and :class:`Decimal` instance ``x``, ``C.exp(x)`` is
-   equivalent to ``x.exp(context=C)``.  Each :class:`Context` method accepts a
+   equivalent to ``x.exp(context=C)``.  Each :class:`!Context` method accepts a
    Python integer (an instance of :class:`int`) anywhere that a
    Decimal instance is accepted.
 
@@ -1776,12 +1776,12 @@ condition.
     permitted in the :class:`~decimal.Decimal` constructor,
     :meth:`~decimal.Context.create_decimal` and all comparison operators.
     Both conversion and comparisons are exact. Any occurrence of a mixed
-    operation is silently recorded by setting :exc:`FloatOperation` in the
+    operation is silently recorded by setting :exc:`!FloatOperation` in the
     context flags. Explicit conversions with :meth:`~decimal.Decimal.from_float`
     or :meth:`~decimal.Context.create_decimal_from_float` do not set the flag.
 
     Otherwise (the signal is trapped), only equality comparisons and explicit
-    conversions are silent. All other mixed operations raise :exc:`FloatOperation`.
+    conversions are silent. All other mixed operations raise :exc:`!FloatOperation`.
 
 
 The following table summarizes the hierarchy of signals::

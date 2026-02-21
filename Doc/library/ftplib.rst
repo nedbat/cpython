@@ -84,7 +84,7 @@ FTP objects
 .. class:: FTP(host='', user='', passwd='', acct='', timeout=None, \
                source_address=None, *, encoding='utf-8')
 
-   Return a new instance of the :class:`FTP` class.
+   Return a new instance of the :class:`!FTP` class.
 
    :param str host:
       The hostname to connect to.
@@ -113,7 +113,7 @@ FTP objects
    :param str encoding:
       |param_doc_encoding|
 
-   The :class:`FTP` class supports the :keyword:`with` statement, e.g.:
+   The :class:`!FTP` class supports the :keyword:`with` statement, e.g.:
 
     >>> from ftplib import FTP
     >>> with FTP("ftp1.at.proftpd.org") as ftp:
@@ -144,7 +144,7 @@ FTP objects
    The methods are named for the command which is used followed by
    ``lines`` for the text version or ``binary`` for the binary version.
 
-   :class:`FTP` instances have the following methods:
+   :class:`!FTP` instances have the following methods:
 
    .. method:: FTP.set_debuglevel(level)
 
@@ -163,7 +163,7 @@ FTP objects
       Connect to the given host and port.
       This function should be called only once for each instance;
       it should not be called if a *host* argument was given
-      when the :class:`FTP` instance was created.
+      when the :class:`!FTP` instance was created.
       All other :class:`!FTP` methods can only be called
       after a connection has successfully been made.
 
@@ -203,7 +203,7 @@ FTP objects
       This function should be called only once for each instance,
       after a connection has been established;
       it should not be called if the *host* and *user* arguments were given
-      when the :class:`FTP` instance was created.
+      when the :class:`!FTP` instance was created.
       Most FTP commands are only allowed after the client has logged in.
 
       :param str user:
@@ -430,7 +430,7 @@ FTP objects
       Send a ``QUIT`` command to the server and close the connection. This is the
       "polite" way to close a connection, but it may raise an exception if the server
       responds with an error to the ``QUIT`` command.  This implies a call to the
-      :meth:`close` method which renders the :class:`FTP` instance useless for
+      :meth:`close` method which renders the :class:`!FTP` instance useless for
       subsequent calls (see below).
 
 
@@ -438,7 +438,7 @@ FTP objects
 
       Close the connection unilaterally.  This should not be applied to an already
       closed connection such as after a successful call to :meth:`~FTP.quit`.
-      After this call the :class:`FTP` instance should not be used any more (after
+      After this call the :class:`!FTP` instance should not be used any more (after
       a call to :meth:`close` or :meth:`~FTP.quit` you cannot reopen the
       connection by issuing another :meth:`login` method).
 
@@ -511,7 +511,7 @@ FTP_TLS objects
    .. versionchanged:: 3.12
       The deprecated *keyfile* and *certfile* parameters have been removed.
 
-   Here's a sample session using the :class:`FTP_TLS` class::
+   Here's a sample session using the :class:`!FTP_TLS` class::
 
       >>> ftps = FTP_TLS('ftp.pureftpd.org')
       >>> ftps.login()

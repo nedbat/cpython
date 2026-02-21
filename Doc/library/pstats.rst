@@ -169,7 +169,7 @@ The :class:`!Stats` class
       Save the current statistics to a file.
 
       The file is created if it does not exist and overwritten if it does.
-      The saved data can be loaded by creating a new :class:`Stats` object.
+      The saved data can be loaded by creating a new :class:`!Stats` object.
 
    .. method:: sort_stats(*keys)
 

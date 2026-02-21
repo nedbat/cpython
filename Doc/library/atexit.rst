@@ -28,7 +28,7 @@ a cleanup function is undefined.
 
    Register *func* as a function to be executed at termination.  Any optional
    arguments that are to be passed to *func* must be passed as arguments to
-   :func:`register`.  It is possible to register the same function and arguments
+   :func:`!register`.  It is possible to register the same function and arguments
    more than once.
 
    At normal program termination (for instance, if :func:`sys.exit` is called or
@@ -59,7 +59,7 @@ a cleanup function is undefined.
 .. function:: unregister(func)
 
    Remove *func* from the list of functions to be run at interpreter shutdown.
-   :func:`unregister` silently does nothing if *func* was not previously
+   :func:`!unregister` silently does nothing if *func* was not previously
    registered.  If *func* has been registered more than once, every occurrence
    of that function in the :mod:`!atexit` call stack will be removed.  Equality
    comparisons (``==``) are used internally during unregistration, so function

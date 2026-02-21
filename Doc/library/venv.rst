@@ -301,7 +301,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
                       prompt=None, upgrade_deps=False, \
                       *, scm_ignore_files=frozenset())
 
-    The :class:`EnvBuilder` class accepts the following keyword arguments on
+    The :class:`!EnvBuilder` class accepts the following keyword arguments on
     instantiation:
 
     * *system_site_packages* -- a boolean value indicating that the system Python
@@ -346,7 +346,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
     .. versionchanged:: 3.13
        Added the ``scm_ignore_files`` parameter
 
-    :class:`EnvBuilder` may be used as a base class.
+    :class:`!EnvBuilder` may be used as a base class.
 
     .. method:: create(env_dir)
 
@@ -356,7 +356,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
         environment in the specified directory, or raise an appropriate
         exception.
 
-        The ``create`` method of the :class:`EnvBuilder` class illustrates the
+        The ``create`` method of the :class:`!EnvBuilder` class illustrates the
         hooks available for subclass customization::
 
             def create(self, env_dir):
@@ -380,7 +380,7 @@ creation according to their needs, the :class:`EnvBuilder` class.
         Creates the environment directory and all necessary subdirectories that
         don't already exist, and returns a context object.  This context object
         is just a holder for attributes (such as paths) for use by the other
-        methods.  If the :class:`EnvBuilder` is created with the arg
+        methods.  If the :class:`!EnvBuilder` is created with the arg
         ``clear=True``, contents of the environment directory will be cleared
         and then all necessary subdirectories will be recreated.
 

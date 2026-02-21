@@ -371,7 +371,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
    .. note::
 
-      :func:`getmembers` will only return class attributes defined in the
+      :func:`!getmembers` will only return class attributes defined in the
       metaclass when the argument is a class and those attributes have been
       listed in the metaclass' custom :meth:`~object.__dir__`.
 
@@ -385,7 +385,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
 
     .. note::
 
-        :func:`getmembers_static` may not be able to retrieve all members
+        :func:`!getmembers_static` may not be able to retrieve all members
         that getmembers can fetch (like dynamically created attributes)
         and may find members that getmembers can't (like descriptors
         that raise AttributeError). It can also return descriptor objects
@@ -607,7 +607,7 @@ attributes (see :ref:`import-mod-attrs` for module attributes):
    sensible, and :attr:`~definition.__doc__` often is.
 
    Methods implemented via descriptors that also pass one of the other tests
-   return ``False`` from the :func:`ismethoddescriptor` test, simply because the
+   return ``False`` from the :func:`!ismethoddescriptor` test, simply because the
    other tests promise more -- you can, e.g., count on having the
    :attr:`~method.__func__` attribute (etc) when an object passes
    :func:`ismethod`.
@@ -790,7 +790,7 @@ function.
    :func:`functools.partial` objects.
 
    If some of the annotations are strings (e.g., because
-   ``from __future__ import annotations`` was used), :func:`signature` will
+   ``from __future__ import annotations`` was used), :func:`!signature` will
    attempt to automatically un-stringize the annotations using
    :func:`annotationlib.get_annotations`.  The
    *globals*, *locals*, and *eval_str* parameters are passed
@@ -896,7 +896,7 @@ function.
 
    .. method:: Signature.replace(*[, parameters][, return_annotation])
 
-      Create a new :class:`Signature` instance based on the instance
+      Create a new :class:`!Signature` instance based on the instance
       :meth:`replace` was invoked on.
       It is possible to pass different *parameters* and/or
       *return_annotation* to override the corresponding properties of the base
@@ -914,12 +914,12 @@ function.
          >>> str(new_sig)
          "(a, b) -> 'new return anno'"
 
-      :class:`Signature` objects are also supported by the generic function
+      :class:`!Signature` objects are also supported by the generic function
       :func:`copy.replace`.
 
    .. method:: format(*, max_width=None, quote_annotation_strings=True)
 
-      Create a string representation of the :class:`Signature` object.
+      Create a string representation of the :class:`!Signature` object.
 
       If *max_width* is passed, the method will attempt to fit
       the signature into lines of at most *max_width* characters.
@@ -939,10 +939,10 @@ function.
 
    .. classmethod:: Signature.from_callable(obj, *, follow_wrapped=True, globals=None, locals=None, eval_str=False)
 
-       Return a :class:`Signature` (or its subclass) object for a given callable
+       Return a :class:`!Signature` (or its subclass) object for a given callable
        *obj*.
 
-       This method simplifies subclassing of :class:`Signature`:
+       This method simplifies subclassing of :class:`!Signature`:
 
        .. testcode::
 
@@ -1001,7 +1001,7 @@ function.
    .. attribute:: Parameter.kind
 
       Describes how argument values are bound to the parameter.  The possible
-      values are accessible via :class:`Parameter` (like ``Parameter.KEYWORD_ONLY``),
+      values are accessible via :class:`!Parameter` (like ``Parameter.KEYWORD_ONLY``),
       and support comparison and ordering, in the following order:
 
       .. tabularcolumns:: |l|L|
@@ -1072,7 +1072,7 @@ function.
 
    .. method:: Parameter.replace(*[, name][, kind][, default][, annotation])
 
-      Create a new :class:`Parameter` instance based on the instance replaced was invoked
+      Create a new :class:`!Parameter` instance based on the instance replaced was invoked
       on.  To override a :class:`!Parameter` attribute, pass the corresponding
       argument.  To remove a default value or/and an annotation from a
       :class:`!Parameter`, pass :attr:`Parameter.empty`.
@@ -1090,11 +1090,11 @@ function.
          >>> str(param.replace(default=Parameter.empty, annotation='spam'))
          "foo: 'spam'"
 
-      :class:`Parameter` objects are also supported by the generic function
+      :class:`!Parameter` objects are also supported by the generic function
       :func:`copy.replace`.
 
    .. versionchanged:: 3.4
-      In Python 3.3 :class:`Parameter` objects were allowed to have ``name`` set
+      In Python 3.3 :class:`!Parameter` objects were allowed to have ``name`` set
       to ``None`` if their ``kind`` was set to ``POSITIONAL_ONLY``.
       This is no longer permitted.
 

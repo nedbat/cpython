@@ -15,7 +15,7 @@ scheduler:
 
 .. class:: scheduler(timefunc=time.monotonic, delayfunc=time.sleep)
 
-   The :class:`scheduler` class defines a generic interface to scheduling events.
+   The :class:`!scheduler` class defines a generic interface to scheduling events.
    It needs two functions to actually deal with the "outside world" --- *timefunc*
    should be callable without arguments, and return  a number (the "time", in any
    units whatsoever).  The *delayfunc* function should be callable with one
@@ -28,7 +28,7 @@ scheduler:
       *timefunc* and *delayfunc* parameters are optional.
 
    .. versionchanged:: 3.3
-      :class:`scheduler` class can be safely used in multi-threaded
+      :class:`!scheduler` class can be safely used in multi-threaded
       environments.
 
 Example::

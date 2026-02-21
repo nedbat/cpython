@@ -134,12 +134,12 @@ install themselves in the built-in namespace as the function :func:`!_`.
    list of languages, which will be split on the colon to produce the expected list
    of language code strings.
 
-   :func:`find` then expands and normalizes the languages, and then iterates
+   :func:`!find` then expands and normalizes the languages, and then iterates
    through them, searching for an existing file built of these components:
 
    :file:`{localedir}/{language}/LC_MESSAGES/{domain}.mo`
 
-   The first such file name that exists is returned by :func:`find`. If no such
+   The first such file name that exists is returned by :func:`!find`. If no such
    file is found, then ``None`` is returned. If *all* is given, it returns a list
    of all file names, in the order in which they appear in the languages list or
    the environment variables.

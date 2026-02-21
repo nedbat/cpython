@@ -279,16 +279,16 @@ This module offers the following functions:
    *key* is an already open key, or one of the predefined
    :ref:`HKEY_* constants <hkey-constants>`.
 
-   It is not necessary to call :func:`FlushKey` to change a key. Registry changes are
+   It is not necessary to call :func:`!FlushKey` to change a key. Registry changes are
    flushed to disk by the registry using its lazy flusher.  Registry changes are
    also flushed to disk at system shutdown.  Unlike :func:`CloseKey`, the
-   :func:`FlushKey` method returns only when all the data has been written to the
-   registry. An application should only call :func:`FlushKey` if it requires
+   :func:`!FlushKey` method returns only when all the data has been written to the
+   registry. An application should only call :func:`!FlushKey` if it requires
    absolute certainty that registry changes are on disk.
 
    .. note::
 
-      If you don't know whether a :func:`FlushKey` call is required, it probably
+      If you don't know whether a :func:`!FlushKey` call is required, it probably
       isn't.
 
 
@@ -306,7 +306,7 @@ This module offers the following functions:
    have been created with the :func:`SaveKey` function. Under the file allocation
    table (FAT) file system, the filename may not have an extension.
 
-   A call to :func:`LoadKey` fails if the calling process does not have the
+   A call to :func:`!LoadKey` fails if the calling process does not have the
    :c:data:`!SE_RESTORE_PRIVILEGE` privilege.  Note that privileges are different
    from permissions -- see the `RegLoadKey documentation
    <https://msdn.microsoft.com/en-us/library/ms724889%28v=VS.85%29.aspx>`__ for

@@ -27,7 +27,7 @@ The :mod:`!bdb` module also defines two classes:
 
    Breakpoints are indexed by number through a list called :attr:`bpbynumber`
    and by ``(file, line)`` pairs through :attr:`bplist`.  The former points to
-   a single instance of class :class:`Breakpoint`.  The latter points to a list
+   a single instance of class :class:`!Breakpoint`.  The latter points to a list
    of such instances since there may be more than one breakpoint per line.
 
    When creating a breakpoint, its associated :attr:`file name <file>` should
@@ -36,7 +36,7 @@ The :mod:`!bdb` module also defines two classes:
    executed.  A :attr:`conditional <cond>` breakpoint always counts a
    :attr:`hit <hits>`.
 
-   :class:`Breakpoint` instances have the following methods:
+   :class:`!Breakpoint` instances have the following methods:
 
    .. method:: deleteMe()
 
@@ -74,53 +74,53 @@ The :mod:`!bdb` module also defines two classes:
       Print the output of :meth:`bpformat` to the file *out*, or if it is
       ``None``, to standard output.
 
-   :class:`Breakpoint` instances have the following attributes:
+   :class:`!Breakpoint` instances have the following attributes:
 
    .. attribute:: file
 
-      File name of the :class:`Breakpoint`.
+      File name of the :class:`!Breakpoint`.
 
    .. attribute:: line
 
-      Line number of the :class:`Breakpoint` within :attr:`file`.
+      Line number of the :class:`!Breakpoint` within :attr:`file`.
 
    .. attribute:: temporary
 
-      ``True`` if a :class:`Breakpoint` at (file, line) is temporary.
+      ``True`` if a :class:`!Breakpoint` at (file, line) is temporary.
 
    .. attribute:: cond
 
-      Condition for evaluating a :class:`Breakpoint` at (file, line).
+      Condition for evaluating a :class:`!Breakpoint` at (file, line).
 
    .. attribute:: funcname
 
-      Function name that defines whether a :class:`Breakpoint` is hit upon
+      Function name that defines whether a :class:`!Breakpoint` is hit upon
       entering the function.
 
    .. attribute:: enabled
 
-      ``True`` if :class:`Breakpoint` is enabled.
+      ``True`` if :class:`!Breakpoint` is enabled.
 
    .. attribute:: bpbynumber
 
-      Numeric index for a single instance of a :class:`Breakpoint`.
+      Numeric index for a single instance of a :class:`!Breakpoint`.
 
    .. attribute:: bplist
 
-      Dictionary of :class:`Breakpoint` instances indexed by
+      Dictionary of :class:`!Breakpoint` instances indexed by
       (:attr:`file`, :attr:`line`) tuples.
 
    .. attribute:: ignore
 
-      Number of times to ignore a :class:`Breakpoint`.
+      Number of times to ignore a :class:`!Breakpoint`.
 
    .. attribute:: hits
 
-      Count of the number of times a :class:`Breakpoint` has been hit.
+      Count of the number of times a :class:`!Breakpoint` has been hit.
 
 .. class:: Bdb(skip=None, backend='settrace')
 
-   The :class:`Bdb` class acts as a generic Python debugger base class.
+   The :class:`!Bdb` class acts as a generic Python debugger base class.
 
    This class takes care of the details of the trace facility; a derived class
    should implement user interaction.  The standard debugger class
@@ -132,7 +132,7 @@ The :mod:`!bdb` module also defines two classes:
    frame is considered to originate in a certain module is determined
    by the ``__name__`` in the frame globals.
 
-   The *backend* argument specifies the backend to use for :class:`Bdb`. It
+   The *backend* argument specifies the backend to use for :class:`!Bdb`. It
    can be either ``'settrace'`` or ``'monitoring'``. ``'settrace'`` uses
    :func:`sys.settrace` which has the best backward compatibility. The
    ``'monitoring'`` backend uses the new :mod:`sys.monitoring` that was
@@ -148,7 +148,7 @@ The :mod:`!bdb` module also defines two classes:
    .. versionchanged:: 3.14
       Added the *backend* parameter.
 
-   The following methods of :class:`Bdb` normally don't need to be overridden.
+   The following methods of :class:`!Bdb` normally don't need to be overridden.
 
    .. method:: canonic(filename)
 

@@ -221,7 +221,7 @@ The available exception and functions in this module are:
    .. note::
 
       If *zdict* is a mutable object (such as a :class:`bytearray`), you must not
-      modify its contents between the call to :func:`decompressobj` and the first
+      modify its contents between the call to :func:`!decompressobj` and the first
       call to the decompressor's ``decompress()`` method.
 
    .. versionchanged:: 3.3

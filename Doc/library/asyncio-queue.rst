@@ -102,7 +102,7 @@ Queue
 
    .. method:: shutdown(immediate=False)
 
-      Put a :class:`Queue` instance into a shutdown mode.
+      Put a :class:`!Queue` instance into a shutdown mode.
 
       The queue can no longer grow.
       Future calls to :meth:`~Queue.put` raise :exc:`QueueShutDown`.
